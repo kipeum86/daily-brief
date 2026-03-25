@@ -209,13 +209,13 @@ def _build_template_context(
     # Site URL (strip trailing slash)
     site_url = config.get("site_url", "").rstrip("/")
 
-    # Language toggle URLs
+    # Language toggle URLs (절대 URL로 — 아카이브에서도 작동)
     if lang == "en":
-        lang_toggle_url = f"../index.html"  # EN → KO
+        lang_toggle_url = f"{site_url}/" if site_url else "../index.html"
         lang_toggle_label = "한국어"
         lang_current = "EN"
     else:
-        lang_toggle_url = f"en/index.html"  # KO → EN
+        lang_toggle_url = f"{site_url}/en/" if site_url else "en/index.html"
         lang_toggle_label = "English"
         lang_current = "KR"
 
@@ -404,7 +404,7 @@ def render_dashboard(
         config, markets, holidays, en_articles, en_insight, run_date, output_dir, lang="en",
     )
     context_en["market_pulse"] = pulse
-    context_en["lang_toggle_url"] = "../index.html"
+    context_en["lang_toggle_url"] = f"{site_url}/" if site_url else "../index.html"
     html_en = render_html(context_en)
 
     en_index = en_dir / "index.html"
