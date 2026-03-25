@@ -240,6 +240,27 @@ def run(args: argparse.Namespace) -> int:
         logger.error("News filtering failed: %s", exc)
         errors.append(f"filter: {exc}")
 
+    # ── 6.5. AI 뉴스 중요도 선별 ──────────────────────────────────────────
+    if not args.no_llm and articles:
+        logger.info("Stage 6.5: AI selecting top news by importance")
+        try:
+            from pipeline.ai.briefing import _get_provider
+            from pipeline.news.selector import select_top_news
+            from pipeline.render.dashboard import _split_news
+            selector_provider = _get_provider(config)
+
+            world_raw, korea_raw = _split_news(articles, config)
+            top_n = config.get("news", {}).get("top_n", 5)
+
+            world_selected = select_top_news(selector_provider, world_raw, top_n=top_n)
+            korea_selected = select_top_news(selector_provider, korea_raw, top_n=top_n)
+
+            # 선별된 기사로 교체
+            articles = world_selected + korea_selected
+            logger.info("AI 선별 완료: world %d개 + korea %d개", len(world_selected), len(korea_selected))
+        except Exception as exc:
+            logger.warning("AI 뉴스 선별 실패 (전체 기사 사용): %s", exc)
+
     # ── 7. Generate AI briefing + translate news (Korean + English) ─────
     insight: str = ""
     insight_en: str = ""
