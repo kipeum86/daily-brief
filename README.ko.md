@@ -49,7 +49,7 @@
 
 ### 📰 뉴스
 - **글로벌** — Reuters, BBC World, The Guardian, Al Jazeera, AP News, NPR (다양한 시각, 페이월 없음)
-- **한국** — 네이버 뉴스 검색 API (키워드 기반, 국내 이슈만 — 한국 매체의 국제뉴스 제외)
+- **한국** — 7대 메이저 매체 RSS (연합뉴스, 조선, 중앙, 동아, 한겨레, 한경, 매경) + 네이버 검색 API (보조 키워드 검색)
 - **3단계 중복 제거** — URL 정규화 → 토픽 토큰 유사도 → EventKey 해시
 - **교차 실행 중복 제거** — 어제 나온 기사는 다시 나오지 않음
 
@@ -215,7 +215,7 @@ KST 05:00 (GitHub Actions cron)
     ├── 1. 시장 ──→ yfinance (14개 티커) + FRED 폴백
     │                ThreadPoolExecutor 병렬 수집
     │
-    ├── 2. 뉴스 ──→ RSS (글로벌 6개 소스) + 네이버 API (한국)
+    ├── 2. 뉴스 ──→ RSS (글로벌 10개 + 한국 메이저 7개) + 네이버 API
     │                3단계 중복 제거 → 키워드 필터
     │
     ├── 3. AI ────→ Gemini 2.5 Flash
@@ -255,11 +255,17 @@ markets:
 ### 뉴스 소스 변경
 
 ```yaml
-# config.yaml
+# config.yaml — 한국 메이저 매체 (RSS)
 news:
+  korea_major:
+    - name: "연합뉴스"
+      url: "https://www.yna.co.kr/rss/news.xml"
+    # 매체 추가/제거 가능
+
+# 네이버 키워드 검색 (보조)
   korea:
     source: "naver"
-    queries: ["경제 정책", "부동산", "반도체", "금리", "증시"]
+    queries: ["반도체 수출", "금리 한국은행", "부동산 정책"]
 ```
 
 ## 장애 대응 (Graceful Degradation)
@@ -270,7 +276,8 @@ news:
 |----------|---------|---------------------|
 | yfinance | FRED 폴백 → 해당 티커 스킵 | "Data unavailable" 표시 |
 | RSS 피드 | 실패한 소스 스킵 | 뉴스 항목 감소 |
-| 네이버 API | 한국 뉴스 스킵 | 글로벌 뉴스만 표시 |
+| 한국 RSS | 실패한 매체 스킵 | 나머지 매체는 정상 |
+| 네이버 API | 키워드 검색 스킵 | 메이저 매체 RSS는 정상 |
 | Gemini AI | 인사이트 스킵 | 데이터 전용 브리핑 |
 | Gmail | 이메일 스킵 | 대시보드는 정상 배포 |
 | Google Sheets | 아카이빙 스킵 | 나머지 전부 정상 동작 |

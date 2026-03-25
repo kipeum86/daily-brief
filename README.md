@@ -49,7 +49,7 @@ Think of it as your personal **Economist "World in Brief"** — but tailored for
 
 ### 📰 News
 - **Global** — Reuters, BBC World, The Guardian, Al Jazeera, AP News, NPR (diverse perspectives, no paywall)
-- **Korea** — Naver News Search API (keyword-based, domestic issues only — not international news from Korean outlets)
+- **Korea** — 7 major outlets via RSS (연합뉴스, 조선, 중앙, 동아, 한겨레, 한경, 매경) + Naver Search API (supplementary keyword search)
 - **3-stage dedup** — URL canonicalization → topic token similarity → EventKey hash
 - **Cross-run dedup** — Won't repeat yesterday's stories
 
@@ -215,7 +215,7 @@ KST 05:00 (GitHub Actions cron)
     ├── 1. Markets ──→ yfinance (14 tickers) + FRED fallback
     │                   ThreadPoolExecutor parallel fetch
     │
-    ├── 2. News ────→ RSS (6 global sources) + Naver API (Korean)
+    ├── 2. News ────→ RSS (10 global + 7 Korean major) + Naver API
     │                   3-stage dedup → keyword filter
     │
     ├── 3. AI ──────→ Gemini 2.5 Flash
@@ -255,11 +255,17 @@ markets:
 ### Change News Sources
 
 ```yaml
-# config.yaml
+# config.yaml — Korean major outlets (RSS)
 news:
+  korea_major:
+    - name: "연합뉴스"
+      url: "https://www.yna.co.kr/rss/news.xml"
+    # Add/remove outlets here
+
+# Naver keyword search (supplementary)
   korea:
     source: "naver"
-    queries: ["경제 정책", "부동산", "반도체", "금리", "증시"]
+    queries: ["반도체 수출", "금리 한국은행", "부동산 정책"]
 ```
 
 ## Graceful Degradation
@@ -270,7 +276,8 @@ Every component fails independently:
 |-----------|-------------|-----------|
 | yfinance | FRED fallback → skip ticker | "Data unavailable" for that ticker |
 | RSS feeds | Skip failed source | Fewer news items |
-| Naver API | Skip Korean news | World news only |
+| Korean RSS | Skip failed outlet | Other outlets still work |
+| Naver API | Skip keyword search | Major outlet RSS still works |
 | Gemini AI | Skip insight | Data-only briefing |
 | Gmail | Skip email | Dashboard still deploys |
 | Google Sheets | Skip archiving | Everything else works |
