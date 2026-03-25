@@ -15,12 +15,67 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup
 
 # Reuse helpers from the dashboard renderer
+import re
+
 from pipeline.render.dashboard import (
     _format_date_korean,
     _md_to_html,
     _normalize_market_items,
     _split_news,
 )
+
+
+def _style_insight_for_email(html: str) -> str:
+    """AI 인사이트 HTML에 이메일용 인라인 스타일을 적용한다."""
+    if not html:
+        return html
+
+    # h2 → 섹션 라벨 (작고 빨간 uppercase, 웹과 동일)
+    html = re.sub(
+        r"<h2>(.*?)</h2>",
+        r'<p style="font-family:Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;'
+        r'letter-spacing:1.5px;text-transform:uppercase;color:#B91C1C;margin:20px 0 6px 0;'
+        r'padding:0;">\1</p>',
+        html,
+    )
+
+    # h3 → 동일
+    html = re.sub(
+        r"<h3>(.*?)</h3>",
+        r'<p style="font-family:Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;'
+        r'letter-spacing:1.5px;text-transform:uppercase;color:#B91C1C;margin:18px 0 6px 0;'
+        r'padding:0;">\1</p>',
+        html,
+    )
+
+    # p → 본문 (serif, 웹과 동일)
+    html = re.sub(
+        r"<p(?![^>]*style)>",
+        r'<p style="font-family:Georgia,serif;font-size:15px;line-height:1.7;color:#1A1A1A;'
+        r'margin:0 0 12px 0;padding:0;">',
+        html,
+    )
+
+    # ul → 리스트 컨테이너
+    html = re.sub(
+        r"<ul>",
+        r'<table role="presentation" cellpadding="0" cellspacing="0" border="0" '
+        r'style="margin:8px 0 16px 0;width:100%;">',
+        html,
+    )
+    html = html.replace("</ul>", "</table>")
+
+    # li → 테이블 행 (왼쪽 빨간 보더, 이메일 호환)
+    html = re.sub(
+        r"<li>(.*?)</li>",
+        r'<tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:14px;line-height:1.6;'
+        r'color:#1A1A1A;padding:6px 0 6px 14px;border-left:2px solid #B91C1C;'
+        r'margin-bottom:6px;">\1</td></tr>',
+        html,
+        flags=re.DOTALL,
+    )
+
+    return html
 
 logger = logging.getLogger("daily-brief.render.email")
 
@@ -54,7 +109,7 @@ def _build_email_context(
     return {
         "date_str": _format_date_korean(run_date),
         "date_iso": run_date,
-        "insight_text": _md_to_html(insight),
+        "insight_text": _style_insight_for_email(_md_to_html(insight)),
         "markets": normalized_markets,
         "world_news": world_news,
         "korea_news": korea_news,
