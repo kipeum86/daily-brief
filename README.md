@@ -27,7 +27,7 @@
 
 ## What is this?
 
-**Daily Brief** generates a professional morning briefing every day at 5:00 AM KST — combining market data, global news, domestic Korean news, and AI-driven editorial analysis into a single, beautiful static page.
+**Daily Brief** generates a professional morning briefing every day at 6:30 AM KST — combining market data, global news, domestic Korean news, and AI-driven editorial analysis into a single, beautiful static page.
 
 Think of it as your personal **Economist "World in Brief"** — but tailored for Korean investors, fully automated, and completely free to run.
 
@@ -154,7 +154,7 @@ Add these **Secrets** in your repo → Settings → Secrets → Actions:
 
 Enable **GitHub Pages**: Settings → Pages → Source: `gh-pages` branch.
 
-The workflow runs automatically at **KST 05:00 (UTC 20:00) Mon–Fri**.
+The workflow runs automatically at **KST 06:30 (UTC 21:30) Mon–Fri**.
 
 Manual trigger: Actions tab → "Morning Brief" → "Run workflow".
 
@@ -168,7 +168,7 @@ daily-brief/
 ├── config.yaml                      # Data sources, RSS feeds, LLM model
 ├── subscribers.txt                  # Email recipients (gitignored)
 ├── .github/workflows/
-│   └── morning-brief.yml            # Cron: KST 05:00 Mon-Fri
+│   └── morning-brief.yml            # Cron: KST 06:30 Mon-Fri
 │
 ├── pipeline/
 │   ├── markets/
@@ -210,7 +210,7 @@ daily-brief/
 ## Pipeline Flow
 
 ```
-KST 05:00 (GitHub Actions cron)
+KST 06:30 (GitHub Actions cron)
     │
     ├── 1. Markets ──→ yfinance (14 tickers) + FRED fallback
     │                   ThreadPoolExecutor parallel fetch

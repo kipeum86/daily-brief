@@ -138,6 +138,6 @@ output:
 
 # 스케줄 (참고용 — 실제 스케줄은 GitHub Actions에서 관리)
 schedule:
-  morning_cron: "0 20 * * 0-4"   # UTC = KST 05:00 월-금
+  morning_cron: "30 21 * * 0-4"  # UTC = KST 06:30 월-금
   weekly_cron: "0 0 * * 5"       # UTC = KST 토 09:00
   monthly_cron: "30 22 1 * *"    # UTC = KST 매월 2일 07:30

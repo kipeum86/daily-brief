@@ -102,9 +102,10 @@ def _build_email_context(
     # Split news
     world_news, korea_news = _split_news(articles, config)
 
-    # Build web URL for the CTA button
+    # Build web URLs for the CTA buttons
     site_url = config.get("site_url", "").rstrip("/")
     web_url = f"{site_url}/archive/{run_date}.html" if site_url else ""
+    web_url_en = f"{site_url}/en/archive/{run_date}.html" if site_url else ""
 
     return {
         "date_str": _format_date_korean(run_date),
@@ -115,6 +116,8 @@ def _build_email_context(
         "korea_news": korea_news,
         "holidays": holidays or {},
         "web_url": web_url,
+        "web_url_en": web_url_en,
+        "site_url": site_url,
     }
 
 

@@ -2,9 +2,25 @@
 
 import json
 import logging
+import re
 from pipeline.llm.base import LLMProvider
 
 logger = logging.getLogger(__name__)
+
+
+def _sanitize_json(text: str) -> str:
+    """Best-effort fix for common LLM JSON mistakes."""
+    # Strip markdown fences
+    text = text.strip()
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+    # Remove trailing commas before } or ]
+    text = re.sub(r",\s*([}\]])", r"\1", text)
+    # Try to extract JSON array if surrounded by extra text
+    match = re.search(r"\[.*\]", text, re.DOTALL)
+    if match:
+        text = match.group(0)
+    return text
 
 TRANSLATE_SYSTEM_PROMPT = """\
 You are a professional news translator. Translate news headlines and summaries accurately and naturally.
@@ -53,12 +69,20 @@ Input:
 Output (JSON array only):"""
 
     try:
-        response = provider.complete(TRANSLATE_SYSTEM_PROMPT, user_prompt)
-        # Parse JSON from response
-        response = response.strip()
-        if response.startswith("```"):
-            response = response.split("\n", 1)[1].rsplit("```", 1)[0]
-        translated = json.loads(response)
+        max_retries = 2
+        last_error = None
+        for attempt in range(max_retries):
+            try:
+                response = provider.complete(TRANSLATE_SYSTEM_PROMPT, user_prompt)
+                sanitized = _sanitize_json(response)
+                translated = json.loads(sanitized)
+                break  # success
+            except (json.JSONDecodeError, Exception) as e:
+                last_error = e
+                logger.warning("Translation attempt %d/%d failed: %s", attempt + 1, max_retries, e)
+                if attempt < max_retries - 1:
+                    continue
+                raise last_error
 
         # Map translations back
         trans_map = {item["id"]: item for item in translated}

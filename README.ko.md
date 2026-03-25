@@ -27,7 +27,7 @@
 
 ## 이게 뭔가요?
 
-**Daily Brief**는 매일 아침 KST 05:00에 시장 데이터, 글로벌 뉴스, 국내 뉴스, AI 에디토리얼 분석을 결합하여 전문적인 모닝 브리핑을 자동 생성합니다.
+**Daily Brief**는 매일 아침 KST 06:30에 시장 데이터, 글로벌 뉴스, 국내 뉴스, AI 에디토리얼 분석을 결합하여 전문적인 모닝 브리핑을 자동 생성합니다.
 
 나만의 **Economist "World in Brief"** — 한국 투자자에게 맞춤화되고, 완전 자동화되며, 운영 비용이 전혀 들지 않습니다.
 
@@ -154,7 +154,7 @@ repo → Settings → Secrets → Actions에 아래 **시크릿** 추가:
 
 **GitHub Pages 활성화**: Settings → Pages → Source: `gh-pages` 브랜치.
 
-워크플로우는 **KST 05:00 (UTC 20:00) 월–금** 자동 실행됩니다.
+워크플로우는 **KST 06:30 (UTC 21:30) 월–금** 자동 실행됩니다.
 
 수동 실행: Actions 탭 → "Morning Brief" → "Run workflow".
 
@@ -168,7 +168,7 @@ daily-brief/
 ├── config.yaml                      # 데이터 소스, RSS 피드, LLM 모델
 ├── subscribers.txt                  # 이메일 수신자 (gitignore 처리)
 ├── .github/workflows/
-│   └── morning-brief.yml            # Cron: KST 05:00 월-금
+│   └── morning-brief.yml            # Cron: KST 06:30 월-금
 │
 ├── pipeline/
 │   ├── markets/
@@ -210,7 +210,7 @@ daily-brief/
 ## 파이프라인 흐름
 
 ```
-KST 05:00 (GitHub Actions cron)
+KST 06:30 (GitHub Actions cron)
     │
     ├── 1. 시장 ──→ yfinance (14개 티커) + FRED 폴백
     │                ThreadPoolExecutor 병렬 수집

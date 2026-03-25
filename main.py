@@ -8,6 +8,7 @@ import os
 import sys
 import time
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from typing import Any
 
@@ -136,8 +137,9 @@ def run(args: argparse.Namespace) -> int:
         logger.critical("Failed to load config: %s", exc)
         return 1
 
-    # Resolve run date
-    run_date: str = args.date or datetime.now().strftime("%Y-%m-%d")
+    # Resolve run date (KST — target audience is in Korea)
+    tz_name = config.get("briefing", {}).get("timezone", "Asia/Seoul")
+    run_date: str = args.date or datetime.now(ZoneInfo(tz_name)).strftime("%Y-%m-%d")
     logger.info("Run date: %s", run_date)
 
     # Output dirs

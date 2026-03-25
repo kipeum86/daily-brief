@@ -1,14 +1,14 @@
 # ============================================================
 # Morning Brief — 매일 아침 브리핑 자동 생성 & 배포
-# 스케줄: UTC 20:00 (일-목) = KST 05:00 (월-금)
+# 스케줄: UTC 21:30 (일-목) = KST 06:30 (월-금)
 # ============================================================
 
 name: Morning Brief
 
 on:
   schedule:
-    # UTC 20:00 일-목 = KST 05:00 월-금
-    - cron: "0 20 * * 0-4"
+    # UTC 21:30 일-목 = KST 06:30 월-금 (미국 장 마감 후 30분+ 여유)
+    - cron: "30 21 * * 0-4"
   workflow_dispatch: # 수동 테스트용
 
 # gh-pages 브랜치에 push하기 위한 권한
@@ -59,11 +59,20 @@ jobs:
       - name: 📦 의존성 설치
         run: pip install -r requirements.txt
 
-      # 5. 브리핑 생성
+      # 5. 기존 아카이브 복원 (archive index에 과거 브리핑 포함)
+      - name: 📂 기존 아카이브 복원
+        run: |
+          git fetch origin gh-pages --depth=1 || true
+          mkdir -p output/archive output/en/archive
+          git checkout origin/gh-pages -- archive/ 2>/dev/null && mv archive/*.html output/archive/ 2>/dev/null || true
+          git checkout origin/gh-pages -- en/archive/ 2>/dev/null && mv en/archive/*.html output/en/archive/ 2>/dev/null || true
+          echo "Restored $(ls output/archive/*.html 2>/dev/null | wc -l) archive files"
+
+      # 6. 브리핑 생성
       - name: 🗞️ 브리핑 생성
         run: python main.py
 
-      # 6. GitHub Pages 배포 (기존 아카이브 유지)
+      # 7. GitHub Pages 배포 (기존 아카이브 유지)
       - name: 🚀 GitHub Pages 배포
         uses: peaceiris/actions-gh-pages@v4
         with:

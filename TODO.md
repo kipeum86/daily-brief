@@ -16,7 +16,7 @@
 - [x] 이메일 템플릿 (인라인 CSS, matplotlib 차트)
 - [x] Resend API 이메일 발송
 - [x] Google Sheets 아카이브
-- [x] GitHub Actions (KST 05:00 cron)
+- [x] GitHub Actions (KST 06:30 cron)
 - [x] main.py 오케스트레이터 (graceful degradation, CLI)
 - [x] 과거 브리핑 탐색 (◀▶ 네비 + /archive 페이지)
 - [x] dry-run 검증 (14 tickers, 186 articles, 에러 0)
