@@ -44,7 +44,11 @@ def collect_articles(config: dict) -> tuple[list[Article], list[str]]:
             name = src.get("name", url) if isinstance(src, dict) else url
             try:
                 feed = feedparser.parse(url)
+                max_per_source = news_config.get("max_per_source", 15)
+                count = 0
                 for entry in feed.entries:
+                    if count >= max_per_source:
+                        break
                     pub_date = _parse_date(entry)
                     if pub_date and pub_date < cutoff:
                         continue
@@ -55,6 +59,7 @@ def collect_articles(config: dict) -> tuple[list[Article], list[str]]:
                         description=_clean_html(entry.get("summary", "")),
                         published_date=pub_date.strftime("%Y-%m-%d") if pub_date else "",
                     ))
+                    count += 1
             except Exception as e:
                 logger.warning("Feed failed: %s — %s", name, e)
                 failed.append(name)
