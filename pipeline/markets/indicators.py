@@ -216,7 +216,7 @@ def calculate_market_pulse(raw_data: dict[str, list[dict[str, Any]]]) -> dict[st
     }
 
 
-def generate_sparkline_svg(values: list[float], width: int = 60, height: int = 18) -> str:
+def generate_sparkline_svg(values: list[float], width: int = 50, height: int = 16) -> str:
     """5일 종가 리스트로 프리미엄 인라인 SVG 스파크라인을 생성한다.
 
     부드러운 곡선(cubic bezier) + 그라디언트 채움 + 끝점 도트.
