@@ -100,8 +100,8 @@ def send_email(
         msg["To"] = sender_email
         msg["Bcc"] = ", ".join(subscribers)
         msg["Subject"] = subject
-        msg.set_content("Daily Brief - view in HTML email client")
-        msg.add_alternative(html_body, subtype="html")
+        msg.set_content("Daily Brief - view in HTML email client", charset="utf-8")
+        msg.add_alternative(html_body, subtype="html", charset="utf-8")
 
         all_recipients = [sender_email] + subscribers
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
