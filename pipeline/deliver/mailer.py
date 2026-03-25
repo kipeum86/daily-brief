@@ -72,10 +72,12 @@ def send_email(
     sender_name = email_config.get("sender_name", "Daily Brief")
 
     try:
+        from email.header import Header
+
         msg = MIMEMultipart("alternative")
         msg["From"] = f"{sender_name} <{gmail_address}>"
         msg["To"] = ", ".join(subscribers)
-        msg["Subject"] = subject
+        msg["Subject"] = Header(subject, "utf-8")
         msg.attach(MIMEText(html_body, "html", "utf-8"))
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
