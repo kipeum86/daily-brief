@@ -91,7 +91,7 @@ email:
   sender_email: "brief@yourdomain.com"
   subject_prefix: "Daily Brief"
   subscribers:
-    - "your@email.com"
+    - "kipeum86@gmail.com"
 
 # Google Sheets 아카이브
 sheets:

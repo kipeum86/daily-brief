@@ -76,7 +76,8 @@ def send_email(
 
         msg = MIMEMultipart("alternative")
         msg["From"] = f"{sender_name} <{gmail_address}>"
-        msg["To"] = ", ".join(subscribers)
+        msg["To"] = gmail_address  # 발신자 본인에게 To
+        msg["Bcc"] = ", ".join(subscribers)  # 수신자는 BCC (서로 안 보임)
         msg["Subject"] = Header(subject, "utf-8")
         msg.attach(MIMEText(html_body, "html", "utf-8"))
 
