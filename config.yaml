@@ -88,7 +88,7 @@ dedup:
 email:
   enabled: true
   sender_name: "Daily Brief"
-  sender_email: "brief@yourdomain.com"
+  sender_email: "kipeum86@gmail.com"
   subject_prefix: "Daily Brief"
   subscribers:
     - "kipeum86@gmail.com"
