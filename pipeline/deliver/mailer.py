@@ -82,7 +82,7 @@ def send_email(
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
             server.login(gmail_address, gmail_password)
-            server.sendmail(gmail_address, subscribers, msg.as_string())
+            server.sendmail(gmail_address, subscribers, msg.as_bytes())
 
         logger.info("Email sent to %d recipient(s) via Gmail SMTP", len(subscribers))
         return True
