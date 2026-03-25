@@ -91,6 +91,10 @@ def send_email(
     try:
         from email.message import EmailMessage
 
+        # \xa0 등 non-ascii 공백을 일반 공백으로 치환
+        html_body = html_body.replace("\xa0", " ").replace("\u200b", "")
+        subject = subject.replace("\xa0", " ").replace("\u200b", "")
+
         msg = EmailMessage()
         msg["From"] = f"Daily Brief <{sender_email}>"
         msg["To"] = sender_email
