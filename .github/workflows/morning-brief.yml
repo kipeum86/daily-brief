@@ -27,9 +27,12 @@ jobs:
     env:
       # API 키 (GitHub Secrets에서 주입)
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}             # Gemini LLM
-      FRED_API_KEY: ${{ secrets.FRED_API_KEY }}                 # 경제 지표
-      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}             # 이메일 발송
-      GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}  # 시트 아카이브
+      FRED_API_KEY: ${{ secrets.FRED_API_KEY }}                 # 경제 지표 (선택)
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}           # 네이버 뉴스
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}   # 네이버 뉴스
+      GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}               # 이메일 발송
+      GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}     # 이메일 발송
+      GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}  # 시트 아카이브 (선택)
 
     steps:
       # 1. 소스 코드 체크아웃

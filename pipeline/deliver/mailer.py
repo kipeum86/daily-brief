@@ -1,38 +1,31 @@
-"""Send the daily briefing email via Resend API.
+"""Send the daily briefing email via Gmail SMTP.
 
 Public API:
-    send_email(config, html_body, date_str) → bool
+    send_email(config, html_body, date_str, insight_text) → bool
 """
 
 from __future__ import annotations
 
 import logging
 import os
+import re
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from typing import Any
 
 logger = logging.getLogger("daily-brief.deliver.mailer")
 
 
 def _extract_first_line(insight: str, max_len: int = 60) -> str:
-    """Extract the first meaningful line from insight text for the subject.
-
-    Strips HTML tags and truncates to max_len characters.
-    """
-    import re
-
-    # Strip HTML tags
+    """Extract the first meaningful line from insight text for the subject."""
     clean = re.sub(r"<[^>]+>", "", insight or "")
-    # Collapse whitespace
     clean = re.sub(r"\s+", " ", clean).strip()
-
     if not clean:
         return ""
-
-    # Take first sentence or up to max_len chars
     first_line = clean.split(".")[0].strip()
     if len(first_line) > max_len:
         first_line = first_line[: max_len - 1] + "…"
-
     return first_line
 
 
@@ -42,78 +35,56 @@ def send_email(
     date_str: str,
     insight_text: str = "",
 ) -> bool:
-    """Send the briefing email to all subscribers via Resend API.
+    """Send the briefing email to all subscribers via Gmail SMTP.
 
-    Args:
-        config: Loaded config dict (needs email.sender_name, email.sender_email,
-                email.subject_prefix, email.subscribers).
-        html_body: Fully rendered HTML email body.
-        date_str: Human-readable date string (e.g. "2026년 3월 24일 월요일").
-        insight_text: Raw AI insight text (used for subject line snippet).
+    환경변수:
+        GMAIL_ADDRESS: 발신 Gmail 주소
+        GMAIL_APP_PASSWORD: Gmail 앱 비밀번호 (16자리)
 
     Returns:
         True if email was sent successfully, False otherwise.
     """
-    # Check if email delivery is enabled
     email_config = config.get("email", {})
     if not email_config.get("enabled", False):
         logger.info("Email delivery disabled in config — skipping")
         return False
 
-    # Check for Resend API key
-    api_key = os.environ.get("RESEND_API_KEY", "")
-    if not api_key:
+    gmail_address = os.environ.get("GMAIL_ADDRESS", "")
+    gmail_password = os.environ.get("GMAIL_APP_PASSWORD", "")
+
+    if not gmail_address or not gmail_password:
         logger.warning(
-            "RESEND_API_KEY not set — email delivery skipped. "
-            "Set the environment variable to enable email sending."
+            "GMAIL_ADDRESS / GMAIL_APP_PASSWORD not set — email skipped. "
+            "Set in .env or GitHub Secrets."
         )
         return False
 
-    # Validate subscribers
     subscribers = email_config.get("subscribers", [])
     if not subscribers:
         logger.warning("No subscribers configured in config.email.subscribers")
         return False
 
-    # Build subject line
+    # Build subject
     prefix = email_config.get("subject_prefix", "Daily Brief")
     snippet = _extract_first_line(insight_text)
-    if snippet:
-        subject = f"{prefix} · {date_str} — {snippet}"
-    else:
-        subject = f"{prefix} · {date_str}"
+    subject = f"{prefix} · {date_str} — {snippet}" if snippet else f"{prefix} · {date_str}"
 
-    # Sender
     sender_name = email_config.get("sender_name", "Daily Brief")
-    sender_email = email_config.get("sender_email", "brief@yourdomain.com")
-    from_address = f"{sender_name} <{sender_email}>"
 
     try:
-        import resend
+        msg = MIMEMultipart("alternative")
+        msg["From"] = f"{sender_name} <{gmail_address}>"
+        msg["To"] = ", ".join(subscribers)
+        msg["Subject"] = subject
+        msg.attach(MIMEText(html_body, "html", "utf-8"))
 
-        resend.api_key = api_key
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+            server.login(gmail_address, gmail_password)
+            server.sendmail(gmail_address, subscribers, msg.as_string())
 
-        params = {
-            "from": from_address,
-            "to": subscribers,
-            "subject": subject,
-            "html": html_body,
-        }
-
-        response = resend.Emails.send(params)
-        logger.info(
-            "Email sent successfully to %d recipient(s): %s",
-            len(subscribers),
-            response.get("id", "unknown"),
-        )
+        logger.info("Email sent to %d recipient(s) via Gmail SMTP", len(subscribers))
         return True
 
-    except ImportError:
-        logger.error(
-            "resend package not installed. Run: pip install resend"
-        )
-        return False
-
     except Exception as exc:
-        logger.error("Failed to send email via Resend: %s", exc, exc_info=True)
+        logger.error("Failed to send email via Gmail: %s", exc)
         return False
