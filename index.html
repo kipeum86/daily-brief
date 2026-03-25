@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Brief &middot; 2026년 3월 25일 수요일</title>
+  <meta name="description" content="AI-powered daily market & news briefing for 2026년 3월 25일 수요일">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+  <!-- Chart.js (deferred — for future interactive charts) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+
+  <style>
+    /* ── CSS Custom Properties ─────────────────────────────── */
+    :root {
+      --bg:            #FAFAF8;
+      --bg-insight:    #F8F5F0;
+      --bg-white:      #FFFFFF;
+      --text:          #1A1A1A;
+      --text-secondary:#6B7280;
+      --up:            #16A34A;
+      --down:          #DC2626;
+      --accent:        #B91C1C;
+      --border:        #E5E5E5;
+
+      --font-serif:    'Noto Serif KR', Georgia, 'Times New Roman', serif;
+      --font-sans:     'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono:     'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout Container ──────────────────────────────────── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ── Section Dividers ──────────────────────────────────── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── Header ────────────────────────────────────────────── */
+    .site-header {
+      padding: 32px 0 24px;
+    }
+
+    .header-title {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .header-date {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .header-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-secondary);
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+    }
+    .header-nav a:hover { color: var(--accent); }
+
+    .nav-disabled {
+      color: var(--border) !important;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    @media (min-width: 640px) {
+      .header-date { font-size: 24px; }
+    }
+
+    /* ── Section Titles ────────────────────────────────────── */
+    .section-title {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding: 24px 0 16px;
+    }
+
+    /* ── AI Insight Section ─────────────────────────────────── */
+    .insight-section {
+      background: var(--bg-insight);
+      margin: 0 -16px;
+      padding: 28px 16px 32px;
+    }
+
+    .insight-label {
+      font-family: var(--font-sans);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .insight-body {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .insight-body p { margin-bottom: 1em; }
+    .insight-body p:last-child { margin-bottom: 0; }
+
+    .insight-body h2 {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 20px 0 6px;
+    }
+    .insight-body h2:first-child { margin-top: 0; }
+
+    .insight-body h3 {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    .insight-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 16px;
+    }
+
+    .insight-body li {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      padding: 6px 0 6px 16px;
+      border-left: 2px solid var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .insight-empty {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    @media (min-width: 640px) {
+      .insight-section {
+        margin: 0 -16px;
+        padding: 32px 32px 36px;
+      }
+      .insight-label { font-size: 24px; }
+      .insight-body { font-size: 15px; }
+    }
+
+    /* ── Markets Section ───────────────────────────────────── */
+    .markets-section {
+      padding-bottom: 8px;
+    }
+
+    .market-group-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+    .market-group-label:first-of-type { margin-top: 0; }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .market-item {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .market-item:nth-child(odd) { padding-right: 12px; }
+    .market-item:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--border); }
+
+    .market-name {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .market-price {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 1px;
+    }
+
+    .market-change {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .market-change.up   { color: var(--up); }
+    .market-change.down { color: var(--down); }
+    .market-change.flat { color: var(--text-secondary); }
+
+    .market-holiday-notice {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 12px 0;
+      font-style: italic;
+    }
+
+    @media (min-width: 640px) {
+      .market-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .market-item {
+        padding: 12px 12px 12px 0;
+      }
+      .market-item:nth-child(odd)  { padding-right: 12px; }
+      .market-item:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--border); }
+      /* Reset for 4-col: every item except first in row gets left border */
+      .market-item { border-left: none; padding-left: 0; padding-right: 0; }
+      .market-item:nth-child(n) { padding: 12px 12px; }
+      .market-item:nth-child(4n+2),
+      .market-item:nth-child(4n+3),
+      .market-item:nth-child(4n+4) { border-left: 1px solid var(--border); }
+
+      .market-price { font-size: 20px; }
+      .market-change { font-size: 14px; }
+    }
+
+    /* ── News Section ──────────────────────────────────────── */
+    .news-list {
+      list-style: none;
+    }
+
+    .news-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-item:last-child { border-bottom: none; }
+
+    .news-headline {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .news-headline a {
+      color: var(--text);
+    }
+    .news-headline a:hover {
+      color: var(--accent);
+    }
+
+    .news-summary {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: none;
+    }
+
+    .news-source {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .news-empty {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-style: italic;
+      padding: 16px 0;
+    }
+
+    @media (min-width: 640px) {
+      .news-summary { display: block; }
+    }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .site-footer {
+      padding: 32px 0 48px;
+      text-align: center;
+    }
+
+    .footer-actions {
+      margin-bottom: 16px;
+    }
+
+    .footer-actions a {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 12px;
+    }
+
+    .footer-meta {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .footer-meta a {
+      color: var(--text-secondary);
+    }
+    .footer-meta a:hover { color: var(--accent); }
+
+    /* ── Utility ───────────────────────────────────────────── */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" role="main">
+
+    <!-- ═══ HEADER ═══════════════════════════════════════════ -->
+    <header class="site-header">
+      <div class="header-title" style="display:flex;justify-content:space-between;align-items:center;">
+        <span>Daily Brief</span>
+        <a href="en/index.html" style="font-size:13px;font-weight:600;letter-spacing:0.05em;color:var(--text-secondary);text-decoration:none;border:1px solid var(--border);border-radius:4px;padding:2px 10px;">KR → English</a>
+      </div>
+      <h1 class="header-date">2026년 3월 25일 수요일</h1>
+      <nav class="header-nav" aria-label="날짜 탐색">
+        
+        <a href="/archive/2026-03-24.html" aria-label="이전 브리핑: 2026-03-24">&#9664; 이전</a>
+        
+
+        <time datetime="2026-03-25">2026-03-25</time>
+
+        
+        <span class="nav-disabled" aria-hidden="true">다음 &#9654;</span>
+        
+      </nav>
+    </header>
+
+    <hr class="section-divider">
+
+    <!-- ═══ AI INSIGHT ═══════════════════════════════════════ -->
+    <section class="insight-section" aria-label="AI 인사이트">
+      <div class="container">
+        <div class="insight-label">Today's Brief</div>
+        
+        <div class="insight-body">
+          <h2>Key Insight</h2>
+<p>미국 트럼프 전 대통령의 이란과의 협상 발언이 중동 긴장 완화 기대를 촉발하며 유가 하락과 아시아 증시 반등을 견인했습니다. 그러나 안전자산 선호 심리와 변동성 지표는 여전히 높은 경계심을 드러내며 시장의 복합적인 시선을 반영했습니다.</p>
+<h2>Market Overview</h2>
+<p>국내 증시는 중동발 지정학적 리스크 완화 기대감에 힘입어 코스피와 코스닥 모두 2.5% 이상 급등하며 강한 반등세를 보였습니다. 반면 미국 증시는 주요 지수가 소폭 하락하며 혼조세를 보였습니다. 유가 하락에도 불구하고 지정학적 불확실성과 높아진 변동성 지표가 투자 심리에 부담으로 작용한 것으로 풀이됩니다.</p>
+<h2>Cross-Market Signals</h2>
+<ul>
+<li><strong>유가 하락 vs. 금값 및 VIX 상승:</strong> 중동 긴장 완화 기대에도 불구하고 안전자산 선호와 시장 변동성 확대는 내재된 위험 심리가 여전함을 시사합니다.</li>
+<li><strong>국내 증시 반등 vs. 원/달러 환율 상승:</strong> 한국 증시의 강세에도 불구하고 원화 약세는 글로벌 달러 강세 기조와 외국인 자금 유입의 제한적 성격을 반영합니다.</li>
+<li><strong>유가 일시적 하락 vs. 아시아 각국 연료 위기:</strong> 트럼프 발언에 따른 유가 하락에도 불구하고 각국의 연료난 및 비축유 방출 소식은 에너지 시장의 근본적인 불안정성이 해소되지 않았음을 방증합니다.</li>
+</ul>
+        </div>
+        
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ MARKETS ══════════════════════════════════════════ -->
+    <section class="markets-section" aria-label="시장 현황">
+      <h2 class="section-title" style="display:flex;justify-content:space-between;align-items:center;">
+        <span>Markets</span>
+        
+        <span style="font-size:14px;font-weight:600;letter-spacing:0;">🔴 위험 회피</span>
+        
+      </h2>
+
+      
+      
+      <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);margin-bottom:12px;">
+        VIX +3.1% ↑ · USD/KRW +0.6% (달러 강세)
+      </div>
+      
+
+      
+      
+      
+
+      
+      
+      
+
+      
+      <div style="padding:12px 0;border-bottom:1px solid var(--border);line-height:2;overflow-x:auto;">
+        
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">KOSPI</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">5,694.13</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--up);">&#9650;+2.52%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp3646" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.67 C6.0,2.67 9.0,2.0 15.0,2.0 C21.0,2.0 24.0,16.0 30.0,16.0 C36.0,16.0 39.0,10.47 45.0,10.47 C51.0,10.47 54.0,5.25 60.0,5.25 L60.0,18 L0.0,18 Z" fill="url(#sp3646)"/><path d="M0.0,2.67 C6.0,2.67 9.0,2.0 15.0,2.0 C21.0,2.0 24.0,16.0 30.0,16.0 C36.0,16.0 39.0,10.47 45.0,10.47 C51.0,10.47 54.0,5.25 60.0,5.25" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="5.25" r="1.5" fill="#DC2626"/></svg>
+      </span>
+      
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">KOSDAQ</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">1,150.39</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--up);">&#9650;+2.58%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp22077" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,5.91 C6.0,5.91 9.0,2.0 15.0,2.0 C21.0,2.0 24.0,16.0 30.0,16.0 C36.0,16.0 39.0,10.68 45.0,10.68 C51.0,10.68 54.0,4.41 60.0,4.41 L60.0,18 L0.0,18 Z" fill="url(#sp22077)"/><path d="M0.0,5.91 C6.0,5.91 9.0,2.0 15.0,2.0 C21.0,2.0 24.0,16.0 30.0,16.0 C36.0,16.0 39.0,10.68 45.0,10.68 C51.0,10.68 54.0,4.41 60.0,4.41" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="4.41" r="1.5" fill="#16A34A"/></svg>
+      </span>
+      
+        
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">S&amp;P 500</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">6,556.37</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--down);">&#9660;-0.37%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp10835" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C6.0,2.0 9.0,4.16 15.0,4.16 C21.0,4.16 24.0,16.0 30.0,16.0 C36.0,16.0 39.0,7.18 45.0,7.18 C51.0,7.18 54.0,10.09 60.0,10.09 L60.0,18 L0.0,18 Z" fill="url(#sp10835)"/><path d="M0.0,2.0 C6.0,2.0 9.0,4.16 15.0,4.16 C21.0,4.16 24.0,16.0 30.0,16.0 C36.0,16.0 39.0,7.18 45.0,7.18 C51.0,7.18 54.0,10.09 60.0,10.09" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="10.09" r="1.5" fill="#DC2626"/></svg>
+      </span>
+      
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">Nasdaq</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">21,761.89</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--down);">&#9660;-0.84%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp5078" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C6.0,2.0 9.0,3.71 15.0,3.71 C21.0,3.71 24.0,16.0 30.0,16.0 C36.0,16.0 39.0,7.7 45.0,7.7 C51.0,7.7 54.0,12.83 60.0,12.83 L60.0,18 L0.0,18 Z" fill="url(#sp5078)"/><path d="M0.0,2.0 C6.0,2.0 9.0,3.71 15.0,3.71 C21.0,3.71 24.0,16.0 30.0,16.0 C36.0,16.0 39.0,7.7 45.0,7.7 C51.0,7.7 54.0,12.83 60.0,12.83" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="12.83" r="1.5" fill="#DC2626"/></svg>
+      </span>
+      
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">Dow</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">46,124.06</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--down);">&#9660;-0.18%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp40634" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C6.0,2.0 9.0,6.4 15.0,6.4 C21.0,6.4 24.0,16.0 30.0,16.0 C36.0,16.0 39.0,2.36 45.0,2.36 C51.0,2.36 54.0,4.19 60.0,4.19 L60.0,18 L0.0,18 Z" fill="url(#sp40634)"/><path d="M0.0,2.0 C6.0,2.0 9.0,6.4 15.0,6.4 C21.0,6.4 24.0,16.0 30.0,16.0 C36.0,16.0 39.0,2.36 45.0,2.36 C51.0,2.36 54.0,4.19 60.0,4.19" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="4.19" r="1.5" fill="#DC2626"/></svg>
+      </span>
+      
+      </div>
+
+      
+      <div style="padding:8px 0;border-bottom:1px solid var(--border);line-height:2;overflow-x:auto;">
+        
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">USD/KRW</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">1,493.98</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--up);">&#9650;+0.58%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp17649" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C6.0,2.0 9.0,12.85 15.0,12.85 C21.0,12.85 24.0,2.73 30.0,2.73 C36.0,2.73 39.0,16.0 45.0,16.0 C51.0,16.0 54.0,9.93 60.0,9.93 L60.0,18 L0.0,18 Z" fill="url(#sp17649)"/><path d="M0.0,2.0 C6.0,2.0 9.0,12.85 15.0,12.85 C21.0,12.85 24.0,2.73 30.0,2.73 C36.0,2.73 39.0,16.0 45.0,16.0 C51.0,16.0 54.0,9.93 60.0,9.93" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="9.93" r="1.5" fill="#DC2626"/></svg>
+      </span>
+      
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">JPY/KRW</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">9.41</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--up);">&#9650;+0.50%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp93408" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,7.25 C6.0,7.25 9.0,5.5 15.0,5.5 C21.0,5.5 24.0,2.0 30.0,2.0 C36.0,2.0 39.0,16.0 45.0,16.0 C51.0,16.0 54.0,9.0 60.0,9.0 L60.0,18 L0.0,18 Z" fill="url(#sp93408)"/><path d="M0.0,7.25 C6.0,7.25 9.0,5.5 15.0,5.5 C21.0,5.5 24.0,2.0 30.0,2.0 C36.0,2.0 39.0,16.0 45.0,16.0 C51.0,16.0 54.0,9.0 60.0,9.0" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="9.0" r="1.5" fill="#DC2626"/></svg>
+      </span>
+      
+        
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">Gold</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">4,583.40</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--up);">&#9650;+4.07%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp87776" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C8.0,2.0 12.0,4.16 20.0,4.16 C28.0,4.16 32.0,16.0 40.0,16.0 C48.0,16.0 52.0,3.23 60.0,3.23 L60.0,18 L0.0,18 Z" fill="url(#sp87776)"/><path d="M0.0,2.0 C8.0,2.0 12.0,4.16 20.0,4.16 C28.0,4.16 32.0,16.0 40.0,16.0 C48.0,16.0 52.0,3.23 60.0,3.23" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="3.23" r="1.5" fill="#DC2626"/></svg>
+      </span>
+      
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">WTI Oil</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">87.97</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--down);">&#9660;-0.18%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp49830" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,4.95 C8.0,4.95 12.0,2.0 20.0,2.0 C28.0,2.0 32.0,15.78 40.0,15.78 C48.0,15.78 52.0,16.0 60.0,16.0 L60.0,18 L0.0,18 Z" fill="url(#sp49830)"/><path d="M0.0,4.95 C8.0,4.95 12.0,2.0 20.0,2.0 C28.0,2.0 32.0,15.78 40.0,15.78 C48.0,15.78 52.0,16.0 60.0,16.0" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="16.0" r="1.5" fill="#DC2626"/></svg>
+      </span>
+      
+        
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">Bitcoin</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">70,591.13</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--down);">&#9660;-0.46%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp57406" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,12.05 C8.0,12.05 12.0,16.0 20.0,16.0 C28.0,16.0 32.0,2.0 40.0,2.0 C48.0,2.0 52.0,3.48 60.0,3.48 L60.0,18 L0.0,18 Z" fill="url(#sp57406)"/><path d="M0.0,12.05 C8.0,12.05 12.0,16.0 20.0,16.0 C28.0,16.0 32.0,2.0 40.0,2.0 C48.0,2.0 52.0,3.48 60.0,3.48" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="3.48" r="1.5" fill="#16A34A"/></svg>
+      </span>
+      
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">Ethereum</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">2,155.60</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--up);">&#9650;+0.16%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp81118" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,12.77 C8.0,12.77 12.0,16.0 20.0,16.0 C28.0,16.0 32.0,2.47 40.0,2.47 C48.0,2.47 52.0,2.0 60.0,2.0 L60.0,18 L0.0,18 Z" fill="url(#sp81118)"/><path d="M0.0,12.77 C8.0,12.77 12.0,16.0 20.0,16.0 C28.0,16.0 32.0,2.47 40.0,2.47 C48.0,2.47 52.0,2.0 60.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
+      </span>
+      
+      </div>
+
+      
+      <div style="padding:8px 0;border-bottom:1px solid var(--border);line-height:2;overflow-x:auto;">
+        
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">VIX</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">26.95</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--up);">&#9650;+3.06%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp88192" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,11.01 C6.0,11.01 9.0,16.0 15.0,16.0 C21.0,16.0 24.0,2.82 30.0,2.82 C36.0,2.82 39.0,5.88 45.0,5.88 C51.0,5.88 54.0,2.0 60.0,2.0 L60.0,18 L0.0,18 Z" fill="url(#sp88192)"/><path d="M0.0,11.01 C6.0,11.01 9.0,16.0 15.0,16.0 C21.0,16.0 24.0,2.82 30.0,2.82 C36.0,2.82 39.0,5.88 45.0,5.88 C51.0,5.88 54.0,2.0 60.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
+      </span>
+      
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">US 10Y</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">4.39</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--up);">&#9650;+1.34%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp77264" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,16.0 C6.0,16.0 9.0,13.85 15.0,13.85 C21.0,13.85 24.0,2.0 30.0,2.0 C36.0,2.0 39.0,8.46 45.0,8.46 C51.0,8.46 54.0,2.0 60.0,2.0 L60.0,18 L0.0,18 Z" fill="url(#sp77264)"/><path d="M0.0,16.0 C6.0,16.0 9.0,13.85 15.0,13.85 C21.0,13.85 24.0,2.0 30.0,2.0 C36.0,2.0 39.0,8.46 45.0,8.46 C51.0,8.46 54.0,2.0 60.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
+      </span>
+      
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">Dollar Index</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">99.25</span>
+        
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--up);">&#9650;+0.31%</span>
+        
+        <svg width="60" height="18" viewBox="0 0 60 18" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp88608" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,10.4 C8.0,10.4 12.0,2.0 20.0,2.0 C28.0,2.0 32.0,16.0 40.0,16.0 C48.0,16.0 52.0,10.0 60.0,10.0 L60.0,18 L0.0,18 Z" fill="url(#sp88608)"/><path d="M0.0,10.4 C8.0,10.4 12.0,2.0 20.0,2.0 C28.0,2.0 32.0,16.0 40.0,16.0 C48.0,16.0 52.0,10.0 60.0,10.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60.0" cy="10.0" r="1.5" fill="#16A34A"/></svg>
+      </span>
+      
+      </div>
+
+      
+      
+
+      
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ WORLD NEWS ═══════════════════════════════════════ -->
+    <section aria-label="세계 뉴스">
+      <h2 class="section-title">World</h2>
+      
+      <ul class="news-list">
+        
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              <a href="https://www.bbc.com/news/articles/c9wqrdkx8ppo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">금융 대기업 블랙록 CEO, &#39;유가 150달러 도달 시 세계 경기 침체 촉발할 것&#39; 경고</a>
+            </h3>
+            
+            <p class="news-summary">래리 핑크는 유가가 장기간 높은 수준을 유지할 경우 세계 경제에 &#39;심각한 영향&#39;을 미칠 것이라고 말했다.</p>
+            
+            
+            <p class="news-source">BBC World</p>
+            
+          </article>
+        </li>
+        
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              <a href="https://www.bbc.com/news/articles/c4gjv02g54ko?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">이란 전쟁, 국제 분쟁의 규범이 뒤집혔음을 보여줘</a>
+            </h3>
+            
+            <p class="news-summary">미국의 에너지 기반 시설에 대한 위협과 이란의 걸프만 이웃 국가들에 대한 보복은 분명한 변화를 시사한다.</p>
+            
+            
+            <p class="news-source">BBC World</p>
+            
+          </article>
+        </li>
+        
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              <a href="https://www.bbc.com/news/articles/cz67jq0enwpo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">라과디아 공항 비행기 추락 사고 사망 조종사 신원 확인</a>
+            </h3>
+            
+            <p class="news-summary">수사관들은 조종실과 관제탑 간의 마지막 3분 통신 내용을 공개했으며, 이는 관제사들이 비행기와 소방차 모두에게 활주로 횡단을 허가했음을 보여주었다.</p>
+            
+            
+            <p class="news-source">BBC World</p>
+            
+          </article>
+        </li>
+        
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              <a href="https://www.bbc.com/news/articles/cz90gpyw90wo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">러시아, 24시간 동안 우크라이나에 드론 948대 발사… 최대 규모 공격</a>
+            </h3>
+            
+            <p class="news-summary">우크라이나 전역의 도시들이 공격을 받았으며, 현지 관리들은 최소 8명이 사망하고 수십 명이 부상당했다고 보고했다.</p>
+            
+            
+            <p class="news-source">BBC World</p>
+            
+          </article>
+        </li>
+        
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              <a href="https://www.bbc.com/news/articles/c9qd7wyln2jo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">민주당, 트럼프 마러라고 저택 포함 플로리다 의석 탈환</a>
+            </h3>
+            
+            <p class="news-summary">에밀리 그레고리의 예상 승리는 2024년 공화당 후보가 19%포인트 차이로 승리했던 의회 선거구에서 나왔다.</p>
+            
+            
+            <p class="news-source">BBC World</p>
+            
+          </article>
+        </li>
+        
+      </ul>
+      
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ KOREA NEWS ═══════════════════════════════════════ -->
+    <section aria-label="한국 뉴스">
+      <h2 class="section-title">Korea</h2>
+      
+      <ul class="news-list">
+        
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              <a href="https://www.mk.co.kr/article/11997814" target="_blank" rel="noopener noreferrer">불수능에 지역의사제까지…명문 학원가 일대 부동산 몸값 뛴다</a>
+            </h3>
+            
+            <p class="news-summary">명문 학원가의 몸값이 올라갈수록 부동산 시장에서도 학원가 접근성이 뛰어난 단지가 시세를 주도하는 추세가 두드러진다. 25일 부동산R114 자료에 따르면 전국의 7곳의 지역별 학군지는 해당 지역 평균보다 약 16% 높은...</p>
+            
+            
+            <p class="news-source">네이버뉴스</p>
+            
+          </article>
+        </li>
+        
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              <a href="https://www.sisajournal.com/news/articleView.html?idxno=366952" target="_blank" rel="noopener noreferrer">[구미 24시] 구미시, 내년 국비 확보 위해 중앙부처 방문…핵심 사업 지...</a>
+            </h3>
+            
+            <p class="news-summary">첨단반도체 소재·부품 Complex 구축과 국가첨단전략산업 로봇 분야 특화단지 지정을 건의했다. 또한 방위산업 소재·부품·장비 특화단지 지정 필요성을 전달하며 구미시가 K-방산 수출 거점으로 자리 잡을 수 있도록...</p>
+            
+            
+            <p class="news-source">네이버뉴스</p>
+            
+          </article>
+        </li>
+        
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              <a href="https://www.hankyung.com/article/202603255322i" target="_blank" rel="noopener noreferrer">스탠포드 교수의 경고...&#34;전쟁 종식되도 저유가 시대 다시 오기 어렵다...</a>
+            </h3>
+            
+            <p class="news-summary">크루거 교수는 이번 전쟁으로 미국 중앙은행(Fed)의 통화정책 기조가 기준금리 인상으로 바뀔 것으로 내다봤다. 그는 &#34;전쟁 비용이 늘어나며 미국의 재정 적자는 심화하고 인플레이션도 높아질 것&#34;이라며 &#34;미국의 통화 긴축...</p>
+            
+            
+            <p class="news-source">네이버뉴스</p>
+            
+          </article>
+        </li>
+        
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              <a href="http://www.bizwnews.com/news/articleView.html?idxno=130731" target="_blank" rel="noopener noreferrer">서선란 순천시의원, 신도심과 원도심 간 예산 불균형 문제 지적</a>
+            </h3>
+            
+            <p class="news-summary">그는 &#34;한국부동산원 통계에 따르면 2025년 말 기준 원도심 중대형 상가의 공실률이 30.2%로 전남 평균의 두 배를 웃돈다&#34;며, &#34;이는 원도심이 소멸 위기에 있다는 경고 신호&#34;라고 강조했다. 또 서 의원은 원도심 상권 활성화...</p>
+            
+            
+            <p class="news-source">네이버뉴스</p>
+            
+          </article>
+        </li>
+        
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              <a href="https://www.newsclaim.co.kr/news/articleView.html?idxno=3058933" target="_blank" rel="noopener noreferrer">LH 토지주택연구원·도시재생학회, 소규모주택정비 관리지역 공동세미나</a>
+            </h3>
+            
+            <p class="news-summary">이어지는 종합토론은 이재우 한국도시재생학회장을 좌장으로 중앙대, 국토교통부, LH, 국토연구원, 한국부동산원, 민간 사업자 전문가들이 참여해 소규모주택정비 관리지역 사업 현황과 향후 과제를 논의합니다. 이재우...</p>
+            
+            
+            <p class="news-source">네이버뉴스</p>
+            
+          </article>
+        </li>
+        
+      </ul>
+      
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+    <footer class="site-footer">
+      <div class="footer-actions">
+        <a href="/archive/">과거 브리핑 보기</a>
+      </div>
+      <div class="footer-meta">
+        <p>Powered by AI &middot; Data: Yahoo Finance, FRED, RSS</p>
+        <p>Generated <time datetime="2026-03-25 11:27:01">2026-03-25 11:27:01</time></p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Chart.js data placeholder — populated by render pipeline -->
+  <script type="application/json" id="chart-data">
+    {}
+  </script>
+
+</body>
+</html>
