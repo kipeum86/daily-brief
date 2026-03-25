@@ -96,7 +96,7 @@ email:
 # Google Sheets 아카이브
 sheets:
   enabled: true
-  spreadsheet_id: "YOUR_SPREADSHEET_ID"
+  spreadsheet_id: "1zh4uRh9Amb_LQytinKtni8tw11koz73FJT_wgCf4k7k"
 
 # 출력
 output:
