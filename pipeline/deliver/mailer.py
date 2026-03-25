@@ -76,27 +76,33 @@ def send_email(
         logger.warning("No subscribers configured in config.email.subscribers")
         return False
 
-    # Build subject
+    # Build subject (non-breaking space 등 특수문자 제거)
     prefix = email_config.get("subject_prefix", "Daily Brief")
     snippet = _extract_first_line(insight_text)
-    subject = f"{prefix} · {date_str} — {snippet}" if snippet else f"{prefix} · {date_str}"
+    subject = f"{prefix} - {date_str}"
+    if snippet:
+        subject = f"{subject} - {snippet}"
+    # ASCII 호환 안 되는 특수 공백 등 제거
+    subject = subject.replace("\xa0", " ").replace("\u200b", "")
 
     sender_name = email_config.get("sender_name", "Daily Brief")
+    sender_email = email_config.get("sender_email", gmail_address)
 
     try:
         from email.header import Header
+        from email.utils import formataddr
 
         msg = MIMEMultipart("alternative")
-        sender_email = email_config.get("sender_email", gmail_address)
-        msg["From"] = f"{sender_name} <{sender_email}>"
-        msg["To"] = sender_email  # kipeum86@gmail.com
-        msg["Bcc"] = ", ".join(subscribers)  # 실제 받는 사람 (서로 안 보임)
+        msg["From"] = formataddr((sender_name, sender_email))
+        msg["To"] = sender_email
+        msg["Bcc"] = ", ".join(subscribers)
         msg["Subject"] = Header(subject, "utf-8")
         msg.attach(MIMEText(html_body, "html", "utf-8"))
 
+        all_recipients = [sender_email] + subscribers
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
             server.login(gmail_address, gmail_password)
-            server.sendmail(gmail_address, subscribers, msg.as_bytes())
+            server.sendmail(gmail_address, all_recipients, msg.as_bytes())
 
         logger.info("Email sent to %d recipient(s) via Gmail SMTP", len(subscribers))
         return True
