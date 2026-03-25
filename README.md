@@ -1,23 +1,102 @@
-# Daily Brief
+<p align="center">
+  <img src="https://img.shields.io/badge/Daily_Brief-Economist_×_FT_Style-B91C1C?style=for-the-badge&labelColor=1A1A1A" alt="Daily Brief" />
+</p>
 
-AI-powered daily market & news briefing — Economist × FT editorial style.
+<h1 align="center">Daily Brief</h1>
 
-매일 아침, 한국+미국 시장 데이터와 글로벌/국내 뉴스를 AI가 분석하여 한국어·영어 브리핑을 자동 생성합니다.
+<p align="center">
+  <strong>AI-powered morning briefing for investors & decision-makers</strong><br/>
+  Korean + US markets · Global & domestic news · AI cross-market analysis<br/>
+  Delivered every morning — zero cost to run.
+</p>
 
-**Live:** [kipeum86.github.io/daily-brief](https://kipeum86.github.io/daily-brief/)
+<p align="center">
+  <a href="https://kipeum86.github.io/daily-brief/">🌐 Live Demo</a> ·
+  <a href="https://kipeum86.github.io/daily-brief/en/">🌐 English Version</a> ·
+  <a href="#한국어">🇰🇷 한국어 안내</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/actions/workflow/status/kipeum86/daily-brief/morning-brief.yml?label=Morning%20Brief&style=flat-square" alt="Build Status" />
+  <img src="https://img.shields.io/badge/cost-%240%2Fmo-16A34A?style=flat-square" alt="Cost" />
+  <img src="https://img.shields.io/badge/LLM-Gemini%202.5%20Flash-4285F4?style=flat-square" alt="LLM" />
+  <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License" />
+</p>
 
 ---
 
-## Features
+## What is this?
 
-- **AI Insight** — Gemini가 시장+뉴스를 교차 분석한 에디토리얼 브리핑
-- **Markets** — KOSPI, S&P 500, 환율, 원자재, 크립토, VIX + 스파크라인
-- **Market Pulse** — VIX/환율/지수 조합 Risk-On/Off 게이지
-- **S&P Sectors** — 11개 섹터 ETF 미니 히트맵
-- **News** — 글로벌 (Reuters, BBC, Guardian, Al Jazeera, AP, NPR) + 한국 (네이버 API)
-- **Bilingual** — 한국어/영어 토글 (뉴스 자동 번역)
-- **Email** — Gmail SMTP로 매일 아침 BCC 발송
-- **Archive** — 과거 브리핑 날짜별 탐색
+**Daily Brief** generates a professional morning briefing every day at 5:00 AM KST — combining market data, global news, domestic Korean news, and AI-driven editorial analysis into a single, beautiful static page.
+
+Think of it as your personal **Economist "World in Brief"** — but tailored for Korean investors, fully automated, and completely free to run.
+
+```
+┌─────────────────────────────────────────────┐
+│  Today's Brief                               │
+│  ─────────────────────────────────────────── │
+│  AI editorial insight connecting markets     │
+│  and news — not a data dump, but a story.    │
+├─────────────────────────────────────────────┤
+│  KOSPI 2,547 ▲0.3%  ╏  S&P 5,234 ▼0.1%     │
+│  USD/KRW 1,342 ▲0.5% ╏  VIX 18.2 ▲12%      │
+│  ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ │
+│  Tech +1.2% │ Energy -0.8% │ Finance +0.3%  │
+├─────────────────────────────────────────────┤
+│  World: Reuters, BBC, Guardian, Al Jazeera   │
+│  Korea: Naver API (domestic issues only)     │
+├─────────────────────────────────────────────┤
+│  ◀ Yesterday    March 25, 2026    Tomorrow ▶ │
+└─────────────────────────────────────────────┘
+```
+
+## Key Features
+
+### 📊 Markets
+- **14+ tickers** — KOSPI, KOSDAQ, S&P 500, Nasdaq, Dow, USD/KRW, Gold, Oil, BTC, ETH, VIX, US 10Y, Dollar Index
+- **S&P Sector ETFs** — 11 sectors as a mini heatmap (colored chips showing daily performance)
+- **Sparkline SVGs** — 5-day trend lines with cubic bezier smoothing and gradient fill
+- **Market Pulse** — Risk-On/Off gauge combining VIX + FX + equity signals
+- **Holiday detection** — Auto-detects KOSPI/NYSE closures, shows "Market closed" banners
+- **Fallback** — yfinance primary, FRED API fallback for risk indicators
+
+### 📰 News
+- **Global** — Reuters, BBC World, The Guardian, Al Jazeera, AP News, NPR (diverse perspectives, no paywall)
+- **Korea** — Naver News Search API (keyword-based, domestic issues only — not international news from Korean outlets)
+- **3-stage dedup** — URL canonicalization → topic token similarity → EventKey hash
+- **Cross-run dedup** — Won't repeat yesterday's stories
+
+### 🤖 AI Analysis
+- **Gemini 2.5 Flash** (free tier, pluggable — supports Claude and OpenAI too)
+- **Editorial insight** — "Key Insight", "Market Overview", "Cross-Market Signals"
+- **Not a data dump** — AI connects the dots between markets, FX, commodities, and news events
+- **Bilingual** — Korean and English insights generated independently (not translated)
+
+### 🌐 Bilingual (KR/EN)
+- **Full language toggle** — not just UI labels, the entire content switches
+- Korean version: English news → translated to Korean
+- English version: Korean news → translated to English
+- Section headings in English for both versions (editorial convention)
+
+### 📧 Email Delivery
+- **Gmail SMTP** — no extra service needed, free
+- **BCC** — subscribers don't see each other's emails
+- **Smart subject** — "Daily Brief · Mar 25 — VIX surges as risk-off sentiment deepens"
+- **Subscribers file** — `subscribers.txt` (gitignored, local-only)
+
+### 🗄️ Archive
+- **Date navigation** — ◀▶ browse past briefings
+- **/archive page** — full listing of all past briefings
+- **Google Sheets** — market data + news archived for trend analysis (optional)
+
+### 🎨 Design
+- **Economist × FT** editorial style — not a dashboard, a newspaper front page
+- **Typography** — Noto Serif KR (insight), Pretendard (UI), JetBrains Mono (numbers)
+- **Color** — Warm ivory `#FAFAF8`, Economist red `#B91C1C`, data-only colors
+- **Mobile-first** — designed for checking on your commute
+- **No AI slop** — no card grids, no purple gradients, no generic SaaS patterns
+
+---
 
 ## Quick Start
 
@@ -28,78 +107,257 @@ git clone https://github.com/kipeum86/daily-brief.git
 cd daily-brief
 ```
 
-### 2. API 키 발급
+### 2. Get API Keys
 
-| 서비스 | 용도 | 발급 |
-|--------|------|------|
-| **Google AI Studio** | Gemini AI | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
-| **Naver Developers** | 한국 뉴스 | [developers.naver.com](https://developers.naver.com) → 뉴스 검색 API |
-| **Gmail** | 이메일 발송 | [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords) (2단계 인증 필요) |
-| FRED | 경제 지표 (선택) | [fred.stlouisfed.org/docs/api](https://fred.stlouisfed.org/docs/api/api_key.html) |
+| Service | Purpose | Get it |
+|---------|---------|--------|
+| **Google AI Studio** | Gemini AI (briefing + translation) | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
+| **Naver Developers** | Korean news search | [developers.naver.com](https://developers.naver.com) → 검색 API |
+| **Gmail** | Email delivery | [App Passwords](https://myaccount.google.com/apppasswords) (requires 2FA) |
+| FRED | Economic indicators (optional) | [fred.stlouisfed.org](https://fred.stlouisfed.org/docs/api/api_key.html) |
 
-### 3. 환경 설정
+### 3. Configure
 
 ```bash
-cp .env.example .env
-# .env 파일에 API 키 입력
-
-cp subscribers.example.txt subscribers.txt
-# subscribers.txt에 수신자 이메일 추가 (한 줄에 하나)
+cp .env.example .env          # Add your API keys here
+cp subscribers.example.txt subscribers.txt  # Add email recipients
 ```
 
-### 4. 로컬 실행
+**`.env`**
+```env
+GOOGLE_API_KEY=your_gemini_key
+NAVER_CLIENT_ID=your_naver_id
+NAVER_CLIENT_SECRET=your_naver_secret
+GMAIL_ADDRESS=your@gmail.com
+GMAIL_APP_PASSWORD=xxxx_xxxx_xxxx_xxxx
+```
+
+**`subscribers.txt`** (one email per line, gitignored)
+```
+you@email.com
+friend@email.com
+```
+
+### 4. Run Locally
 
 ```bash
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-python main.py --dry-run        # 이메일 없이 테스트
-python main.py                  # 전체 실행 (이메일 포함)
-python main.py --no-llm         # AI 없이 데이터만
+
+python main.py --dry-run        # Test without email
+python main.py                  # Full run with email
+python main.py --no-llm         # Data only, skip AI
+python main.py --date 2026-03-20  # Generate for a specific date
 ```
 
-### 5. GitHub Actions 자동화
+Output: `output/index.html` (Korean) + `output/en/index.html` (English)
 
-Repository Settings → Secrets → Actions에 추가:
+### 5. Deploy with GitHub Actions
 
-| Secret | 값 |
-|--------|---|
-| `GOOGLE_API_KEY` | Gemini API 키 |
-| `NAVER_CLIENT_ID` | 네이버 Client ID |
-| `NAVER_CLIENT_SECRET` | 네이버 Client Secret |
-| `GMAIL_ADDRESS` | 발신 Gmail 주소 |
-| `GMAIL_APP_PASSWORD` | Gmail 앱 비밀번호 |
-| `SUBSCRIBERS` | 수신자 이메일 (쉼표 구분) |
+Add these **Secrets** in your repo → Settings → Secrets → Actions:
 
-GitHub Pages 활성화: Settings → Pages → Source: `gh-pages` branch.
+| Secret | Value |
+|--------|-------|
+| `GOOGLE_API_KEY` | Gemini API key |
+| `NAVER_CLIENT_ID` | Naver Client ID |
+| `NAVER_CLIENT_SECRET` | Naver Client Secret |
+| `GMAIL_ADDRESS` | Sender Gmail address |
+| `GMAIL_APP_PASSWORD` | Gmail app password |
+| `SUBSCRIBERS` | Recipients, comma-separated |
 
-매일 KST 05:00에 자동 실행됩니다.
+Enable **GitHub Pages**: Settings → Pages → Source: `gh-pages` branch.
+
+The workflow runs automatically at **KST 05:00 (UTC 20:00) Mon–Fri**.
+
+Manual trigger: Actions tab → "Morning Brief" → "Run workflow".
+
+---
 
 ## Architecture
 
 ```
-main.py                  # 파이프라인 오케스트레이터
-pipeline/
-├── markets/             # yfinance + FRED (fallback)
-├── news/                # RSS + 네이버 API
-├── ai/                  # Gemini 브리핑 + 번역
-├── llm/                 # Pluggable LLM providers
-├── render/              # Jinja2 → HTML (대시보드 + 이메일)
-└── deliver/             # Gmail SMTP + Google Sheets
-templates/
-├── dashboard/           # 웹 대시보드 (Economist 스타일)
-└── email/               # HTML 이메일 (인라인 CSS)
+daily-brief/
+├── main.py                          # Pipeline orchestrator + CLI
+├── config.yaml                      # Data sources, RSS feeds, LLM model
+├── subscribers.txt                  # Email recipients (gitignored)
+├── .github/workflows/
+│   └── morning-brief.yml            # Cron: KST 05:00 Mon-Fri
+│
+├── pipeline/
+│   ├── markets/
+│   │   ├── collector.py             # yfinance + FRED (ThreadPoolExecutor)
+│   │   └── indicators.py            # Formatting, holidays, market pulse, sparklines
+│   ├── news/
+│   │   ├── collector.py             # RSS feed collection
+│   │   ├── naver.py                 # Naver News Search API
+│   │   ├── dedup.py                 # 3-stage deduplication
+│   │   └── filters.py              # Keyword filtering
+│   ├── ai/
+│   │   ├── briefing.py              # AI insight generation (bilingual)
+│   │   ├── prompts.py               # Economist-style prompt engineering
+│   │   └── translate.py             # News translation (KO↔EN)
+│   ├── llm/
+│   │   ├── base.py                  # Abstract provider interface
+│   │   ├── gemini.py                # Google Gemini
+│   │   └── claude.py                # Anthropic Claude
+│   ├── render/
+│   │   ├── dashboard.py             # Jinja2 → HTML (KO + EN)
+│   │   └── email.py                 # Inline-CSS HTML email
+│   └── deliver/
+│       ├── mailer.py                # Gmail SMTP (BCC)
+│       └── sheets.py                # Google Sheets archive
+│
+├── templates/
+│   ├── dashboard/
+│   │   ├── base.html                # Economist × FT editorial layout
+│   │   └── archive.html             # Past briefings listing
+│   └── email/
+│       └── brief.html               # Email template (inline CSS, no JS)
+│
+└── output/                          # Generated static site → GitHub Pages
+    ├── index.html                   # Latest (Korean)
+    ├── en/index.html                # Latest (English)
+    └── archive/                     # Past briefings by date
 ```
 
-## Config
+## Pipeline Flow
 
-`config.yaml`에서 시장 티커, 뉴스 소스, LLM 모델 등을 설정할 수 있습니다.
+```
+KST 05:00 (GitHub Actions cron)
+    │
+    ├── 1. Markets ──→ yfinance (14 tickers) + FRED fallback
+    │                   ThreadPoolExecutor parallel fetch
+    │
+    ├── 2. News ────→ RSS (6 global sources) + Naver API (Korean)
+    │                   3-stage dedup → keyword filter
+    │
+    ├── 3. AI ──────→ Gemini 2.5 Flash
+    │                   Korean insight + English insight (independent)
+    │                   Translate: world news→KO, korea news→EN
+    │
+    ├── 4. Render ──→ Jinja2 templates
+    │                   Korean HTML + English HTML
+    │                   Markdown→HTML for AI insight
+    │
+    ├── 5. Deliver ─→ Gmail SMTP (BCC) + Google Sheets
+    │
+    └── 6. Deploy ──→ peaceiris/actions-gh-pages → GitHub Pages
+```
+
+## Customization
+
+### Change LLM Provider
 
 ```yaml
+# config.yaml
 llm:
   provider: "gemini"           # gemini, claude, openai
-  model: "gemini-2.5-flash"
+  model: "gemini-2.5-flash"   # any model supported by the provider
 ```
 
-## License
+### Add/Remove Market Tickers
 
-MIT
+```yaml
+# config.yaml
+markets:
+  crypto:
+    tickers: ["BTC-USD", "ETH-USD", "SOL-USD"]  # Add Solana
+    names: ["Bitcoin", "Ethereum", "Solana"]
+```
+
+### Change News Sources
+
+```yaml
+# config.yaml
+news:
+  korea:
+    source: "naver"
+    queries: ["경제 정책", "부동산", "반도체", "금리", "증시"]
+```
+
+## Graceful Degradation
+
+Every component fails independently:
+
+| Component | If it fails | User sees |
+|-----------|-------------|-----------|
+| yfinance | FRED fallback → skip ticker | "Data unavailable" for that ticker |
+| RSS feeds | Skip failed source | Fewer news items |
+| Naver API | Skip Korean news | World news only |
+| Gemini AI | Skip insight | Data-only briefing |
+| Gmail | Skip email | Dashboard still deploys |
+| Google Sheets | Skip archiving | Everything else works |
+
+The briefing **always deploys** — even if every external API fails, you get a page.
+
+## Cost
+
+| Component | Cost |
+|-----------|------|
+| Gemini 2.5 Flash | Free (250 req/day, we use ~4) |
+| yfinance / RSS / Naver | Free |
+| GitHub Actions | Free (2,000 min/mo, we use ~110) |
+| GitHub Pages | Free |
+| Gmail SMTP | Free (500/day limit) |
+| **Total** | **$0/month** |
+
+## Roadmap
+
+- [ ] Weekly & Monthly Recap (v1.5)
+- [ ] JSON API output for widget integration
+- [ ] iOS widget (Scriptable)
+- [ ] macOS widget (Übersicht)
+- [ ] Plotly.js treemap heatmap (Finviz-style)
+- [ ] Dark theme toggle
+- [ ] Economic calendar (FOMC, employment data)
+- [ ] Portfolio integration
+
+---
+
+## 한국어
+
+<a id="한국어"></a>
+
+### Daily Brief — AI 모닝 브리핑
+
+매일 아침, AI가 한국+미국 시장 데이터와 글로벌/국내 뉴스를 분석하여 Economist × FT 스타일의 브리핑을 자동 생성합니다.
+
+**주요 기능:**
+- 📊 **시장 데이터** — KOSPI, S&P 500, 환율, 원자재, 크립토, VIX 등 14개+ 티커
+- 📰 **뉴스** — 글로벌 6개 매체 (Reuters, BBC, Guardian 등) + 네이버 API 한국 뉴스
+- 🤖 **AI 분석** — Gemini가 시장과 뉴스를 교차 분석한 에디토리얼 인사이트
+- 🌐 **한/영 토글** — 뉴스까지 전부 번역, 완전한 이중 언어 지원
+- 📧 **이메일** — Gmail로 매일 아침 자동 발송 (BCC)
+- 🗄️ **아카이브** — 과거 브리핑 날짜별 탐색
+- 💰 **비용 $0** — GitHub Actions + Pages, Gemini 무료 tier
+
+### 빠른 시작
+
+```bash
+git clone https://github.com/kipeum86/daily-brief.git
+cd daily-brief
+cp .env.example .env                    # API 키 입력
+cp subscribers.example.txt subscribers.txt  # 수신자 이메일 추가
+pip install -r requirements.txt
+python main.py --dry-run                # 테스트 실행
+```
+
+**필요한 API 키:**
+| 서비스 | 용도 | 발급 |
+|--------|------|------|
+| Google AI Studio | Gemini AI | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
+| 네이버 개발자센터 | 한국 뉴스 | [developers.naver.com](https://developers.naver.com) |
+| Gmail | 이메일 발송 | [앱 비밀번호](https://myaccount.google.com/apppasswords) (2단계 인증 필요) |
+
+**GitHub Actions 자동화:**
+
+Settings → Secrets → Actions에 시크릿 추가 후, Pages 활성화하면 매일 KST 05:00에 자동 실행됩니다.
+
+자세한 설정 방법은 [영어 가이드](#quick-start)를 참고하세요.
+
+---
+
+<p align="center">
+  Built with <a href="https://claude.ai/claude-code">Claude Code</a> · Powered by <a href="https://ai.google.dev/">Gemini</a><br/>
+  <sub>Economist × FT editorial design · Zero cost to operate</sub>
+</p>
