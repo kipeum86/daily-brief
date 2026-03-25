@@ -404,7 +404,8 @@ def render_dashboard(
         config, markets, holidays, en_articles, en_insight, run_date, output_dir, lang="en",
     )
     context_en["market_pulse"] = pulse
-    context_en["lang_toggle_url"] = f"{site_url}/" if site_url else "../index.html"
+    _site = config.get("site_url", "").rstrip("/")
+    context_en["lang_toggle_url"] = f"{_site}/" if _site else "../index.html"
     html_en = render_html(context_en)
 
     en_index = en_dir / "index.html"
