@@ -84,6 +84,7 @@ def _save_sheets_stub(
     config: dict,
     markets: dict[str, list[dict[str, Any]]],
     news: list,
+    insight: str,
     run_date: str,
 ) -> None:
     logger.warning("pipeline.deliver.sheets not implemented yet")
@@ -387,10 +388,10 @@ def run(args: argparse.Namespace) -> int:
         logger.info("Stage 10/10: Saving to Google Sheets")
         try:
             save_sheets = _import_or_stub(
-                "pipeline.deliver.sheets", "save_sheets",
+                "pipeline.deliver.sheets", "save_to_sheets",
                 _save_sheets_stub,
             )
-            save_sheets(config, markets, articles, run_date)
+            save_sheets(config, markets, articles, insight, run_date)
             sections.append("sheets")
         except Exception as exc:
             logger.error("Sheets save failed: %s", exc)
