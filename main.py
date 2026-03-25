@@ -327,17 +327,17 @@ def run(args: argparse.Namespace) -> int:
                 "pipeline.deliver.mailer", "send_email",
                 _send_email_stub,
             )
-            # 대시보드 HTML을 이메일로 (CSS 변수를 실제 값으로 치환)
-            email_html = Path(html_path).read_text(encoding="utf-8")
-            css_vars = {
-                "var(--bg)": "#FAFAF8", "var(--bg-insight)": "#F8F5F0",
-                "var(--bg-white)": "#FFFFFF", "var(--text)": "#1A1A1A",
-                "var(--text-secondary)": "#6B7280", "var(--up)": "#16A34A",
-                "var(--down)": "#DC2626", "var(--accent)": "#B91C1C",
-                "var(--border)": "#E5E5E5",
-            }
-            for var, val in css_vars.items():
-                email_html = email_html.replace(var, val)
+            # 이메일 전용 템플릿 렌더링 (테이블 레이아웃, 인라인 CSS)
+            try:
+                from pipeline.render.email import render_email
+                email_html = render_email(
+                    config, markets, holidays,
+                    articles_ko if articles_ko else articles,
+                    insight, run_date,
+                )
+            except Exception as email_render_exc:
+                logger.warning("Email template render failed: %s — using dashboard HTML", email_render_exc)
+                email_html = Path(html_path).read_text(encoding="utf-8")
             send_email(config, email_html, run_date, insight_text=insight)
             sections.append("email")
         except Exception as exc:

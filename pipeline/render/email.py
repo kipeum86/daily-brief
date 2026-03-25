@@ -17,6 +17,7 @@ from markupsafe import Markup
 # Reuse helpers from the dashboard renderer
 from pipeline.render.dashboard import (
     _format_date_korean,
+    _md_to_html,
     _normalize_market_items,
     _split_news,
 )
@@ -53,7 +54,7 @@ def _build_email_context(
     return {
         "date_str": _format_date_korean(run_date),
         "date_iso": run_date,
-        "insight_text": insight,
+        "insight_text": _md_to_html(insight),
         "markets": normalized_markets,
         "world_news": world_news,
         "korea_news": korea_news,
