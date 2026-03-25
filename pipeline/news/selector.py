@@ -72,19 +72,28 @@ def select_top_news(
             response = response.split("\n", 1)[1].rsplit("```", 1)[0]
         indices = json.loads(response)
 
-        # 유효한 인덱스만 필터 + 소스당 최대 1개 강제
+        # 유효한 인덱스만 필터
+        # 소스가 다양한 경우(글로벌 뉴스)에만 소스당 1개 제한 적용
+        # 소스가 단일(예: 네이버뉴스)이면 AI 선택을 그대로 존중
+        all_sources = set()
+        for art in articles:
+            src = art.get("source", "") if isinstance(art, dict) else getattr(art, "source", "")
+            all_sources.add(src)
+        enforce_source_diversity = len(all_sources) > 3
+
         selected = []
         used_sources: set[str] = set()
         for idx in indices:
             if isinstance(idx, int) and 0 <= idx < len(articles):
                 art = articles[idx]
                 src = art.get("source", "") if isinstance(art, dict) else getattr(art, "source", "")
-                if src not in used_sources:
-                    selected.append(art)
-                    used_sources.add(src)
+                if enforce_source_diversity and src in used_sources:
+                    continue
+                selected.append(art)
+                used_sources.add(src)
 
-        # AI가 소스 다양성을 못 맞췄으면, 남은 슬롯을 다른 소스에서 채움
-        if len(selected) < top_n:
+        # 글로벌 뉴스에서 AI가 소스 다양성을 못 맞췄으면, 남은 슬롯을 다른 소스에서 채움
+        if enforce_source_diversity and len(selected) < top_n:
             for art in articles:
                 if len(selected) >= top_n:
                     break

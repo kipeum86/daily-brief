@@ -137,15 +137,16 @@ def _split_news(articles: list, config: dict) -> tuple[list[dict], list[dict]]:
     korea_news, everything else goes to world_news.
     """
     korea_source_names: set[str] = set()
-    korea_cfg = config.get("news", {}).get("korea", [])
-    if isinstance(korea_cfg, list):
-        # RSS mode: list of {"name": "연합뉴스", "url": "..."}
-        for src in korea_cfg:
-            if isinstance(src, dict):
-                korea_source_names.add(src.get("name", ""))
-    else:
-        # Naver API mode: korea config is a dict, source name is "네이버뉴스"
-        korea_source_names.add("네이버뉴스")
+    for korea_key in ("korea", "korea_major"):
+        korea_cfg = config.get("news", {}).get(korea_key, [])
+        if isinstance(korea_cfg, list):
+            # RSS mode: list of {"name": "연합뉴스", "url": "..."}
+            for src in korea_cfg:
+                if isinstance(src, dict):
+                    korea_source_names.add(src.get("name", ""))
+        elif isinstance(korea_cfg, dict):
+            # Naver API mode: korea config is a dict, source name is "네이버뉴스"
+            korea_source_names.add("네이버뉴스")
 
     world_news: list[dict] = []
     korea_news: list[dict] = []

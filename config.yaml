@@ -60,16 +60,30 @@ news:
       url: "https://www.scmp.com/rss/91/feed"
     - name: "ABC Australia"
       url: "https://www.abc.net.au/news/feed/2942460/rss.xml"
+  korea_major:
+    # 메이저 매체 RSS — 편집국이 선별한 1면급 기사
+    - name: "연합뉴스"
+      url: "https://www.yna.co.kr/rss/news.xml"
+    - name: "조선일보"
+      url: "https://www.chosun.com/arc/outboundfeeds/rss/?outputType=xml"
+    - name: "중앙일보"
+      url: "https://rss.joins.com/joins_news_list.xml"
+    - name: "동아일보"
+      url: "https://rss.donga.com/total.xml"
+    - name: "한겨레"
+      url: "https://www.hani.co.kr/rss/"
+    - name: "한국경제"
+      url: "https://www.hankyung.com/feed/all-news"
+    - name: "매일경제"
+      url: "https://www.mk.co.kr/rss/30000001/"
   korea:
-    source: "naver"  # naver API (추천) 또는 rss
-    queries:         # 네이버 뉴스 검색 키워드 (한국 국내 이슈 중심)
-      - "경제 정책"
-      - "부동산"
+    source: "naver"  # 보조: 키워드 기반 심층 검색
+    queries:
       - "반도체 수출"
-      - "금리"
-      - "국내 증시"
-    display: 5       # 키워드당 가져올 기사 수
-    sort: "date"     # date(최신순) 또는 sim(관련도순)
+      - "금리 한국은행"
+      - "부동산 정책"
+    display: 3       # 보조 역할이므로 축소
+    sort: "sim"      # 관련도순으로 변경 (잡뉴스 유입 방지)
   finance:
     # 금융 전문 매체 (무료 RSS)
     - name: "CNBC"             # 미국 금융 뉴스
@@ -83,7 +97,16 @@ news:
 # 뉴스 필터링
 keywords:
   include: []                 # 빈 배열 = 전체 포함
-  exclude: ["광고", "sponsored"]
+  exclude:
+    - "광고"
+    - "sponsored"
+    - "운세"
+    - "별자리"
+    - "인사발령"
+    - "인사 발령"
+    - "부고"
+    - "로또"
+    - "당첨번호"
 
 # 중복 제거
 dedup:

@@ -249,15 +249,16 @@ def run(args: argparse.Namespace) -> int:
             from pipeline.render.dashboard import _split_news
             selector_provider = _get_provider(config)
 
-            # _split_news는 top_n으로 자르니까, 전체 기사를 직접 분류
+            # 한국 소스 이름 수집 (korea + korea_major 모두)
             korea_source_names = set()
-            korea_cfg = config.get("news", {}).get("korea", {})
-            if isinstance(korea_cfg, list):
-                for src in korea_cfg:
-                    if isinstance(src, dict):
-                        korea_source_names.add(src.get("name", ""))
-            else:
-                korea_source_names.add("네이버뉴스")
+            for korea_key in ("korea", "korea_major"):
+                korea_cfg = config.get("news", {}).get(korea_key, {})
+                if isinstance(korea_cfg, list):
+                    for src in korea_cfg:
+                        if isinstance(src, dict):
+                            korea_source_names.add(src.get("name", ""))
+                elif isinstance(korea_cfg, dict):
+                    korea_source_names.add("네이버뉴스")
 
             world_all = [a for a in articles if (a.source if hasattr(a, 'source') else a.get('source', '')) not in korea_source_names]
             korea_all = [a for a in articles if (a.source if hasattr(a, 'source') else a.get('source', '')) in korea_source_names]
