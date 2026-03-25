@@ -32,8 +32,8 @@
 Think of it as your personal **Economist "World in Brief"** — but tailored for Korean investors, fully automated, and completely free to run.
 
 <p align="center">
-  <a href="https://kipeum86.github.io/daily-brief/">
-    <img src="docs/preview.png" alt="Daily Brief Preview" width="720" />
+  <a href="https://kipeum86.github.io/daily-brief/en/">
+    <img src="docs/preview-en.png" alt="Daily Brief Preview" width="720" />
   </a>
 </p>
 
@@ -306,6 +306,12 @@ The briefing **always deploys** — even if every external API fails, you get a 
 <a id="한국어"></a>
 
 ### Daily Brief — AI 모닝 브리핑
+
+<p align="center">
+  <a href="https://kipeum86.github.io/daily-brief/">
+    <img src="docs/preview.png" alt="Daily Brief 미리보기" width="720" />
+  </a>
+</p>
 
 매일 아침, AI가 한국+미국 시장 데이터와 글로벌/국내 뉴스를 분석하여 Economist × FT 스타일의 브리핑을 자동 생성합니다.
 
