@@ -1,0 +1,68 @@
+# ============================================================
+# Morning Brief — 매일 아침 브리핑 자동 생성 & 배포
+# 스케줄: UTC 20:00 (일-목) = KST 05:00 (월-금)
+# ============================================================
+
+name: Morning Brief
+
+on:
+  schedule:
+    # UTC 20:00 일-목 = KST 05:00 월-금
+    - cron: "0 20 * * 0-4"
+  workflow_dispatch: # 수동 테스트용
+
+# gh-pages 브랜치에 push하기 위한 권한
+permissions:
+  contents: write
+
+# 동시 실행 방지 — 진행 중인 실행은 취소
+concurrency:
+  group: morning-brief
+  cancel-in-progress: true
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      # API 키 (GitHub Secrets에서 주입)
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}             # Gemini LLM
+      FRED_API_KEY: ${{ secrets.FRED_API_KEY }}                 # 경제 지표
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}             # 이메일 발송
+      GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}  # 시트 아카이브
+
+    steps:
+      # 1. 소스 코드 체크아웃
+      - name: 📥 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      # 2. Python 3.12 설정
+      - name: 🐍 Python 3.12 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 3. pip 의존성 캐시 (빌드 시간 단축)
+      - name: 💾 pip 캐시
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      # 4. 의존성 설치
+      - name: 📦 의존성 설치
+        run: pip install -r requirements.txt
+
+      # 5. 브리핑 생성
+      - name: 🗞️ 브리핑 생성
+        run: python main.py
+
+      # 6. GitHub Pages 배포 (기존 아카이브 유지)
+      - name: 🚀 GitHub Pages 배포
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          keep_files: true  # 기존 아카이브 파일 보존

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="{{ lang|default('ko') }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Brief &middot; {{ date_str }}</title>
+  <meta name="description" content="AI-powered daily market & news briefing for {{ date_str }}">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+  <!-- Chart.js (deferred — for future interactive charts) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+
+  <style>
+    /* ── CSS Custom Properties ─────────────────────────────── */
+    :root {
+      --bg:            #FAFAF8;
+      --bg-insight:    #F8F5F0;
+      --bg-white:      #FFFFFF;
+      --text:          #1A1A1A;
+      --text-secondary:#6B7280;
+      --up:            #16A34A;
+      --down:          #DC2626;
+      --accent:        #B91C1C;
+      --border:        #E5E5E5;
+
+      --font-serif:    'Noto Serif KR', Georgia, 'Times New Roman', serif;
+      --font-sans:     'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono:     'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout Container ──────────────────────────────────── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ── Section Dividers ──────────────────────────────────── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── Header ────────────────────────────────────────────── */
+    .site-header {
+      padding: 32px 0 24px;
+    }
+
+    .header-title {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .header-date {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .header-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-secondary);
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+    }
+    .header-nav a:hover { color: var(--accent); }
+
+    .nav-disabled {
+      color: var(--border) !important;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    @media (min-width: 640px) {
+      .header-date { font-size: 24px; }
+    }
+
+    /* ── Section Titles ────────────────────────────────────── */
+    .section-title {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding: 24px 0 16px;
+    }
+
+    /* ── AI Insight Section ─────────────────────────────────── */
+    .insight-section {
+      background: var(--bg-insight);
+      margin: 0 -16px;
+      padding: 28px 16px 32px;
+    }
+
+    .insight-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .insight-body {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text);
+    }
+
+    .insight-body p { margin-bottom: 1em; }
+    .insight-body p:last-child { margin-bottom: 0; }
+
+    .insight-empty {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    @media (min-width: 640px) {
+      .insight-section {
+        margin: 0 -16px;
+        padding: 32px 32px 36px;
+      }
+      .insight-body { font-size: 18px; }
+    }
+
+    /* ── Markets Section ───────────────────────────────────── */
+    .markets-section {
+      padding-bottom: 8px;
+    }
+
+    .market-group-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+    .market-group-label:first-of-type { margin-top: 0; }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .market-item {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .market-item:nth-child(odd) { padding-right: 12px; }
+    .market-item:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--border); }
+
+    .market-name {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .market-price {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 1px;
+    }
+
+    .market-change {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .market-change.up   { color: var(--up); }
+    .market-change.down { color: var(--down); }
+    .market-change.flat { color: var(--text-secondary); }
+
+    .market-holiday-notice {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 12px 0;
+      font-style: italic;
+    }
+
+    @media (min-width: 640px) {
+      .market-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .market-item {
+        padding: 12px 12px 12px 0;
+      }
+      .market-item:nth-child(odd)  { padding-right: 12px; }
+      .market-item:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--border); }
+      /* Reset for 4-col: every item except first in row gets left border */
+      .market-item { border-left: none; padding-left: 0; padding-right: 0; }
+      .market-item:nth-child(n) { padding: 12px 12px; }
+      .market-item:nth-child(4n+2),
+      .market-item:nth-child(4n+3),
+      .market-item:nth-child(4n+4) { border-left: 1px solid var(--border); }
+
+      .market-price { font-size: 20px; }
+      .market-change { font-size: 14px; }
+    }
+
+    /* ── News Section ──────────────────────────────────────── */
+    .news-list {
+      list-style: none;
+    }
+
+    .news-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-item:last-child { border-bottom: none; }
+
+    .news-headline {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .news-headline a {
+      color: var(--text);
+    }
+    .news-headline a:hover {
+      color: var(--accent);
+    }
+
+    .news-summary {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: none;
+    }
+
+    .news-source {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .news-empty {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-style: italic;
+      padding: 16px 0;
+    }
+
+    @media (min-width: 640px) {
+      .news-summary { display: block; }
+    }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .site-footer {
+      padding: 32px 0 48px;
+      text-align: center;
+    }
+
+    .footer-actions {
+      margin-bottom: 16px;
+    }
+
+    .footer-actions a {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 12px;
+    }
+
+    .footer-meta {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .footer-meta a {
+      color: var(--text-secondary);
+    }
+    .footer-meta a:hover { color: var(--accent); }
+
+    /* ── Utility ───────────────────────────────────────────── */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" role="main">
+
+    <!-- ═══ HEADER ═══════════════════════════════════════════ -->
+    <header class="site-header">
+      <div class="header-title" style="display:flex;justify-content:space-between;align-items:center;">
+        <span>Daily Brief</span>
+        <a href="{{ lang_toggle_url|default('#') }}" style="font-size:13px;font-weight:600;letter-spacing:0.05em;color:var(--text-secondary);text-decoration:none;border:1px solid var(--border);border-radius:4px;padding:2px 10px;">{{ lang_current|default('KR') }} → {{ lang_toggle_label|default('English') }}</a>
+      </div>
+      <h1 class="header-date">{{ date_str }}</h1>
+      <nav class="header-nav" aria-label="{{ 'Date navigation' if lang == 'en' else '날짜 탐색' }}">
+        {% if prev_date %}
+        <a href="{{ site_url }}/archive/{{ prev_date }}.html" aria-label="이전 브리핑: {{ prev_date }}">&#9664; 이전</a>
+        {% else %}
+        <span class="nav-disabled" aria-hidden="true">&#9664; 이전</span>
+        {% endif %}
+
+        <time datetime="{{ date_iso }}">{{ date_iso }}</time>
+
+        {% if next_date %}
+        <a href="{{ site_url }}/archive/{{ next_date }}.html" aria-label="다음 브리핑: {{ next_date }}">다음 &#9654;</a>
+        {% else %}
+        <span class="nav-disabled" aria-hidden="true">다음 &#9654;</span>
+        {% endif %}
+      </nav>
+    </header>
+
+    <hr class="section-divider">
+
+    <!-- ═══ AI INSIGHT ═══════════════════════════════════════ -->
+    <section class="insight-section" aria-label="AI 인사이트">
+      <div class="container">
+        <div class="insight-label">오늘의 핵심</div>
+        {% if insight_text %}
+        <div class="insight-body">
+          {{ insight_text }}
+        </div>
+        {% else %}
+        <p class="insight-empty">AI 분석을 사용할 수 없습니다. 아래 데이터로 직접 판단하세요.</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ MARKETS ══════════════════════════════════════════ -->
+    <section class="markets-section" aria-label="시장 현황">
+      <h2 class="section-title" style="display:flex;justify-content:space-between;align-items:center;">
+        <span>Markets</span>
+        {% if market_pulse %}
+        <span style="font-size:14px;font-weight:600;letter-spacing:0;">{{ market_pulse.label_ko if lang != 'en' else market_pulse.label_en }}</span>
+        {% endif %}
+      </h2>
+
+      {# ── Market Pulse signals ── #}
+      {% if market_pulse and market_pulse.signals %}
+      <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);margin-bottom:12px;">
+        {{ market_pulse.signals | join(' · ') }}
+      </div>
+      {% endif %}
+
+      {# ── Holiday notices ── #}
+      {% if holidays.get('kospi_holiday') %}
+      <p class="market-holiday-notice" role="status">
+        {% if lang == 'en' %}KOSPI closed today{% else %}오늘 KOSPI 휴장{% endif %}
+      </p>
+      {% endif %}
+      {% if holidays.get('nyse_holiday') %}
+      <p class="market-holiday-notice" role="status">
+        {% if lang == 'en' %}NYSE closed today{% else %}오늘 NYSE 휴장{% endif %}
+      </p>
+      {% endif %}
+
+      {# ── Macro: Inline ticker strip (주요 지수 한 줄) ── #}
+      {# Jinja2 매크로: 인라인 티커 한 줄 #}
+      {% macro ticker_inline(item) %}
+      <span style="display:inline-flex;align-items:baseline;gap:4px;margin-right:16px;white-space:nowrap;">
+        <span style="font-size:12px;color:var(--text-secondary);font-weight:500;">{{ item.name }}</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;">{{ "{:,.2f}".format(item.price) }}</span>
+        {% if item.change_pct > 0 %}
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--up);">&#9650;+{{ "{:.2f}".format(item.change_pct) }}%</span>
+        {% elif item.change_pct < 0 %}
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--down);">&#9660;{{ "{:.2f}".format(item.change_pct) }}%</span>
+        {% else %}
+        <span style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);">0.00%</span>
+        {% endif %}
+        {% if item.sparkline_svg %}{{ item.sparkline_svg | safe }}{% endif %}
+      </span>
+      {% endmacro %}
+
+      {# ── KR + US 주요 지수: 한 줄 스트립 ── #}
+      <div style="padding:12px 0;border-bottom:1px solid var(--border);line-height:2;overflow-x:auto;">
+        {% for item in markets.get('kr', []) %}{{ ticker_inline(item) }}{% endfor %}
+        {% for item in markets.get('us', []) %}{{ ticker_inline(item) }}{% endfor %}
+      </div>
+
+      {# ── FX + Commodities + Crypto + Risk: 한 줄씩 ── #}
+      <div style="padding:8px 0;border-bottom:1px solid var(--border);line-height:2;overflow-x:auto;">
+        {% for item in markets.get('fx', []) %}{{ ticker_inline(item) }}{% endfor %}
+        {% for item in markets.get('commodities', []) %}{{ ticker_inline(item) }}{% endfor %}
+        {% for item in markets.get('crypto', []) %}{{ ticker_inline(item) }}{% endfor %}
+      </div>
+
+      {# ── Risk Indicators ── #}
+      <div style="padding:8px 0;border-bottom:1px solid var(--border);line-height:2;overflow-x:auto;">
+        {% for item in markets.get('risk', []) %}{{ ticker_inline(item) }}{% endfor %}
+      </div>
+
+      {# ── S&P Sector ETFs: 미니 히트맵 ── #}
+      {% if markets.get('sectors') %}
+      <div style="margin-top:12px;">
+        <div style="font-size:11px;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">S&P Sectors</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;">
+          {% for item in markets.sectors %}
+          {% if item.change_pct > 1 %}{% set bg = '#DCFCE7' %}{% set fg = '#16A34A' %}
+          {% elif item.change_pct > 0 %}{% set bg = '#F0FDF4' %}{% set fg = '#16A34A' %}
+          {% elif item.change_pct < -1 %}{% set bg = '#FEF2F2' %}{% set fg = '#DC2626' %}
+          {% elif item.change_pct < 0 %}{% set bg = '#FFF1F2' %}{% set fg = '#DC2626' %}
+          {% else %}{% set bg = '#F3F4F6' %}{% set fg = '#6B7280' %}
+          {% endif %}
+          <div style="background:{{ bg }};padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:{{ fg }};white-space:nowrap;" title="{{ item.name }}: {{ '{:+.2f}'.format(item.change_pct) }}%">
+            {{ item.name }} {{ '{:+.1f}'.format(item.change_pct) }}%
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {# Old grid sections removed — replaced by inline ticker strips above #}
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ WORLD NEWS ═══════════════════════════════════════ -->
+    <section aria-label="세계 뉴스">
+      <h2 class="section-title">World</h2>
+      {% if world_news %}
+      <ul class="news-list">
+        {% for item in world_news %}
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+            </h3>
+            {% if item.summary %}
+            <p class="news-summary">{{ item.summary }}</p>
+            {% endif %}
+            {% if item.source %}
+            <p class="news-source">{{ item.source }}</p>
+            {% endif %}
+          </article>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="news-empty">글로벌 뉴스를 가져올 수 없습니다.</p>
+      {% endif %}
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ KOREA NEWS ═══════════════════════════════════════ -->
+    <section aria-label="한국 뉴스">
+      <h2 class="section-title">Korea</h2>
+      {% if korea_news %}
+      <ul class="news-list">
+        {% for item in korea_news %}
+        <li class="news-item">
+          <article>
+            <h3 class="news-headline">
+              {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+            </h3>
+            {% if item.summary %}
+            <p class="news-summary">{{ item.summary }}</p>
+            {% endif %}
+            {% if item.source %}
+            <p class="news-source">{{ item.source }}</p>
+            {% endif %}
+          </article>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="news-empty">국내 뉴스를 가져올 수 없습니다.</p>
+      {% endif %}
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+    <footer class="site-footer">
+      <div class="footer-actions">
+        <a href="{{ site_url }}/archive/">과거 브리핑 보기</a>
+      </div>
+      <div class="footer-meta">
+        <p>Powered by AI &middot; Data: Yahoo Finance, FRED, RSS</p>
+        <p>Generated <time datetime="{{ generated_at }}">{{ generated_at }}</time></p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Chart.js data placeholder — populated by render pipeline -->
+  <script type="application/json" id="chart-data">
+    {{ chart_data | default('{}') }}
+  </script>
+
+</body>
+</html>

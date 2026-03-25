@@ -1,55 +1,54 @@
 # Daily Brief — TODO
 
-## Phase 1: Foundation
-- [ ] GitHub 레포 생성 (`kipeum86/daily-brief`)
-- [ ] 프로젝트 구조 scaffolding (pipeline/, templates/, static/, tests/)
-- [ ] config.yaml 스키마 설계 (데이터 소스, RSS 피드, 구독자, AI 모델 설정)
-- [ ] .env.example 작성 (ANTHROPIC_API_KEY, FRED_API_KEY, EMAIL_API_KEY)
+## v1: Core Pipeline ✅
+- [x] 프로젝트 구조 scaffolding (24개 Python 파일)
+- [x] config.yaml + .env.example
+- [x] auto-newsbriefing 모듈 copy-and-own (collector, dedup, llm, config, models)
+- [x] Markets 데이터 수집 (yfinance + FRED fallback + 병렬 수집)
+- [x] S&P 섹터 ETF 11개 + 마켓 펄스 (Risk-On/Off)
+- [x] 스파크라인 SVG (곡선 보간 + 그라디언트)
+- [x] 뉴스 수집: 글로벌 RSS (Reuters, BBC, Guardian, Al Jazeera, AP, NPR)
+- [x] 뉴스 수집: 한국 네이버 API (키워드 검색, 국내 이슈만)
+- [x] 뉴스 중복 제거 (3단계 dedup)
+- [x] AI 브리핑 (Gemini 기본, pluggable provider)
+- [x] 한/영 토글 (2개 HTML 생성 + 뉴스 번역)
+- [x] Jinja2 대시보드 (Economist × FT 에디토리얼 스타일)
+- [x] 이메일 템플릿 (인라인 CSS, matplotlib 차트)
+- [x] Resend API 이메일 발송
+- [x] Google Sheets 아카이브
+- [x] GitHub Actions (KST 05:00 cron)
+- [x] main.py 오케스트레이터 (graceful degradation, CLI)
+- [x] 과거 브리핑 탐색 (◀▶ 네비 + /archive 페이지)
+- [x] dry-run 검증 (14 tickers, 186 articles, 에러 0)
 
-## Phase 2: Data Collection
-- [ ] Yahoo Finance (yfinance) 시장 데이터 수집 모듈
-  - KOSPI, KOSDAQ, S&P 500, Nasdaq, VIX, 환율, 원자재, 암호화폐
-- [ ] FRED API 매크로 지표 수집 (미 국채 10Y, 달러 인덱스)
-- [ ] RSS 뉴스 수집 모듈
-  - 글로벌: Reuters, AP News, BBC World
-  - 한국: 네이버 뉴스 RSS (안정성 우선)
-  - 경제: CNBC, MarketWatch
-- [ ] 뉴스 중복 제거 로직 (auto-newsbriefing 패턴 참고)
-
-## Phase 3: AI Briefing
-- [ ] Claude API 연동 (Haiku 모델, config.yaml에서 모델 설정 가능)
-- [ ] 뉴스 요약 프롬프트 설계
-- [ ] 시장+뉴스 교차 인사이트 프롬프트 설계
-- [ ] 저녁/아침 브리핑별 프롬프트 분리
-
-## Phase 4: Dashboard (Web)
-- [ ] Jinja2 대시보드 템플릿 (base.html + 섹션별 partial)
-- [ ] Chart.js 시장 차트 (지수 변동, 환율 등)
-- [ ] Plotly.js treemap 히트맵 (업종별/섹터별 등락, Finviz 스타일)
-- [ ] Dark theme 디자인
-- [ ] 모바일 반응형 레이아웃
-- [ ] 브리핑 아카이브 (날짜별 과거 브리핑 보존)
-
-## Phase 5: Email
-- [ ] Jinja2 이메일 템플릿 (인라인 CSS, JS 없음)
-- [ ] 히트맵 → HTML 테이블 + 배경색 셀 변환
-- [ ] 차트 → matplotlib (Agg backend) PNG → base64 인라인 임베딩
-- [ ] Resend API 이메일 발송 연동
-- [ ] 구독자 관리 (config.yaml)
-
-## Phase 6: Automation
-- [ ] GitHub Actions 저녁 워크플로우 (cron: '30 7 * * 1-5' UTC = KST 16:30)
-- [ ] GitHub Actions 아침 워크플로우 (cron: '30 22 * * 1-5' UTC = KST 07:30)
-- [ ] GitHub Pages 배포 (peaceiris/actions-gh-pages, gh-pages 브랜치)
-- [ ] 에러 핸들링 + graceful degradation
-
-## Phase 7: Launch
+## v1 남은 작업
+- [ ] GitHub 레포 생성 + push
+- [ ] GitHub Pages 활성화
+- [ ] Gemini API 키 설정 후 full run (AI 인사이트 포함)
+- [ ] 네이버 API 키 설정 (NAVER_CLIENT_ID, NAVER_CLIENT_SECRET)
 - [ ] 본인 사용 테스트 (1주일)
-- [ ] 친구 초대 (이메일 구독)
-- [ ] GitHub 포트폴리오 등록
+- [ ] 테스트 작성 (핵심+중요 7개 파일)
 
-## 10x Vision (향후)
-- [ ] 포트폴리오 연동 — 내 보유 종목과 매크로 변화 연결
-- [ ] 히스토리 트래킹 — 과거 브리핑 트렌드 시각화
-- [ ] 맞춤 관심사 — config.yaml 관심 섹터/키워드 필터링
-- [ ] 한국은행 ECOS API 연동
+## v1.5: Recap
+- [ ] Weekly Recap (매주 토요일, Sheets 데이터 기반)
+- [ ] Monthly Recap (매월 초, 월간 성과 + 전망)
+
+## v2: 위젯 & 배포
+- [ ] JSON API 출력 (output/api/latest.json) — 위젯/외부 연동용
+- [ ] iOS 위젯 (Scriptable) — 잠금화면 KOSPI, VIX, AI 인사이트
+- [ ] macOS 위젯 (Übersicht) — 데스크톱 위젯
+- [ ] Android 위젯 (KWGT/Tasker)
+- [ ] PWA manifest.json + 서비스워커
+- [ ] App Store 배포 검토 (Apple $99/년, Microsoft $19)
+
+## v2: 디자인 강화
+- [ ] Plotly.js treemap 히트맵 (Finviz 스타일)
+- [ ] Dark theme 토글
+- [ ] browse daemon 비주얼 QA (/design-review)
+
+## v2: 데이터 강화
+- [ ] 한국은행 ECOS API
+- [ ] 경제 캘린더 (FOMC, 고용지표 등)
+- [ ] 포트폴리오 연동 — 보유 종목 × 매크로 변화
+- [ ] 맞춤 관심사 — 관심 섹터/키워드 필터링
+- [ ] ParlaWatch 스타일 DB 기반 웹 (검색, 필터, 날짜 범위)

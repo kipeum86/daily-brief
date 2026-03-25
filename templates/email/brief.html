@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+  <title>Daily Brief · {{ date_str }}</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+</head>
+<body style="margin:0; padding:0; background-color:#F0F0EE; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; font-family:'Helvetica Neue', Helvetica, Arial, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;">
+
+<!-- Outer wrapper: full-width background -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F0F0EE;">
+  <tr>
+    <td align="center" style="padding:24px 16px;">
+
+      <!-- Inner container: 600px max -->
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; width:100%; background-color:#FFFFFF;">
+
+        {# ── HEADER ── #}
+        <tr>
+          <td style="padding:32px 32px 16px 32px; border-bottom:3px solid #B91C1C;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="font-family:Georgia, 'Noto Serif', serif; font-size:28px; font-weight:700; color:#B91C1C; line-height:1.2;">
+                  Daily Brief
+                </td>
+              </tr>
+              <tr>
+                <td style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; color:#6B7280; padding-top:8px; line-height:1.4;">
+                  {{ date_str }}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        {# ── CTA: 웹에서 보기 ── #}
+        <tr>
+          <td style="padding:20px 32px 12px 32px;" align="center">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="background-color:#B91C1C; border-radius:4px;">
+                  <a href="{{ web_url }}" target="_blank" style="display:inline-block; padding:12px 28px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:15px; font-weight:600; color:#FFFFFF; text-decoration:none; letter-spacing:0.3px;">
+                    &#127760; 웹에서 보기
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        {# ── AI INSIGHT ── #}
+        <tr>
+          <td style="padding:24px 32px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F8F5F0; border-left:4px solid #B91C1C;">
+              <tr>
+                <td style="padding:20px 24px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; color:#B91C1C; text-transform:uppercase; letter-spacing:1.5px; padding-bottom:12px;">
+                        AI Insight — 오늘의 핵심
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-family:Georgia, 'Noto Serif', serif; font-size:16px; color:#1A1A1A; line-height:1.7;">
+                        {% if insight_text %}
+                          {{ insight_text }}
+                        {% else %}
+                          AI 분석을 사용할 수 없습니다. 아래 데이터로 직접 판단하세요.
+                        {% endif %}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        {# ── MARKETS ── #}
+        <tr>
+          <td style="padding:0 32px 24px 32px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; color:#6B7280; text-transform:uppercase; letter-spacing:1.5px; padding-bottom:12px; border-bottom:1px solid #E5E5E5;">
+                  Markets
+                </td>
+              </tr>
+            </table>
+
+            {# Holiday banners #}
+            {% if holidays %}
+              {% if holidays.get("kospi_holiday") %}
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:12px;">
+                <tr>
+                  <td style="padding:10px 14px; background-color:#FEF3C7; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:13px; color:#92400E; border-radius:4px;">
+                    오늘 KOSPI 휴장{% if holidays.get("kospi_reason") %} ({{ holidays.kospi_reason }}){% endif %}
+                  </td>
+                </tr>
+              </table>
+              {% endif %}
+              {% if holidays.get("nyse_holiday") %}
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:8px;">
+                <tr>
+                  <td style="padding:10px 14px; background-color:#FEF3C7; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:13px; color:#92400E; border-radius:4px;">
+                    오늘 NYSE 휴장{% if holidays.get("nyse_reason") %} ({{ holidays.nyse_reason }}){% endif %}
+                  </td>
+                </tr>
+              </table>
+              {% endif %}
+            {% endif %}
+
+            {# Market data table #}
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;">
+              <tr>
+                <td style="padding:8px 12px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; color:#6B7280; text-transform:uppercase; background-color:#FAFAF8; border-bottom:1px solid #E5E5E5;">지표</td>
+                <td align="right" style="padding:8px 12px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; color:#6B7280; text-transform:uppercase; background-color:#FAFAF8; border-bottom:1px solid #E5E5E5;">가격</td>
+                <td align="right" style="padding:8px 12px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; color:#6B7280; text-transform:uppercase; background-color:#FAFAF8; border-bottom:1px solid #E5E5E5;">변동</td>
+              </tr>
+              {% for category in ["kr", "us", "fx", "commodities", "crypto", "risk"] %}
+                {% if markets.get(category) %}
+                  {% for item in markets[category] %}
+                  <tr>
+                    <td style="padding:10px 12px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px; font-weight:600; color:#1A1A1A; border-bottom:1px solid #F3F3F3;">
+                      {{ item.name }}
+                    </td>
+                    <td align="right" style="padding:10px 12px; font-family:'Courier New', Courier, monospace; font-size:14px; font-weight:500; color:#1A1A1A; border-bottom:1px solid #F3F3F3;">
+                      {% if item.price %}{{ "{:,.2f}".format(item.price) }}{% else %}—{% endif %}
+                    </td>
+                    <td align="right" style="padding:10px 12px; font-family:'Courier New', Courier, monospace; font-size:13px; font-weight:600; border-bottom:1px solid #F3F3F3;
+                      {% if item.change_pct > 0 %}
+                        color:#16A34A; background-color:#F0FDF4;
+                      {% elif item.change_pct < 0 %}
+                        color:#DC2626; background-color:#FEF2F2;
+                      {% else %}
+                        color:#6B7280;
+                      {% endif %}
+                    ">
+                      {% if item.change_pct > 0 %}&#9650; +{{ "%.2f"|format(item.change_pct) }}%
+                      {% elif item.change_pct < 0 %}&#9660; {{ "%.2f"|format(item.change_pct) }}%
+                      {% else %}— 0.00%
+                      {% endif %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </table>
+          </td>
+        </tr>
+
+        {# ── WORLD NEWS ── #}
+        <tr>
+          <td style="padding:0 32px 24px 32px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; color:#6B7280; text-transform:uppercase; letter-spacing:1.5px; padding-bottom:12px; border-bottom:1px solid #E5E5E5;">
+                  World News
+                </td>
+              </tr>
+            </table>
+            {% if world_news %}
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                {% for article in world_news %}
+                <tr>
+                  <td style="padding:14px 0; border-bottom:1px solid #F3F3F3;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td>
+                          <a href="{{ article.url }}" target="_blank" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:15px; font-weight:600; color:#1A1A1A; text-decoration:none; line-height:1.4;">
+                            {{ article.title }}
+                          </a>
+                        </td>
+                      </tr>
+                      {% if article.summary %}
+                      <tr>
+                        <td style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:13px; color:#6B7280; line-height:1.5; padding-top:4px;">
+                          {{ article.summary[:120] }}{% if article.summary|length > 120 %}…{% endif %}
+                        </td>
+                      </tr>
+                      {% endif %}
+                      <tr>
+                        <td style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#9CA3AF; padding-top:4px;">
+                          {{ article.source }}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                {% endfor %}
+              </table>
+            {% else %}
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding:16px 0; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px; color:#9CA3AF;">
+                    글로벌 뉴스가 없습니다.
+                  </td>
+                </tr>
+              </table>
+            {% endif %}
+          </td>
+        </tr>
+
+        {# ── KOREA NEWS ── #}
+        <tr>
+          <td style="padding:0 32px 24px 32px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; color:#6B7280; text-transform:uppercase; letter-spacing:1.5px; padding-bottom:12px; border-bottom:1px solid #E5E5E5;">
+                  Korea News
+                </td>
+              </tr>
+            </table>
+            {% if korea_news %}
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                {% for article in korea_news %}
+                <tr>
+                  <td style="padding:14px 0; border-bottom:1px solid #F3F3F3;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td>
+                          <a href="{{ article.url }}" target="_blank" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:15px; font-weight:600; color:#1A1A1A; text-decoration:none; line-height:1.4;">
+                            {{ article.title }}
+                          </a>
+                        </td>
+                      </tr>
+                      {% if article.summary %}
+                      <tr>
+                        <td style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:13px; color:#6B7280; line-height:1.5; padding-top:4px;">
+                          {{ article.summary[:120] }}{% if article.summary|length > 120 %}…{% endif %}
+                        </td>
+                      </tr>
+                      {% endif %}
+                      <tr>
+                        <td style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#9CA3AF; padding-top:4px;">
+                          {{ article.source }}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                {% endfor %}
+              </table>
+            {% else %}
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="padding:16px 0; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px; color:#9CA3AF;">
+                    국내 뉴스가 없습니다.
+                  </td>
+                </tr>
+              </table>
+            {% endif %}
+          </td>
+        </tr>
+
+        {# ── FOOTER ── #}
+        <tr>
+          <td style="padding:24px 32px; background-color:#FAFAF8; border-top:1px solid #E5E5E5;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center" style="padding-bottom:16px;">
+                  <a href="{{ web_url }}/archive/" target="_blank" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:14px; color:#B91C1C; text-decoration:underline;">
+                    과거 브리핑 보기
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; color:#9CA3AF; line-height:1.6;">
+                  Powered by AI &middot; 데이터: Yahoo Finance, FRED, RSS
+                  <br>
+                  <a href="#unsubscribe" style="color:#9CA3AF; text-decoration:underline;">구독 취소</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+      <!-- /Inner container -->
+
+    </td>
+  </tr>
+</table>
+<!-- /Outer wrapper -->
+
+</body>
+</html>
