@@ -15,11 +15,16 @@ Selection criteria:
 - Significant corporate news (earnings surprises, M&A, leadership changes at major companies)
 - Geopolitical developments with economic impact
 
+DIVERSITY RULES:
+- Maximize source diversity — do NOT pick multiple articles from the same outlet
+- No overlapping topics — each selected article must cover a DIFFERENT subject
+- Spread across different regions/themes when possible
+
 EXCLUDE:
 - Routine personnel appointments ("인사 발령")
 - Celebrity/entertainment news
 - Local crime/accidents
-- Repetitive/duplicate stories
+- Repetitive/duplicate stories (even from different sources)
 - Opinion pieces or editorials
 
 Return ONLY a JSON array of the selected headline indices (0-based).
