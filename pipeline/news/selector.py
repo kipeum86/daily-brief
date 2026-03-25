@@ -72,14 +72,30 @@ def select_top_news(
             response = response.split("\n", 1)[1].rsplit("```", 1)[0]
         indices = json.loads(response)
 
-        # 유효한 인덱스만 필터
+        # 유효한 인덱스만 필터 + 소스당 최대 1개 강제
         selected = []
+        used_sources: set[str] = set()
         for idx in indices:
             if isinstance(idx, int) and 0 <= idx < len(articles):
-                selected.append(articles[idx])
+                art = articles[idx]
+                src = art.get("source", "") if isinstance(art, dict) else getattr(art, "source", "")
+                if src not in used_sources:
+                    selected.append(art)
+                    used_sources.add(src)
+
+        # AI가 소스 다양성을 못 맞췄으면, 남은 슬롯을 다른 소스에서 채움
+        if len(selected) < top_n:
+            for art in articles:
+                if len(selected) >= top_n:
+                    break
+                src = art.get("source", "") if isinstance(art, dict) else getattr(art, "source", "")
+                if src not in used_sources:
+                    selected.append(art)
+                    used_sources.add(src)
 
         if selected:
-            logger.info("AI 뉴스 선별: %d개 중 %d개 선택", len(articles), len(selected))
+            sources = [a.get("source", "") if isinstance(a, dict) else getattr(a, "source", "") for a in selected]
+            logger.info("AI 뉴스 선별: %d개 중 %d개 선택 (소스: %s)", len(articles), len(selected), ", ".join(sources))
             return selected[:top_n]
 
     except Exception:
