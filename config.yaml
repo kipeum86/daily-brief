@@ -90,8 +90,7 @@ email:
   sender_name: "Daily Brief"
   sender_email: "kipeum86@gmail.com"
   subject_prefix: "Daily Brief"
-  subscribers:
-    - "kipeum86@gmail.com"
+  subscribers: []  # 환경변수 SUBSCRIBERS에서 로드 (쉼표 구분). config에 직접 넣지 마세요.
 
 # Google Sheets 아카이브
 sheets:

@@ -32,6 +32,7 @@ jobs:
       NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}   # 네이버 뉴스
       GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}               # 이메일 발송
       GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}     # 이메일 발송
+      SUBSCRIBERS: ${{ secrets.SUBSCRIBERS }}                   # 수신자 (쉼표 구분)
       GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}  # 시트 아카이브 (선택)
 
     steps:

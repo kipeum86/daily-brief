@@ -59,7 +59,12 @@ def send_email(
         )
         return False
 
-    subscribers = email_config.get("subscribers", [])
+    # 환경변수 우선, config fallback
+    env_subscribers = os.environ.get("SUBSCRIBERS", "")
+    if env_subscribers:
+        subscribers = [s.strip() for s in env_subscribers.split(",") if s.strip()]
+    else:
+        subscribers = email_config.get("subscribers", [])
     if not subscribers:
         logger.warning("No subscribers configured in config.email.subscribers")
         return False
