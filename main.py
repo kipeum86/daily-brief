@@ -327,7 +327,9 @@ def run(args: argparse.Namespace) -> int:
                 "pipeline.deliver.mailer", "send_email",
                 _send_email_stub,
             )
-            send_email(config, html_path, run_date)
+            # 렌더링된 HTML 파일 내용을 읽어서 이메일 본문으로 전달
+            email_html = Path(html_path).read_text(encoding="utf-8")
+            send_email(config, email_html, run_date, insight_text=insight)
             sections.append("email")
         except Exception as exc:
             logger.error("Email delivery failed: %s", exc)
