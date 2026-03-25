@@ -11,3 +11,4 @@ trends/*.txt
 dist/
 build/
 .DS_Store
+.gstack/

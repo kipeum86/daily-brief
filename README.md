@@ -31,24 +31,11 @@
 
 Think of it as your personal **Economist "World in Brief"** — but tailored for Korean investors, fully automated, and completely free to run.
 
-```
-┌─────────────────────────────────────────────┐
-│  Today's Brief                               │
-│  ─────────────────────────────────────────── │
-│  AI editorial insight connecting markets     │
-│  and news — not a data dump, but a story.    │
-├─────────────────────────────────────────────┤
-│  KOSPI 2,547 ▲0.3%  ╏  S&P 5,234 ▼0.1%     │
-│  USD/KRW 1,342 ▲0.5% ╏  VIX 18.2 ▲12%      │
-│  ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ │
-│  Tech +1.2% │ Energy -0.8% │ Finance +0.3%  │
-├─────────────────────────────────────────────┤
-│  World: Reuters, BBC, Guardian, Al Jazeera   │
-│  Korea: Naver API (domestic issues only)     │
-├─────────────────────────────────────────────┤
-│  ◀ Yesterday    March 25, 2026    Tomorrow ▶ │
-└─────────────────────────────────────────────┘
-```
+<p align="center">
+  <a href="https://kipeum86.github.io/daily-brief/">
+    <img src="docs/preview.png" alt="Daily Brief Preview" width="720" />
+  </a>
+</p>
 
 ## Key Features
 
