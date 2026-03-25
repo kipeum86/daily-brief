@@ -89,19 +89,20 @@ def send_email(
     sender_email = email_config.get("sender_email", gmail_address)
 
     try:
-        msg = MIMEMultipart("alternative")
+        from email.message import EmailMessage
+
+        msg = EmailMessage()
         msg["From"] = f"Daily Brief <{sender_email}>"
         msg["To"] = sender_email
         msg["Bcc"] = ", ".join(subscribers)
-        msg["Subject"] = subject.encode("utf-8").decode("utf-8")
-        msg.attach(MIMEText(html_body, "html", "utf-8"))
+        msg["Subject"] = subject
+        msg.set_content("Daily Brief - view in HTML email client")
+        msg.add_alternative(html_body, subtype="html")
 
         all_recipients = [sender_email] + subscribers
-        raw = msg.as_string().encode("utf-8")
-
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
             server.login(gmail_address, gmail_password)
-            server.sendmail(gmail_address, all_recipients, raw)
+            server.send_message(msg, to_addrs=all_recipients)
 
         logger.info("Email sent to %d recipient(s) via Gmail SMTP", len(subscribers))
         return True
