@@ -112,5 +112,5 @@ def send_email(
         return True
 
     except Exception as exc:
-        logger.error("Failed to send email via Gmail: %s", exc)
+        logger.error("Failed to send email via Gmail: %s", exc, exc_info=True)
         return False
