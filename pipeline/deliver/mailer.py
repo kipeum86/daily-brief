@@ -10,6 +10,7 @@ import logging
 import os
 import re
 import smtplib
+from pathlib import Path
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from typing import Any
@@ -59,12 +60,18 @@ def send_email(
         )
         return False
 
-    # 환경변수 우선, config fallback
+    # 1) 환경변수 SUBSCRIBERS (GitHub Actions용)
+    # 2) subscribers.txt 파일 (로컬용, .gitignore에 포함)
+    # 3) config fallback
     env_subscribers = os.environ.get("SUBSCRIBERS", "")
     if env_subscribers:
         subscribers = [s.strip() for s in env_subscribers.split(",") if s.strip()]
     else:
-        subscribers = email_config.get("subscribers", [])
+        sub_file = Path(__file__).parent.parent.parent / email_config.get("subscribers_file", "subscribers.txt")
+        if sub_file.exists():
+            subscribers = [s.strip() for s in sub_file.read_text().splitlines() if s.strip() and not s.startswith("#")]
+        else:
+            subscribers = email_config.get("subscribers", [])
     if not subscribers:
         logger.warning("No subscribers configured in config.email.subscribers")
         return False
