@@ -76,14 +76,8 @@ def send_email(
         logger.warning("No subscribers configured in config.email.subscribers")
         return False
 
-    # Build subject (non-breaking space 등 특수문자 제거)
     prefix = email_config.get("subject_prefix", "Daily Brief")
-    snippet = _extract_first_line(insight_text)
     subject = f"{prefix} - {date_str}"
-    if snippet:
-        subject = f"{subject} - {snippet}"
-    # ASCII 호환 안 되는 특수 공백 등 제거
-    subject = subject.replace("\xa0", " ").replace("\u200b", "")
 
     sender_name = email_config.get("sender_name", "Daily Brief")
     sender_email = email_config.get("sender_email", gmail_address)
