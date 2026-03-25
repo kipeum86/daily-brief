@@ -89,24 +89,19 @@ def send_email(
     sender_email = email_config.get("sender_email", gmail_address)
 
     try:
-        from email.header import Header
-
         msg = MIMEMultipart("alternative")
-        msg["From"] = str(Header(sender_name, "utf-8")) + f" <{sender_email}>"
+        msg["From"] = f"Daily Brief <{sender_email}>"
         msg["To"] = sender_email
         msg["Bcc"] = ", ".join(subscribers)
-        msg["Subject"] = Header(subject, "utf-8")
+        msg["Subject"] = subject.encode("utf-8").decode("utf-8")
         msg.attach(MIMEText(html_body, "html", "utf-8"))
 
         all_recipients = [sender_email] + subscribers
-        # utf-8 policy 적용하여 인코딩 문제 방지
-        from email.policy import EmailPolicy
-        policy = EmailPolicy(utf8=True)
-        msg_bytes = msg.as_bytes(policy=policy)
+        raw = msg.as_string().encode("utf-8")
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
             server.login(gmail_address, gmail_password)
-            server.sendmail(gmail_address, all_recipients, msg_bytes)
+            server.sendmail(gmail_address, all_recipients, raw)
 
         logger.info("Email sent to %d recipient(s) via Gmail SMTP", len(subscribers))
         return True
