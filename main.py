@@ -327,8 +327,17 @@ def run(args: argparse.Namespace) -> int:
                 "pipeline.deliver.mailer", "send_email",
                 _send_email_stub,
             )
-            # 렌더링된 HTML 파일 내용을 읽어서 이메일 본문으로 전달
-            email_html = Path(html_path).read_text(encoding="utf-8")
+            # 이메일 전용 HTML 렌더링
+            try:
+                from pipeline.render.email import render_email
+                email_html = render_email(
+                    config, markets, holidays,
+                    articles_ko if articles_ko else articles,
+                    insight, run_date,
+                )
+            except Exception:
+                # 이메일 템플릿 실패 시 대시보드 HTML 사용
+                email_html = Path(html_path).read_text(encoding="utf-8")
             send_email(config, email_html, run_date, insight_text=insight)
             sections.append("email")
         except Exception as exc:

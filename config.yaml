@@ -97,6 +97,9 @@ sheets:
   enabled: true
   spreadsheet_id: "1zh4uRh9Amb_LQytinKtni8tw11koz73FJT_wgCf4k7k"
 
+# 웹사이트
+site_url: "https://kipeum86.github.io/daily-brief"
+
 # 출력
 output:
   dir: "output"
