@@ -10,7 +10,7 @@ from pipeline.llm.base import LLMProvider, extract_json
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_MODEL = "gemini-2.0-flash"
+DEFAULT_MODEL = "gemini-2.5-flash"
 
 
 class GeminiProvider(LLMProvider):

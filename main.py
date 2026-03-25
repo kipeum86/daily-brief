@@ -207,7 +207,7 @@ def run(args: argparse.Namespace) -> int:
                         url=na["url"],
                         source=na.get("source", "네이버뉴스"),
                         description=na.get("summary", ""),
-                        published=na.get("published", ""),
+                        published_date=na.get("published", ""),
                     ))
                 logger.info("네이버 뉴스 %d개 추가", len(naver_articles))
             except Exception as naver_exc:
@@ -269,17 +269,27 @@ def run(args: argparse.Namespace) -> int:
             logger.error("AI briefing (en) failed: %s", exc)
             errors.append(f"ai_en: {exc}")
 
-        # Translate news for each language version
+        # Translate only what's needed per language version
+        # KO ver: world(영→한) + korea(원본)
+        # EN ver: world(원본) + korea(한→영)
         try:
             from pipeline.ai.translate import translate_news
             from pipeline.ai.briefing import _get_provider
+            from pipeline.render.dashboard import _split_news
             provider = _get_provider(config)
 
-            # For Korean version: translate English news → Korean
-            articles_ko = translate_news(provider, articles, target_lang="ko")
-            # For English version: translate Korean news → English
-            articles_en = translate_news(provider, articles, target_lang="en")
+            world_news, korea_news = _split_news(articles, config)
+
+            # 한국어 버전: 영어 world 뉴스만 한국어로 번역
+            world_ko = translate_news(provider, world_news, target_lang="ko")
+            articles_ko = world_ko + korea_news  # world(번역) + korea(원본)
+
+            # 영어 버전: 한국어 korea 뉴스만 영어로 번역
+            korea_en = translate_news(provider, korea_news, target_lang="en")
+            articles_en = world_news + korea_en  # world(원본) + korea(번역)
+
             sections.append("news_translated")
+            logger.info("번역 완료: world %d개(→한국어) + korea %d개(→영어)", len(world_news), len(korea_news))
         except Exception as exc:
             logger.warning("News translation failed (using originals): %s", exc)
             articles_ko = articles

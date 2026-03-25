@@ -148,7 +148,7 @@ One line per signal, key point only.
 
 ### 형식 주의사항
 - Markdown 형식으로 작성하세요.
-- 각 섹션은 `## 오늘의 핵심`, `## 시장 동향`, `## 크로스마켓 시그널` 제목을 사용하세요.
+- 각 섹션은 `## Key Insight`, `## Market Overview`, `## Cross-Market Signals` 제목을 사용하세요 (제목은 영어, 본문은 한국어).
 - 전체 분량은 300~500자(한글 기준) 이내로 간결하게 유지하세요.
 """)
 

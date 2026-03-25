@@ -137,23 +137,59 @@
 
     .insight-label {
       font-family: var(--font-sans);
-      font-size: 11px;
+      font-size: 22px;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
     }
 
     .insight-body {
       font-family: var(--font-serif);
-      font-size: 16px;
-      line-height: 1.85;
+      font-size: 14px;
+      line-height: 1.75;
       color: var(--text);
     }
 
     .insight-body p { margin-bottom: 1em; }
     .insight-body p:last-child { margin-bottom: 0; }
+
+    .insight-body h2 {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 20px 0 6px;
+    }
+    .insight-body h2:first-child { margin-top: 0; }
+
+    .insight-body h3 {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    .insight-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 16px;
+    }
+
+    .insight-body li {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      padding: 6px 0 6px 16px;
+      border-left: 2px solid var(--accent);
+      margin-bottom: 6px;
+    }
 
     .insight-empty {
       font-family: var(--font-sans);
@@ -167,7 +203,8 @@
         margin: 0 -16px;
         padding: 32px 32px 36px;
       }
-      .insight-body { font-size: 18px; }
+      .insight-label { font-size: 24px; }
+      .insight-body { font-size: 15px; }
     }
 
     /* ── Markets Section ───────────────────────────────────── */
@@ -391,7 +428,7 @@
     <!-- ═══ AI INSIGHT ═══════════════════════════════════════ -->
     <section class="insight-section" aria-label="AI 인사이트">
       <div class="container">
-        <div class="insight-label">오늘의 핵심</div>
+        <div class="insight-label">Today's Brief</div>
         {% if insight_text %}
         <div class="insight-body">
           {{ insight_text }}

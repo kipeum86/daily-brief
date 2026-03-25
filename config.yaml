@@ -7,7 +7,7 @@ briefing:
 # LLM Provider
 llm:
   provider: "gemini"          # gemini, claude, openai
-  model: ""                   # 비우면 기본값 (gemini-2.0-flash)
+  model: "gemini-2.5-flash"  # 무료 tier, 250회/일, 브리핑에 충분
   max_input_chars: 8000
 
 # 시장 데이터

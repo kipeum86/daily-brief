@@ -51,6 +51,33 @@ def _format_date_english(iso_date: str) -> str:
     return f"{weekday}, {month} {dt.day}, {dt.year}"
 
 
+def _md_to_html(text: str) -> str:
+    """Markdown 텍스트를 HTML로 변환. AI insight용."""
+    if not text:
+        return ""
+    try:
+        import markdown
+        return markdown.markdown(text, extensions=["smarty"])
+    except ImportError:
+        # markdown 패키지 없으면 간이 변환
+        import re
+        html = text
+        # ## 제목 → <h3>
+        html = re.sub(r"^## (.+)$", r"<h3>\1</h3>", html, flags=re.MULTILINE)
+        # * 리스트 → <li>
+        html = re.sub(r"^\*\s+(.+)$", r"<li>\1</li>", html, flags=re.MULTILINE)
+        # 빈 줄 → <p> 분리
+        paragraphs = html.split("\n\n")
+        result = []
+        for p in paragraphs:
+            p = p.strip()
+            if p.startswith("<h3>") or p.startswith("<li>"):
+                result.append(p)
+            elif p:
+                result.append(f"<p>{p}</p>")
+        return "\n".join(result)
+
+
 def _format_date(iso_date: str, lang: str = "ko") -> str:
     if lang == "en":
         return _format_date_english(iso_date)
@@ -110,8 +137,15 @@ def _split_news(articles: list, config: dict) -> tuple[list[dict], list[dict]]:
     korea_news, everything else goes to world_news.
     """
     korea_source_names: set[str] = set()
-    for src in config.get("news", {}).get("korea", []):
-        korea_source_names.add(src.get("name", ""))
+    korea_cfg = config.get("news", {}).get("korea", [])
+    if isinstance(korea_cfg, list):
+        # RSS mode: list of {"name": "연합뉴스", "url": "..."}
+        for src in korea_cfg:
+            if isinstance(src, dict):
+                korea_source_names.add(src.get("name", ""))
+    else:
+        # Naver API mode: korea config is a dict, source name is "네이버뉴스"
+        korea_source_names.add("네이버뉴스")
 
     world_news: list[dict] = []
     korea_news: list[dict] = []
@@ -190,7 +224,7 @@ def _build_template_context(
         "date_iso": run_date,
         "prev_date": prev_date,
         "next_date": next_date,
-        "insight_text": insight,
+        "insight_text": _md_to_html(insight),
         "markets": normalized_markets,
         "world_news": world_news,
         "korea_news": korea_news,

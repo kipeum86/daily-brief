@@ -36,11 +36,13 @@ def translate_news(
     # Build batch prompt — translate all at once for efficiency
     items = []
     for i, art in enumerate(articles):
-        items.append({
-            "id": i,
-            "title": art.get("title", ""),
-            "summary": art.get("summary", ""),
-        })
+        if isinstance(art, dict):
+            title = art.get("title", "")
+            summary = art.get("summary", "") or art.get("description", "")
+        else:
+            title = getattr(art, "title", "")
+            summary = getattr(art, "description", "") or getattr(art, "body", "")
+        items.append({"id": i, "title": title, "summary": summary})
 
     user_prompt = f"""Translate the following news items to {lang_name}.
 Return a JSON array with the same structure (id, title, summary), translated.
@@ -63,11 +65,22 @@ Output (JSON array only):"""
         result = []
         for i, art in enumerate(articles):
             t = trans_map.get(i, {})
-            result.append({
-                **art,
-                "title": t.get("title", art.get("title", "")),
-                "summary": t.get("summary", art.get("summary", "")),
-            })
+            if isinstance(art, dict):
+                entry = dict(art)
+                entry["title"] = t.get("title", art.get("title", ""))
+                entry["summary"] = t.get("summary", art.get("summary", ""))
+            else:
+                # Article dataclass — create a copy with translated fields
+                from pipeline.models import Article
+                entry = Article(
+                    title=t.get("title", getattr(art, "title", "")),
+                    url=getattr(art, "url", ""),
+                    source=getattr(art, "source", ""),
+                    description=t.get("summary", getattr(art, "description", "")),
+                    published_date=getattr(art, "published_date", ""),
+                    body=getattr(art, "body", ""),
+                )
+            result.append(entry)
 
         logger.info("Translated %d news items to %s", len(result), lang_name)
         return result
