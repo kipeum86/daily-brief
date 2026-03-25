@@ -327,13 +327,14 @@ def run(args: argparse.Namespace) -> int:
                 "pipeline.deliver.mailer", "send_email",
                 _send_email_stub,
             )
-            # 이메일 전용 템플릿 렌더링 (테이블 레이아웃, 인라인 CSS)
+            # 이메일 전용 템플릿 — 웹과 동일한 데이터 사용
             try:
                 from pipeline.render.email import render_email
                 email_html = render_email(
                     config, markets, holidays,
                     articles_ko if articles_ko else articles,
                     insight, run_date,
+                    market_pulse=market_pulse,
                 )
             except Exception as email_render_exc:
                 logger.warning("Email template render failed: %s — using dashboard HTML", email_render_exc)

@@ -70,6 +70,7 @@ def render_email(
     articles: list,
     insight: str,
     run_date: str,
+    market_pulse: dict | None = None,
 ) -> str:
     """Render the email HTML template with briefing data.
 
@@ -96,6 +97,7 @@ def render_email(
     context = _build_email_context(
         config, markets, holidays, articles, insight, run_date,
     )
+    context["market_pulse"] = market_pulse or {}
 
     # Load and render Jinja2 template
     env = Environment(
