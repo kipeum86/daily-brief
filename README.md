@@ -13,7 +13,7 @@
 <p align="center">
   <a href="https://kipeum86.github.io/daily-brief/">🌐 Live Demo</a> ·
   <a href="https://kipeum86.github.io/daily-brief/en/">🌐 English Version</a> ·
-  <a href="#한국어">🇰🇷 한국어 안내</a>
+  <a href="README.ko.md">🇰🇷 한국어 안내</a>
 </p>
 
 <p align="center">
@@ -298,55 +298,6 @@ The briefing **always deploys** — even if every external API fails, you get a 
 - [ ] Dark theme toggle
 - [ ] Economic calendar (FOMC, employment data)
 - [ ] Portfolio integration
-
----
-
-## 한국어
-
-<a id="한국어"></a>
-
-### Daily Brief — AI 모닝 브리핑
-
-<p align="center">
-  <a href="https://kipeum86.github.io/daily-brief/">
-    <img src="docs/preview.png" alt="Daily Brief 미리보기" width="720" />
-  </a>
-</p>
-
-매일 아침, AI가 한국+미국 시장 데이터와 글로벌/국내 뉴스를 분석하여 Economist × FT 스타일의 브리핑을 자동 생성합니다.
-
-**주요 기능:**
-- 📊 **시장 데이터** — KOSPI, S&P 500, 환율, 원자재, 크립토, VIX 등 14개+ 티커
-- 📰 **뉴스** — 글로벌 6개 매체 (Reuters, BBC, Guardian 등) + 네이버 API 한국 뉴스
-- 🤖 **AI 분석** — Gemini가 시장과 뉴스를 교차 분석한 에디토리얼 인사이트
-- 🌐 **한/영 토글** — 뉴스까지 전부 번역, 완전한 이중 언어 지원
-- 📧 **이메일** — Gmail로 매일 아침 자동 발송 (BCC)
-- 🗄️ **아카이브** — 과거 브리핑 날짜별 탐색
-- 💰 **비용 $0** — GitHub Actions + Pages, Gemini 무료 tier
-
-### 빠른 시작
-
-```bash
-git clone https://github.com/kipeum86/daily-brief.git
-cd daily-brief
-cp .env.example .env                    # API 키 입력
-cp subscribers.example.txt subscribers.txt  # 수신자 이메일 추가
-pip install -r requirements.txt
-python main.py --dry-run                # 테스트 실행
-```
-
-**필요한 API 키:**
-| 서비스 | 용도 | 발급 |
-|--------|------|------|
-| Google AI Studio | Gemini AI | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
-| 네이버 개발자센터 | 한국 뉴스 | [developers.naver.com](https://developers.naver.com) |
-| Gmail | 이메일 발송 | [앱 비밀번호](https://myaccount.google.com/apppasswords) (2단계 인증 필요) |
-
-**GitHub Actions 자동화:**
-
-Settings → Secrets → Actions에 시크릿 추가 후, Pages 활성화하면 매일 KST 05:00에 자동 실행됩니다.
-
-자세한 설정 방법은 [영어 가이드](#quick-start)를 참고하세요.
 
 ---
 
