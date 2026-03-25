@@ -52,6 +52,14 @@ news:
       url: "https://www.aljazeera.com/xml/rss/all.xml"
     - name: "NPR"
       url: "https://feeds.npr.org/1001/rss.xml"
+    - name: "DW"
+      url: "https://rss.dw.com/rdf/rss-en-all"
+    - name: "France 24"
+      url: "https://www.france24.com/en/rss"
+    - name: "SCMP"
+      url: "https://www.scmp.com/rss/91/feed"
+    - name: "ABC Australia"
+      url: "https://www.abc.net.au/news/feed/2942460/rss.xml"
   korea:
     source: "naver"  # naver API (추천) 또는 rss
     queries:         # 네이버 뉴스 검색 키워드 (한국 국내 이슈 중심)
