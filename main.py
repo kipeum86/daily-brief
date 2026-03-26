@@ -267,8 +267,8 @@ def run(args: argparse.Namespace) -> int:
             korea_all = [a for a in articles if (a.source if hasattr(a, 'source') else a.get('source', '')) in korea_source_names]
 
             top_n = config.get("news", {}).get("top_n", 5)
-            world_selected = select_top_news(selector_provider, world_all, top_n=top_n)
-            korea_selected = select_top_news(selector_provider, korea_all, top_n=top_n)
+            world_selected = select_top_news(selector_provider, world_all, top_n=top_n, category="world")
+            korea_selected = select_top_news(selector_provider, korea_all, top_n=top_n, category="korea")
 
             # 선별된 기사로 교체
             articles = world_selected + korea_selected

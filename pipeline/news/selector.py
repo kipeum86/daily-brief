@@ -6,7 +6,7 @@ from pipeline.llm.base import LLMProvider
 
 logger = logging.getLogger(__name__)
 
-SELECTOR_PROMPT = """\
+SELECTOR_PROMPT_WORLD = """\
 You are an editor at The Economist. From the following news headlines, select the {top_n} most important ones that a global investor and business decision-maker MUST know today.
 
 Selection criteria:
@@ -30,11 +30,34 @@ EXCLUDE:
 Return ONLY a JSON array of the selected headline indices (0-based).
 Example: [0, 3, 5, 8, 12]"""
 
+SELECTOR_PROMPT_KOREA = """\
+You are an editor at a major Korean newspaper. From the following headlines published by Korean outlets, select the {top_n} most important DOMESTIC Korean news stories.
+
+Selection criteria:
+- Korean economic policy & data (한국은행, 기재부, 고용, 물가, 부동산)
+- Korean corporate news (삼성, SK, 현대 등 주요 기업 실적·경영)
+- Korean politics & regulation affecting markets
+- Korean industry trends (반도체, 배터리, 자동차, K-콘텐츠)
+
+CRITICAL — EXCLUDE international/foreign news:
+- Wars, conflicts, or diplomacy between other countries (e.g. Iran, Ukraine, Middle East)
+- US/China/Japan/EU politics or policy (unless directly about Korea)
+- International disasters or events unrelated to Korea
+- If a Korean outlet covers a foreign story, it is still foreign news — SKIP IT
+
+DIVERSITY RULES:
+- Maximize source diversity — do NOT pick multiple articles from the same outlet
+- No overlapping topics — each selected article must cover a DIFFERENT subject
+
+Return ONLY a JSON array of the selected headline indices (0-based).
+Example: [0, 3, 5, 8, 12]"""
+
 
 def select_top_news(
     provider: LLMProvider,
     articles: list,
     top_n: int = 5,
+    category: str = "world",
 ) -> list:
     """AI가 중요도 기준으로 상위 N개 뉴스를 선별한다.
 
@@ -63,7 +86,8 @@ def select_top_news(
     user_prompt = f"Headlines:\n" + "\n".join(headlines) + f"\n\nSelect the {top_n} most important. Return JSON array of indices only:"
 
     try:
-        system = SELECTOR_PROMPT.format(top_n=top_n)
+        prompt_template = SELECTOR_PROMPT_KOREA if category == "korea" else SELECTOR_PROMPT_WORLD
+        system = prompt_template.format(top_n=top_n)
         response = provider.complete(system, user_prompt)
 
         # JSON 파싱
