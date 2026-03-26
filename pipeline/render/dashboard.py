@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -345,6 +346,44 @@ def save_archive_index(config: dict, output_dir: str) -> str:
     return str(archive_index)
 
 
+def _patch_adjacent_nav(run_date: str, output_dir: str, config: dict) -> None:
+    """Patch the previous day's archive HTML to add a 'next' nav link to today.
+
+    When a new briefing is generated, the previous day's archive page has a
+    disabled 'next' button because today's page didn't exist at render time.
+    This replaces that disabled span with a working link.
+    """
+    archive = Path(output_dir) / "archive"
+    if not archive.exists():
+        return
+
+    # Find the previous date
+    existing = sorted(p.stem for p in archive.glob("*.html") if p.stem != "index")
+    prev_date = ""
+    for d in reversed(existing):
+        if d < run_date:
+            prev_date = d
+            break
+    if not prev_date:
+        return
+
+    prev_file = archive / f"{prev_date}.html"
+    if not prev_file.exists():
+        return
+
+    html = prev_file.read_text(encoding="utf-8")
+    site_url = config.get("site_url", "").rstrip("/")
+
+    # Replace disabled "다음 ▶" span with active link
+    disabled_next = r'<span class="nav-disabled" aria-hidden="true">다음 &#9654;</span>'
+    active_next = f'<a href="{site_url}/archive/{run_date}.html">다음 &#9654;</a>'
+    new_html = re.sub(disabled_next, active_next, html)
+
+    if new_html != html:
+        prev_file.write_text(new_html, encoding="utf-8")
+        logger.info("Patched nav in %s → next=%s", prev_file.name, run_date)
+
+
 # ---------------------------------------------------------------------------
 # Main entry point (matches the signature expected by main.py)
 # ---------------------------------------------------------------------------
@@ -416,6 +455,10 @@ def render_dashboard(
     en_archive = en_dir / "archive"
     en_archive.mkdir(parents=True, exist_ok=True)
     (en_archive / f"{run_date}.html").write_text(html_en, encoding="utf-8")
+
+    # Patch prev-day archive nav to include "next" link to today
+    _patch_adjacent_nav(run_date, output_dir, config)
+    _patch_adjacent_nav(run_date, str(en_dir), config)
 
     # Regenerate archive index page (Korean)
     save_archive_index(config, output_dir)
