@@ -438,9 +438,14 @@ def save_daily_snapshot(
 
 
 def get_week_window(run_date: str) -> dict[str, str]:
-    """Get the weekly recap window ending the day before run_date."""
+    """Get the weekly recap window.
+
+    Scheduled weekly runs happen on Saturday morning KST, so Saturday should
+    summarize the market/news window ending on Friday. Manual weekday runs are
+    treated as week-to-date previews and include the same calendar day.
+    """
     run_day = date.fromisoformat(run_date)
-    recap_end = run_day - timedelta(days=1)
+    recap_end = run_day - timedelta(days=1) if run_day.weekday() == 5 else run_day
     recap_start = recap_end - timedelta(days=recap_end.weekday())
     iso_year, iso_week, _ = recap_end.isocalendar()
     return {

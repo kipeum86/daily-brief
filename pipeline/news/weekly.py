@@ -23,6 +23,8 @@ _GOOGLE_NEWS_WINDOW_RE = re.compile(r"when:(\d+)d")
 _CLUSTER_MIN_OVERLAP = 2
 _CLUSTER_SIMILARITY = 0.4
 _JSON_ARRAY_RE = re.compile(r"\[.*\]", re.DOTALL)
+_DATE_IN_TEXT_RE = re.compile(r"(20\d{2})[-./](\d{1,2})[-./](\d{1,2})")
+_DATE_IN_URL_RE = re.compile(r"/(20\d{2})/(\d{1,2})/(\d{1,2})/")
 
 _WEEKLY_SELECTOR_PROMPT_WORLD = """\
 You are a financial editor preparing a weekly recap for investors.
@@ -187,6 +189,25 @@ def _parse_date(value: str) -> date | None:
         return None
 
 
+def _extract_date_from_text(*parts: str) -> date | None:
+    """Best-effort date extraction from article text or URL fragments."""
+    for part in parts:
+        text = (part or "").strip()
+        if not text:
+            continue
+
+        for pattern in (_DATE_IN_TEXT_RE, _DATE_IN_URL_RE):
+            match = pattern.search(text)
+            if not match:
+                continue
+            try:
+                year, month, day = (int(group) for group in match.groups())
+                return date(year, month, day)
+            except ValueError:
+                continue
+    return None
+
+
 def _collect_recent_articles(
     config: dict,
     news_window_start: str,
@@ -236,18 +257,31 @@ def _collect_recent_articles(
         deduped.append(article)
 
     windowed: list[Article] = []
+    dropped_undated = 0
     for article in deduped:
         published_day = _parse_date(article.published_date)
+        if published_day is None:
+            published_day = _extract_date_from_text(
+                article.description,
+                article.title,
+                article.url,
+            )
+            if published_day is not None:
+                article.published_date = published_day.isoformat()
+        if published_day is None:
+            dropped_undated += 1
+            continue
         if published_day and not (start_day <= published_day <= end_day):
             continue
         windowed.append(article)
 
     logger.info(
-        "Weekly news pool prepared: %d collected -> %d filtered -> %d exact-deduped -> %d in window",
+        "Weekly news pool prepared: %d collected -> %d filtered -> %d exact-deduped -> %d in window (%d undated dropped)",
         len(articles),
         len(filtered),
         len(deduped),
         len(windowed),
+        dropped_undated,
     )
     return windowed
 
