@@ -7,8 +7,8 @@ briefing:
 # LLM Provider
 llm:
   provider: "gemini"          # gemini, claude, openai
-  model: "gemini-2.5-pro"    # Step 0 fallback target (local model discovery unavailable)
-  fallback_models: ["gemini-2.5-flash"]
+  model: "gemini-3.1-pro-preview"
+  fallback_models: ["gemini-2.5-pro", "gemini-2.5-flash"]
   max_input_chars: 8000
 
 # 시장 데이터
