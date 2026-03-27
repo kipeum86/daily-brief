@@ -7,7 +7,7 @@
 <p align="center">
   <strong>투자자와 의사결정자를 위한 AI 모닝 브리핑</strong><br/>
   한국 + 미국 시장 · 글로벌 & 국내 뉴스 · AI 교차 분석<br/>
-  매일 아침 자동 생성 — 운영 비용 $0.
+  매일 아침 자동 생성 — Gemini 3.1 Pro 기반.
 </p>
 
 <p align="center">
@@ -18,8 +18,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/github/actions/workflow/status/kipeum86/daily-brief/morning-brief.yml?label=Morning%20Brief&style=flat-square" alt="Build Status" />
-  <img src="https://img.shields.io/badge/cost-%240%2Fmo-16A34A?style=flat-square" alt="Cost" />
-  <img src="https://img.shields.io/badge/LLM-Gemini%202.5%20Flash-4285F4?style=flat-square" alt="LLM" />
+  <img src="https://img.shields.io/badge/cost-~%241%2Fmo-16A34A?style=flat-square" alt="Cost" />
+  <img src="https://img.shields.io/badge/LLM-Gemini%203.1%20Pro-4285F4?style=flat-square" alt="LLM" />
   <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License" />
 </p>
 
@@ -29,7 +29,7 @@
 
 **Daily Brief**는 매일 아침 KST 06:30에 시장 데이터, 글로벌 뉴스, 국내 뉴스, AI 에디토리얼 분석을 결합하여 전문적인 모닝 브리핑을 자동 생성합니다.
 
-나만의 **Economist "World in Brief"** — 한국 투자자에게 맞춤화되고, 완전 자동화되며, 운영 비용이 전혀 들지 않습니다.
+나만의 **Economist "World in Brief"** — 한국 투자자에게 맞춤화되고, 완전 자동화되며, Gemini 3.1 Pro가 구동합니다.
 
 <p align="center">
   <a href="https://kipeum86.github.io/daily-brief/">
@@ -54,7 +54,7 @@
 - **교차 실행 중복 제거** — 어제 나온 기사는 다시 나오지 않음
 
 ### 🤖 AI 분석
-- **Gemini 2.5 Flash** (무료 tier, 플러그 가능 — Claude, OpenAI도 지원)
+- **Gemini 3.1 Pro** (자동 폴백 체인 포함; Claude, OpenAI도 지원)
 - **에디토리얼 인사이트** — "Key Insight", "Market Overview", "Cross-Market Signals"
 - **데이터 나열이 아닌 스토리** — AI가 시장, 환율, 원자재, 뉴스 이벤트 간의 연결고리를 분석
 - **이중 언어** — 한국어/영어 인사이트를 각각 독립 생성 (번역이 아님)
@@ -218,7 +218,7 @@ KST 06:30 (GitHub Actions cron)
     ├── 2. 뉴스 ──→ RSS (글로벌 10개 + 한국 메이저 7개) + 네이버 API
     │                3단계 중복 제거 → 키워드 필터
     │
-    ├── 3. AI ────→ Gemini 2.5 Flash
+    ├── 3. AI ────→ Gemini 3.1 Pro
     │                한국어 인사이트 + 영어 인사이트 (독립 생성)
     │                번역: 글로벌 뉴스→KO, 한국 뉴스→EN
     │
@@ -288,12 +288,12 @@ news:
 
 | 컴포넌트 | 비용 |
 |----------|------|
-| Gemini 2.5 Flash | 무료 (250건/일, ~4건 사용) |
+| Gemini 3.1 Pro | ~$1/월 (2.5 Pro → 2.5 Flash 폴백 포함) |
 | yfinance / RSS / Naver | 무료 |
 | GitHub Actions | 무료 (2,000분/월, ~110분 사용) |
 | GitHub Pages | 무료 |
 | Gmail SMTP | 무료 (500건/일 제한) |
-| **합계** | **$0/월** |
+| **합계** | **~$1/월** |
 
 ## 로드맵
 
@@ -310,5 +310,5 @@ news:
 
 <p align="center">
   Built with <a href="https://claude.ai/claude-code">Claude Code</a> · Powered by <a href="https://ai.google.dev/">Gemini</a><br/>
-  <sub>Economist × FT 에디토리얼 디자인 · 운영 비용 $0</sub>
+  <sub>Economist × FT 에디토리얼 디자인 · Gemini 3.1 Pro 기반</sub>
 </p>

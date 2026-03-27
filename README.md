@@ -7,7 +7,7 @@
 <p align="center">
   <strong>AI-powered morning briefing for investors & decision-makers</strong><br/>
   Korean + US markets · Global & domestic news · AI cross-market analysis<br/>
-  Delivered every morning — zero cost to run.
+  Delivered every morning — powered by Gemini 3.1 Pro.
 </p>
 
 <p align="center">
@@ -18,8 +18,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/github/actions/workflow/status/kipeum86/daily-brief/morning-brief.yml?label=Morning%20Brief&style=flat-square" alt="Build Status" />
-  <img src="https://img.shields.io/badge/cost-%240%2Fmo-16A34A?style=flat-square" alt="Cost" />
-  <img src="https://img.shields.io/badge/LLM-Gemini%202.5%20Flash-4285F4?style=flat-square" alt="LLM" />
+  <img src="https://img.shields.io/badge/cost-~%241%2Fmo-16A34A?style=flat-square" alt="Cost" />
+  <img src="https://img.shields.io/badge/LLM-Gemini%203.1%20Pro-4285F4?style=flat-square" alt="LLM" />
   <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License" />
 </p>
 
@@ -29,7 +29,7 @@
 
 **Daily Brief** generates a professional morning briefing every day at 6:30 AM KST — combining market data, global news, domestic Korean news, and AI-driven editorial analysis into a single, beautiful static page.
 
-Think of it as your personal **Economist "World in Brief"** — but tailored for Korean investors, fully automated, and completely free to run.
+Think of it as your personal **Economist "World in Brief"** — but tailored for Korean investors, fully automated, and powered by Gemini 3.1 Pro.
 
 <p align="center">
   <a href="https://kipeum86.github.io/daily-brief/en/">
@@ -54,7 +54,7 @@ Think of it as your personal **Economist "World in Brief"** — but tailored for
 - **Cross-run dedup** — Won't repeat yesterday's stories
 
 ### 🤖 AI Analysis
-- **Gemini 2.5 Flash** (free tier, pluggable — supports Claude and OpenAI too)
+- **Gemini 3.1 Pro** (with automatic fallback chain; pluggable — supports Claude and OpenAI too)
 - **Editorial insight** — "Key Insight", "Market Overview", "Cross-Market Signals"
 - **Not a data dump** — AI connects the dots between markets, FX, commodities, and news events
 - **Bilingual** — Korean and English insights generated independently (not translated)
@@ -218,7 +218,7 @@ KST 06:30 (GitHub Actions cron)
     ├── 2. News ────→ RSS (10 global + 7 Korean major) + Naver API
     │                   3-stage dedup → keyword filter
     │
-    ├── 3. AI ──────→ Gemini 2.5 Flash
+    ├── 3. AI ──────→ Gemini 3.1 Pro
     │                   Korean insight + English insight (independent)
     │                   Translate: world news→KO, korea news→EN
     │
@@ -288,12 +288,12 @@ The briefing **always deploys** — even if every external API fails, you get a 
 
 | Component | Cost |
 |-----------|------|
-| Gemini 2.5 Flash | Free (250 req/day, we use ~4) |
+| Gemini 3.1 Pro | ~$1/mo (with 2.5 Pro → 2.5 Flash fallback) |
 | yfinance / RSS / Naver | Free |
 | GitHub Actions | Free (2,000 min/mo, we use ~110) |
 | GitHub Pages | Free |
 | Gmail SMTP | Free (500/day limit) |
-| **Total** | **$0/month** |
+| **Total** | **~$1/month** |
 
 ## Roadmap
 
