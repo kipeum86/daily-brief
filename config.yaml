@@ -7,7 +7,8 @@ briefing:
 # LLM Provider
 llm:
   provider: "gemini"          # gemini, claude, openai
-  model: "gemini-2.5-flash"  # 무료 tier, 250회/일, 브리핑에 충분
+  model: "gemini-2.5-pro"    # Step 0 fallback target (local model discovery unavailable)
+  fallback_models: ["gemini-2.5-flash"]
   max_input_chars: 8000
 
 # 시장 데이터
