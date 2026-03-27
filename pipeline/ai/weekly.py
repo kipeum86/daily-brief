@@ -91,8 +91,12 @@ def _build_news_section(items: list[dict]) -> str:
 def _build_weekly_prompt(weekly_data: dict, lang: str) -> str:
     range_line = f"{weekly_data.get('start_date', '')} -> {weekly_data.get('end_date', '')}"
     market_section = _build_market_section(weekly_data)
-    world_news = _build_news_section(weekly_data.get("world_news_raw", []))
-    korea_news = _build_news_section(weekly_data.get("korea_news_raw", []))
+    world_news = _build_news_section(
+        weekly_data.get("world_news_en" if lang == "en" else "world_news_ko", [])
+    )
+    korea_news = _build_news_section(
+        weekly_data.get("korea_news_en" if lang == "en" else "korea_news_ko", [])
+    )
     snapshot_count = weekly_data.get("snapshot_count", 0)
     news_pool_count = weekly_data.get("news_pool_count", 0)
     news_source_count = weekly_data.get("news_source_count", 0)

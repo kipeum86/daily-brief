@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import json
 import logging
 import re
 from collections import Counter
@@ -10,6 +11,7 @@ from datetime import date, datetime, timedelta
 from typing import Any
 
 from pipeline.models import Article
+from pipeline.ai.translate import translate_news
 from pipeline.news.collector import collect_articles, fill_missing_descriptions
 from pipeline.news.dedup import canonicalize_url, containment_similarity, extract_topic_tokens
 from pipeline.news.filters import keyword_filter
@@ -20,6 +22,59 @@ logger = logging.getLogger("daily-brief.news.weekly")
 _GOOGLE_NEWS_WINDOW_RE = re.compile(r"when:(\d+)d")
 _CLUSTER_MIN_OVERLAP = 2
 _CLUSTER_SIMILARITY = 0.4
+_JSON_ARRAY_RE = re.compile(r"\[.*\]", re.DOTALL)
+
+_WEEKLY_SELECTOR_PROMPT_WORLD = """\
+You are a financial editor preparing a weekly recap for investors.
+Choose the {top_n} most important weekly issues from the shortlist.
+
+Selection criteria:
+- Economic or market significance matters more than raw mention counts alone.
+- Use mention count and source diversity as evidence that the issue persisted across the week.
+- Prefer geopolitics, macro policy, trade, central banks, major corporate or market-moving stories.
+- Avoid selecting overlapping stories about the same issue.
+
+Return ONLY a JSON array of selected indices.
+Example: [0, 3, 5]"""
+
+_WEEKLY_SELECTOR_PROMPT_KOREA = """\
+You are a Korean financial editor preparing a weekly recap.
+Choose the {top_n} most important DOMESTIC Korean weekly issues from the shortlist.
+
+Selection criteria:
+- Prioritize Korean policy, Korean economy, Korean markets, major Korean corporates and industries.
+- Mention count and source diversity matter, but importance comes first.
+- Exclude foreign issues even if Korean outlets covered them.
+- Avoid selecting overlapping stories about the same issue.
+
+Return ONLY a JSON array of selected indices.
+Example: [0, 3, 5]"""
+
+_WEEKLY_BUCKET_PROMPT = """\
+You are classifying weekly news issues for a bilingual recap.
+
+Classify each issue into one of two buckets:
+- "korea": primarily about domestic Korean policy, economy, markets, companies, industries, regulation, housing, employment, inflation, exports, or Korean politics.
+- "world": everything else.
+
+Important:
+- If a Korean outlet covers a foreign issue such as US politics, Middle East conflict, China policy, Japan diplomacy, Ukraine war, or EU regulation, it is still "world".
+- Use the title and summary to decide the main topic, not the outlet name alone.
+
+Return ONLY a JSON array of objects with this exact shape:
+[{"id": 0, "bucket": "world"}, {"id": 1, "bucket": "korea"}]"""
+
+_KOREA_HINTS = (
+    "한국", "국내", "코스피", "코스닥", "원화", "원/달러", "한국은행", "한은", "기재부",
+    "금통위", "부동산", "주택", "전세", "대출", "수출", "반도체", "삼성", "sk", "현대",
+    "lg", "카카오", "네이버", "서울", "정부", "국회", "대통령실", "여당", "야당",
+)
+_WORLD_HINTS = (
+    "미국", "중국", "일본", "유럽", "eu", "러시아", "우크라", "이란", "이스라엘",
+    "하마스", "가자", "트럼프", "바이든", "fed", "fomc", "파월", "백악관",
+    "middle east", "iran", "israel", "ukraine", "russia", "washington",
+    "u.s.", "us ", "china", "japan", "europe", "european union",
+)
 
 
 def _build_korea_source_names(config: dict) -> set[str]:
@@ -67,6 +122,16 @@ def _build_weekly_news_config(config: dict, days_back: int) -> dict:
         korea_config["sort"] = "date"
 
     return weekly_config
+
+
+def _sanitize_selector_json(text: str) -> str:
+    text = text.strip()
+    if text.startswith("```"):
+        text = text.split("\n", 1)[1].rsplit("```", 1)[0].strip()
+    match = _JSON_ARRAY_RE.search(text)
+    if match:
+        return match.group(0)
+    return text
 
 
 def _parse_date(value: str) -> date | None:
@@ -205,6 +270,7 @@ def _cluster_bucket_articles(
                 "articles": [article],
                 "sources": {article.get("source", "")},
                 "dates": {article.get("published_date", "")},
+                "bucket_votes": Counter([article.get("bucket", "world")]),
             })
             continue
 
@@ -212,6 +278,7 @@ def _cluster_bucket_articles(
         best_cluster["sources"].add(article.get("source", ""))
         best_cluster["dates"].add(article.get("published_date", ""))
         best_cluster["token_counts"].update(tokens)
+        best_cluster["bucket_votes"].update([article.get("bucket", "world")])
         lead = best_cluster["lead"]
         lead_score = (
             2 if article.get("summary") else 0,
@@ -252,6 +319,7 @@ def _cluster_bucket_articles(
             "latest_date": latest_date,
             "dates": dates,
             "score": (appearances * 5) + (source_count * 4) + (active_days * 3) + recency_bonus,
+            "bucket_votes": dict(cluster["bucket_votes"]),
         })
         ranked.append(lead)
 
@@ -292,6 +360,128 @@ def _decorate_display(article: dict[str, Any]) -> dict[str, Any]:
     return entry
 
 
+def _heuristic_issue_bucket(item: dict[str, Any]) -> str:
+    text = " ".join([
+        item.get("title", ""),
+        item.get("summary", "") or item.get("description", ""),
+    ]).lower()
+    korea_hits = sum(1 for token in _KOREA_HINTS if token.lower() in text)
+    world_hits = sum(1 for token in _WORLD_HINTS if token.lower() in text)
+
+    votes = item.get("bucket_votes", {})
+    korea_vote = int(votes.get("korea", 0) or 0)
+    world_vote = int(votes.get("world", 0) or 0)
+
+    if world_hits >= max(2, korea_hits + 1):
+        return "world"
+    if korea_hits >= max(1, world_hits):
+        return "korea"
+    if korea_vote > world_vote:
+        return "korea"
+    return "world"
+
+
+def _classify_weekly_candidates(
+    provider: Any | None,
+    candidates: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    if not candidates:
+        return []
+
+    if provider is None:
+        return [
+            {**item, "bucket": _heuristic_issue_bucket(item)}
+            for item in candidates
+        ]
+
+    lines = []
+    for idx, item in enumerate(candidates):
+        summary = (item.get("summary") or item.get("description", "")).replace("\n", " ").strip()
+        summary = re.sub(r"\s+", " ", summary)
+        votes = item.get("bucket_votes", {})
+        lines.append(
+            f"[{idx}] [{item.get('source', '')}] {item.get('title', '')}\n"
+            f"mentions={item.get('appearances', 0)} | sources={item.get('source_count', 0)} | "
+            f"korea_votes={votes.get('korea', 0)} | world_votes={votes.get('world', 0)}\n"
+            f"summary={summary[:220]}"
+        )
+
+    user_prompt = "Weekly issue bucket classification:\n\n" + "\n\n".join(lines)
+    try:
+        response = provider.complete(_WEEKLY_BUCKET_PROMPT, user_prompt)
+        payload = json.loads(_sanitize_selector_json(response))
+        bucket_map = {
+            int(item["id"]): item["bucket"]
+            for item in payload
+            if isinstance(item, dict)
+            and str(item.get("bucket", "")).lower() in {"world", "korea"}
+            and isinstance(item.get("id"), int)
+        }
+        if bucket_map:
+            return [
+                {
+                    **item,
+                    "bucket": bucket_map.get(idx, _heuristic_issue_bucket(item)),
+                }
+                for idx, item in enumerate(candidates)
+            ]
+    except Exception:
+        logger.exception("Weekly issue bucket classification failed — heuristic fallback")
+
+    return [
+        {**item, "bucket": _heuristic_issue_bucket(item)}
+        for item in candidates
+    ]
+
+
+def _select_weekly_clusters(
+    provider: Any,
+    candidates: list[dict[str, Any]],
+    top_n: int,
+    category: str,
+) -> list[dict[str, Any]]:
+    if len(candidates) <= top_n:
+        return candidates
+
+    shortlist_size = max(top_n * 3, top_n + 2)
+    shortlist = candidates[:shortlist_size]
+    lines = []
+    for idx, item in enumerate(shortlist):
+        summary = (item.get("summary") or item.get("description", "")).replace("\n", " ").strip()
+        summary = re.sub(r"\s+", " ", summary)
+        lines.append(
+            f"[{idx}] [{item.get('source', '')}] {item.get('title', '')}\n"
+            f"mentions={item.get('appearances', 0)} | sources={item.get('source_count', 0)} | "
+            f"active_days={item.get('active_days', 0)} | latest={item.get('latest_date', '')}\n"
+            f"summary={summary[:220]}"
+        )
+
+    system_prompt = (
+        _WEEKLY_SELECTOR_PROMPT_KOREA
+        if category == "korea"
+        else _WEEKLY_SELECTOR_PROMPT_WORLD
+    ).format(top_n=top_n)
+    user_prompt = "Weekly issue shortlist:\n\n" + "\n\n".join(lines) + "\n\nReturn JSON array of indices only."
+
+    try:
+        response = provider.complete(system_prompt, user_prompt)
+        indices = json.loads(_sanitize_selector_json(response))
+        selected: list[dict[str, Any]] = []
+        seen: set[int] = set()
+        for idx in indices:
+            if not isinstance(idx, int) or idx in seen:
+                continue
+            if 0 <= idx < len(shortlist):
+                seen.add(idx)
+                selected.append(shortlist[idx])
+        if selected:
+            return selected[:top_n]
+    except Exception:
+        logger.exception("Weekly %s cluster selection failed — heuristic order fallback", category)
+
+    return shortlist[:top_n]
+
+
 def build_weekly_news_digest(
     config: dict,
     start_date: str,
@@ -306,20 +496,17 @@ def build_weekly_news_digest(
     articles = _collect_recent_articles(config, news_window_start, end_date)
     normalized = [_normalize_article(article, config) for article in articles if article.title]
 
-    world_candidates = _cluster_bucket_articles(
-        [item for item in normalized if item.get("bucket") == "world"],
-        end_day=end_day,
-    )
-    korea_candidates = _cluster_bucket_articles(
-        [item for item in normalized if item.get("bucket") == "korea"],
-        end_day=end_day,
-    )
-
-    if provider:
-        logger.info("Weekly issue ranking uses heuristic cluster scores; LLM remains reserved for recap writing")
+    all_candidates = _cluster_bucket_articles(normalized, end_day=end_day)
+    classified_candidates = _classify_weekly_candidates(provider, all_candidates)
+    world_candidates = [item for item in classified_candidates if item.get("bucket") == "world"]
+    korea_candidates = [item for item in classified_candidates if item.get("bucket") == "korea"]
 
     selected_world = world_candidates[:top_n]
     selected_korea = korea_candidates[:top_n]
+
+    if provider:
+        selected_world = _select_weekly_clusters(provider, world_candidates, top_n=top_n, category="world")
+        selected_korea = _select_weekly_clusters(provider, korea_candidates, top_n=top_n, category="korea")
 
     display_items = selected_world + selected_korea
     fill_missing_descriptions(display_items[: max(4, top_n * 2)])
@@ -327,16 +514,25 @@ def build_weekly_news_digest(
         if item.get("description") and not item.get("summary"):
             item["summary"] = item["description"]
 
-    display_world = [_decorate_display(item) for item in selected_world]
-    display_korea = [_decorate_display(item) for item in selected_korea]
+    if provider:
+        world_ko = translate_news(provider, selected_world, target_lang="ko")
+        korea_en = translate_news(provider, selected_korea, target_lang="en")
+    else:
+        world_ko = list(selected_world)
+        korea_en = list(selected_korea)
+
+    display_world_ko = [_decorate_display(item) for item in world_ko]
+    display_world_en = [_decorate_display(item) for item in selected_world]
+    display_korea_ko = [_decorate_display(item) for item in selected_korea]
+    display_korea_en = [_decorate_display(item) for item in korea_en]
 
     return {
         "world_raw": selected_world,
         "korea_raw": selected_korea,
-        "world_ko": display_world,
-        "world_en": display_world,
-        "korea_ko": display_korea,
-        "korea_en": display_korea,
+        "world_ko": display_world_ko,
+        "world_en": display_world_en,
+        "korea_ko": display_korea_ko,
+        "korea_en": display_korea_en,
         "unique_story_count": len(world_candidates) + len(korea_candidates),
         "news_pool_count": len(normalized),
         "news_source_count": len({item.get("source", "") for item in normalized if item.get("source", "")}),
