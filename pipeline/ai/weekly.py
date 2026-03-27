@@ -1,4 +1,4 @@
-"""Generate a weekly recap insight from saved daily snapshots."""
+"""Generate a weekly recap insight from weekly market data and recent news clusters."""
 
 from __future__ import annotations
 
@@ -79,7 +79,12 @@ def _build_news_section(items: list[dict]) -> str:
     lines = []
     for item in items:
         date_label = item.get("latest_date", "")
-        lines.append(f"- [{item.get('source', '')}] {item.get('title', '')} ({date_label})")
+        mentions = int(item.get("appearances", 0) or 0)
+        sources = int(item.get("source_count", 0) or 0)
+        lines.append(
+            f"- [{item.get('source', '')}] {item.get('title', '')} "
+            f"({date_label}; {mentions} mentions; {sources} sources)"
+        )
     return "\n".join(lines)
 
 
@@ -89,12 +94,15 @@ def _build_weekly_prompt(weekly_data: dict, lang: str) -> str:
     world_news = _build_news_section(weekly_data.get("world_news_raw", []))
     korea_news = _build_news_section(weekly_data.get("korea_news_raw", []))
     snapshot_count = weekly_data.get("snapshot_count", 0)
+    news_pool_count = weekly_data.get("news_pool_count", 0)
+    news_source_count = weekly_data.get("news_source_count", 0)
     unique_story_count = weekly_data.get("unique_story_count", 0)
 
     if lang == "en":
         return f"""Week range: {range_line}
 Snapshots available: {snapshot_count}
-Unique story candidates: {unique_story_count}
+Recent news pool: {news_pool_count} articles from {news_source_count} sources
+Issue clusters: {unique_story_count}
 
 ## Market Moves
 {market_section}
@@ -109,7 +117,8 @@ Write a weekly market recap based on the data above."""
 
     return f"""주간 범위: {range_line}
 사용 가능한 일일 스냅샷: {snapshot_count}
-고유 기사 후보 수: {unique_story_count}
+최근 7일 기사 풀: {news_pool_count}건 / {news_source_count}개 출처
+이슈 클러스터 수: {unique_story_count}
 
 ## 시장 움직임
 {market_section}
@@ -129,7 +138,11 @@ def generate_weekly_recap(
     lang: str = "ko",
 ) -> str:
     """Generate a weekly recap insight in Korean or English."""
-    if not weekly_data.get("snapshot_count"):
+    if (
+        not weekly_data.get("markets", {}).get("cards")
+        and not weekly_data.get("world_news_raw")
+        and not weekly_data.get("korea_news_raw")
+    ):
         return ""
 
     try:

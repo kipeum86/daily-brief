@@ -3,7 +3,7 @@
 import logging
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any
 
 import requests
@@ -20,7 +20,16 @@ def _strip_html(text: str) -> str:
     return text.strip()
 
 
-def collect_naver_news(config: dict) -> list[dict[str, Any]]:
+def collect_naver_news(
+    config: dict,
+    *,
+    queries: list[str] | None = None,
+    display: int | None = None,
+    sort: str | None = None,
+    days_back: int | None = None,
+    top_n: int | None = None,
+    limit_to_top_n: bool = True,
+) -> list[dict[str, Any]]:
     """네이버 뉴스 검색 API로 한국 뉴스를 수집한다.
 
     Args:
@@ -37,9 +46,10 @@ def collect_naver_news(config: dict) -> list[dict[str, Any]]:
         return []
 
     korea_config = config.get("news", {}).get("korea", {})
-    queries = korea_config.get("queries", ["한국 경제"])
-    display = korea_config.get("display", 5)
-    sort = korea_config.get("sort", "date")
+    queries = queries or korea_config.get("queries", ["한국 경제"])
+    display = int(display if display is not None else korea_config.get("display", 5))
+    sort = sort or korea_config.get("sort", "date")
+    cutoff = datetime.now().astimezone() - timedelta(days=days_back) if days_back else None
 
     headers = {
         "X-Naver-Client-Id": client_id,
@@ -74,7 +84,11 @@ def collect_naver_news(config: dict) -> list[dict[str, Any]]:
                     published = datetime.strptime(pub_date, "%a, %d %b %Y %H:%M:%S %z")
                     published_str = published.strftime("%Y-%m-%d %H:%M")
                 except (ValueError, TypeError):
+                    published = None
                     published_str = pub_date
+
+                if cutoff and published and published < cutoff:
+                    continue
 
                 all_articles.append({
                     "title": _strip_html(item.get("title", "")),
@@ -92,8 +106,12 @@ def collect_naver_news(config: dict) -> list[dict[str, Any]]:
     all_articles.sort(key=lambda x: x.get("published", ""), reverse=True)
 
     # config의 top_n 제한
-    top_n = config.get("news", {}).get("top_n", 5)
-    result = all_articles[:top_n]
+    if not limit_to_top_n:
+        result = all_articles
+    else:
+        if top_n is None:
+            top_n = config.get("news", {}).get("top_n", 5)
+        result = all_articles[:top_n]
 
     logger.info("네이버 뉴스: %d개 쿼리 → %d개 기사 수집 (중복 제거 후 %d개 → top %d)",
                 len(queries), len(all_articles), len(all_articles), len(result))

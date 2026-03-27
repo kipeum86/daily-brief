@@ -145,10 +145,13 @@ def _format_weekly_market_card(card: dict[str, Any]) -> dict[str, Any]:
 
 
 def _format_weekly_story(article: dict[str, Any]) -> dict[str, Any]:
+    appearances = int(article.get("appearances", 0) or 0)
+    source_count = int(article.get("source_count", 0) or 0)
     return {
         **article,
         "summary_short": _truncate_text(article.get("summary", "") or article.get("description", ""), 150),
-        "appearances_label": f"{int(article.get('appearances', 0))}",
+        "appearances_label": f"{appearances}회 언급",
+        "source_count_label": f"{source_count}개 소스" if source_count else "",
     }
 
 
@@ -173,6 +176,8 @@ def _build_weekly_email_context(
         "week_id": week_id,
         "insight_text": _style_insight_for_email(_md_to_html(weekly_data.get("insight_ko", ""))),
         "snapshot_count": weekly_data.get("snapshot_count", 0),
+        "news_pool_count": weekly_data.get("news_pool_count", 0),
+        "news_source_count": weekly_data.get("news_source_count", 0),
         "unique_story_count": weekly_data.get("unique_story_count", 0),
         "market_cards": [_format_weekly_market_card(card) for card in markets.get("cards", [])],
         "leaders": [_format_weekly_market_card(card) for card in markets.get("leaders", [])[:3]],

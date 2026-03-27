@@ -588,12 +588,12 @@
             </div>
             <h1 class="hero-title">{{ date_str }}</h1>
             <p class="hero-deck">
-              {{ 'A weekly reading of market rotation, recurring headlines, and the themes that stayed alive across the daily briefings.' if lang == 'en' else '매일 쌓인 브리프를 바탕으로 이번 주 시장의 흐름, 반복적으로 부상한 기사, 다음 주로 이어질 테마를 한 화면에서 정리했습니다.' }}
+              {{ 'A weekly reading of Friday-to-Friday market moves and the issues that surfaced most often across the last seven days of coverage.' if lang == 'en' else '전주 마지막 거래일 대비 이번 주 마지막 거래일 시장 변화와 최근 7일 뉴스에서 가장 자주 부상한 이슈를 한 화면에 묶었습니다.' }}
             </p>
             <div class="hero-meta">
               <span class="meta-pill">{{ week_id }}</span>
-              <span class="meta-pill">{{ snapshot_count }} {{ 'daily snapshots' if lang == 'en' else '일간 스냅샷' }}</span>
-              <span class="meta-pill">{{ unique_story_count }} {{ 'unique stories' if lang == 'en' else '고유 기사' }}</span>
+              <span class="meta-pill">{{ news_pool_count|default(0) }} {{ 'articles scanned' if lang == 'en' else '기사 풀' }}</span>
+              <span class="meta-pill">{{ unique_story_count }} {{ 'issue clusters' if lang == 'en' else '이슈 클러스터' }}</span>
             </div>
           </div>
 
@@ -612,15 +612,20 @@
             </div>
 
             <div class="cover-card">
-              <div class="cover-label">{{ 'Recurring Story' if lang == 'en' else '반복 등장 이슈' }}</div>
+              <div class="cover-label">{{ 'Most Mentioned Issue' if lang == 'en' else '가장 많이 언급된 이슈' }}</div>
               {% if cover_story %}
               <div class="cover-value">{{ cover_story.title }}</div>
               <p class="cover-note">
                 {{ cover_story.appearances }}
-                {{ 'daily mentions across the briefing set.' if lang == 'en' else '일 동안 반복적으로 포착된 이슈입니다.' }}
+                {{ 'mentions across' if lang == 'en' else '회 언급 ·' }}
+                {% if lang == 'en' %}
+                {{ cover_story.source_count }} sources in the 7-day pool.
+                {% else %}
+                {{ cover_story.source_count }}개 출처에서 포착된 이슈입니다.
+                {% endif %}
               </p>
               {% else %}
-              <p class="cover-note">{{ 'No recurring story signal was strong enough this week.' if lang == 'en' else '이번 주에는 반복 포착된 기사 신호가 충분하지 않았습니다.' }}</p>
+              <p class="cover-note">{{ 'No issue cluster was strong enough this week.' if lang == 'en' else '이번 주에는 충분히 두드러진 이슈 클러스터가 없었습니다.' }}</p>
               {% endif %}
             </div>
           </aside>
@@ -667,23 +672,23 @@
           <div class="glance-card">
             <div class="glance-label">{{ 'Snapshots Used' if lang == 'en' else '사용 스냅샷' }}</div>
             <div class="glance-value">{{ snapshot_count }}</div>
-            <div class="glance-sub">{{ 'Daily pages captured and folded into this report.' if lang == 'en' else '주간 집계에 실제로 반영된 일간 스냅샷 수입니다.' }}</div>
+            <div class="glance-sub">{{ 'Archived daily pages available as a fallback context layer.' if lang == 'en' else '보조 컨텍스트로 활용 가능한 일간 아카이브 수입니다.' }}</div>
           </div>
 
           <div class="glance-card">
-            <div class="glance-label">{{ 'Story Candidates' if lang == 'en' else '기사 후보' }}</div>
-            <div class="glance-value">{{ unique_story_count }}</div>
-            <div class="glance-sub">{{ 'Deduplicated stories surfaced across the week.' if lang == 'en' else '중복 제거 후 남은 이번 주 기사 후보 수입니다.' }}</div>
+            <div class="glance-label">{{ 'News Pool' if lang == 'en' else '뉴스 기사 풀' }}</div>
+            <div class="glance-value">{{ news_pool_count|default(0) }}</div>
+            <div class="glance-sub">{{ 'Recent 7-day articles scanned before issue clustering.' if lang == 'en' else '최근 7일 기사 검색 결과 중 실제 집계에 사용된 기사 수입니다.' }}</div>
           </div>
 
           <div class="glance-card">
-            <div class="glance-label">{{ 'Most Persistent Story' if lang == 'en' else '가장 오래 남은 이슈' }}</div>
+            <div class="glance-label">{{ 'Most Mentioned Issue' if lang == 'en' else '가장 많이 언급된 이슈' }}</div>
             {% if cover_story %}
-            <div class="glance-value">{{ cover_story.appearances }}{{ 'x' if lang == 'en' else '회' }}</div>
-            <div class="glance-sub">{{ cover_story.source }} · {{ cover_story.latest_date }}</div>
+            <div class="glance-value">{{ cover_story.appearances }}{{ ' mentions' if lang == 'en' else '회' }}</div>
+            <div class="glance-sub">{{ cover_story.source_count }} {{ 'sources' if lang == 'en' else '개 출처' }} · {{ cover_story.latest_date }}</div>
             {% else %}
             <div class="glance-value">-</div>
-            <div class="glance-sub">{{ 'No recurring headline available.' if lang == 'en' else '반복 등장한 기사 데이터가 없습니다.' }}</div>
+            <div class="glance-sub">{{ 'No issue cluster available.' if lang == 'en' else '집계된 이슈 클러스터가 없습니다.' }}</div>
             {% endif %}
           </div>
         </aside>
@@ -768,7 +773,7 @@
     <section class="section">
       <div class="section-heading">
         <h2 class="section-title">{{ 'Story Journal' if lang == 'en' else '스토리 저널' }}</h2>
-        <p class="section-lead">{{ 'Repeated headlines promoted into the weekly reading list' if lang == 'en' else '반복 등장한 헤드라인을 주간 읽을거리로 재정리한 섹션' }}</p>
+        <p class="section-lead">{{ 'The most discussed issues surfaced from the recent 7-day news pool' if lang == 'en' else '최근 7일 뉴스 기사 풀에서 가장 자주 언급된 이슈를 추려낸 섹션' }}</p>
       </div>
 
       <div class="journal-shell">
@@ -783,7 +788,8 @@
             <div class="story-meta">
               <span class="story-pill">{{ lead_world.source }}</span>
               <span class="story-pill">{{ lead_world.latest_date }}</span>
-              <span class="story-pill">{{ lead_world.appearances }} {{ 'days' if lang == 'en' else '일' }}</span>
+              <span class="story-pill">{{ lead_world.appearances }} {{ 'mentions' if lang == 'en' else '회 언급' }}</span>
+              <span class="story-pill">{{ lead_world.source_count }} {{ 'sources' if lang == 'en' else '개 소스' }}</span>
             </div>
             <h3 class="story-headline">
               {% if lead_world.url %}<a href="{{ lead_world.url }}" target="_blank" rel="noopener noreferrer">{{ lead_world.title }}</a>{% else %}{{ lead_world.title }}{% endif %}
@@ -802,7 +808,8 @@
                 <div class="story-meta" style="margin-bottom: 6px;">
                   <span class="story-pill">{{ item.source }}</span>
                   <span class="story-pill">{{ item.latest_date }}</span>
-                  <span class="story-pill">{{ item.appearances }} {{ 'days' if lang == 'en' else '일' }}</span>
+                  <span class="story-pill">{{ item.appearances }} {{ 'mentions' if lang == 'en' else '회 언급' }}</span>
+                  <span class="story-pill">{{ item.source_count }} {{ 'sources' if lang == 'en' else '개 소스' }}</span>
                 </div>
                 <h4 class="story-row-headline">
                   {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
@@ -831,7 +838,8 @@
             <div class="story-meta">
               <span class="story-pill">{{ lead_korea.source }}</span>
               <span class="story-pill">{{ lead_korea.latest_date }}</span>
-              <span class="story-pill">{{ lead_korea.appearances }} {{ 'days' if lang == 'en' else '일' }}</span>
+              <span class="story-pill">{{ lead_korea.appearances }} {{ 'mentions' if lang == 'en' else '회 언급' }}</span>
+              <span class="story-pill">{{ lead_korea.source_count }} {{ 'sources' if lang == 'en' else '개 소스' }}</span>
             </div>
             <h3 class="story-headline">
               {% if lead_korea.url %}<a href="{{ lead_korea.url }}" target="_blank" rel="noopener noreferrer">{{ lead_korea.title }}</a>{% else %}{{ lead_korea.title }}{% endif %}
@@ -850,7 +858,8 @@
                 <div class="story-meta" style="margin-bottom: 6px;">
                   <span class="story-pill">{{ item.source }}</span>
                   <span class="story-pill">{{ item.latest_date }}</span>
-                  <span class="story-pill">{{ item.appearances }} {{ 'days' if lang == 'en' else '일' }}</span>
+                  <span class="story-pill">{{ item.appearances }} {{ 'mentions' if lang == 'en' else '회 언급' }}</span>
+                  <span class="story-pill">{{ item.source_count }} {{ 'sources' if lang == 'en' else '개 소스' }}</span>
                 </div>
                 <h4 class="story-row-headline">
                   {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}

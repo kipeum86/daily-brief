@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from typing import Any
 
 import yfinance as yf
@@ -114,6 +114,70 @@ def _fetch_fred_series(series_id: str, name: str) -> dict[str, Any] | None:
         return None
     except Exception as e:
         logger.warning("[FRED] %s (%s) 수집 실패: %s", name, series_id, e)
+        return None
+
+
+def _fetch_one_ticker_window(
+    ticker: str,
+    name: str,
+    start_date: str,
+    end_date: str,
+) -> dict[str, Any] | None:
+    """Fetch weekly history using the prior close before start_date as baseline."""
+    try:
+        tk = yf.Ticker(ticker)
+        week_start = date.fromisoformat(start_date)
+        week_end = date.fromisoformat(end_date)
+        fetch_start = (week_start - timedelta(days=10)).isoformat()
+        end_exclusive = (date.fromisoformat(end_date) + timedelta(days=1)).isoformat()
+        hist = tk.history(start=fetch_start, end=end_exclusive)
+        if hist.empty or "Close" not in hist.columns:
+            logger.warning("[yfinance] %s (%s): 주간 데이터 없음", name, ticker)
+            return None
+
+        closes = hist["Close"].dropna()
+        if closes.empty:
+            logger.warning("[yfinance] %s (%s): 유효한 종가 없음", name, ticker)
+            return None
+
+        before_week = closes[closes.index.date < week_start]
+        within_week = closes[
+            (closes.index.date >= week_start) & (closes.index.date <= week_end)
+        ]
+        if within_week.empty:
+            logger.warning("[yfinance] %s (%s): 주간 거래일 종가 없음", name, ticker)
+            return None
+
+        points: list[dict[str, Any]] = []
+        prev_close = 0.0
+
+        if not before_week.empty:
+            baseline_idx = before_week.index[-1]
+            baseline_close = float(before_week.iloc[-1])
+            points.append({
+                "date": baseline_idx.date().isoformat(),
+                "price": round(baseline_close, 4),
+                "change_pct": 0.0,
+            })
+            prev_close = baseline_close
+
+        for idx, close in within_week.items():
+            close_val = float(close)
+            change_pct = ((close_val - prev_close) / prev_close * 100) if prev_close else 0.0
+            points.append({
+                "date": idx.date().isoformat(),
+                "price": round(close_val, 4),
+                "change_pct": round(change_pct, 2),
+            })
+            prev_close = close_val
+
+        return {
+            "ticker": ticker,
+            "name": name,
+            "points": points,
+        }
+    except Exception as e:
+        logger.warning("[yfinance] %s (%s) 주간 데이터 수집 실패: %s", name, ticker, e)
         return None
 
 
@@ -239,5 +303,54 @@ def collect_market_data(config: dict[str, Any]) -> dict[str, list[dict[str, Any]
         except Exception as e:
             logger.error("섹션 '%s' 수집 중 오류: %s", section_key, e)
             output[section_key] = []
+
+    return output
+
+
+def collect_market_window_data(
+    config: dict[str, Any],
+    start_date: str,
+    end_date: str,
+) -> dict[str, list[dict[str, Any]]]:
+    """Collect historical market points for the requested weekly window."""
+    mkts = config.get("markets", {})
+    output: dict[str, list[dict[str, Any]]] = {}
+
+    sections = [
+        ("kr", "indices", "names"),
+        ("us", "indices", "names"),
+        ("fx", "pairs", "names"),
+        ("commodities", "tickers", "names"),
+        ("crypto", "tickers", "names"),
+        ("risk", "tickers", "names"),
+        ("sectors", "tickers", "names"),
+    ]
+
+    for section_key, tickers_field, names_field in sections:
+        section_cfg = mkts.get(section_key, {})
+        tickers = list(section_cfg.get(tickers_field, []))
+        names = list(section_cfg.get(names_field, []))
+
+        if not tickers:
+            output[section_key] = []
+            continue
+
+        if len(names) < len(tickers):
+            names = names + tickers[len(names):]
+
+        results: list[dict[str, Any]] = []
+        with ThreadPoolExecutor(max_workers=len(tickers) or 1) as pool:
+            future_to_meta = {
+                pool.submit(_fetch_one_ticker_window, ticker, name, start_date, end_date): (ticker, name)
+                for ticker, name in zip(tickers, names)
+            }
+            for future in as_completed(future_to_meta):
+                result = future.result()
+                if result is not None:
+                    results.append(result)
+
+        order = {ticker: i for i, ticker in enumerate(tickers)}
+        results.sort(key=lambda item: order.get(item.get("ticker", ""), 999))
+        output[section_key] = results
 
     return output

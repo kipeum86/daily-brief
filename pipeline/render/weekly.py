@@ -123,6 +123,8 @@ def _build_context(
         "end_date": weekly_data.get("end_date", ""),
         "week_id": week_id,
         "snapshot_count": weekly_data.get("snapshot_count", 0),
+        "news_pool_count": weekly_data.get("news_pool_count", 0),
+        "news_source_count": weekly_data.get("news_source_count", 0),
         "unique_story_count": weekly_data.get("unique_story_count", 0),
         "prev_url": _build_page_url(site_url, current_path, _page_path(lang, "archive", prev_week)) if prev_week else "",
         "next_url": _build_page_url(site_url, current_path, _page_path(lang, "archive", next_week)) if next_week else "",

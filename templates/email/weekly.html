@@ -65,7 +65,10 @@
         <td style="padding-bottom:6px;">
           <span style="display:inline-block; padding:2px 8px; background-color:#F8F5F0; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#6B7280;">{{ article.source }}</span>
           <span style="display:inline-block; padding:2px 8px; background-color:#F8F5F0; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#6B7280; margin-left:4px;">{{ article.latest_date }}</span>
-          <span style="display:inline-block; padding:2px 8px; background-color:#F8F5F0; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#6B7280; margin-left:4px;">{{ article.appearances_label }}일 등장</span>
+          <span style="display:inline-block; padding:2px 8px; background-color:#F8F5F0; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#6B7280; margin-left:4px;">{{ article.appearances_label }}</span>
+          {% if article.source_count_label %}
+          <span style="display:inline-block; padding:2px 8px; background-color:#F8F5F0; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#6B7280; margin-left:4px;">{{ article.source_count_label }}</span>
+          {% endif %}
         </td>
       </tr>
       <tr>
@@ -109,8 +112,8 @@
               <tr>
                 <td style="padding-top:10px;">
                   <span style="display:inline-block; padding:5px 10px; border:1px solid #E5E5E5; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; color:#6B7280;">{{ week_id }}</span>
-                  <span style="display:inline-block; padding:5px 10px; border:1px solid #E5E5E5; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; color:#6B7280; margin-left:6px;">{{ snapshot_count }}일 스냅샷</span>
-                  <span style="display:inline-block; padding:5px 10px; border:1px solid #E5E5E5; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; color:#6B7280; margin-left:6px;">고유 기사 {{ unique_story_count }}개</span>
+                  <span style="display:inline-block; padding:5px 10px; border:1px solid #E5E5E5; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; color:#6B7280; margin-left:6px;">기사 풀 {{ news_pool_count }}건</span>
+                  <span style="display:inline-block; padding:5px 10px; border:1px solid #E5E5E5; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; color:#6B7280; margin-left:6px;">이슈 {{ unique_story_count }}개</span>
                 </td>
               </tr>
             </table>
@@ -181,11 +184,11 @@
                   <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:700; color:#1A1A1A; padding-top:8px;">{{ week_label }}</div>
                 </td>
                 <td width="33.33%" valign="top" style="padding:12px; background-color:#FAFAF8; border-top:1px solid #F0F0EE; border-bottom:1px solid #F0F0EE;">
-                  <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#6B7280;">사용 스냅샷</div>
-                  <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:700; color:#1A1A1A; padding-top:8px;">{{ snapshot_count }}일</div>
+                  <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#6B7280;">기사 풀</div>
+                  <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:700; color:#1A1A1A; padding-top:8px;">{{ news_pool_count }}건</div>
                 </td>
                 <td width="33.33%" valign="top" style="padding:12px; background-color:#FAFAF8; border:1px solid #F0F0EE;">
-                  <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#6B7280;">고유 기사</div>
+                  <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#6B7280;">이슈 클러스터</div>
                   <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:700; color:#1A1A1A; padding-top:8px;">{{ unique_story_count }}개</div>
                 </td>
               </tr>
@@ -362,7 +365,7 @@
               </tr>
               <tr>
                 <td align="center" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; color:#9CA3AF; line-height:1.6;">
-                  Powered by AI &middot; 데이터: Daily Brief snapshots, Yahoo Finance, RSS
+                  Powered by AI &middot; 데이터: Yahoo Finance, RSS, 네이버 뉴스 검색
                   <br>
                   <a href="#unsubscribe" style="color:#9CA3AF; text-decoration:underline;">구독 취소</a>
                 </td>

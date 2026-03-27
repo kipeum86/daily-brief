@@ -481,8 +481,8 @@ def load_daily_snapshots(output_dir: str, start_date: str, end_date: str) -> lis
     return snapshots
 
 
-def build_weekly_market_summary(snapshots: list[dict[str, Any]]) -> dict[str, Any]:
-    """Aggregate week-level market moves from daily snapshots."""
+def _build_series_map_from_snapshots(snapshots: list[dict[str, Any]]) -> dict[tuple[str, str], dict[str, Any]]:
+    """Build a series map keyed by (section, name) from saved snapshots."""
     series_map: dict[tuple[str, str], dict[str, Any]] = {}
     for snapshot in snapshots:
         date_iso = snapshot.get("date", "")
@@ -503,8 +503,46 @@ def build_weekly_market_summary(snapshots: list[dict[str, Any]]) -> dict[str, An
                     "price": float(item.get("price", 0.0)),
                     "change_pct": float(item.get("change_pct", 0.0)),
                 })
+    return series_map
 
+
+def _build_series_map_from_market_window(
+    config: dict[str, Any],
+    start_date: str,
+    end_date: str,
+) -> dict[tuple[str, str], dict[str, Any]]:
+    """Build a weekly series map from API-fetched market history."""
+    try:
+        from pipeline.markets.collector import collect_market_window_data
+
+        window_data = collect_market_window_data(config, start_date, end_date)
+    except Exception as exc:
+        logger.warning("Weekly market fallback fetch failed: %s", exc)
+        return {}
+
+    series_map: dict[tuple[str, str], dict[str, Any]] = {}
+    for section, items in window_data.items():
+        for item in items:
+            fetched_points = list(item.get("points", []))
+            if not fetched_points:
+                continue
+            key = (section, item.get("name", ""))
+            series_map[key] = {
+                "section": section,
+                "name": item.get("name", ""),
+                "ticker": item.get("ticker", ""),
+                "points": fetched_points,
+            }
+
+    return series_map
+
+
+def _build_weekly_market_cards(
+    series_map: dict[tuple[str, str], dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Convert a series map into display-ready weekly market cards."""
     all_cards: list[dict[str, Any]] = []
+
     for entry in series_map.values():
         points = sorted(entry["points"], key=lambda item: item["date"])
         if not points:
@@ -525,6 +563,24 @@ def build_weekly_market_summary(snapshots: list[dict[str, Any]]) -> dict[str, An
             "weekly_change_pct": round(weekly_change_pct, 2),
             "sparkline_svg": generate_sparkline_svg(sparkline, width=72, height=22),
         })
+    return all_cards
+
+
+def build_weekly_market_summary(
+    snapshots: list[dict[str, Any]],
+    config: dict[str, Any] | None = None,
+    start_date: str = "",
+    end_date: str = "",
+) -> dict[str, Any]:
+    """Aggregate week-level market moves from daily snapshots."""
+    snapshot_series_map = _build_series_map_from_snapshots(snapshots)
+    series_map = dict(snapshot_series_map)
+    if config and start_date and end_date:
+        fetched_series_map = _build_series_map_from_market_window(config, start_date, end_date)
+        if fetched_series_map:
+            series_map.update(fetched_series_map)
+
+    all_cards = _build_weekly_market_cards(series_map)
 
     core_lookup = {(item["section"], item["name"]): item for item in all_cards}
     core_cards = [core_lookup[key] for key in _CORE_MARKETS if key in core_lookup]

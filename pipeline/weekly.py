@@ -7,10 +7,10 @@ from typing import Any
 
 from pipeline.ai.briefing import _get_provider
 from pipeline.ai.weekly import generate_weekly_recap
+from pipeline.news.weekly import build_weekly_news_digest
 from pipeline.recap import (
     backfill_daily_snapshots_from_archives,
     build_weekly_market_summary,
-    build_weekly_news_digest,
     get_week_window,
     load_daily_snapshots,
 )
@@ -60,17 +60,25 @@ def build_weekly_recap_data(
         **week_window,
         "snapshot_count": len(snapshots),
     }
-    weekly_data["markets"] = build_weekly_market_summary(snapshots)
+    weekly_data["markets"] = build_weekly_market_summary(
+        snapshots,
+        config=config,
+        start_date=week_window["start_date"],
+        end_date=week_window["end_date"],
+    )
 
     news_top_n = max(3, int(config.get("news", {}).get("top_n", 5)))
     news_digest = build_weekly_news_digest(
         config,
-        snapshots,
+        start_date=week_window["start_date"],
+        end_date=week_window["end_date"],
         provider=provider,
         top_n=news_top_n,
     )
     weekly_data.update({
         "unique_story_count": news_digest["unique_story_count"],
+        "news_pool_count": news_digest["news_pool_count"],
+        "news_source_count": news_digest["news_source_count"],
         "world_news_raw": news_digest["world_raw"],
         "korea_news_raw": news_digest["korea_raw"],
         "world_news_ko": news_digest["world_ko"],
@@ -88,7 +96,7 @@ def build_weekly_recap_data(
 
     if not snapshots:
         logger.warning(
-            "No daily snapshots found for %s → %s. Rendering an empty weekly shell.",
+            "No daily snapshots found for %s → %s. Weekly page will rely on API/search data only.",
             week_window["start_date"],
             week_window["end_date"],
         )
