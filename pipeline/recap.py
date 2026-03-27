@@ -5,9 +5,12 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import re
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
+
+from bs4 import BeautifulSoup
 
 from pipeline.markets.indicators import generate_sparkline_svg
 from pipeline.news.dedup import canonicalize_url
@@ -36,6 +39,9 @@ _SECTION_LABELS = {
     "risk": "Risk",
     "sectors": "Sectors",
 }
+
+_PRICE_RE = re.compile(r"-?\d[\d,]*(?:\.\d+)?")
+_PCT_RE = re.compile(r"([+-]?\d+(?:\.\d+)?)%")
 
 
 def _build_korea_source_names(config: dict) -> set[str]:
@@ -115,6 +121,269 @@ def _serialize_article(article: Any, config: dict) -> dict[str, Any]:
         "published_date": published_date,
         "bucket": classify_article_bucket(article, config),
     }
+
+
+def _safe_parse_float(text: str) -> float:
+    """Extract the first numeric value from a text blob."""
+    match = _PRICE_RE.search((text or "").replace("\xa0", " "))
+    if not match:
+        return 0.0
+    return float(match.group(0).replace(",", ""))
+
+
+def _safe_parse_pct(text: str) -> float:
+    """Extract percentage text like ▲+2.34% or -0.45%."""
+    clean = (text or "").replace("\xa0", " ").strip()
+    match = _PCT_RE.search(clean)
+    if match:
+        return float(match.group(1))
+    if "%" in clean:
+        return _safe_parse_float(clean)
+    return 0.0
+
+
+def _extract_text_block(node: Any) -> str:
+    """Normalize HTML content into a plain-text block."""
+    if node is None:
+        return ""
+    parts = [" ".join(chunk.split()) for chunk in node.stripped_strings]
+    return "\n\n".join(part for part in parts if part)
+
+
+def _market_name_lookup(config: dict) -> dict[str, dict[str, str]]:
+    """Build name → section/ticker lookup from config.markets."""
+    lookup: dict[str, dict[str, str]] = {}
+    for section, section_config in config.get("markets", {}).items():
+        if not isinstance(section_config, dict):
+            continue
+        names = list(section_config.get("names", []))
+        tickers = (
+            list(section_config.get("indices", []))
+            or list(section_config.get("pairs", []))
+            or list(section_config.get("tickers", []))
+            or list(section_config.get("fred_series", []))
+        )
+        for index, name in enumerate(names):
+            lookup[name] = {
+                "section": section,
+                "ticker": tickers[index] if index < len(tickers) else "",
+            }
+    return lookup
+
+
+def _empty_markets_payload(config: dict) -> dict[str, list[dict[str, Any]]]:
+    """Prepare snapshot market sections in config order."""
+    return {
+        section: []
+        for section in config.get("markets", {}).keys()
+        if isinstance(config.get("markets", {}).get(section), dict)
+    }
+
+
+def _parse_market_items_from_archive(
+    soup: BeautifulSoup,
+    config: dict,
+) -> dict[str, list[dict[str, Any]]]:
+    """Recover market items from a rendered daily archive page."""
+    section_lookup = _market_name_lookup(config)
+    markets_payload = _empty_markets_payload(config)
+
+    markets_section = soup.select_one("section.markets-section")
+    if markets_section is None:
+        return markets_payload
+
+    for row in markets_section.select("div[style*='overflow-x:auto']"):
+        for item_node in row.find_all("span", recursive=False):
+            parts = item_node.find_all("span", recursive=False)
+            if len(parts) < 3:
+                continue
+            name = parts[0].get_text(" ", strip=True)
+            if not name:
+                continue
+            lookup = section_lookup.get(name, {"section": "other", "ticker": ""})
+            entry = {
+                "ticker": lookup.get("ticker", ""),
+                "name": name,
+                "price": _safe_parse_float(parts[1].get_text(" ", strip=True)),
+                "change_pct": _safe_parse_pct(parts[2].get_text(" ", strip=True)),
+                "prev_close": 0.0,
+                "sparkline": [],
+                "volume": 0,
+            }
+            markets_payload.setdefault(lookup.get("section", "other"), []).append(entry)
+
+    return markets_payload
+
+
+def _parse_news_sections_from_archive(soup: BeautifulSoup) -> dict[str, list[dict[str, Any]]]:
+    """Recover world/korea news entries from a rendered daily archive page."""
+    buckets = {"world": [], "korea": []}
+    for section in soup.select("section"):
+        title_node = section.select_one("h2.section-title")
+        if title_node is None:
+            continue
+        title = title_node.get_text(" ", strip=True).lower()
+        if title not in {"world", "korea"}:
+            continue
+
+        for item in section.select("li.news-item article"):
+            headline_node = item.select_one("h3.news-headline")
+            if headline_node is None:
+                continue
+            link = headline_node.find("a")
+            summary_node = item.select_one("p.news-summary")
+            source_node = item.select_one("p.news-source")
+            buckets[title].append({
+                "title": (link or headline_node).get_text(" ", strip=True),
+                "url": link.get("href", "").strip() if link else "",
+                "summary": summary_node.get_text(" ", strip=True) if summary_node else "",
+                "source": source_node.get_text(" ", strip=True) if source_node else "",
+                "published_date": "",
+            })
+
+    return buckets
+
+
+def _parse_archive_page(path: Path, config: dict) -> dict[str, Any]:
+    """Parse one rendered daily archive page into snapshot-friendly pieces."""
+    soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
+    date_node = soup.select_one("header.site-header time[datetime]")
+    generated_node = soup.select_one("footer time[datetime]")
+    insight_node = soup.select_one(".insight-body")
+    pulse_label_nodes = soup.select("section.markets-section h2.section-title span")
+    signal_node = soup.select_one("section.markets-section > div[style*='font-family:var(--font-mono)']")
+    holiday_nodes = soup.select("p.market-holiday-notice")
+
+    holidays = {
+        "kospi_holiday": any("KOSPI" in node.get_text(" ", strip=True) for node in holiday_nodes),
+        "nyse_holiday": any("NYSE" in node.get_text(" ", strip=True) for node in holiday_nodes),
+    }
+    market_pulse = {}
+    if len(pulse_label_nodes) > 1:
+        market_pulse["label_ko"] = pulse_label_nodes[-1].get_text(" ", strip=True)
+    if signal_node is not None:
+        signals_text = signal_node.get_text(" ", strip=True)
+        if signals_text:
+            market_pulse["signals"] = [part.strip() for part in signals_text.split("·") if part.strip()]
+
+    return {
+        "date": date_node.get("datetime", "").strip() if date_node else path.stem,
+        "generated_at": generated_node.get("datetime", "").strip() if generated_node else "",
+        "insight_text": _extract_text_block(insight_node),
+        "markets": _parse_market_items_from_archive(soup, config),
+        "news": _parse_news_sections_from_archive(soup),
+        "holidays": holidays,
+        "market_pulse": market_pulse,
+    }
+
+
+def _build_snapshot_payload_from_archives(
+    config: dict,
+    date_iso: str,
+    ko_page: Path,
+    en_page: Path | None = None,
+) -> dict[str, Any]:
+    """Reconstruct a daily snapshot from saved KO/EN archive pages."""
+    ko_data = _parse_archive_page(ko_page, config)
+    en_data = _parse_archive_page(en_page, config) if en_page and en_page.exists() else None
+
+    raw_articles = ko_data["news"]["world"] + ko_data["news"]["korea"]
+    ko_articles = list(raw_articles)
+    en_articles = (
+        en_data["news"]["world"] + en_data["news"]["korea"]
+        if en_data is not None
+        else list(raw_articles)
+    )
+
+    return {
+        "schema_version": _SCHEMA_VERSION,
+        "brief_type": "daily",
+        "date": date_iso,
+        "generated_at": ko_data.get("generated_at") or datetime.now().isoformat(timespec="seconds"),
+        "market_pulse": ko_data.get("market_pulse", {}),
+        "holidays": ko_data.get("holidays", {}),
+        "markets": ko_data.get("markets", {}),
+        "insight": {
+            "ko": ko_data.get("insight_text", ""),
+            "en": en_data.get("insight_text", "") if en_data is not None else "",
+        },
+        "articles": {
+            "raw": [_serialize_article(article, config) for article in raw_articles],
+            "ko": [_serialize_article(article, config) for article in ko_articles],
+            "en": [_serialize_article(article, config) for article in en_articles],
+        },
+    }
+
+
+def _refresh_latest_snapshot(snapshot_dir: Path) -> None:
+    """Keep latest.json in sync with the newest dated snapshot file."""
+    dated_paths = sorted(
+        (
+            path for path in snapshot_dir.glob("*.json")
+            if path.name != "latest.json"
+        ),
+        key=lambda item: item.stem,
+    )
+    if not dated_paths:
+        return
+    latest_payload = dated_paths[-1].read_text(encoding="utf-8")
+    (snapshot_dir / "latest.json").write_text(latest_payload, encoding="utf-8")
+
+
+def backfill_daily_snapshots_from_archives(
+    config: dict,
+    output_dir: str,
+    start_date: str | None = None,
+    end_date: str | None = None,
+    overwrite: bool = False,
+) -> list[str]:
+    """Backfill missing daily snapshot JSON files from saved archive HTML."""
+    ko_archive_dir = Path(output_dir) / "archive"
+    en_archive_dir = Path(output_dir) / "en" / "archive"
+    snapshot_dir = Path(output_dir) / "data" / "daily"
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+
+    start = date.fromisoformat(start_date) if start_date else None
+    end = date.fromisoformat(end_date) if end_date else None
+    created: list[str] = []
+
+    for ko_page in sorted(ko_archive_dir.glob("*.html")):
+        if ko_page.stem == "index":
+            continue
+        try:
+            page_date = date.fromisoformat(ko_page.stem)
+        except ValueError:
+            continue
+        if start and page_date < start:
+            continue
+        if end and page_date > end:
+            continue
+
+        snapshot_path = snapshot_dir / f"{ko_page.stem}.json"
+        if snapshot_path.exists() and not overwrite:
+            continue
+
+        payload = _build_snapshot_payload_from_archives(
+            config,
+            ko_page.stem,
+            ko_page,
+            en_archive_dir / f"{ko_page.stem}.html",
+        )
+        snapshot_path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        created.append(str(snapshot_path))
+
+    if created or not (snapshot_dir / "latest.json").exists():
+        _refresh_latest_snapshot(snapshot_dir)
+
+    if created:
+        logger.info(
+            "Backfilled %d daily snapshot(s) from archive HTML",
+            len(created),
+        )
+    return created
 
 
 def save_daily_snapshot(

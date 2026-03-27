@@ -8,12 +8,12 @@ from typing import Any
 from pipeline.ai.briefing import _get_provider
 from pipeline.ai.weekly import generate_weekly_recap
 from pipeline.recap import (
+    backfill_daily_snapshots_from_archives,
     build_weekly_market_summary,
     build_weekly_news_digest,
     get_week_window,
     load_daily_snapshots,
 )
-from pipeline.render.weekly import render_weekly_recap
 
 logger = logging.getLogger("daily-brief.weekly")
 
@@ -36,6 +36,19 @@ def build_weekly_recap_data(
 ) -> dict[str, Any]:
     """Build week-level recap data from stored daily snapshots."""
     week_window = get_week_window(run_date)
+    backfilled = backfill_daily_snapshots_from_archives(
+        config,
+        output_dir,
+        start_date=week_window["start_date"],
+        end_date=week_window["end_date"],
+    )
+    if backfilled:
+        logger.info(
+            "Backfilled %d snapshot(s) for weekly window %s → %s",
+            len(backfilled),
+            week_window["start_date"],
+            week_window["end_date"],
+        )
     snapshots = load_daily_snapshots(
         output_dir,
         week_window["start_date"],
@@ -90,6 +103,8 @@ def run_weekly_recap(
     no_llm: bool = False,
 ) -> tuple[str, dict[str, Any]]:
     """Generate a weekly recap site from stored daily snapshots."""
+    from pipeline.render.weekly import render_weekly_recap
+
     weekly_data = build_weekly_recap_data(
         config,
         run_date,
