@@ -1,5 +1,6 @@
 """RSS feed collection and article body extraction."""
 
+from email.utils import parsedate_to_datetime
 import logging
 import re
 from datetime import datetime, timedelta, timezone
@@ -162,6 +163,47 @@ def _parse_date(entry) -> datetime | None:
                 return datetime.fromtimestamp(mktime(parsed), tz=timezone.utc)
             except (TypeError, ValueError, OverflowError):
                 continue
+    for attr in ("published", "updated", "pubDate", "created", "date"):
+        raw = entry.get(attr, "") if hasattr(entry, "get") else getattr(entry, attr, "")
+        parsed = _parse_date_string(raw)
+        if parsed is not None:
+            return parsed
+    return None
+
+
+def _parse_date_string(value: str) -> datetime | None:
+    """Best-effort parse for raw RSS date strings when feedparser tuples are absent."""
+    clean = (value or "").strip()
+    if not clean:
+        return None
+
+    try:
+        parsed = parsedate_to_datetime(clean)
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed.astimezone(timezone.utc)
+    except (TypeError, ValueError, IndexError, OverflowError):
+        pass
+
+    normalized = clean.replace("Z", "+00:00")
+    iso_candidates = (
+        normalized,
+        normalized.replace(" ", "T", 1),
+    )
+    for candidate in iso_candidates:
+        try:
+            parsed = datetime.fromisoformat(candidate)
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            return parsed.astimezone(timezone.utc)
+        except ValueError:
+            continue
+
+    for fmt in ("%Y-%m-%d", "%Y/%m/%d", "%Y.%m.%d"):
+        try:
+            return datetime.strptime(clean[:10], fmt).replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
     return None
 
 

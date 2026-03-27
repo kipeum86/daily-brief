@@ -685,7 +685,10 @@
             <div class="glance-label">{{ 'Most Mentioned Issue' if lang == 'en' else '가장 많이 언급된 이슈' }}</div>
             {% if cover_story %}
             <div class="glance-value">{{ cover_story.appearances }}{{ ' mentions' if lang == 'en' else '회' }}</div>
-            <div class="glance-sub">{{ cover_story.source_count }} {{ 'sources' if lang == 'en' else '개 출처' }} · {{ cover_story.latest_date }}</div>
+            <div class="glance-sub">
+              {{ cover_story.source_count }} {{ 'sources' if lang == 'en' else '개 출처' }}
+              {% if cover_story.latest_date %}· {{ cover_story.latest_date }}{% endif %}
+            </div>
             {% else %}
             <div class="glance-value">-</div>
             <div class="glance-sub">{{ 'No issue cluster available.' if lang == 'en' else '집계된 이슈 클러스터가 없습니다.' }}</div>
@@ -787,7 +790,9 @@
           <article class="feature-story">
             <div class="story-meta">
               <span class="story-pill">{{ lead_world.source }}</span>
+              {% if lead_world.latest_date %}
               <span class="story-pill">{{ lead_world.latest_date }}</span>
+              {% endif %}
               <span class="story-pill">{{ lead_world.appearances }} {{ 'mentions' if lang == 'en' else '회 언급' }}</span>
               <span class="story-pill">{{ lead_world.source_count }} {{ 'sources' if lang == 'en' else '개 소스' }}</span>
             </div>
@@ -807,7 +812,9 @@
               <div>
                 <div class="story-meta" style="margin-bottom: 6px;">
                   <span class="story-pill">{{ item.source }}</span>
+                  {% if item.latest_date %}
                   <span class="story-pill">{{ item.latest_date }}</span>
+                  {% endif %}
                   <span class="story-pill">{{ item.appearances }} {{ 'mentions' if lang == 'en' else '회 언급' }}</span>
                   <span class="story-pill">{{ item.source_count }} {{ 'sources' if lang == 'en' else '개 소스' }}</span>
                 </div>
@@ -837,7 +844,9 @@
           <article class="feature-story">
             <div class="story-meta">
               <span class="story-pill">{{ lead_korea.source }}</span>
+              {% if lead_korea.latest_date %}
               <span class="story-pill">{{ lead_korea.latest_date }}</span>
+              {% endif %}
               <span class="story-pill">{{ lead_korea.appearances }} {{ 'mentions' if lang == 'en' else '회 언급' }}</span>
               <span class="story-pill">{{ lead_korea.source_count }} {{ 'sources' if lang == 'en' else '개 소스' }}</span>
             </div>
@@ -857,7 +866,9 @@
               <div>
                 <div class="story-meta" style="margin-bottom: 6px;">
                   <span class="story-pill">{{ item.source }}</span>
+                  {% if item.latest_date %}
                   <span class="story-pill">{{ item.latest_date }}</span>
+                  {% endif %}
                   <span class="story-pill">{{ item.appearances }} {{ 'mentions' if lang == 'en' else '회 언급' }}</span>
                   <span class="story-pill">{{ item.source_count }} {{ 'sources' if lang == 'en' else '개 소스' }}</span>
                 </div>

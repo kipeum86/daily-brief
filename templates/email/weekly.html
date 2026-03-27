@@ -64,7 +64,9 @@
       <tr>
         <td style="padding-bottom:6px;">
           <span style="display:inline-block; padding:2px 8px; background-color:#F8F5F0; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#6B7280;">{{ article.source }}</span>
+          {% if article.latest_date %}
           <span style="display:inline-block; padding:2px 8px; background-color:#F8F5F0; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#6B7280; margin-left:4px;">{{ article.latest_date }}</span>
+          {% endif %}
           <span style="display:inline-block; padding:2px 8px; background-color:#F8F5F0; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#6B7280; margin-left:4px;">{{ article.appearances_label }}</span>
           {% if article.source_count_label %}
           <span style="display:inline-block; padding:2px 8px; background-color:#F8F5F0; border-radius:999px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:11px; color:#6B7280; margin-left:4px;">{{ article.source_count_label }}</span>
