@@ -90,6 +90,10 @@ def _build_korea_source_names(config: dict) -> set[str]:
     return korea_source_names
 
 
+def _is_korea_source(source: str, config: dict) -> bool:
+    return source in _build_korea_source_names(config)
+
+
 def _classify_bucket(article: Article, config: dict) -> str:
     return "korea" if article.source in _build_korea_source_names(config) else "world"
 
@@ -320,6 +324,7 @@ def _cluster_bucket_articles(
             "dates": dates,
             "score": (appearances * 5) + (source_count * 4) + (active_days * 3) + recency_bonus,
             "bucket_votes": dict(cluster["bucket_votes"]),
+            "cluster_articles": [dict(item) for item in cluster["articles"]],
         })
         ranked.append(lead)
 
@@ -346,6 +351,7 @@ def _normalize_article(article: Article, config: dict) -> dict[str, Any]:
         "description": summary,
         "published_date": published_day.isoformat() if published_day else (article.published_date[:10] if article.published_date else ""),
         "bucket": _classify_bucket(article, config),
+        "is_korea_source": _is_korea_source(article.source.strip(), config),
         "topic_tokens": extract_topic_tokens(f"{article.title} {summary}"),
     }
 
@@ -357,6 +363,9 @@ def _decorate_display(article: dict[str, Any]) -> dict[str, Any]:
     entry["appearances"] = int(entry.get("appearances", 0) or 0)
     entry["active_days"] = int(entry.get("active_days", 0) or 0)
     entry.pop("topic_tokens", None)
+    entry.pop("cluster_articles", None)
+    entry.pop("bucket_votes", None)
+    entry.pop("is_korea_source", None)
     return entry
 
 
@@ -434,6 +443,56 @@ def _classify_weekly_candidates(
     ]
 
 
+def _candidate_sort_tuple(item: dict[str, Any]) -> tuple[int, int, int, str]:
+    return (
+        int(item.get("score", 0) or 0),
+        int(item.get("appearances", 0) or 0),
+        int(item.get("source_count", 0) or 0),
+        item.get("latest_date", ""),
+    )
+
+
+def _pick_representative_article(
+    candidate: dict[str, Any],
+    bucket: str,
+) -> dict[str, Any] | None:
+    members = [dict(item) for item in candidate.get("cluster_articles", [])] or [dict(candidate)]
+
+    if bucket == "world":
+        preferred_pool = [item for item in members if not item.get("is_korea_source")]
+        if not preferred_pool:
+            return None
+    else:
+        preferred_pool = [item for item in members if item.get("is_korea_source")] or members
+
+    preferred_pool.sort(
+        key=lambda item: (
+            1 if (item.get("summary") or item.get("description")) else 0,
+            item.get("published_date", ""),
+            len(item.get("title", "")),
+        ),
+        reverse=True,
+    )
+    representative = preferred_pool[0]
+    merged = {**candidate, **representative, "bucket": bucket}
+    merged["cluster_articles"] = members
+    return merged
+
+
+def _prepare_bucket_candidates(
+    candidates: list[dict[str, Any]],
+    bucket: str,
+) -> list[dict[str, Any]]:
+    prepared: list[dict[str, Any]] = []
+    for candidate in candidates:
+        representative = _pick_representative_article(candidate, bucket)
+        if representative is None:
+            continue
+        prepared.append(representative)
+    prepared.sort(key=_candidate_sort_tuple, reverse=True)
+    return prepared
+
+
 def _select_weekly_clusters(
     provider: Any,
     candidates: list[dict[str, Any]],
@@ -498,8 +557,14 @@ def build_weekly_news_digest(
 
     all_candidates = _cluster_bucket_articles(normalized, end_day=end_day)
     classified_candidates = _classify_weekly_candidates(provider, all_candidates)
-    world_candidates = [item for item in classified_candidates if item.get("bucket") == "world"]
-    korea_candidates = [item for item in classified_candidates if item.get("bucket") == "korea"]
+    world_candidates = _prepare_bucket_candidates(
+        [item for item in classified_candidates if item.get("bucket") == "world"],
+        bucket="world",
+    )
+    korea_candidates = _prepare_bucket_candidates(
+        [item for item in classified_candidates if item.get("bucket") == "korea"],
+        bucket="korea",
+    )
 
     selected_world = world_candidates[:top_n]
     selected_korea = korea_candidates[:top_n]
