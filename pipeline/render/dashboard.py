@@ -181,16 +181,18 @@ def _split_news(articles: list, config: dict | None = None) -> tuple[list[dict],
                 "summary": art.get("description", "") or art.get("summary", ""),
                 "source": art.get("source", ""),
                 "url": art.get("url", ""),
+                "bucket": art.get("bucket", ""),
             }
-            bucket = art.get("bucket", "")
+            bucket = entry["bucket"]
         else:
             entry = {
                 "title": getattr(art, "title", ""),
                 "summary": getattr(art, "description", "") or getattr(art, "body", ""),
                 "source": getattr(art, "source", ""),
                 "url": getattr(art, "url", ""),
+                "bucket": getattr(art, "bucket", ""),
             }
-            bucket = getattr(art, "bucket", "")
+            bucket = entry["bucket"]
 
         if bucket == "korea":
             korea_news.append(entry)
