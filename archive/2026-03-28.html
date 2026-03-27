@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daily Brief · 2026년 3월 28일 토요일</title>
+<meta content="AI-powered daily market &amp; news briefing for 2026년 3월 28일 토요일" name="description"/>
+<meta content="noindex, nofollow" name="robots"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet"/>
+<!-- Chart.js (deferred — for future interactive charts) -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<style>
+    /* ── CSS Custom Properties ─────────────────────────────── */
+    :root {
+      --bg:            #FAFAF8;
+      --bg-insight:    #F8F5F0;
+      --bg-white:      #FFFFFF;
+      --text:          #1A1A1A;
+      --text-secondary:#6B7280;
+      --up:            #16A34A;
+      --down:          #DC2626;
+      --accent:        #B91C1C;
+      --border:        #E5E5E5;
+
+      --font-serif:    'Noto Serif KR', Georgia, 'Times New Roman', serif;
+      --font-sans:     'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono:     'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout Container ──────────────────────────────────── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ── Section Dividers ──────────────────────────────────── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── Header ────────────────────────────────────────────── */
+    .site-header {
+      padding: 32px 0 24px;
+    }
+
+    .header-title {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .header-date {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .header-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-secondary);
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+    }
+    .header-nav a:hover { color: var(--accent); }
+
+    .nav-disabled {
+      color: var(--border) !important;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    @media (min-width: 640px) {
+      .header-date { font-size: 24px; }
+    }
+
+    /* ── Section Titles ────────────────────────────────────── */
+    .section-title {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding: 24px 0 16px;
+    }
+
+    /* ── AI Insight Section ─────────────────────────────────── */
+    .insight-section {
+      background: var(--bg-insight);
+      margin: 0 -16px;
+      padding: 28px 16px 32px;
+    }
+
+    .insight-label {
+      font-family: var(--font-sans);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .insight-body {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .insight-body p { margin-bottom: 1em; }
+    .insight-body p:last-child { margin-bottom: 0; }
+
+    .insight-body h2 {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 20px 0 6px;
+    }
+    .insight-body h2:first-child { margin-top: 0; }
+
+    .insight-body h3 {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    .insight-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 16px;
+    }
+
+    .insight-body li {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      padding: 6px 0 6px 16px;
+      border-left: 2px solid var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .insight-empty {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    @media (min-width: 640px) {
+      .insight-section {
+        margin: 0 -16px;
+        padding: 32px 32px 36px;
+      }
+      .insight-label { font-size: 24px; }
+      .insight-body { font-size: 15px; }
+    }
+
+    /* ── Markets Section ───────────────────────────────────── */
+    .markets-section {
+      padding-bottom: 8px;
+    }
+
+    .market-group-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+    .market-group-label:first-of-type { margin-top: 0; }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .market-item {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .market-item:nth-child(odd) { padding-right: 12px; }
+    .market-item:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--border); }
+
+    .market-name {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .market-price {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 1px;
+    }
+
+    .market-change {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .market-change.up   { color: var(--up); }
+    .market-change.down { color: var(--down); }
+    .market-change.flat { color: var(--text-secondary); }
+
+    .market-holiday-notice {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 12px 0;
+      font-style: italic;
+    }
+
+    @media (min-width: 640px) {
+      .market-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .market-item {
+        padding: 12px 12px 12px 0;
+      }
+      .market-item:nth-child(odd)  { padding-right: 12px; }
+      .market-item:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--border); }
+      /* Reset for 4-col: every item except first in row gets left border */
+      .market-item { border-left: none; padding-left: 0; padding-right: 0; }
+      .market-item:nth-child(n) { padding: 12px 12px; }
+      .market-item:nth-child(4n+2),
+      .market-item:nth-child(4n+3),
+      .market-item:nth-child(4n+4) { border-left: 1px solid var(--border); }
+
+      .market-price { font-size: 20px; }
+      .market-change { font-size: 14px; }
+    }
+
+    /* ── News Section ──────────────────────────────────────── */
+    .news-list {
+      list-style: none;
+    }
+
+    .news-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-item:last-child { border-bottom: none; }
+
+    .news-headline {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .news-headline a {
+      color: var(--text);
+    }
+    .news-headline a:hover {
+      color: var(--accent);
+    }
+
+    .news-summary {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: none;
+    }
+
+    .news-source {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .news-empty {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-style: italic;
+      padding: 16px 0;
+    }
+
+    @media (min-width: 640px) {
+      .news-summary { display: block; }
+    }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .site-footer {
+      padding: 32px 0 48px;
+      text-align: center;
+    }
+
+    .footer-actions {
+      margin-bottom: 16px;
+    }
+
+    .footer-actions a {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 12px;
+    }
+
+    .footer-meta {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .footer-meta a {
+      color: var(--text-secondary);
+    }
+    .footer-meta a:hover { color: var(--accent); }
+
+    /* ── Utility ───────────────────────────────────────────── */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="container" role="main">
+<!-- ═══ HEADER ═══════════════════════════════════════════ -->
+<header class="site-header">
+<div class="header-title" style="display:flex;justify-content:space-between;align-items:center;">
+<span>Daily Brief</span>
+<a href="https://kipeum86.github.io/daily-brief/en/archive/2026-03-28.html" style="font-size:13px;font-weight:600;letter-spacing:0.05em;color:var(--text-secondary);text-decoration:none;border:1px solid var(--border);border-radius:4px;padding:2px 10px;">KR → English</a>
+</div>
+<h1 class="header-date">2026년 3월 28일 토요일</h1>
+<nav aria-label="날짜 탐색" class="header-nav"><a aria-label="이전 브리핑: 2026-03-27" href="https://kipeum86.github.io/daily-brief/archive/2026-03-27.html">◀ 이전</a>
+<time datetime="2026-03-28">2026-03-28</time>
+<span aria-hidden="true" class="nav-disabled">다음 ▶</span></nav>
+</header>
+<hr class="section-divider"/>
+<!-- ═══ AI INSIGHT ═══════════════════════════════════════ -->
+<section aria-label="AI 인사이트" class="insight-section">
+<div class="container">
+<div class="insight-label">Today's Brief</div>
+<div class="insight-body">
+<h2>Key Insight</h2>
+<p>이스라엘의 이란 주요 시설 타격이라는 지정학적 충격이 글로벌 금융시장을 강타했습니다. 유가 폭등과 극단적인 안전자산 쏠림 현상이 맞물리며, 시장은 인플레이션 재발과 경기 침체 우려를 동시에 반영하는 ‘스태그플레이션 트레이드’로 급격히 전환하고 있습니다.</p>
+<h2>Market Overview</h2>
+<p>미국 증시는 중동발 전면전 위기 고조로 기술주 중심의 투매가 발생하며 3대 지수 모두 급락했습니다. 공포지수(VIX)가 30선을 돌파한 가운데, 유가발 물가 상승 우려로 미 국채 금리마저 오르며 위험 회피 심리가 극에 달했습니다.</p>
+<p>한국 시장은 원/달러 환율 1,500원 돌파와 국제 유가 급등이라는 치명적인 이중고에 직면했습니다. 이러한 대외 충격은 수입 물가 폭등과 국내 주담대 금리 상승 기조와 맞물려 거시 경제를 압박하고 있으며, 항공업계를 필두로 한 기업들의 펀더멘털을 심각하게 위협할 것으로 보입니다.</p>
+<h2>Cross-Market Signals</h2>
+<ul>
+<li><strong>유가 폭등(WTI 100달러) + 환율 1,500원 돌파</strong>: 에너지 수입 의존도가 높은 한국의 무역수지 악화 및 강력한 수입발 인플레이션 충격 진입 신호입니다.</li>
+<li><strong>금·VIX 급등 + 비트코인 하락</strong>: 극단적 공포 속에서 자본이 전통적 안전자산(금)으로 도피하고 있습니다. 암호화폐는 대체 자산이 아닌 고위험 자산으로 인식되며 투매에 동조화되는 모습입니다.</li>
+</ul>
+</div>
+</div>
+</section>
+<hr class="section-divider"/>
+<!-- ═══ MARKETS ══════════════════════════════════════════ -->
+<section aria-label="시장 현황" class="markets-section">
+<h2 class="section-title" style="display:flex;justify-content:space-between;align-items:center;">
+<span>Markets</span>
+<span style="font-size:14px;font-weight:600;letter-spacing:0;">🔴 위험 회피</span>
+</h2>
+<div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);margin-bottom:12px;">
+        VIX +13.2% ↑↑ · S&amp;P 500 -1.7%
+      </div>
+<div style="display:flex;flex-wrap:wrap;column-gap:40px;padding:4px 0;border-bottom:1px solid var(--border);">
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">KOSPI</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">nan</span>
+<span style="font-family:var(--font-mono);font-size:11px;color:var(--text-secondary);width:70px;flex-shrink:0;text-align:right;">0.00%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp74416" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,6.48 12.5,6.48 C17.5,6.48 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,11.22 37.5,11.22 C42.5,11.22 45.0,nan 50.0,nan L50.0,16 L0.0,16 Z" fill="url(#sp74416)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,6.48 12.5,6.48 C17.5,6.48 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,11.22 37.5,11.22 C42.5,11.22 45.0,nan 50.0,nan" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="nan" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">KOSDAQ</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">nan</span>
+<span style="font-family:var(--font-mono);font-size:11px;color:var(--text-secondary);width:70px;flex-shrink:0;text-align:right;">0.00%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp75706" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,9.3 12.5,9.3 C17.5,9.3 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,6.39 37.5,6.39 C42.5,6.39 45.0,nan 50.0,nan L50.0,16 L0.0,16 Z" fill="url(#sp75706)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,9.3 12.5,9.3 C17.5,9.3 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,6.39 37.5,6.39 C42.5,6.39 45.0,nan 50.0,nan" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="nan" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">S&amp;P 500</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">6,368.85</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-1.67%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp94996" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,2.59 C5.0,2.59 7.5,3.91 12.5,3.91 C17.5,3.91 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,8.17 37.5,8.17 C42.5,8.17 45.0,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp94996)"></path><path d="M0.0,2.59 C5.0,2.59 7.5,3.91 12.5,3.91 C17.5,3.91 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,8.17 37.5,8.17 C42.5,8.17 45.0,14.0 50.0,14.0" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="14.0" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Nasdaq</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">20,948.36</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-2.15%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp35727" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,4.22 12.5,4.22 C17.5,4.22 20.0,2.2 25.0,2.2 C30.0,2.2 32.5,8.47 37.5,8.47 C42.5,8.47 45.0,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp35727)"></path><path d="M0.0,2.0 C5.0,2.0 7.5,4.22 12.5,4.22 C17.5,4.22 20.0,2.2 25.0,2.2 C30.0,2.2 32.5,8.47 37.5,8.47 C42.5,8.47 45.0,14.0 50.0,14.0" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="14.0" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Dow</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">45,166.64</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-1.73%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp58648" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,4.1 C5.0,4.1 7.5,4.9 12.5,4.9 C17.5,4.9 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,6.46 37.5,6.46 C42.5,6.46 45.0,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp58648)"></path><path d="M0.0,4.1 C5.0,4.1 7.5,4.9 12.5,4.9 C17.5,4.9 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,6.46 37.5,6.46 C42.5,6.46 45.0,14.0 50.0,14.0" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="14.0" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;column-gap:40px;padding:4px 0;border-bottom:1px solid var(--border);">
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">USD/KRW</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">1,508.06</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+0.47%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp44154" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,4.04 C5.0,4.04 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,7.68 25.0,7.68 C30.0,7.68 32.5,5.75 37.5,5.75 C42.5,5.75 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp44154)"></path><path d="M0.0,4.04 C5.0,4.04 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,7.68 25.0,7.68 C30.0,7.68 32.5,5.75 37.5,5.75 C42.5,5.75 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.0" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">JPY/KRW</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">9.41</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-0.07%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp16306" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,5.0 25.0,5.0 C30.0,5.0 32.5,6.5 37.5,6.5 C42.5,6.5 45.0,8.0 50.0,8.0 L50.0,16 L0.0,16 Z" fill="url(#sp16306)"></path><path d="M0.0,2.0 C5.0,2.0 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,5.0 25.0,5.0 C30.0,5.0 32.5,6.5 37.5,6.5 C42.5,6.5 45.0,8.0 50.0,8.0" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="8.0" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Gold</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">4,521.30</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+3.33%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp21095" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,12.03 C5.0,12.03 7.5,12.36 12.5,12.36 C17.5,12.36 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,3.96 50.0,3.96 L50.0,16 L0.0,16 Z" fill="url(#sp21095)"></path><path d="M0.0,12.03 C5.0,12.03 7.5,12.36 12.5,12.36 C17.5,12.36 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,3.96 50.0,3.96" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="3.96" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">WTI Oil</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">101.18</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+7.09%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp3956" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,10.12 12.5,10.12 C17.5,10.12 20.0,11.99 25.0,11.99 C30.0,11.99 32.5,8.16 37.5,8.16 C42.5,8.16 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp3956)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,10.12 12.5,10.12 C17.5,10.12 20.0,11.99 25.0,11.99 C30.0,11.99 32.5,8.16 37.5,8.16 C42.5,8.16 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.0" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Bitcoin</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">65,968.97</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-4.10%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp13650" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,2.89 C5.0,2.89 7.5,3.78 12.5,3.78 C17.5,3.78 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,7.66 37.5,7.66 C42.5,7.66 45.0,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp13650)"></path><path d="M0.0,2.89 C5.0,2.89 7.5,3.78 12.5,3.78 C17.5,3.78 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,7.66 37.5,7.66 C42.5,7.66 45.0,14.0 50.0,14.0" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="14.0" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Ethereum</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">1,983.32</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-3.70%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp85836" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,3.03 C5.0,3.03 7.5,2.8 12.5,2.8 C17.5,2.8 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,9.05 37.5,9.05 C42.5,9.05 45.0,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp85836)"></path><path d="M0.0,3.03 C5.0,3.03 7.5,2.8 12.5,2.8 C17.5,2.8 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,9.05 37.5,9.05 C42.5,9.05 45.0,14.0 50.0,14.0" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="14.0" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;column-gap:40px;padding:4px 0;border-bottom:1px solid var(--border);">
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">VIX</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">31.05</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+13.16%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp64008" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,12.28 C5.0,12.28 7.5,10.6 12.5,10.6 C17.5,10.6 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,9.57 37.5,9.57 C42.5,9.57 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp64008)"></path><path d="M0.0,12.28 C5.0,12.28 7.5,10.6 12.5,10.6 C17.5,10.6 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,9.57 37.5,9.57 C42.5,9.57 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.0" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">US 10Y</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">4.44</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+0.54%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp4512" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,7.45 12.5,7.45 C17.5,7.45 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,4.18 37.5,4.18 C42.5,4.18 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp4512)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,7.45 12.5,7.45 C17.5,7.45 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,4.18 37.5,4.18 C42.5,4.18 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.0" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Dollar Index</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">100.19</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+0.29%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp55098" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,9.35 12.5,9.35 C17.5,9.35 20.0,7.71 25.0,7.71 C30.0,7.71 32.5,4.81 37.5,4.81 C42.5,4.81 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp55098)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,9.35 12.5,9.35 C17.5,9.35 20.0,7.71 25.0,7.71 C30.0,7.71 32.5,4.81 37.5,4.81 C42.5,4.81 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.0" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+</div>
+</section>
+<hr class="section-divider"/>
+<!-- ═══ WORLD NEWS ═══════════════════════════════════════ -->
+<section aria-label="세계 뉴스">
+<h2 class="section-title">World</h2>
+<p class="news-empty">글로벌 뉴스를 가져올 수 없습니다.</p>
+</section>
+<hr class="section-divider"/>
+<!-- ═══ KOREA NEWS ═══════════════════════════════════════ -->
+<section aria-label="한국 뉴스">
+<h2 class="section-title">Korea</h2>
+<p class="news-empty">국내 뉴스를 가져올 수 없습니다.</p>
+</section>
+<hr class="section-divider"/>
+<!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+<footer class="site-footer">
+<div class="footer-actions">
+<a href="https://kipeum86.github.io/daily-brief/archive//">과거 브리핑 보기</a>
+</div>
+<div class="footer-meta">
+<p>Powered by AI · Data: Yahoo Finance, FRED, RSS</p>
+<p>Generated <time datetime="2026-03-27 23:10:20">2026-03-27 23:10:20</time></p>
+</div>
+</footer>
+</div>
+<!-- Chart.js data placeholder — populated by render pipeline -->
+<script id="chart-data" type="application/json">
+    {}
+  </script>
+<script>
+  (function() {
+    var K = 'daily-brief-lang';
+    var p = location.pathname;
+    var isEn = p.indexOf('/en/') > -1;
+    var cur = isEn ? 'en' : 'ko';
+    try { localStorage.setItem(K, cur); } catch(e) {}
+    if (p === '/' || p === '/index.html' || p === '/en/' || p === '/en/index.html'
+        || p === '/weekly/' || p === '/weekly/index.html') {
+      try {
+        var s = localStorage.getItem(K);
+        if (s && s !== cur) {
+          location.replace(s === 'en'
+            ? p.replace(/^\/?/, '/en/')
+            : p.replace(/^\/en\//, '/'));
+        }
+      } catch(e) {}
+    }
+  })();
+  </script>
+</body>
+</html>
