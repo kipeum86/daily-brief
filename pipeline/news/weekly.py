@@ -83,6 +83,25 @@ _KOREA_LOW_SIGNAL_HINTS = (
     "학교", "교과서", "묘역", "추모", "기념", "축제", "사고", "범죄", "재판소원", "헌재",
     "개학", "교육", "공항", "날씨", "질병", "복지",
 )
+_KOREA_HARD_EXCLUDE_HINTS = (
+    "기업pr", "brandbrief", "브랜드브리프", "현장 체험", "탐방 프로그램",
+)
+_KOREA_STRONG_SECTION_HINTS = (
+    "/economy/", "/finance/", "/market/", "/realestate/", "/industry/", "/biz/", "/business/",
+    "/money/", "/stock/", "/securities/", "/policy/", "/economy_", "경제", "증권", "금융",
+    "산업", "기업", "부동산", "market", "finance", "economy",
+)
+_KOREA_LOW_SIGNAL_SECTION_HINTS = (
+    "/sports/", "/sport/", "/baseball/", "/area/", "/capital/", "/culture/", "/entertain/",
+    "/travel/", "/health/", "/world/", "/photo/", "/cartoon/", "/people/", "정치일반", "기업pr",
+    "본문 스포츠", "본문 전국", "본문 지역", "본문 사회", "본문 문화", "본문 정치 정치일반",
+    "본문 국제", "야구", "축구", "연예", "아이돌", "화재", "사망", "추모",
+)
+_KNOWN_KOREA_OUTLETS = {
+    "연합뉴스", "조선일보", "중앙일보", "동아일보", "한겨레", "한국경제", "매일경제",
+    "서울경제", "뉴시스", "머니투데이", "이데일리", "파이낸셜뉴스", "비즈워치",
+    "아시아경제", "쿠키뉴스", "네이버뉴스",
+}
 _WORLD_HINTS = (
     "미국", "중국", "일본", "유럽", "eu", "러시아", "우크라", "이란", "이스라엘",
     "하마스", "가자", "트럼프", "바이든", "fed", "fomc", "파월", "백악관",
@@ -92,7 +111,7 @@ _WORLD_HINTS = (
 
 
 def _build_korea_source_names(config: dict) -> set[str]:
-    korea_source_names: set[str] = set()
+    korea_source_names: set[str] = set(_KNOWN_KOREA_OUTLETS)
     for korea_key in ("korea", "korea_major"):
         korea_cfg = config.get("news", {}).get(korea_key, [])
         if isinstance(korea_cfg, list):
@@ -404,20 +423,64 @@ def _heuristic_issue_bucket(item: dict[str, Any]) -> str:
     return "world"
 
 
-def _korea_relevance_score(item: dict[str, Any]) -> int:
+def _korea_relevance_details(item: dict[str, Any]) -> dict[str, int]:
     text = " ".join([
         item.get("title", ""),
         item.get("summary", "") or item.get("description", ""),
+        item.get("url", ""),
     ]).lower()
     priority_hits = sum(1 for token in _KOREA_PRIORITY_HINTS if token.lower() in text)
     low_signal_hits = sum(1 for token in _KOREA_LOW_SIGNAL_HINTS if token.lower() in text)
-    score = priority_hits * 3
-    if item.get("appearances", 0):
-        score += min(int(item.get("appearances", 0)), 3)
-    if item.get("source_count", 0):
-        score += min(int(item.get("source_count", 0)), 2)
-    if low_signal_hits and not priority_hits:
-        score -= low_signal_hits * 2
+    hard_exclude_hits = sum(1 for token in _KOREA_HARD_EXCLUDE_HINTS if token.lower() in text)
+    strong_section_hits = sum(1 for token in _KOREA_STRONG_SECTION_HINTS if token.lower() in text)
+    weak_section_hits = sum(1 for token in _KOREA_LOW_SIGNAL_SECTION_HINTS if token.lower() in text)
+    appearances = int(item.get("appearances", 0) or 0)
+    source_count = int(item.get("source_count", 0) or 0)
+    return {
+        "priority_hits": priority_hits,
+        "low_signal_hits": low_signal_hits,
+        "hard_exclude_hits": hard_exclude_hits,
+        "strong_section_hits": strong_section_hits,
+        "weak_section_hits": weak_section_hits,
+        "appearances": appearances,
+        "source_count": source_count,
+    }
+
+
+def _is_viable_korea_candidate(item: dict[str, Any]) -> bool:
+    details = _korea_relevance_details(item)
+    if details["hard_exclude_hits"] > 0 and details["priority_hits"] <= 1 and details["source_count"] <= 1:
+        return False
+    has_core_signal = (
+        details["priority_hits"] > 0
+        or details["strong_section_hits"] > 0
+        or details["appearances"] >= 2
+        or details["source_count"] >= 2
+    )
+    if not has_core_signal:
+        return False
+    if (
+        details["weak_section_hits"] > 0
+        and details["priority_hits"] == 0
+        and details["strong_section_hits"] == 0
+        and details["source_count"] <= 1
+        and details["appearances"] <= 1
+    ):
+        return False
+    return True
+
+
+def _korea_relevance_score(item: dict[str, Any]) -> int:
+    details = _korea_relevance_details(item)
+    score = (details["priority_hits"] * 4) + (details["strong_section_hits"] * 3)
+    score += min(details["appearances"], 3)
+    score += min(details["source_count"], 2)
+    score -= details["low_signal_hits"] * 2
+    score -= details["hard_exclude_hits"] * 8
+    score -= details["weak_section_hits"] * 5
+
+    if not _is_viable_korea_candidate(item):
+        score -= 8
     return score
 
 
@@ -527,7 +590,11 @@ def _prepare_bucket_candidates(
         prepared.append(representative)
     prepared.sort(key=_candidate_sort_tuple, reverse=True)
     if bucket == "korea":
-        strong = [item for item in prepared if int(item.get("relevance_score", 0) or 0) > 0]
+        strong = [
+            item
+            for item in prepared
+            if int(item.get("relevance_score", 0) or 0) > 0 and _is_viable_korea_candidate(item)
+        ]
         if strong:
             return strong
     return prepared
@@ -537,6 +604,7 @@ def _enforce_source_diversity(
     selected: list[dict[str, Any]],
     candidates: list[dict[str, Any]],
     top_n: int,
+    max_per_source: int | None = None,
 ) -> list[dict[str, Any]]:
     pool: list[dict[str, Any]] = []
     seen_urls: set[str] = set()
@@ -557,6 +625,7 @@ def _enforce_source_diversity(
         by_source[source].append(item)
 
     diversified: list[dict[str, Any]] = []
+    source_counts: Counter[str] = Counter()
     round_index = 0
     while len(diversified) < top_n:
         added_this_round = False
@@ -564,7 +633,10 @@ def _enforce_source_diversity(
             items = by_source.get(source, [])
             if round_index >= len(items):
                 continue
+            if max_per_source is not None and source_counts[source] >= max_per_source:
+                continue
             diversified.append(items[round_index])
+            source_counts[source] += 1
             added_this_round = True
             if len(diversified) >= top_n:
                 return diversified[:top_n]
@@ -656,7 +728,18 @@ def build_weekly_news_digest(
         selected_korea = _select_weekly_clusters(provider, korea_candidates, top_n=top_n, category="korea")
 
     selected_world = _enforce_source_diversity(selected_world, world_candidates, top_n=top_n)
-    selected_korea = _enforce_source_diversity(selected_korea, korea_candidates, top_n=top_n)
+    selected_korea = _enforce_source_diversity(
+        selected_korea,
+        korea_candidates,
+        top_n=top_n,
+        max_per_source=1,
+    )
+
+    logger.info(
+        "Weekly selected sources — world: %s | korea: %s",
+        ", ".join(item.get("source", "") for item in selected_world) or "(none)",
+        ", ".join(item.get("source", "") for item in selected_korea) or "(none)",
+    )
 
     display_items = selected_world + selected_korea
     fill_missing_descriptions(display_items[: max(4, top_n * 2)])

@@ -5,12 +5,30 @@ import os
 import re
 from datetime import datetime, timedelta
 from typing import Any
+from urllib.parse import urlparse
 
 import requests
 
 logger = logging.getLogger(__name__)
 
 NAVER_NEWS_URL = "https://openapi.naver.com/v1/search/news.json"
+_OUTLET_DOMAIN_MAP = {
+    "yna.co.kr": "연합뉴스",
+    "chosun.com": "조선일보",
+    "joins.com": "중앙일보",
+    "donga.com": "동아일보",
+    "hani.co.kr": "한겨레",
+    "hankyung.com": "한국경제",
+    "mk.co.kr": "매일경제",
+    "sedaily.com": "서울경제",
+    "newsis.com": "뉴시스",
+    "mt.co.kr": "머니투데이",
+    "edaily.co.kr": "이데일리",
+    "fnnews.com": "파이낸셜뉴스",
+    "bizwatch.co.kr": "비즈워치",
+    "asiae.co.kr": "아시아경제",
+    "kukinews.com": "쿠키뉴스",
+}
 
 
 def _strip_html(text: str) -> str:
@@ -18,6 +36,20 @@ def _strip_html(text: str) -> str:
     text = re.sub(r"<[^>]+>", "", text)
     text = text.replace("&quot;", '"').replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")
     return text.strip()
+
+
+def _infer_source_name(url: str, fallback: str = "네이버뉴스") -> str:
+    """Infer the original publisher from the article URL when possible."""
+    try:
+        host = urlparse(url).netloc.lower()
+    except Exception:
+        return fallback
+
+    host = host.removeprefix("www.")
+    for domain, source_name in _OUTLET_DOMAIN_MAP.items():
+        if host == domain or host.endswith(f".{domain}"):
+            return source_name
+    return fallback
 
 
 def collect_naver_news(
@@ -93,7 +125,7 @@ def collect_naver_news(
                 all_articles.append({
                     "title": _strip_html(item.get("title", "")),
                     "summary": _strip_html(item.get("description", "")),
-                    "source": "네이버뉴스",
+                    "source": _infer_source_name(url),
                     "url": url,
                     "published": published_str,
                     "category": "korea",
