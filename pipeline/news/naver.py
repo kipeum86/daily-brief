@@ -28,6 +28,19 @@ _OUTLET_DOMAIN_MAP = {
     "bizwatch.co.kr": "비즈워치",
     "asiae.co.kr": "아시아경제",
     "kukinews.com": "쿠키뉴스",
+    "news1.kr": "뉴스1",
+    "heraldcorp.com": "헤럴드경제",
+    "seoul.co.kr": "서울신문",
+    "kmib.co.kr": "국민일보",
+    "etoday.co.kr": "이투데이",
+    "sbs.co.kr": "SBS",
+    "sbsbiz.co.kr": "SBS Biz",
+    "kbs.co.kr": "KBS",
+    "imbc.com": "MBC",
+    "jtbc.co.kr": "JTBC",
+    "ytn.co.kr": "YTN",
+    "dailian.co.kr": "데일리안",
+    "nocutnews.co.kr": "노컷뉴스",
 }
 
 

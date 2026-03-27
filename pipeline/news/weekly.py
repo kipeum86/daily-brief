@@ -100,7 +100,8 @@ _KOREA_LOW_SIGNAL_SECTION_HINTS = (
 _KNOWN_KOREA_OUTLETS = {
     "연합뉴스", "조선일보", "중앙일보", "동아일보", "한겨레", "한국경제", "매일경제",
     "서울경제", "뉴시스", "머니투데이", "이데일리", "파이낸셜뉴스", "비즈워치",
-    "아시아경제", "쿠키뉴스", "네이버뉴스",
+    "아시아경제", "쿠키뉴스", "뉴스1", "헤럴드경제", "서울신문", "국민일보", "이투데이",
+    "SBS", "SBS Biz", "KBS", "MBC", "JTBC", "YTN", "데일리안", "노컷뉴스", "네이버뉴스",
 }
 _WORLD_HINTS = (
     "미국", "중국", "일본", "유럽", "eu", "러시아", "우크라", "이란", "이스라엘",
@@ -470,6 +471,17 @@ def _is_viable_korea_candidate(item: dict[str, Any]) -> bool:
     return True
 
 
+def _is_relaxed_korea_candidate(item: dict[str, Any]) -> bool:
+    details = _korea_relevance_details(item)
+    if details["hard_exclude_hits"] > 0:
+        return False
+    if details["weak_section_hits"] >= 2 and details["priority_hits"] == 0:
+        return False
+    if details["low_signal_hits"] >= 2 and details["strong_section_hits"] == 0:
+        return False
+    return True
+
+
 def _korea_relevance_score(item: dict[str, Any]) -> int:
     details = _korea_relevance_details(item)
     score = (details["priority_hits"] * 4) + (details["strong_section_hits"] * 3)
@@ -581,6 +593,7 @@ def _pick_representative_article(
 def _prepare_bucket_candidates(
     candidates: list[dict[str, Any]],
     bucket: str,
+    minimum_items: int | None = None,
 ) -> list[dict[str, Any]]:
     prepared: list[dict[str, Any]] = []
     for candidate in candidates:
@@ -595,8 +608,24 @@ def _prepare_bucket_candidates(
             for item in prepared
             if int(item.get("relevance_score", 0) or 0) > 0 and _is_viable_korea_candidate(item)
         ]
-        if strong:
+        if strong and (minimum_items is None or len(strong) >= minimum_items):
             return strong
+        if strong:
+            seen_urls = {item.get("url", "") for item in strong if item.get("url", "")}
+            relaxed = [
+                item for item in prepared
+                if _is_relaxed_korea_candidate(item)
+                and ((item.get("url", "") not in seen_urls) or not item.get("url", ""))
+            ]
+            supplemented = list(strong)
+            for item in relaxed:
+                if item in supplemented:
+                    continue
+                supplemented.append(item)
+                if minimum_items is not None and len(supplemented) >= minimum_items:
+                    break
+            if supplemented:
+                return supplemented
     return prepared
 
 
@@ -718,6 +747,14 @@ def build_weekly_news_digest(
     korea_candidates = _prepare_bucket_candidates(
         [item for item in classified_candidates if item.get("bucket") == "korea"],
         bucket="korea",
+        minimum_items=max(4, min(top_n, 5)),
+    )
+
+    logger.info(
+        "Weekly candidate pools — world: %d | korea: %d (%s)",
+        len(world_candidates),
+        len(korea_candidates),
+        ", ".join(dict.fromkeys(item.get("source", "") for item in korea_candidates if item.get("source", ""))) or "(none)",
     )
 
     selected_world = world_candidates[:top_n]
