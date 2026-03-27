@@ -1,15 +1,15 @@
 # ============================================================
 # Weekly Recap — 주간 요약 브리핑 자동 생성 & 배포
-# 스케줄: UTC 00:00 (금) = KST 09:00 (토)
-# v1.5 예정 기능 — 현재 placeholder
+# 스케줄: UTC 00:00 (토) = KST 09:00 (토)
+# daily snapshot 기반 주간 리캡 생성
 # ============================================================
 
 name: Weekly Recap
 
 on:
   schedule:
-    # UTC 00:00 금 = KST 09:00 토
-    - cron: "0 0 * * 5"
+    # UTC 00:00 토 = KST 09:00 토
+    - cron: "0 0 * * 6"
   workflow_dispatch: # 수동 테스트용
 
 # gh-pages 브랜치에 push하기 위한 권한
@@ -29,7 +29,11 @@ jobs:
       # API 키 (GitHub Secrets에서 주입)
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}             # Gemini LLM
       FRED_API_KEY: ${{ secrets.FRED_API_KEY }}                 # 경제 지표
-      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}             # 이메일 발송
+      NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}           # 네이버 뉴스
+      NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}   # 네이버 뉴스
+      GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}               # 이메일 발송
+      GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}     # 이메일 발송
+      SUBSCRIBERS: ${{ secrets.SUBSCRIBERS }}                   # 수신자 (쉼표 구분)
       GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}  # 시트 아카이브
 
     steps:
@@ -56,11 +60,23 @@ jobs:
       - name: 📦 의존성 설치
         run: pip install -r requirements.txt
 
-      # 5. 주간 요약 브리핑 생성 (v1.5 placeholder)
+      # 5. 기존 아카이브 복원 (archive index에 과거 브리핑 포함)
+      - name: 📂 기존 아카이브 복원
+        run: |
+          git fetch origin gh-pages --depth=1 || true
+          mkdir -p output/archive output/en/archive output/data/daily output/weekly/archive output/en/weekly/archive
+          git checkout origin/gh-pages -- archive/ 2>/dev/null && mv archive/*.html output/archive/ 2>/dev/null || true
+          git checkout origin/gh-pages -- en/archive/ 2>/dev/null && mv en/archive/*.html output/en/archive/ 2>/dev/null || true
+          git checkout origin/gh-pages -- data/daily/ 2>/dev/null && cp -R data/daily/. output/data/daily/ 2>/dev/null || true
+          git checkout origin/gh-pages -- weekly/archive/ 2>/dev/null && mv weekly/archive/*.html output/weekly/archive/ 2>/dev/null || true
+          git checkout origin/gh-pages -- en/weekly/archive/ 2>/dev/null && mv en/weekly/archive/*.html output/en/weekly/archive/ 2>/dev/null || true
+          echo "Restored $(ls output/archive/*.html 2>/dev/null | wc -l) archive files"
+
+      # 6. 스냅샷 기반 주간 리캡 생성
       - name: 📊 주간 요약 생성
         run: python main.py --brief-type weekly
 
-      # 6. GitHub Pages 배포 (기존 아카이브 유지)
+      # 7. GitHub Pages 배포 (기존 아카이브 유지)
       - name: 🚀 GitHub Pages 배포
         uses: peaceiris/actions-gh-pages@v4
         with:

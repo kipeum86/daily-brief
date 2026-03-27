@@ -1,0 +1,384 @@
+"""Snapshot persistence and weekly recap aggregation helpers."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import logging
+from datetime import date, datetime, timedelta
+from pathlib import Path
+from typing import Any
+
+from pipeline.markets.indicators import generate_sparkline_svg
+from pipeline.news.dedup import canonicalize_url
+from pipeline.news.selector import select_top_news
+
+logger = logging.getLogger("daily-brief.recap")
+
+_SCHEMA_VERSION = 1
+_CORE_MARKETS: list[tuple[str, str]] = [
+    ("kr", "KOSPI"),
+    ("kr", "KOSDAQ"),
+    ("us", "S&P 500"),
+    ("us", "Nasdaq"),
+    ("fx", "USD/KRW"),
+    ("commodities", "Gold"),
+    ("commodities", "WTI Oil"),
+    ("crypto", "Bitcoin"),
+    ("risk", "VIX"),
+]
+_SECTION_LABELS = {
+    "kr": "Korea",
+    "us": "US",
+    "fx": "FX",
+    "commodities": "Commodities",
+    "crypto": "Crypto",
+    "risk": "Risk",
+    "sectors": "Sectors",
+}
+
+
+def _build_korea_source_names(config: dict) -> set[str]:
+    """Collect source names that should be treated as Korea news."""
+    korea_source_names: set[str] = set()
+    for korea_key in ("korea", "korea_major"):
+        korea_cfg = config.get("news", {}).get(korea_key, [])
+        if isinstance(korea_cfg, list):
+            for src in korea_cfg:
+                if isinstance(src, dict):
+                    korea_source_names.add(src.get("name", ""))
+        elif isinstance(korea_cfg, dict):
+            korea_source_names.add("네이버뉴스")
+    return korea_source_names
+
+
+def classify_article_bucket(article: Any, config: dict) -> str:
+    """Classify article as world or korea using configured source names."""
+    source = article.get("source", "") if isinstance(article, dict) else getattr(article, "source", "")
+    return "korea" if source in _build_korea_source_names(config) else "world"
+
+
+def _canonical_story_key(url: str, source: str, title: str) -> str:
+    """Generate a stable story key."""
+    if url:
+        try:
+            return canonicalize_url(url)
+        except Exception:
+            pass
+    raw = f"{source}|{title}".encode("utf-8")
+    return "story:" + hashlib.sha1(raw).hexdigest()
+
+
+def _serialize_market_item(item: Any) -> dict[str, Any]:
+    """Convert market data entry to a JSON-serializable dict."""
+    if isinstance(item, dict):
+        data = dict(item)
+    else:
+        data = {
+            "ticker": getattr(item, "ticker", ""),
+            "name": getattr(item, "name", ""),
+            "price": getattr(item, "price", 0.0),
+            "change_pct": getattr(item, "change_pct", 0.0),
+            "prev_close": getattr(item, "prev_close", 0.0),
+            "sparkline": getattr(item, "sparkline", []),
+            "volume": getattr(item, "volume", 0),
+        }
+
+    # SVG is large and can be regenerated from week-level prices later.
+    data.pop("sparkline_svg", None)
+    return data
+
+
+def _serialize_article(article: Any, config: dict) -> dict[str, Any]:
+    """Convert an article object to a JSON-serializable dict."""
+    if isinstance(article, dict):
+        title = article.get("title", "")
+        summary = article.get("summary", "") or article.get("description", "")
+        source = article.get("source", "")
+        url = article.get("url", "")
+        published_date = article.get("published_date", "") or article.get("published", "")
+    else:
+        title = getattr(article, "title", "")
+        summary = getattr(article, "description", "") or getattr(article, "body", "")
+        source = getattr(article, "source", "")
+        url = getattr(article, "url", "")
+        published_date = getattr(article, "published_date", "")
+
+    story_key = _canonical_story_key(url, source, title)
+    return {
+        "story_key": story_key,
+        "canonical_url": story_key if story_key.startswith("https://") else "",
+        "title": title,
+        "summary": summary,
+        "source": source,
+        "url": url,
+        "published_date": published_date,
+        "bucket": classify_article_bucket(article, config),
+    }
+
+
+def save_daily_snapshot(
+    config: dict,
+    markets: dict[str, list],
+    holidays: dict[str, Any],
+    articles: list,
+    articles_ko: list,
+    articles_en: list,
+    insight_ko: str,
+    insight_en: str,
+    run_date: str,
+    output_dir: str,
+    market_pulse: dict | None = None,
+) -> str:
+    """Persist a daily briefing snapshot for future recap jobs."""
+    snapshot_dir = Path(output_dir) / "data" / "daily"
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+
+    markets_payload = {
+        key: [_serialize_market_item(item) for item in items]
+        for key, items in markets.items()
+    }
+    payload = {
+        "schema_version": _SCHEMA_VERSION,
+        "brief_type": "daily",
+        "date": run_date,
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "market_pulse": market_pulse or {},
+        "holidays": holidays or {},
+        "markets": markets_payload,
+        "insight": {"ko": insight_ko or "", "en": insight_en or ""},
+        "articles": {
+            "raw": [_serialize_article(article, config) for article in articles],
+            "ko": [_serialize_article(article, config) for article in articles_ko],
+            "en": [_serialize_article(article, config) for article in articles_en],
+        },
+    }
+
+    snapshot_path = snapshot_dir / f"{run_date}.json"
+    snapshot_path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    latest_path = snapshot_dir / "latest.json"
+    latest_path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    logger.info("Saved daily snapshot → %s", snapshot_path)
+    return str(snapshot_path)
+
+
+def get_week_window(run_date: str) -> dict[str, str]:
+    """Get the weekly recap window ending the day before run_date."""
+    run_day = date.fromisoformat(run_date)
+    recap_end = run_day - timedelta(days=1)
+    recap_start = recap_end - timedelta(days=recap_end.weekday())
+    iso_year, iso_week, _ = recap_end.isocalendar()
+    return {
+        "week_id": f"{iso_year}-W{iso_week:02d}",
+        "start_date": recap_start.isoformat(),
+        "end_date": recap_end.isoformat(),
+    }
+
+
+def load_daily_snapshots(output_dir: str, start_date: str, end_date: str) -> list[dict[str, Any]]:
+    """Load daily snapshots for the given inclusive date range."""
+    snapshot_dir = Path(output_dir) / "data" / "daily"
+    if not snapshot_dir.exists():
+        return []
+
+    start = date.fromisoformat(start_date)
+    end = date.fromisoformat(end_date)
+    snapshots: list[dict[str, Any]] = []
+    for path in sorted(snapshot_dir.glob("*.json")):
+        if path.name == "latest.json":
+            continue
+        try:
+            day = date.fromisoformat(path.stem)
+        except ValueError:
+            continue
+        if not (start <= day <= end):
+            continue
+        try:
+            snapshots.append(json.loads(path.read_text(encoding="utf-8")))
+        except json.JSONDecodeError as exc:
+            logger.warning("Failed to parse snapshot %s: %s", path.name, exc)
+
+    snapshots.sort(key=lambda item: item.get("date", ""))
+    logger.info(
+        "Loaded %d daily snapshot(s) for %s → %s",
+        len(snapshots), start_date, end_date,
+    )
+    return snapshots
+
+
+def build_weekly_market_summary(snapshots: list[dict[str, Any]]) -> dict[str, Any]:
+    """Aggregate week-level market moves from daily snapshots."""
+    series_map: dict[tuple[str, str], dict[str, Any]] = {}
+    for snapshot in snapshots:
+        date_iso = snapshot.get("date", "")
+        for section, items in snapshot.get("markets", {}).items():
+            for item in items:
+                key = (section, item.get("name", ""))
+                entry = series_map.setdefault(
+                    key,
+                    {
+                        "section": section,
+                        "name": item.get("name", ""),
+                        "ticker": item.get("ticker", ""),
+                        "points": [],
+                    },
+                )
+                entry["points"].append({
+                    "date": date_iso,
+                    "price": float(item.get("price", 0.0)),
+                    "change_pct": float(item.get("change_pct", 0.0)),
+                })
+
+    all_cards: list[dict[str, Any]] = []
+    for entry in series_map.values():
+        points = sorted(entry["points"], key=lambda item: item["date"])
+        if not points:
+            continue
+        start_price = points[0]["price"]
+        end_price = points[-1]["price"]
+        weekly_change_pct = ((end_price - start_price) / start_price * 100) if start_price else 0.0
+        sparkline = [point["price"] for point in points]
+        all_cards.append({
+            "section": entry["section"],
+            "section_label": _SECTION_LABELS.get(entry["section"], entry["section"].title()),
+            "name": entry["name"],
+            "ticker": entry["ticker"],
+            "points": points,
+            "observations": len(points),
+            "start_price": start_price,
+            "end_price": end_price,
+            "weekly_change_pct": round(weekly_change_pct, 2),
+            "sparkline_svg": generate_sparkline_svg(sparkline, width=72, height=22),
+        })
+
+    core_lookup = {(item["section"], item["name"]): item for item in all_cards}
+    core_cards = [core_lookup[key] for key in _CORE_MARKETS if key in core_lookup]
+
+    non_sector_cards = [item for item in all_cards if item["section"] != "sectors"]
+    leaders = sorted(non_sector_cards, key=lambda item: item["weekly_change_pct"], reverse=True)[:5]
+    laggards = sorted(non_sector_cards, key=lambda item: item["weekly_change_pct"])[:5]
+    sector_cards = [item for item in all_cards if item["section"] == "sectors"]
+    sectors_best = sorted(sector_cards, key=lambda item: item["weekly_change_pct"], reverse=True)[:3]
+    sectors_worst = sorted(sector_cards, key=lambda item: item["weekly_change_pct"])[:3]
+
+    return {
+        "cards": core_cards,
+        "leaders": leaders,
+        "laggards": laggards,
+        "sectors_best": sectors_best,
+        "sectors_worst": sectors_worst,
+        "all_cards": all_cards,
+    }
+
+
+def _candidate_sort_key(candidate: dict[str, Any]) -> tuple[int, int, str]:
+    return (candidate["score"], candidate["count"], candidate["latest_date"])
+
+
+def _decorate_display(article: dict[str, Any], candidate: dict[str, Any]) -> dict[str, Any]:
+    entry = dict(article)
+    entry["appearances"] = candidate["count"]
+    entry["latest_date"] = candidate["latest_date"]
+    entry["dates"] = list(candidate["dates"])
+    return entry
+
+
+def build_weekly_news_digest(
+    config: dict,
+    snapshots: list[dict[str, Any]],
+    provider: Any | None = None,
+    top_n: int = 5,
+) -> dict[str, Any]:
+    """Select weekly top stories from saved daily snapshots."""
+    candidates: dict[str, dict[str, Any]] = {}
+    for day_index, snapshot in enumerate(snapshots):
+        date_iso = snapshot.get("date", "")
+        raw_by_key = {
+            article.get("story_key") or _canonical_story_key(
+                article.get("url", ""), article.get("source", ""), article.get("title", ""),
+            ): article
+            for article in snapshot.get("articles", {}).get("raw", [])
+        }
+        ko_by_key = {
+            article.get("story_key") or _canonical_story_key(
+                article.get("url", ""), article.get("source", ""), article.get("title", ""),
+            ): article
+            for article in snapshot.get("articles", {}).get("ko", [])
+        }
+        en_by_key = {
+            article.get("story_key") or _canonical_story_key(
+                article.get("url", ""), article.get("source", ""), article.get("title", ""),
+            ): article
+            for article in snapshot.get("articles", {}).get("en", [])
+        }
+
+        day_weight = 10 + day_index
+        for story_key, raw_article in raw_by_key.items():
+            bucket = raw_article.get("bucket") or classify_article_bucket(raw_article, config)
+            entry = candidates.setdefault(
+                story_key,
+                {
+                    "story_key": story_key,
+                    "url": raw_article.get("url", ""),
+                    "source": raw_article.get("source", ""),
+                    "title": raw_article.get("title", ""),
+                    "description": raw_article.get("summary", ""),
+                    "bucket": bucket,
+                    "dates": set(),
+                    "count": 0,
+                    "score": 0,
+                    "latest_date": "",
+                    "display_ko": raw_article,
+                    "display_en": raw_article,
+                },
+            )
+            entry["count"] += 1
+            entry["score"] += day_weight
+            entry["dates"].add(date_iso)
+            if date_iso >= entry["latest_date"]:
+                entry["latest_date"] = date_iso
+                entry["title"] = raw_article.get("title", "")
+                entry["description"] = raw_article.get("summary", "")
+                entry["source"] = raw_article.get("source", "")
+                entry["url"] = raw_article.get("url", "")
+                entry["display_ko"] = ko_by_key.get(story_key, raw_article)
+                entry["display_en"] = en_by_key.get(story_key, raw_article)
+
+    ranked_world = sorted(
+        (entry for entry in candidates.values() if entry["bucket"] == "world"),
+        key=_candidate_sort_key,
+        reverse=True,
+    )
+    ranked_korea = sorted(
+        (entry for entry in candidates.values() if entry["bucket"] == "korea"),
+        key=_candidate_sort_key,
+        reverse=True,
+    )
+
+    if provider:
+        selected_world = select_top_news(provider, ranked_world, top_n=top_n, category="world")
+        selected_korea = select_top_news(provider, ranked_korea, top_n=top_n, category="korea")
+    else:
+        selected_world = ranked_world[:top_n]
+        selected_korea = ranked_korea[:top_n]
+
+    world_ko = [_decorate_display(item["display_ko"], item) for item in selected_world]
+    world_en = [_decorate_display(item["display_en"], item) for item in selected_world]
+    korea_ko = [_decorate_display(item["display_ko"], item) for item in selected_korea]
+    korea_en = [_decorate_display(item["display_en"], item) for item in selected_korea]
+
+    return {
+        "world_raw": selected_world,
+        "korea_raw": selected_korea,
+        "world_ko": world_ko,
+        "world_en": world_en,
+        "korea_ko": korea_ko,
+        "korea_en": korea_en,
+        "unique_story_count": len(candidates),
+    }

@@ -46,6 +46,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--date",
         help="Override run date as YYYY-MM-DD (useful for testing)",
     )
+    parser.add_argument(
+        "--brief-type",
+        choices=["daily", "weekly", "monthly"],
+        default="daily",
+        help="Briefing mode to run (default: daily)",
+    )
     return parser.parse_args(argv)
 
 
@@ -105,6 +111,32 @@ def _import_or_stub(module_path: str, func_name: str, stub):
         return stub
 
 
+def _apply_brief_type_overrides(config: dict, brief_type: str) -> None:
+    """Apply lightweight config overrides for non-daily briefing modes."""
+    if brief_type == "daily":
+        return
+
+    news_config = config.setdefault("news", {})
+    if brief_type == "weekly":
+        news_config["days_back"] = max(int(news_config.get("days_back", 2)), 7)
+        news_config["top_n"] = max(
+            int(news_config.get("top_n", 5)),
+            int(news_config.get("top_n_weekend", 8)),
+        )
+        logger.info(
+            "Weekly mode enabled: using snapshot-based recap with an expanded weekly top_n."
+        )
+    elif brief_type == "monthly":
+        news_config["days_back"] = max(int(news_config.get("days_back", 2)), 30)
+        news_config["top_n"] = max(
+            int(news_config.get("top_n", 5)),
+            int(news_config.get("top_n_weekend", 8)),
+        )
+        logger.warning(
+            "Monthly mode currently reuses the daily pipeline with a 30-day lookback."
+        )
+
+
 # ---------------------------------------------------------------------------
 # Pipeline
 # ---------------------------------------------------------------------------
@@ -134,6 +166,7 @@ def run(args: argparse.Namespace) -> int:
         if not validate_config(config):
             logger.critical("Config validation failed")
             return 1
+        _apply_brief_type_overrides(config, args.brief_type)
     except Exception as exc:
         logger.critical("Failed to load config: %s", exc)
         return 1
@@ -142,12 +175,29 @@ def run(args: argparse.Namespace) -> int:
     tz_name = config.get("briefing", {}).get("timezone", "Asia/Seoul")
     run_date: str = args.date or datetime.now(ZoneInfo(tz_name)).strftime("%Y-%m-%d")
     logger.info("Run date: %s", run_date)
+    logger.info("Brief type: %s", args.brief_type)
 
     # Output dirs
     output_dir: str = config.get("output", {}).get("dir", "output")
     archive_dir: str = config.get("output", {}).get("archive_dir", "output/archive")
     Path(output_dir).mkdir(parents=True, exist_ok=True)
     Path(archive_dir).mkdir(parents=True, exist_ok=True)
+
+    if args.brief_type == "weekly":
+        logger.info("Weekly recap mode: building from stored daily snapshots")
+        try:
+            from pipeline.weekly import run_weekly_recap
+            html_path = run_weekly_recap(
+                config,
+                run_date,
+                output_dir,
+                no_llm=args.no_llm,
+            )
+            logger.info("Weekly recap output: %s", html_path or "(none)")
+            return 0
+        except Exception as exc:
+            logger.critical("Weekly recap failed: %s", exc, exc_info=True)
+            return 1
 
     # ── 2. Collect market data ────────────────────────────────────────────
     logger.info("Stage 2/10: Collecting market data")
@@ -281,6 +331,13 @@ def run(args: argparse.Namespace) -> int:
     insight_en: str = ""
     articles_ko: list = articles  # default: originals
     articles_en: list = articles
+    try:
+        from pipeline.news.collector import fill_missing_descriptions
+        summary_fill_limit = max(int(config.get("news", {}).get("top_n", 5)) * 2, 10)
+        fill_missing_descriptions(articles[:summary_fill_limit])
+    except Exception as exc:
+        logger.warning("Missing-summary fallback failed: %s", exc)
+
     if args.no_llm:
         logger.info("Stage 7/10: Skipped (--no-llm)")
     else:
@@ -352,6 +409,25 @@ def run(args: argparse.Namespace) -> int:
         logger.critical("Dashboard render failed (critical): %s", exc)
         errors.append(f"render: {exc}")
         return 1
+
+    try:
+        from pipeline.recap import save_daily_snapshot
+        save_daily_snapshot(
+            config,
+            markets,
+            holidays,
+            articles,
+            articles_ko,
+            articles_en,
+            insight,
+            insight_en,
+            run_date,
+            output_dir,
+            market_pulse=market_pulse,
+        )
+        sections.append("snapshot")
+    except Exception as exc:
+        logger.warning("Daily snapshot save failed: %s", exc)
 
     # ── 9. Send email ─────────────────────────────────────────────────────
     if args.dry_run:

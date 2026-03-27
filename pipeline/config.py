@@ -63,7 +63,7 @@ DEFAULTS = {
     },
     "schedule": {
         "morning_cron": "0 20 * * 0-4",
-        "weekly_cron": "0 0 * * 5",
+        "weekly_cron": "0 0 * * 6",
         "monthly_cron": "30 22 1 * *",
     },
 }

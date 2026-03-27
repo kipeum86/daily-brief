@@ -9,9 +9,9 @@ from __future__ import annotations
 
 import json
 import logging
-import re
-from datetime import datetime, timedelta
-from pathlib import Path
+import posixpath
+from datetime import datetime
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -113,6 +113,44 @@ def _find_adjacent_dates(date_iso: str, archive_dir: Path) -> tuple[str, str]:
     return prev_date, next_date
 
 
+def _page_path(lang: str, page_kind: str, date_iso: str = "") -> PurePosixPath:
+    """Return the public site path for a rendered page."""
+    parts: list[str] = ["en"] if lang == "en" else []
+    if page_kind == "index":
+        parts.append("index.html")
+    elif page_kind == "archive_index":
+        parts.extend(["archive", "index.html"])
+    elif page_kind == "archive":
+        parts.extend(["archive", f"{date_iso}.html"])
+    else:
+        raise ValueError(f"Unsupported page kind: {page_kind}")
+    return PurePosixPath(*parts)
+
+
+def _join_site_url(site_url: str, target_path: PurePosixPath) -> str:
+    """Convert a site-relative path to a full public URL."""
+    path_str = target_path.as_posix()
+    if path_str == "index.html":
+        suffix = "/"
+    elif path_str.endswith("/index.html"):
+        suffix = f"/{path_str[:-10]}/"
+    else:
+        suffix = f"/{path_str}"
+    return f"{site_url.rstrip('/')}{suffix}"
+
+
+def _build_page_url(
+    site_url: str,
+    current_path: PurePosixPath,
+    target_path: PurePosixPath,
+) -> str:
+    """Build a public URL, falling back to a relative path for local previews."""
+    if site_url:
+        return _join_site_url(site_url, target_path)
+    start = current_path.parent.as_posix()
+    return posixpath.relpath(target_path.as_posix(), start=start)
+
+
 def _normalize_market_items(items: list) -> list[dict[str, Any]]:
     """Convert MarketData dataclasses or raw dicts into plain dicts for Jinja2."""
     result = []
@@ -193,12 +231,14 @@ def _build_template_context(
     run_date: str,
     output_dir: str,
     lang: str = "ko",
+    page_kind: str = "index",
 ) -> dict[str, Any]:
     """Assemble all Jinja2 template variables into a single context dict."""
 
     archive_dir = Path(output_dir) / "archive"
     archive_dir.mkdir(parents=True, exist_ok=True)
     prev_date, next_date = _find_adjacent_dates(run_date, archive_dir)
+    current_path = _page_path(lang, page_kind, run_date)
 
     # Normalize market data for template consumption
     normalized_markets: dict[str, list[dict]] = {}
@@ -211,13 +251,30 @@ def _build_template_context(
     # Site URL (strip trailing slash)
     site_url = config.get("site_url", "").rstrip("/")
 
-    # Language toggle URLs (절대 URL로 — 아카이브에서도 작동)
+    prev_url = (
+        _build_page_url(site_url, current_path, _page_path(lang, "archive", prev_date))
+        if prev_date else ""
+    )
+    next_url = (
+        _build_page_url(site_url, current_path, _page_path(lang, "archive", next_date))
+        if next_date else ""
+    )
+    archive_index_url = _build_page_url(
+        site_url, current_path, _page_path(lang, "archive_index")
+    )
+
+    # Language toggle URLs
+    other_lang = "ko" if lang == "en" else "en"
+    toggle_target_kind = "archive" if page_kind == "archive" else "index"
+    lang_toggle_url = _build_page_url(
+        site_url,
+        current_path,
+        _page_path(other_lang, toggle_target_kind, run_date),
+    )
     if lang == "en":
-        lang_toggle_url = f"{site_url}/" if site_url else "../index.html"
         lang_toggle_label = "한국어"
         lang_current = "EN"
     else:
-        lang_toggle_url = f"{site_url}/en/" if site_url else "en/index.html"
         lang_toggle_label = "English"
         lang_current = "KR"
 
@@ -226,12 +283,15 @@ def _build_template_context(
         "date_iso": run_date,
         "prev_date": prev_date,
         "next_date": next_date,
+        "prev_url": prev_url,
+        "next_url": next_url,
         "insight_text": _md_to_html(insight),
         "markets": normalized_markets,
         "world_news": world_news,
         "korea_news": korea_news,
         "holidays": holidays or {},
         "site_url": site_url,
+        "archive_index_url": archive_index_url,
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "chart_data": json.dumps({}, ensure_ascii=False),
         "lang": lang,
@@ -264,34 +324,23 @@ def render_html(data: dict[str, Any]) -> str:
     return template.render(**data)
 
 
-def render_archive_html(dates: list[str], config: dict) -> str:
-    """Render the archive listing page.
+def _write_html(path: Path, html: str) -> None:
+    """Write an HTML document after validating its size."""
+    if len(html) < _MIN_HTML_LENGTH:
+        raise ValueError(
+            f"Rendered HTML too short ({len(html)} chars < {_MIN_HTML_LENGTH}). "
+            "Refusing to save — likely a broken template render."
+        )
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(html, encoding="utf-8")
+
+
+def save_dashboard(index_html: str, archive_html: str, output_dir: str, date_iso: str) -> str:
+    """Save the latest page and archive copy for a single language output.
 
     Args:
-        dates: Sorted list of date ISO strings (newest first).
-        config: App config dict.
-
-    Returns:
-        Rendered HTML string.
-    """
-    env = Environment(
-        loader=FileSystemLoader(str(_TEMPLATES_DIR)),
-        autoescape=select_autoescape(["html"]),
-    )
-    template = env.get_template("archive.html")
-    site_url = config.get("site_url", "").rstrip("/")
-    return template.render(dates=dates, site_url=site_url)
-
-
-# ---------------------------------------------------------------------------
-# Save helpers
-# ---------------------------------------------------------------------------
-
-def save_dashboard(html: str, output_dir: str, date_iso: str) -> str:
-    """Save rendered HTML to output/index.html and output/archive/{date}.html.
-
-    Args:
-        html: Rendered HTML string.
+        index_html: Rendered HTML for the latest landing page.
+        archive_html: Rendered HTML for the archive detail page.
         output_dir: Base output directory (e.g. "output").
         date_iso: Date string like "2026-03-24".
 
@@ -301,12 +350,6 @@ def save_dashboard(html: str, output_dir: str, date_iso: str) -> str:
     Raises:
         ValueError: If HTML is too short (likely broken render).
     """
-    if len(html) < _MIN_HTML_LENGTH:
-        raise ValueError(
-            f"Rendered HTML too short ({len(html)} chars < {_MIN_HTML_LENGTH}). "
-            "Refusing to save — likely a broken template render."
-        )
-
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
     archive = out / "archive"
@@ -314,18 +357,49 @@ def save_dashboard(html: str, output_dir: str, date_iso: str) -> str:
 
     # Save as latest
     index_path = out / "index.html"
-    index_path.write_text(html, encoding="utf-8")
-    logger.info("Saved dashboard → %s (%d chars)", index_path, len(html))
+    _write_html(index_path, index_html)
+    logger.info("Saved dashboard → %s (%d chars)", index_path, len(index_html))
 
     # Save archive copy
     archive_path = archive / f"{date_iso}.html"
-    archive_path.write_text(html, encoding="utf-8")
+    _write_html(archive_path, archive_html)
     logger.info("Saved archive  → %s", archive_path)
 
     return str(index_path)
 
 
-def save_archive_index(config: dict, output_dir: str) -> str:
+def render_archive_html(dates: list[str], config: dict, lang: str = "ko") -> str:
+    """Render the archive listing page for the given language."""
+    env = Environment(
+        loader=FileSystemLoader(str(_TEMPLATES_DIR)),
+        autoescape=select_autoescape(["html"]),
+    )
+    template = env.get_template("archive.html")
+    site_url = config.get("site_url", "").rstrip("/")
+    current_path = _page_path(lang, "archive_index")
+    date_links = [
+        {
+            "date": date,
+            "url": _build_page_url(site_url, current_path, _page_path(lang, "archive", date)),
+        }
+        for date in dates
+    ]
+    other_lang = "ko" if lang == "en" else "en"
+    return template.render(
+        dates=date_links,
+        home_url=_build_page_url(site_url, current_path, _page_path(lang, "index")),
+        lang=lang,
+        lang_current="EN" if lang == "en" else "KR",
+        lang_toggle_label="한국어" if lang == "en" else "English",
+        lang_toggle_url=_build_page_url(
+            site_url,
+            current_path,
+            _page_path(other_lang, "archive_index"),
+        ),
+    )
+
+
+def save_archive_index(config: dict, output_dir: str, lang: str = "ko") -> str:
     """Regenerate the archive/index.html listing page.
 
     Returns:
@@ -339,49 +413,102 @@ def save_archive_index(config: dict, output_dir: str) -> str:
         reverse=True,
     )
 
-    html = render_archive_html(dates, config)
+    html = render_archive_html(dates, config, lang=lang)
     archive_index = archive / "index.html"
-    archive_index.write_text(html, encoding="utf-8")
+    _write_html(archive_index, html)
     logger.info("Saved archive index → %s (%d dates)", archive_index, len(dates))
     return str(archive_index)
 
 
-def _patch_adjacent_nav(run_date: str, output_dir: str, config: dict) -> None:
-    """Patch the previous day's archive HTML to add a 'next' nav link to today.
+def _refresh_archive_pages(config: dict, output_dir: str, lang: str = "ko") -> None:
+    """Rewrite archive detail page links so older pages stay navigable."""
+    from bs4 import BeautifulSoup
 
-    When a new briefing is generated, the previous day's archive page has a
-    disabled 'next' button because today's page didn't exist at render time.
-    This replaces that disabled span with a working link.
-    """
     archive = Path(output_dir) / "archive"
     if not archive.exists():
         return
 
-    # Find the previous date
-    existing = sorted(p.stem for p in archive.glob("*.html") if p.stem != "index")
-    prev_date = ""
-    for d in reversed(existing):
-        if d < run_date:
-            prev_date = d
-            break
-    if not prev_date:
+    pages = sorted(
+        (p for p in archive.glob("*.html") if p.stem != "index"),
+        key=lambda p: p.stem,
+    )
+    if not pages:
         return
 
-    prev_file = archive / f"{prev_date}.html"
-    if not prev_file.exists():
-        return
-
-    html = prev_file.read_text(encoding="utf-8")
     site_url = config.get("site_url", "").rstrip("/")
+    prev_text = "◀ Previous" if lang == "en" else "◀ 이전"
+    next_text = "Next ▶" if lang == "en" else "다음 ▶"
+    archive_label = "Browse Archive" if lang == "en" else "과거 브리핑 보기"
+    toggle_text = "EN → 한국어" if lang == "en" else "KR → English"
 
-    # Replace disabled "다음 ▶" span with active link
-    disabled_next = r'<span class="nav-disabled" aria-hidden="true">다음 &#9654;</span>'
-    active_next = f'<a href="{site_url}/archive/{run_date}.html">다음 &#9654;</a>'
-    new_html = re.sub(disabled_next, active_next, html)
+    dates = [p.stem for p in pages]
+    for idx, page in enumerate(pages):
+        date_iso = page.stem
+        prev_date = dates[idx - 1] if idx > 0 else ""
+        next_date = dates[idx + 1] if idx < len(dates) - 1 else ""
+        current_path = _page_path(lang, "archive", date_iso)
 
-    if new_html != html:
-        prev_file.write_text(new_html, encoding="utf-8")
-        logger.info("Patched nav in %s → next=%s", prev_file.name, run_date)
+        prev_url = (
+            _build_page_url(site_url, current_path, _page_path(lang, "archive", prev_date))
+            if prev_date else ""
+        )
+        next_url = (
+            _build_page_url(site_url, current_path, _page_path(lang, "archive", next_date))
+            if next_date else ""
+        )
+        archive_index_url = _build_page_url(
+            site_url, current_path, _page_path(lang, "archive_index")
+        )
+        other_lang = "ko" if lang == "en" else "en"
+        lang_toggle_url = _build_page_url(
+            site_url,
+            current_path,
+            _page_path(other_lang, "archive", date_iso),
+        )
+
+        soup = BeautifulSoup(page.read_text(encoding="utf-8"), "html.parser")
+
+        toggle_anchor = soup.select_one(".header-title a")
+        if toggle_anchor is not None:
+            toggle_anchor["href"] = lang_toggle_url
+            toggle_anchor.string = toggle_text
+
+        nav = soup.select_one(".header-nav")
+        if nav is not None:
+            nav.clear()
+
+            if prev_url:
+                prev_el = soup.new_tag("a", href=prev_url)
+                prev_label = "Previous brief" if lang == "en" else "이전 브리핑"
+                prev_el["aria-label"] = f"{prev_label}: {prev_date}"
+                prev_el.string = prev_text
+            else:
+                prev_el = soup.new_tag("span", attrs={"class": "nav-disabled", "aria-hidden": "true"})
+                prev_el.string = prev_text
+            nav.append(prev_el)
+            nav.append("\n")
+
+            time_el = soup.new_tag("time", datetime=date_iso)
+            time_el.string = date_iso
+            nav.append(time_el)
+            nav.append("\n")
+
+            if next_url:
+                next_el = soup.new_tag("a", href=next_url)
+                next_label = "Next brief" if lang == "en" else "다음 브리핑"
+                next_el["aria-label"] = f"{next_label}: {next_date}"
+                next_el.string = next_text
+            else:
+                next_el = soup.new_tag("span", attrs={"class": "nav-disabled", "aria-hidden": "true"})
+                next_el.string = next_text
+            nav.append(next_el)
+
+        footer_link = soup.select_one(".footer-actions a")
+        if footer_link is not None:
+            footer_link["href"] = archive_index_url
+            footer_link.string = archive_label
+
+        page.write_text(str(soup), encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
@@ -429,39 +556,41 @@ def render_dashboard(
     pulse = market_pulse or {}
 
     # --- Korean version (default) ---
-    context_ko = _build_template_context(
-        config, markets, holidays, ko_articles, insight, run_date, output_dir, lang="ko",
+    context_ko_index = _build_template_context(
+        config, markets, holidays, ko_articles, insight, run_date, output_dir, lang="ko", page_kind="index",
     )
-    context_ko["market_pulse"] = pulse
-    html_ko = render_html(context_ko)
-    index_path = save_dashboard(html_ko, output_dir, run_date)
+    context_ko_archive = _build_template_context(
+        config, markets, holidays, ko_articles, insight, run_date, output_dir, lang="ko", page_kind="archive",
+    )
+    context_ko_index["market_pulse"] = pulse
+    context_ko_archive["market_pulse"] = pulse
+    html_ko_index = render_html(context_ko_index)
+    html_ko_archive = render_html(context_ko_archive)
+    index_path = save_dashboard(html_ko_index, html_ko_archive, output_dir, run_date)
 
     # --- English version ---
     en_dir = Path(output_dir) / "en"
     en_dir.mkdir(parents=True, exist_ok=True)
     en_insight = insight_en if insight_en else insight
-    context_en = _build_template_context(
-        config, markets, holidays, en_articles, en_insight, run_date, output_dir, lang="en",
+    context_en_index = _build_template_context(
+        config, markets, holidays, en_articles, en_insight, run_date, str(en_dir), lang="en", page_kind="index",
     )
-    context_en["market_pulse"] = pulse
-    _site = config.get("site_url", "").rstrip("/")
-    context_en["lang_toggle_url"] = f"{_site}/" if _site else "../index.html"
-    html_en = render_html(context_en)
+    context_en_archive = _build_template_context(
+        config, markets, holidays, en_articles, en_insight, run_date, str(en_dir), lang="en", page_kind="archive",
+    )
+    context_en_index["market_pulse"] = pulse
+    context_en_archive["market_pulse"] = pulse
+    html_en_index = render_html(context_en_index)
+    html_en_archive = render_html(context_en_archive)
+    save_dashboard(html_en_index, html_en_archive, str(en_dir), run_date)
 
-    en_index = en_dir / "index.html"
-    en_index.write_text(html_en, encoding="utf-8")
-    logger.info("Saved English dashboard → %s (%d chars)", en_index, len(html_en))
+    # Refresh archive page links for all existing dates in both languages
+    _refresh_archive_pages(config, output_dir, lang="ko")
+    _refresh_archive_pages(config, str(en_dir), lang="en")
 
-    en_archive = en_dir / "archive"
-    en_archive.mkdir(parents=True, exist_ok=True)
-    (en_archive / f"{run_date}.html").write_text(html_en, encoding="utf-8")
-
-    # Patch prev-day archive nav to include "next" link to today
-    _patch_adjacent_nav(run_date, output_dir, config)
-    _patch_adjacent_nav(run_date, str(en_dir), config)
-
-    # Regenerate archive index page (Korean)
-    save_archive_index(config, output_dir)
+    # Regenerate archive index pages (Korean + English)
+    save_archive_index(config, output_dir, lang="ko")
+    save_archive_index(config, str(en_dir), lang="en")
 
     logger.info("Dashboard render complete: %s (ko + en)", index_path)
     return index_path

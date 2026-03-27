@@ -407,18 +407,18 @@
       </div>
       <h1 class="header-date">{{ date_str }}</h1>
       <nav class="header-nav" aria-label="{{ 'Date navigation' if lang == 'en' else '날짜 탐색' }}">
-        {% if prev_date %}
-        <a href="{{ site_url }}/archive/{{ prev_date }}.html" aria-label="이전 브리핑: {{ prev_date }}">&#9664; 이전</a>
+        {% if prev_url %}
+        <a href="{{ prev_url }}" aria-label="{{ 'Previous brief' if lang == 'en' else '이전 브리핑' }}: {{ prev_date }}">{{ '◀ Previous' if lang == 'en' else '◀ 이전' }}</a>
         {% else %}
-        <span class="nav-disabled" aria-hidden="true">&#9664; 이전</span>
+        <span class="nav-disabled" aria-hidden="true">{{ '◀ Previous' if lang == 'en' else '◀ 이전' }}</span>
         {% endif %}
 
         <time datetime="{{ date_iso }}">{{ date_iso }}</time>
 
-        {% if next_date %}
-        <a href="{{ site_url }}/archive/{{ next_date }}.html" aria-label="다음 브리핑: {{ next_date }}">다음 &#9654;</a>
+        {% if next_url %}
+        <a href="{{ next_url }}" aria-label="{{ 'Next brief' if lang == 'en' else '다음 브리핑' }}: {{ next_date }}">{{ 'Next ▶' if lang == 'en' else '다음 ▶' }}</a>
         {% else %}
-        <span class="nav-disabled" aria-hidden="true">다음 &#9654;</span>
+        <span class="nav-disabled" aria-hidden="true">{{ 'Next ▶' if lang == 'en' else '다음 ▶' }}</span>
         {% endif %}
       </nav>
     </header>
@@ -434,7 +434,7 @@
           {{ insight_text }}
         </div>
         {% else %}
-        <p class="insight-empty">AI 분석을 사용할 수 없습니다. 아래 데이터로 직접 판단하세요.</p>
+        <p class="insight-empty">{{ 'AI analysis is unavailable. Please rely on the data below.' if lang == 'en' else 'AI 분석을 사용할 수 없습니다. 아래 데이터로 직접 판단하세요.' }}</p>
         {% endif %}
       </div>
     </section>
@@ -551,7 +551,7 @@
         {% endfor %}
       </ul>
       {% else %}
-      <p class="news-empty">글로벌 뉴스를 가져올 수 없습니다.</p>
+      <p class="news-empty">{{ 'World news is unavailable.' if lang == 'en' else '글로벌 뉴스를 가져올 수 없습니다.' }}</p>
       {% endif %}
     </section>
 
@@ -579,7 +579,7 @@
         {% endfor %}
       </ul>
       {% else %}
-      <p class="news-empty">국내 뉴스를 가져올 수 없습니다.</p>
+      <p class="news-empty">{{ 'Korea news is unavailable.' if lang == 'en' else '국내 뉴스를 가져올 수 없습니다.' }}</p>
       {% endif %}
     </section>
 
@@ -588,7 +588,7 @@
     <!-- ═══ FOOTER ═══════════════════════════════════════════ -->
     <footer class="site-footer">
       <div class="footer-actions">
-        <a href="{{ site_url }}/archive/">과거 브리핑 보기</a>
+        <a href="{{ archive_index_url }}">{{ 'Browse Archive' if lang == 'en' else '과거 브리핑 보기' }}</a>
       </div>
       <div class="footer-meta">
         <p>Powered by AI &middot; Data: Yahoo Finance, FRED, RSS</p>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="{{ lang|default('ko') }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Brief &middot; Archive</title>
-  <meta name="description" content="Daily Brief 과거 브리핑 아카이브">
+  <title>Daily Brief &middot; {{ 'Archive' if lang == 'en' else '아카이브' }}</title>
+  <meta name="description" content="{{ 'Daily Brief archive' if lang == 'en' else 'Daily Brief 과거 브리핑 아카이브' }}">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,10 +138,13 @@
   <div class="container">
 
     <header class="site-header">
-      <div class="header-title">Daily Brief</div>
-      <h1 class="header-subtitle">Archive</h1>
+      <div class="header-title" style="display:flex;justify-content:space-between;align-items:center;">
+        <span>Daily Brief</span>
+        <a href="{{ lang_toggle_url|default('#') }}" style="font-size:13px;font-weight:600;letter-spacing:0.05em;color:var(--text-secondary);text-decoration:none;border:1px solid var(--border);border-radius:4px;padding:2px 10px;">{{ lang_current|default('KR') }} → {{ lang_toggle_label|default('English') }}</a>
+      </div>
+      <h1 class="header-subtitle">{{ 'Archive' if lang == 'en' else '아카이브' }}</h1>
       <div class="header-back">
-        <a href="{{ site_url }}/">&#9664; 최신 브리핑</a>
+        <a href="{{ home_url }}">{{ '◀ Latest Brief' if lang == 'en' else '◀ 최신 브리핑' }}</a>
       </div>
     </header>
 
@@ -150,14 +153,14 @@
     <section class="archive-section" aria-label="과거 브리핑 목록">
       {% if dates %}
       <ul class="archive-list">
-        {% for date in dates %}
+        {% for item in dates %}
         <li class="archive-item">
-          <a href="{{ site_url }}/archive/{{ date }}.html">{{ date }}</a>
+          <a href="{{ item.url }}">{{ item.date }}</a>
         </li>
         {% endfor %}
       </ul>
       {% else %}
-      <p class="archive-empty">아직 아카이브된 브리핑이 없습니다.</p>
+      <p class="archive-empty">{{ 'No archived briefs yet.' if lang == 'en' else '아직 아카이브된 브리핑이 없습니다.' }}</p>
       {% endif %}
     </section>
 

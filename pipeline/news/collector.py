@@ -87,6 +87,71 @@ def extract_body(url: str, min_content_length: int = 200) -> str:
         return ""
 
 
+def _build_excerpt(text: str, max_chars: int = 240) -> str:
+    """Create a concise one- or two-sentence excerpt from article body text."""
+    clean = re.sub(r"\s+", " ", text or "").strip()
+    if not clean:
+        return ""
+    if len(clean) <= max_chars:
+        return clean
+
+    sentences = re.split(r"(?<=[.!?。！？])\s+", clean)
+    excerpt = ""
+    for sentence in sentences:
+        candidate = sentence if not excerpt else f"{excerpt} {sentence}"
+        if len(candidate) > max_chars:
+            break
+        excerpt = candidate
+
+    if excerpt and len(excerpt) >= max_chars // 2:
+        return excerpt
+    return clean[: max_chars - 1].rstrip() + "…"
+
+
+def fill_missing_descriptions(articles: list, max_chars: int = 240) -> int:
+    """Populate missing article descriptions from extracted article bodies.
+
+    Returns the number of articles filled.
+    """
+    filled = 0
+    for article in articles:
+        if isinstance(article, dict):
+            description = article.get("description", "") or article.get("summary", "")
+            body = article.get("body", "")
+            url = article.get("url", "")
+            title = article.get("title", "")
+        else:
+            description = getattr(article, "description", "")
+            body = getattr(article, "body", "")
+            url = getattr(article, "url", "")
+            title = getattr(article, "title", "")
+
+        if description:
+            continue
+
+        if not body and url:
+            body = extract_body(url)
+
+        excerpt = _build_excerpt(body, max_chars=max_chars) if body else ""
+        fallback_text = excerpt or title
+        if not fallback_text:
+            continue
+
+        if isinstance(article, dict):
+            if body and not article.get("body"):
+                article["body"] = body
+            article["description"] = fallback_text
+        else:
+            if body and not getattr(article, "body", ""):
+                article.body = body
+            article.description = fallback_text
+        filled += 1
+
+    if filled:
+        logger.info("Filled missing descriptions for %d article(s)", filled)
+    return filled
+
+
 def _parse_date(entry) -> datetime | None:
     """Parse feedparser date to timezone-aware datetime."""
     from time import mktime
