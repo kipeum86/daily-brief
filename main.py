@@ -96,6 +96,15 @@ def _save_sheets_stub(
     logger.warning("pipeline.deliver.sheets not implemented yet")
 
 
+def _config_with_email_overrides(config: dict, **overrides: Any) -> dict:
+    """Return a shallow config copy with email-specific overrides applied."""
+    copied = dict(config)
+    email_config = dict(config.get("email", {}))
+    email_config.update({key: value for key, value in overrides.items() if value is not None})
+    copied["email"] = email_config
+    return copied
+
+
 # ---------------------------------------------------------------------------
 # Safe imports — fall back to stubs when a module is missing
 # ---------------------------------------------------------------------------
@@ -187,13 +196,42 @@ def run(args: argparse.Namespace) -> int:
         logger.info("Weekly recap mode: building from stored daily snapshots")
         try:
             from pipeline.weekly import run_weekly_recap
-            html_path = run_weekly_recap(
+            html_path, weekly_data = run_weekly_recap(
                 config,
                 run_date,
                 output_dir,
                 no_llm=args.no_llm,
             )
             logger.info("Weekly recap output: %s", html_path or "(none)")
+            if args.dry_run:
+                logger.info("Weekly email skipped (--dry-run)")
+            else:
+                logger.info("Sending weekly recap email")
+                send_email = _import_or_stub(
+                    "pipeline.deliver.mailer", "send_email",
+                    _send_email_stub,
+                )
+                weekly_config = _config_with_email_overrides(
+                    config,
+                    sender_name="Weekly Recap",
+                    subject_prefix="Weekly Recap",
+                )
+                week_id = ""
+                try:
+                    week_id = weekly_data.get("week_id", "")
+                except Exception as window_exc:
+                    logger.warning("Could not resolve weekly window for email subject: %s", window_exc)
+                email_date = week_id or run_date
+                try:
+                    from pipeline.render.email import render_weekly_email
+                    email_html = render_weekly_email(weekly_config, weekly_data)
+                except Exception as email_render_exc:
+                    logger.warning(
+                        "Weekly email template render failed: %s — using weekly page HTML",
+                        email_render_exc,
+                    )
+                    email_html = Path(html_path).read_text(encoding="utf-8")
+                send_email(weekly_config, email_html, email_date)
             return 0
         except Exception as exc:
             logger.critical("Weekly recap failed: %s", exc, exc_info=True)

@@ -139,6 +139,8 @@ def _build_context(
         "market_cards": [_format_market_card(card) for card in weekly_data.get("markets", {}).get("cards", [])],
         "leaders": [_format_market_card(card) for card in weekly_data.get("markets", {}).get("leaders", [])],
         "laggards": [_format_market_card(card) for card in weekly_data.get("markets", {}).get("laggards", [])],
+        "sectors_best": [_format_market_card(card) for card in weekly_data.get("markets", {}).get("sectors_best", [])],
+        "sectors_worst": [_format_market_card(card) for card in weekly_data.get("markets", {}).get("sectors_worst", [])],
         "world_news": weekly_data.get("world_news_en" if lang == "en" else "world_news_ko", []),
         "korea_news": weekly_data.get("korea_news_en" if lang == "en" else "korea_news_ko", []),
         "insight_text": _md_to_html(weekly_data.get("insight_en" if lang == "en" else "insight_ko", "")),

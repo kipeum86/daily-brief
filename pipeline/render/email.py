@@ -1,4 +1,4 @@
-"""Render Jinja2 email template to an HTML string for sending.
+"""Render Jinja2 email templates to HTML strings for sending.
 
 Public API (called from main.py):
     render_email(config, markets, holidays, articles, insight, run_date)
@@ -121,6 +121,73 @@ def _build_email_context(
     }
 
 
+def _truncate_text(text: str, max_len: int = 140) -> str:
+    text = re.sub(r"\s+", " ", text or "").strip()
+    if len(text) <= max_len:
+        return text
+    return text[: max_len - 1].rstrip() + "…"
+
+
+def _format_weekly_market_card(card: dict[str, Any]) -> dict[str, Any]:
+    change_pct = float(card.get("weekly_change_pct", 0.0))
+    direction = "flat"
+    if change_pct > 0:
+        direction = "up"
+    elif change_pct < 0:
+        direction = "down"
+    return {
+        **card,
+        "direction": direction,
+        "start_fmt": f"{float(card.get('start_price', 0.0)):,.2f}",
+        "end_fmt": f"{float(card.get('end_price', 0.0)):,.2f}",
+        "change_fmt": f"{change_pct:+.2f}%",
+    }
+
+
+def _format_weekly_story(article: dict[str, Any]) -> dict[str, Any]:
+    return {
+        **article,
+        "summary_short": _truncate_text(article.get("summary", "") or article.get("description", ""), 150),
+        "appearances_label": f"{int(article.get('appearances', 0))}",
+    }
+
+
+def _build_weekly_email_context(
+    config: dict,
+    weekly_data: dict[str, Any],
+) -> dict[str, Any]:
+    """Assemble Jinja2 variables for the weekly email template."""
+    site_url = config.get("site_url", "").rstrip("/")
+    week_id = weekly_data.get("week_id", "")
+    web_url = f"{site_url}/weekly/archive/{week_id}.html" if site_url and week_id else ""
+    web_url_en = f"{site_url}/en/weekly/archive/{week_id}.html" if site_url and week_id else ""
+    archive_url = f"{site_url}/weekly/archive/" if site_url else ""
+
+    markets = weekly_data.get("markets", {})
+    world_news = weekly_data.get("world_news_ko", [])
+    korea_news = weekly_data.get("korea_news_ko", [])
+
+    return {
+        "date_str": weekly_data.get("week_id", ""),
+        "week_label": f"{weekly_data.get('start_date', '')} → {weekly_data.get('end_date', '')}",
+        "week_id": week_id,
+        "insight_text": _style_insight_for_email(_md_to_html(weekly_data.get("insight_ko", ""))),
+        "snapshot_count": weekly_data.get("snapshot_count", 0),
+        "unique_story_count": weekly_data.get("unique_story_count", 0),
+        "market_cards": [_format_weekly_market_card(card) for card in markets.get("cards", [])],
+        "leaders": [_format_weekly_market_card(card) for card in markets.get("leaders", [])[:3]],
+        "laggards": [_format_weekly_market_card(card) for card in markets.get("laggards", [])[:3]],
+        "sectors_best": [_format_weekly_market_card(card) for card in markets.get("sectors_best", [])],
+        "sectors_worst": [_format_weekly_market_card(card) for card in markets.get("sectors_worst", [])],
+        "world_news": [_format_weekly_story(article) for article in world_news],
+        "korea_news": [_format_weekly_story(article) for article in korea_news],
+        "web_url": web_url,
+        "web_url_en": web_url_en,
+        "archive_url": archive_url,
+        "site_url": site_url,
+    }
+
+
 def render_email(
     config: dict,
     markets: dict[str, list],
@@ -177,4 +244,33 @@ def render_email(
         )
 
     logger.info("Email render complete (%d chars)", len(html))
+    return html
+
+
+def render_weekly_email(
+    config: dict,
+    weekly_data: dict[str, Any],
+) -> str:
+    """Render the weekly recap email template."""
+    logger.info("Rendering weekly email template for %s", weekly_data.get("week_id", ""))
+
+    context = _build_weekly_email_context(config, weekly_data)
+    env = Environment(
+        loader=FileSystemLoader(str(_TEMPLATES_DIR)),
+        autoescape=select_autoescape(["html"]),
+    )
+    template = env.get_template("weekly.html")
+
+    if context.get("insight_text"):
+        context["insight_text"] = Markup(context["insight_text"])
+
+    html = template.render(**context)
+
+    if len(html) < _MIN_HTML_LENGTH:
+        raise ValueError(
+            f"Rendered weekly email HTML too short ({len(html)} chars < {_MIN_HTML_LENGTH}). "
+            "Likely a broken template render."
+        )
+
+    logger.info("Weekly email render complete (%d chars)", len(html))
     return html

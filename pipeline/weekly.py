@@ -28,13 +28,13 @@ def _load_provider(config: dict, no_llm: bool = False) -> Any | None:
         return None
 
 
-def run_weekly_recap(
+def build_weekly_recap_data(
     config: dict,
     run_date: str,
     output_dir: str,
     no_llm: bool = False,
-) -> str:
-    """Generate a weekly recap site from stored daily snapshots."""
+) -> dict[str, Any]:
+    """Build week-level recap data from stored daily snapshots."""
     week_window = get_week_window(run_date)
     snapshots = load_daily_snapshots(
         output_dir,
@@ -80,4 +80,21 @@ def run_weekly_recap(
             week_window["end_date"],
         )
 
-    return render_weekly_recap(config, weekly_data, output_dir)
+    return weekly_data
+
+
+def run_weekly_recap(
+    config: dict,
+    run_date: str,
+    output_dir: str,
+    no_llm: bool = False,
+) -> tuple[str, dict[str, Any]]:
+    """Generate a weekly recap site from stored daily snapshots."""
+    weekly_data = build_weekly_recap_data(
+        config,
+        run_date,
+        output_dir,
+        no_llm=no_llm,
+    )
+    html_path = render_weekly_recap(config, weekly_data, output_dir)
+    return html_path, weekly_data

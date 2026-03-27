@@ -1,4 +1,4 @@
-"""Send the daily briefing email via Gmail SMTP.
+"""Send the briefing email via Gmail SMTP.
 
 Public API:
     send_email(config, html_body, date_str, insight_text) → bool
@@ -79,7 +79,7 @@ def send_email(
     prefix = email_config.get("subject_prefix", "Daily Brief")
     subject = f"{prefix} - {date_str}"
 
-    sender_name = email_config.get("sender_name", "Daily Brief")
+    sender_name = email_config.get("sender_name", prefix or "Daily Brief")
     sender_email = email_config.get("sender_email", gmail_address)
 
     try:
@@ -94,7 +94,7 @@ def send_email(
         msg["To"] = sender_email
         msg["Bcc"] = ", ".join(subscribers)
         msg["Subject"] = subject
-        msg.set_content("Daily Brief - view in HTML email client", charset="utf-8")
+        msg.set_content(f"{sender_name} - view in HTML email client", charset="utf-8")
         msg.add_alternative(html_body, subtype="html", charset="utf-8")
 
         all_recipients = [sender_email] + subscribers

@@ -15,15 +15,20 @@
   <style>
     :root {
       --bg: #f7f4ee;
-      --bg-panel: #fffdf9;
+      --bg-panel: rgba(255, 253, 249, 0.9);
+      --bg-panel-strong: #fffdf9;
       --bg-accent: #f2ece2;
+      --bg-ink: #efe6da;
       --text: #1c1b1a;
       --text-secondary: #6b6b6b;
       --accent: #9f1d22;
+      --accent-soft: rgba(159, 29, 34, 0.08);
       --border: #e8e0d3;
+      --border-strong: #d6c8b5;
       --up: #15803d;
       --down: #b91c1c;
       --flat: #6b7280;
+      --shadow: 0 18px 36px rgba(20, 18, 15, 0.05);
       --font-serif: 'Noto Serif KR', Georgia, serif;
       --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
@@ -33,21 +38,39 @@
     body {
       margin: 0;
       font-family: var(--font-sans);
-      background:
-        radial-gradient(circle at top left, rgba(159,29,34,0.05), transparent 32%),
-        linear-gradient(180deg, #faf7f2 0%, #f6f0e6 100%);
       color: var(--text);
       line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(159, 29, 34, 0.08), transparent 30%),
+        radial-gradient(circle at 80% 12%, rgba(209, 177, 129, 0.18), transparent 22%),
+        linear-gradient(180deg, #faf7f2 0%, #f6f0e6 100%);
     }
     a { color: inherit; text-decoration: none; }
     a:hover { color: var(--accent); }
+
     .shell {
-      max-width: 760px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 0 16px 56px;
+      padding: 0 16px 72px;
     }
+
     .hero {
-      padding: 36px 0 20px;
+      padding: 28px 0 18px;
+    }
+    .hero-frame {
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      background:
+        linear-gradient(135deg, rgba(255, 253, 249, 0.98), rgba(244, 235, 223, 0.96)),
+        var(--bg-panel-strong);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 22px 18px 18px;
     }
     .hero-top {
       display: flex;
@@ -57,8 +80,8 @@
       margin-bottom: 10px;
     }
     .kicker {
-      font-size: 13px;
-      letter-spacing: 0.12em;
+      font-size: 12px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
       font-weight: 700;
@@ -68,70 +91,161 @@
       color: var(--text-secondary);
       border: 1px solid var(--border);
       border-radius: 999px;
-      padding: 4px 12px;
-      background: rgba(255,255,255,0.7);
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.7);
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
     }
     .hero-title {
-      font-size: 30px;
-      line-height: 1.1;
-      margin: 0 0 8px;
-      font-weight: 700;
+      font-size: 34px;
+      line-height: 1.05;
+      margin: 0 0 10px;
+      max-width: 18ch;
+    }
+    .hero-deck {
+      margin: 0;
+      max-width: 56ch;
+      color: var(--text-secondary);
+      font-size: 15px;
     }
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      font-size: 13px;
-      color: var(--text-secondary);
+      margin-top: 14px;
     }
     .meta-pill {
       border: 1px solid var(--border);
       border-radius: 999px;
-      padding: 4px 10px;
-      background: rgba(255,255,255,0.72);
+      padding: 5px 10px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text-secondary);
+      font-size: 13px;
+    }
+    .hero-side {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .cover-card {
+      position: relative;
+      border-radius: 24px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(214, 200, 181, 0.86);
+      overflow: hidden;
+    }
+    .cover-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -24px -24px auto;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(159, 29, 34, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .cover-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+    .cover-value {
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+    .cover-change {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .cover-change.up { color: var(--up); }
+    .cover-change.down { color: var(--down); }
+    .cover-change.flat { color: var(--flat); }
+    .cover-note {
+      margin: 8px 0 0;
+      color: var(--text-secondary);
+      font-size: 13px;
+      max-width: 34ch;
     }
     .hero-nav {
-      margin-top: 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 12px;
+      padding: 14px 18px 18px;
+      border-top: 1px solid rgba(214, 200, 181, 0.75);
       font-size: 14px;
+      color: var(--text-secondary);
     }
     .hero-nav a,
     .hero-nav span {
-      color: var(--text-secondary);
       min-height: 44px;
       display: inline-flex;
       align-items: center;
     }
     .nav-disabled {
-      color: var(--border) !important;
+      color: #cabfac !important;
       pointer-events: none;
     }
+
     .section {
-      background: var(--bg-panel);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 22px 18px;
       margin-top: 18px;
-      box-shadow: 0 18px 36px rgba(20, 18, 15, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 20px 18px;
+      background: var(--bg-panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .section-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
     }
     .section-title {
+      margin: 0;
       font-size: 12px;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--text-secondary);
       font-weight: 700;
-      margin: 0 0 14px;
     }
-    .insight {
-      background: linear-gradient(180deg, rgba(242,236,226,0.95), rgba(255,253,249,0.98));
+    .section-lead {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      line-height: 1.35;
+    }
+    .section-note {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 14px;
+      max-width: 62ch;
+    }
+
+    .insight-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .insight-panel {
+      border-radius: 22px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(242, 236, 226, 0.95), rgba(255, 253, 249, 0.98));
+      border: 1px solid rgba(214, 200, 181, 0.85);
     }
     .insight-body {
       font-family: var(--font-serif);
       font-size: 15px;
-      line-height: 1.78;
+      line-height: 1.8;
     }
     .insight-body p { margin: 0 0 12px; }
     .insight-body h2,
@@ -155,52 +269,140 @@
       font-family: var(--font-sans);
       font-size: 14px;
     }
-    .stats-grid,
+    .empty {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin: 0;
+      font-style: italic;
+    }
+    .glance-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .glance-card {
+      border-radius: 20px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.82);
+    }
+    .glance-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .glance-value {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .glance-sub {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .market-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
     .market-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 12px;
     }
-    .stat-card,
     .market-card {
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 14px;
-      background: #fff;
+      border-radius: 22px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.86);
     }
-    .stat-label,
     .market-section {
       font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-secondary);
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
-    .stat-value,
     .market-name {
       font-size: 18px;
       font-weight: 700;
+      margin-bottom: 4px;
     }
     .market-range {
-      margin-top: 6px;
       font-family: var(--font-mono);
       font-size: 12px;
       color: var(--text-secondary);
+      margin-bottom: 10px;
     }
     .market-change {
-      margin-top: 8px;
       font-family: var(--font-mono);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
     }
     .market-change.up { color: var(--up); }
     .market-change.down { color: var(--down); }
     .market-change.flat { color: var(--flat); }
     .market-spark {
-      margin-top: 8px;
-      min-height: 22px;
+      margin-top: 10px;
+      min-height: 24px;
     }
+    .market-rail {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .rail-card {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 16px;
+      background: linear-gradient(180deg, rgba(255, 252, 248, 0.9), rgba(250, 245, 238, 0.95));
+    }
+    .rail-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+    .move-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .move-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(232, 224, 211, 0.9);
+    }
+    .move-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .move-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .move-meta {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .move-meta.up { color: var(--up); }
+    .move-meta.down { color: var(--down); }
+    .move-meta.flat { color: var(--flat); }
     .chip-row {
       display: flex;
       flex-wrap: wrap;
@@ -209,58 +411,120 @@
     .chip {
       border-radius: 999px;
       padding: 8px 12px;
-      font-family: var(--font-mono);
-      font-size: 12px;
       border: 1px solid var(--border);
       background: #fff;
+      font-family: var(--font-mono);
+      font-size: 12px;
     }
     .chip.up { color: var(--up); }
     .chip.down { color: var(--down); }
-    .news-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+
+    .journal-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
-    .news-item + .news-item {
-      border-top: 1px solid var(--border);
-      margin-top: 14px;
-      padding-top: 14px;
+    .journal-column {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.82);
     }
-    .news-meta {
+    .column-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .column-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .column-count {
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: var(--bg-accent);
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .feature-story {
+      border-radius: 22px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(242, 236, 226, 0.86), rgba(255, 253, 249, 0.98));
+      border: 1px solid rgba(214, 200, 181, 0.85);
+    }
+    .story-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       color: var(--text-secondary);
       font-size: 12px;
     }
-    .news-pill {
+    .story-pill {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 2px 8px;
+      padding: 3px 8px;
       border-radius: 999px;
-      background: var(--bg-accent);
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(232, 224, 211, 0.95);
     }
-    .news-headline {
-      font-size: 17px;
+    .story-headline {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+    .story-summary {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    .story-list {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+    .story-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      padding-top: 12px;
+      border-top: 1px solid rgba(232, 224, 211, 0.95);
+    }
+    .story-index {
+      min-width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-accent);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .story-row-headline {
+      margin: 0 0 6px;
+      font-size: 16px;
       line-height: 1.45;
       font-weight: 700;
-      margin: 0 0 6px;
     }
-    .news-summary {
-      color: var(--text-secondary);
-      font-size: 14px;
+    .story-row-summary {
       margin: 0;
-    }
-    .empty {
       color: var(--text-secondary);
-      font-size: 14px;
-      margin: 0;
-      font-style: italic;
+      font-size: 13px;
     }
+
     .footer {
-      padding: 28px 0 12px;
+      padding: 30px 0 12px;
       text-align: center;
       color: var(--text-secondary);
       font-size: 12px;
@@ -271,161 +535,339 @@
       border: 1px solid var(--border);
       border-radius: 999px;
       margin-bottom: 12px;
-      background: rgba(255,255,255,0.76);
+      background: rgba(255, 255, 255, 0.76);
       font-weight: 600;
     }
 
-    @media (min-width: 640px) {
-      .shell { padding: 0 24px 64px; }
-      .hero-title { font-size: 40px; }
-      .section { padding: 26px 24px; }
-      .stats-grid { grid-template-columns: repeat(3, 1fr); }
-      .market-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 700px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+        gap: 20px;
+        padding: 26px 24px 18px;
+      }
+      .hero-title { font-size: 44px; }
+      .section { padding: 24px; }
+      .insight-shell {
+        grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
+        align-items: start;
+      }
+      .glance-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .market-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .journal-shell {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .shell { padding: 0 24px 84px; }
+      .market-shell {
+        grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.75fr);
+        align-items: start;
+      }
+      .glance-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
+  {% set cover_market = leaders[0] if leaders else (market_cards[0] if market_cards else none) %}
+  {% set cover_story = world_news[0] if world_news else (korea_news[0] if korea_news else none) %}
   <div class="shell">
     <header class="hero">
-      <div class="hero-top">
-        <div class="kicker">Weekly Recap</div>
-        <a class="lang-toggle" href="{{ lang_toggle_url|default('#') }}">{{ lang_current|default('KR') }} → {{ lang_toggle_label|default('English') }}</a>
+      <div class="hero-frame">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-top">
+              <div class="kicker">Weekly Recap</div>
+              <a class="lang-toggle" href="{{ lang_toggle_url|default('#') }}">{{ lang_current|default('KR') }} → {{ lang_toggle_label|default('English') }}</a>
+            </div>
+            <h1 class="hero-title">{{ date_str }}</h1>
+            <p class="hero-deck">
+              {{ 'A weekly reading of market rotation, recurring headlines, and the themes that stayed alive across the daily briefings.' if lang == 'en' else '매일 쌓인 브리프를 바탕으로 이번 주 시장의 흐름, 반복적으로 부상한 기사, 다음 주로 이어질 테마를 한 화면에서 정리했습니다.' }}
+            </p>
+            <div class="hero-meta">
+              <span class="meta-pill">{{ week_id }}</span>
+              <span class="meta-pill">{{ snapshot_count }} {{ 'daily snapshots' if lang == 'en' else '일간 스냅샷' }}</span>
+              <span class="meta-pill">{{ unique_story_count }} {{ 'unique stories' if lang == 'en' else '고유 기사' }}</span>
+            </div>
+          </div>
+
+          <aside class="hero-side">
+            <div class="cover-card">
+              <div class="cover-label">{{ 'Standout Move' if lang == 'en' else '이번 주 대표 흐름' }}</div>
+              {% if cover_market %}
+              <div class="cover-value">{{ cover_market.name }}</div>
+              <div class="cover-change {{ cover_market.direction }}">{{ cover_market.change_fmt }}</div>
+              <p class="cover-note">
+                {{ 'The strongest move among the core non-sector assets tracked this week.' if lang == 'en' else '이번 주 비섹터 핵심 자산 가운데 가장 강하게 움직인 종목입니다.' }}
+              </p>
+              {% else %}
+              <p class="cover-note">{{ 'Not enough weekly market snapshots yet.' if lang == 'en' else '아직 주간 시장 스냅샷이 충분하지 않습니다.' }}</p>
+              {% endif %}
+            </div>
+
+            <div class="cover-card">
+              <div class="cover-label">{{ 'Recurring Story' if lang == 'en' else '반복 등장 이슈' }}</div>
+              {% if cover_story %}
+              <div class="cover-value">{{ cover_story.title }}</div>
+              <p class="cover-note">
+                {{ cover_story.appearances }}
+                {{ 'daily mentions across the briefing set.' if lang == 'en' else '일 동안 반복적으로 포착된 이슈입니다.' }}
+              </p>
+              {% else %}
+              <p class="cover-note">{{ 'No recurring story signal was strong enough this week.' if lang == 'en' else '이번 주에는 반복 포착된 기사 신호가 충분하지 않았습니다.' }}</p>
+              {% endif %}
+            </div>
+          </aside>
+        </div>
+
+        <nav class="hero-nav" aria-label="{{ 'Weekly navigation' if lang == 'en' else '주간 탐색' }}">
+          {% if prev_url %}
+          <a href="{{ prev_url }}">{{ '◀ Previous Week' if lang == 'en' else '◀ 이전 주' }}</a>
+          {% else %}
+          <span class="nav-disabled">{{ '◀ Previous Week' if lang == 'en' else '◀ 이전 주' }}</span>
+          {% endif %}
+          <span>{{ week_id }}</span>
+          {% if next_url %}
+          <a href="{{ next_url }}">{{ 'Next Week ▶' if lang == 'en' else '다음 주 ▶' }}</a>
+          {% else %}
+          <span class="nav-disabled">{{ 'Next Week ▶' if lang == 'en' else '다음 주 ▶' }}</span>
+          {% endif %}
+        </nav>
       </div>
-      <h1 class="hero-title">{{ date_str }}</h1>
-      <div class="hero-meta">
-        <span class="meta-pill">{{ week_id }}</span>
-        <span class="meta-pill">{{ snapshot_count }} {{ 'daily snapshots' if lang == 'en' else '일간 스냅샷' }}</span>
-        <span class="meta-pill">{{ unique_story_count }} {{ 'unique stories' if lang == 'en' else '고유 기사' }}</span>
-      </div>
-      <nav class="hero-nav" aria-label="{{ 'Weekly navigation' if lang == 'en' else '주간 탐색' }}">
-        {% if prev_url %}
-        <a href="{{ prev_url }}">{{ '◀ Previous Week' if lang == 'en' else '◀ 이전 주' }}</a>
-        {% else %}
-        <span class="nav-disabled">{{ '◀ Previous Week' if lang == 'en' else '◀ 이전 주' }}</span>
-        {% endif %}
-        <span>{{ week_id }}</span>
-        {% if next_url %}
-        <a href="{{ next_url }}">{{ 'Next Week ▶' if lang == 'en' else '다음 주 ▶' }}</a>
-        {% else %}
-        <span class="nav-disabled">{{ 'Next Week ▶' if lang == 'en' else '다음 주 ▶' }}</span>
-        {% endif %}
-      </nav>
     </header>
 
-    <section class="section insight">
-      <h2 class="section-title">{{ "Editor's View" if lang == 'en' else "에디터 뷰" }}</h2>
-      {% if insight_text %}
-      <div class="insight-body">{{ insight_text }}</div>
-      {% else %}
-      <p class="empty">{{ 'Weekly recap is not available yet. The structured market and news summary below is still usable.' if lang == 'en' else '주간 AI 리캡이 아직 생성되지 않았습니다. 아래 구조화된 시장·뉴스 요약은 확인하실 수 있습니다.' }}</p>
-      {% endif %}
-    </section>
-
     <section class="section">
-      <h2 class="section-title">{{ 'Weekly Overview' if lang == 'en' else '주간 개요' }}</h2>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-label">{{ 'Trading Window' if lang == 'en' else '집계 기간' }}</div>
-          <div class="stat-value">{{ start_date }} → {{ end_date }}</div>
+      <div class="section-heading">
+        <h2 class="section-title">{{ "Editor's View" if lang == 'en' else "에디터 뷰" }}</h2>
+        <p class="section-lead">{{ 'A narrative layer for the numbers and headlines' if lang == 'en' else '숫자와 헤드라인 위에 얹는 이번 주의 서사' }}</p>
+      </div>
+
+      <div class="insight-shell">
+        <div class="insight-panel">
+          {% if insight_text %}
+          <div class="insight-body">{{ insight_text }}</div>
+          {% else %}
+          <p class="empty">{{ 'Weekly recap is not available yet. The structured market and news summary below is still usable.' if lang == 'en' else '주간 AI 리캡이 아직 생성되지 않았습니다. 아래 구조화된 시장·뉴스 요약은 확인하실 수 있습니다.' }}</p>
+          {% endif %}
         </div>
-        <div class="stat-card">
-          <div class="stat-label">{{ 'Snapshots Used' if lang == 'en' else '사용 스냅샷' }}</div>
-          <div class="stat-value">{{ snapshot_count }}</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">{{ 'Story Candidates' if lang == 'en' else '기사 후보' }}</div>
-          <div class="stat-value">{{ unique_story_count }}</div>
-        </div>
+
+        <aside class="glance-grid">
+          <div class="glance-card">
+            <div class="glance-label">{{ 'Trading Window' if lang == 'en' else '집계 기간' }}</div>
+            <div class="glance-value">{{ start_date }} → {{ end_date }}</div>
+            <div class="glance-sub">{{ 'Monday to Friday snapshots used for this recap.' if lang == 'en' else '이번 리캡에 반영된 주간 집계 구간입니다.' }}</div>
+          </div>
+
+          <div class="glance-card">
+            <div class="glance-label">{{ 'Snapshots Used' if lang == 'en' else '사용 스냅샷' }}</div>
+            <div class="glance-value">{{ snapshot_count }}</div>
+            <div class="glance-sub">{{ 'Daily pages captured and folded into this report.' if lang == 'en' else '주간 집계에 실제로 반영된 일간 스냅샷 수입니다.' }}</div>
+          </div>
+
+          <div class="glance-card">
+            <div class="glance-label">{{ 'Story Candidates' if lang == 'en' else '기사 후보' }}</div>
+            <div class="glance-value">{{ unique_story_count }}</div>
+            <div class="glance-sub">{{ 'Deduplicated stories surfaced across the week.' if lang == 'en' else '중복 제거 후 남은 이번 주 기사 후보 수입니다.' }}</div>
+          </div>
+
+          <div class="glance-card">
+            <div class="glance-label">{{ 'Most Persistent Story' if lang == 'en' else '가장 오래 남은 이슈' }}</div>
+            {% if cover_story %}
+            <div class="glance-value">{{ cover_story.appearances }}{{ 'x' if lang == 'en' else '회' }}</div>
+            <div class="glance-sub">{{ cover_story.source }} · {{ cover_story.latest_date }}</div>
+            {% else %}
+            <div class="glance-value">-</div>
+            <div class="glance-sub">{{ 'No recurring headline available.' if lang == 'en' else '반복 등장한 기사 데이터가 없습니다.' }}</div>
+            {% endif %}
+          </div>
+        </aside>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section-title">{{ 'Core Markets' if lang == 'en' else '핵심 시장' }}</h2>
+      <div class="section-heading">
+        <h2 class="section-title">{{ 'Market Mosaic' if lang == 'en' else '마켓 모자이크' }}</h2>
+        <p class="section-lead">{{ "Core assets in motion, with the week's strongest and weakest stretches alongside them" if lang == 'en' else '핵심 자산 흐름과 함께 주간 상승·하락 상위를 한 눈에 읽는 섹션' }}</p>
+      </div>
+
       {% if market_cards %}
-      <div class="market-grid">
-        {% for item in market_cards %}
-        <article class="market-card">
-          <div class="market-section">{{ item.section_label }}</div>
-          <div class="market-name">{{ item.name }}</div>
-          <div class="market-range">{{ item.start_fmt }} → {{ item.end_fmt }}</div>
-          <div class="market-change {{ item.direction }}">{{ item.change_fmt }}</div>
-          <div class="market-spark">{% if item.sparkline_svg %}{{ item.sparkline_svg | safe }}{% endif %}</div>
-        </article>
-        {% endfor %}
+      <div class="market-shell">
+        <div class="market-grid">
+          {% for item in market_cards %}
+          <article class="market-card">
+            <div class="market-section">{{ item.section_label }}</div>
+            <div class="market-name">{{ item.name }}</div>
+            <div class="market-range">{{ item.start_fmt }} → {{ item.end_fmt }}</div>
+            <div class="market-change {{ item.direction }}">{{ item.change_fmt }}</div>
+            <div class="market-spark">{% if item.sparkline_svg %}{{ item.sparkline_svg | safe }}{% endif %}</div>
+          </article>
+          {% endfor %}
+        </div>
+
+        <aside class="market-rail">
+          {% if leaders %}
+          <div class="rail-card">
+            <div class="rail-title">{{ 'Leaders' if lang == 'en' else '상승 상위' }}</div>
+            <ul class="move-list">
+              {% for item in leaders %}
+              <li class="move-item">
+                <span class="move-name">{{ item.name }}</span>
+                <span class="move-meta {{ item.direction }}">{{ item.change_fmt }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if laggards %}
+          <div class="rail-card">
+            <div class="rail-title">{{ 'Laggards' if lang == 'en' else '하락 상위' }}</div>
+            <ul class="move-list">
+              {% for item in laggards %}
+              <li class="move-item">
+                <span class="move-name">{{ item.name }}</span>
+                <span class="move-meta {{ item.direction }}">{{ item.change_fmt }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if sectors_best or sectors_worst %}
+          <div class="rail-card">
+            <div class="rail-title">{{ 'Sector Tilt' if lang == 'en' else '섹터 기울기' }}</div>
+            {% if sectors_best %}
+            <div class="chip-row" style="margin-bottom: 10px;">
+              {% for item in sectors_best %}
+              <span class="chip up">{{ item.name }} {{ item.change_fmt }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+            {% if sectors_worst %}
+            <div class="chip-row">
+              {% for item in sectors_worst %}
+              <span class="chip down">{{ item.name }} {{ item.change_fmt }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+        </aside>
       </div>
       {% else %}
       <p class="empty">{{ 'No weekly market snapshots were available.' if lang == 'en' else '주간 시장 스냅샷이 없어 집계할 수 없습니다.' }}</p>
       {% endif %}
     </section>
 
-    {% if leaders or laggards %}
     <section class="section">
-      <h2 class="section-title">{{ 'Leaders & Laggards' if lang == 'en' else '상승·하락 상위' }}</h2>
-      {% if leaders %}
-      <div class="chip-row" style="margin-bottom:10px;">
-        {% for item in leaders %}
-        <span class="chip up">{{ item.name }} {{ item.change_fmt }}</span>
-        {% endfor %}
+      <div class="section-heading">
+        <h2 class="section-title">{{ 'Story Journal' if lang == 'en' else '스토리 저널' }}</h2>
+        <p class="section-lead">{{ 'Repeated headlines promoted into the weekly reading list' if lang == 'en' else '반복 등장한 헤드라인을 주간 읽을거리로 재정리한 섹션' }}</p>
       </div>
-      {% endif %}
-      {% if laggards %}
-      <div class="chip-row">
-        {% for item in laggards %}
-        <span class="chip down">{{ item.name }} {{ item.change_fmt }}</span>
-        {% endfor %}
+
+      <div class="journal-shell">
+        <div class="journal-column">
+          <div class="column-top">
+            <div class="column-title">World</div>
+            <div class="column-count">{{ world_news|length }} {{ 'selected' if lang == 'en' else '선정' }}</div>
+          </div>
+          {% if world_news %}
+          {% set lead_world = world_news[0] %}
+          <article class="feature-story">
+            <div class="story-meta">
+              <span class="story-pill">{{ lead_world.source }}</span>
+              <span class="story-pill">{{ lead_world.latest_date }}</span>
+              <span class="story-pill">{{ lead_world.appearances }} {{ 'days' if lang == 'en' else '일' }}</span>
+            </div>
+            <h3 class="story-headline">
+              {% if lead_world.url %}<a href="{{ lead_world.url }}" target="_blank" rel="noopener noreferrer">{{ lead_world.title }}</a>{% else %}{{ lead_world.title }}{% endif %}
+            </h3>
+            {% if lead_world.summary %}
+            <p class="story-summary">{{ lead_world.summary }}</p>
+            {% endif %}
+          </article>
+
+          {% if world_news|length > 1 %}
+          <ol class="story-list">
+            {% for item in world_news[1:] %}
+            <li class="story-item">
+              <span class="story-index">{{ loop.index + 1 }}</span>
+              <div>
+                <div class="story-meta" style="margin-bottom: 6px;">
+                  <span class="story-pill">{{ item.source }}</span>
+                  <span class="story-pill">{{ item.latest_date }}</span>
+                  <span class="story-pill">{{ item.appearances }} {{ 'days' if lang == 'en' else '일' }}</span>
+                </div>
+                <h4 class="story-row-headline">
+                  {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+                </h4>
+                {% if item.summary %}
+                <p class="story-row-summary">{{ item.summary }}</p>
+                {% endif %}
+              </div>
+            </li>
+            {% endfor %}
+          </ol>
+          {% endif %}
+          {% else %}
+          <p class="empty">{{ 'No world stories were selected for this week.' if lang == 'en' else '이번 주 글로벌 핵심 기사 후보가 부족했습니다.' }}</p>
+          {% endif %}
+        </div>
+
+        <div class="journal-column">
+          <div class="column-top">
+            <div class="column-title">Korea</div>
+            <div class="column-count">{{ korea_news|length }} {{ 'selected' if lang == 'en' else '선정' }}</div>
+          </div>
+          {% if korea_news %}
+          {% set lead_korea = korea_news[0] %}
+          <article class="feature-story">
+            <div class="story-meta">
+              <span class="story-pill">{{ lead_korea.source }}</span>
+              <span class="story-pill">{{ lead_korea.latest_date }}</span>
+              <span class="story-pill">{{ lead_korea.appearances }} {{ 'days' if lang == 'en' else '일' }}</span>
+            </div>
+            <h3 class="story-headline">
+              {% if lead_korea.url %}<a href="{{ lead_korea.url }}" target="_blank" rel="noopener noreferrer">{{ lead_korea.title }}</a>{% else %}{{ lead_korea.title }}{% endif %}
+            </h3>
+            {% if lead_korea.summary %}
+            <p class="story-summary">{{ lead_korea.summary }}</p>
+            {% endif %}
+          </article>
+
+          {% if korea_news|length > 1 %}
+          <ol class="story-list">
+            {% for item in korea_news[1:] %}
+            <li class="story-item">
+              <span class="story-index">{{ loop.index + 1 }}</span>
+              <div>
+                <div class="story-meta" style="margin-bottom: 6px;">
+                  <span class="story-pill">{{ item.source }}</span>
+                  <span class="story-pill">{{ item.latest_date }}</span>
+                  <span class="story-pill">{{ item.appearances }} {{ 'days' if lang == 'en' else '일' }}</span>
+                </div>
+                <h4 class="story-row-headline">
+                  {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+                </h4>
+                {% if item.summary %}
+                <p class="story-row-summary">{{ item.summary }}</p>
+                {% endif %}
+              </div>
+            </li>
+            {% endfor %}
+          </ol>
+          {% endif %}
+          {% else %}
+          <p class="empty">{{ 'No Korea stories were selected for this week.' if lang == 'en' else '이번 주 한국 핵심 기사 후보가 부족했습니다.' }}</p>
+          {% endif %}
+        </div>
       </div>
-      {% endif %}
-    </section>
-    {% endif %}
-
-    <section class="section">
-      <h2 class="section-title">World</h2>
-      {% if world_news %}
-      <ul class="news-list">
-        {% for item in world_news %}
-        <li class="news-item">
-          <div class="news-meta">
-            <span class="news-pill">{{ item.source }}</span>
-            <span class="news-pill">{{ item.latest_date }}</span>
-            <span class="news-pill">{{ item.appearances }} {{ 'day(s)' if lang == 'en' else '일' }}</span>
-          </div>
-          <h3 class="news-headline">
-            {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
-          </h3>
-          {% if item.summary %}
-          <p class="news-summary">{{ item.summary }}</p>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <p class="empty">{{ 'No world stories were selected for this week.' if lang == 'en' else '이번 주 글로벌 핵심 기사 후보가 부족했습니다.' }}</p>
-      {% endif %}
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Korea</h2>
-      {% if korea_news %}
-      <ul class="news-list">
-        {% for item in korea_news %}
-        <li class="news-item">
-          <div class="news-meta">
-            <span class="news-pill">{{ item.source }}</span>
-            <span class="news-pill">{{ item.latest_date }}</span>
-            <span class="news-pill">{{ item.appearances }} {{ 'day(s)' if lang == 'en' else '일' }}</span>
-          </div>
-          <h3 class="news-headline">
-            {% if item.url %}<a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
-          </h3>
-          {% if item.summary %}
-          <p class="news-summary">{{ item.summary }}</p>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <p class="empty">{{ 'No Korea stories were selected for this week.' if lang == 'en' else '이번 주 한국 핵심 기사 후보가 부족했습니다.' }}</p>
-      {% endif %}
     </section>
 
     <footer class="footer">
