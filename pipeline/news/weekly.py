@@ -31,6 +31,7 @@ Choose the {top_n} most important weekly issues from the shortlist.
 Selection criteria:
 - Economic or market significance matters more than raw mention counts alone.
 - Use mention count and source diversity as evidence that the issue persisted across the week.
+- Maximize source diversity when possible. Prefer a strong alternative outlet over a second or third pick from the same outlet.
 - Prefer geopolitics, macro policy, trade, central banks, major corporate or market-moving stories.
 - Avoid selecting overlapping stories about the same issue.
 
@@ -44,6 +45,8 @@ Choose the {top_n} most important DOMESTIC Korean weekly issues from the shortli
 Selection criteria:
 - Prioritize Korean policy, Korean economy, Korean markets, major Korean corporates and industries.
 - Mention count and source diversity matter, but importance comes first.
+- Maximize source diversity when possible. Do not stack many picks from the same outlet if strong alternatives exist.
+- Exclude low-signal general society, education, ceremony, and local civic stories unless they clearly affect markets, policy, or the economy.
 - Exclude foreign issues even if Korean outlets covered them.
 - Avoid selecting overlapping stories about the same issue.
 
@@ -68,6 +71,17 @@ _KOREA_HINTS = (
     "한국", "국내", "코스피", "코스닥", "원화", "원/달러", "한국은행", "한은", "기재부",
     "금통위", "부동산", "주택", "전세", "대출", "수출", "반도체", "삼성", "sk", "현대",
     "lg", "카카오", "네이버", "서울", "정부", "국회", "대통령실", "여당", "야당",
+)
+_KOREA_PRIORITY_HINTS = (
+    "한국은행", "한은", "금리", "물가", "고용", "환율", "원화", "원/달러", "코스피", "코스닥",
+    "부동산", "주택", "전세", "대출", "세제", "예산", "추경", "기재부", "금통위", "규제",
+    "수출", "반도체", "배터리", "자동차", "조선", "철강", "에너지", "전력", "관세", "무역",
+    "공장", "생산", "투자", "실적", "기업", "산업", "삼성", "sk", "현대", "lg", "카카오",
+    "네이버", "롯데", "포스코", "은행", "금융", "증권", "채권", "탄소중립", "탄소", "기후",
+)
+_KOREA_LOW_SIGNAL_HINTS = (
+    "학교", "교과서", "묘역", "추모", "기념", "축제", "사고", "범죄", "재판소원", "헌재",
+    "개학", "교육", "공항", "날씨", "질병", "복지",
 )
 _WORLD_HINTS = (
     "미국", "중국", "일본", "유럽", "eu", "러시아", "우크라", "이란", "이스라엘",
@@ -390,6 +404,23 @@ def _heuristic_issue_bucket(item: dict[str, Any]) -> str:
     return "world"
 
 
+def _korea_relevance_score(item: dict[str, Any]) -> int:
+    text = " ".join([
+        item.get("title", ""),
+        item.get("summary", "") or item.get("description", ""),
+    ]).lower()
+    priority_hits = sum(1 for token in _KOREA_PRIORITY_HINTS if token.lower() in text)
+    low_signal_hits = sum(1 for token in _KOREA_LOW_SIGNAL_HINTS if token.lower() in text)
+    score = priority_hits * 3
+    if item.get("appearances", 0):
+        score += min(int(item.get("appearances", 0)), 3)
+    if item.get("source_count", 0):
+        score += min(int(item.get("source_count", 0)), 2)
+    if low_signal_hits and not priority_hits:
+        score -= low_signal_hits * 2
+    return score
+
+
 def _classify_weekly_candidates(
     provider: Any | None,
     candidates: list[dict[str, Any]],
@@ -445,6 +476,7 @@ def _classify_weekly_candidates(
 
 def _candidate_sort_tuple(item: dict[str, Any]) -> tuple[int, int, int, str]:
     return (
+        int(item.get("relevance_score", 0) or 0),
         int(item.get("score", 0) or 0),
         int(item.get("appearances", 0) or 0),
         int(item.get("source_count", 0) or 0),
@@ -476,6 +508,10 @@ def _pick_representative_article(
     representative = preferred_pool[0]
     merged = {**candidate, **representative, "bucket": bucket}
     merged["cluster_articles"] = members
+    if bucket == "korea":
+        merged["relevance_score"] = _korea_relevance_score(merged)
+    else:
+        merged["relevance_score"] = 0
     return merged
 
 
@@ -490,7 +526,53 @@ def _prepare_bucket_candidates(
             continue
         prepared.append(representative)
     prepared.sort(key=_candidate_sort_tuple, reverse=True)
+    if bucket == "korea":
+        strong = [item for item in prepared if int(item.get("relevance_score", 0) or 0) > 0]
+        if strong:
+            return strong
     return prepared
+
+
+def _enforce_source_diversity(
+    selected: list[dict[str, Any]],
+    candidates: list[dict[str, Any]],
+    top_n: int,
+) -> list[dict[str, Any]]:
+    pool: list[dict[str, Any]] = []
+    seen_urls: set[str] = set()
+    for item in selected + candidates:
+        dedup_key = item.get("url", "") or f"{item.get('source', '')}|{item.get('title', '')}"
+        if dedup_key in seen_urls:
+            continue
+        seen_urls.add(dedup_key)
+        pool.append(item)
+
+    by_source: dict[str, list[dict[str, Any]]] = {}
+    source_order: list[str] = []
+    for item in pool:
+        source = item.get("source", "") or "(unknown)"
+        if source not in by_source:
+            by_source[source] = []
+            source_order.append(source)
+        by_source[source].append(item)
+
+    diversified: list[dict[str, Any]] = []
+    round_index = 0
+    while len(diversified) < top_n:
+        added_this_round = False
+        for source in source_order:
+            items = by_source.get(source, [])
+            if round_index >= len(items):
+                continue
+            diversified.append(items[round_index])
+            added_this_round = True
+            if len(diversified) >= top_n:
+                return diversified[:top_n]
+        if not added_this_round:
+            break
+        round_index += 1
+
+    return diversified[:top_n]
 
 
 def _select_weekly_clusters(
@@ -572,6 +654,9 @@ def build_weekly_news_digest(
     if provider:
         selected_world = _select_weekly_clusters(provider, world_candidates, top_n=top_n, category="world")
         selected_korea = _select_weekly_clusters(provider, korea_candidates, top_n=top_n, category="korea")
+
+    selected_world = _enforce_source_diversity(selected_world, world_candidates, top_n=top_n)
+    selected_korea = _enforce_source_diversity(selected_korea, korea_candidates, top_n=top_n)
 
     display_items = selected_world + selected_korea
     fill_missing_descriptions(display_items[: max(4, top_n * 2)])
