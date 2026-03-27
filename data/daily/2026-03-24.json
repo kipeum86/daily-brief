@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "brief_type": "daily",
+  "date": "2026-03-24",
+  "generated_at": "2026-03-24 22:47:21",
+  "market_pulse": {
+    "label_ko": "🟡 경계",
+    "signals": [
+      "VIX +3.4% ↑"
+    ]
+  },
+  "holidays": {
+    "kospi_holiday": false,
+    "nyse_holiday": false
+  },
+  "markets": {
+    "kr": [
+      {
+        "ticker": "^KS11",
+        "name": "KOSPI",
+        "price": 5553.92,
+        "change_pct": 2.74,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      },
+      {
+        "ticker": "^KQ11",
+        "name": "KOSDAQ",
+        "price": 1121.44,
+        "change_pct": 2.24,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      }
+    ],
+    "us": [
+      {
+        "ticker": "^GSPC",
+        "name": "S&P 500",
+        "price": 6539.12,
+        "change_pct": -0.64,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      },
+      {
+        "ticker": "^IXIC",
+        "name": "Nasdaq",
+        "price": 21783.53,
+        "change_pct": -0.74,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      },
+      {
+        "ticker": "^DJI",
+        "name": "Dow",
+        "price": 45859.09,
+        "change_pct": -0.76,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      }
+    ],
+    "fx": [
+      {
+        "ticker": "USDKRW=X",
+        "name": "USD/KRW",
+        "price": 1499.08,
+        "change_pct": -0.34,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      },
+      {
+        "ticker": "JPYKRW=X",
+        "name": "JPY/KRW",
+        "price": 9.44,
+        "change_pct": -0.1,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      }
+    ],
+    "commodities": [
+      {
+        "ticker": "GC=F",
+        "name": "Gold",
+        "price": 4360.2,
+        "change_pct": -1.0,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      },
+      {
+        "ticker": "CL=F",
+        "name": "WTI Oil",
+        "price": 92.06,
+        "change_pct": 4.46,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      }
+    ],
+    "crypto": [
+      {
+        "ticker": "BTC-USD",
+        "name": "Bitcoin",
+        "price": 70307.09,
+        "change_pct": -0.86,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      },
+      {
+        "ticker": "ETH-USD",
+        "name": "Ethereum",
+        "price": 2137.86,
+        "change_pct": -0.66,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      }
+    ],
+    "risk": [
+      {
+        "ticker": "^VIX",
+        "name": "VIX",
+        "price": 27.04,
+        "change_pct": 3.4,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      },
+      {
+        "ticker": "^TNX",
+        "name": "US 10Y",
+        "price": 4.4,
+        "change_pct": 1.62,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      },
+      {
+        "ticker": "DX-Y.NYB",
+        "name": "Dollar Index",
+        "price": 99.46,
+        "change_pct": 0.52,
+        "prev_close": 0.0,
+        "sparkline": [],
+        "volume": 0
+      }
+    ],
+    "sectors": []
+  },
+  "insight": {
+    "ko": "",
+    "en": ""
+  },
+  "articles": {
+    "raw": [
+      {
+        "story_key": "https://bbc.com/news/articles/cy91j9qwp4do?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/cy91j9qwp4do?at_campaign=rss&at_medium=RSS",
+        "title": "Israel says it will take control of large buffer zone in southern Lebanon",
+        "summary": "Thousands of displaced Lebanese residents will not be allowed to return home until northern Israel is safe, he says.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/cy91j9qwp4do?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/c87wxvn0z3vo?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/c87wxvn0z3vo?at_campaign=rss&at_medium=RSS",
+        "title": "At least five killed in massive wave of Russian strikes across Ukraine, officials say",
+        "summary": "Officials said the attacks were among the worst in ten days, with damage reported in eleven regions across the country.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/c87wxvn0z3vo?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/cly6g6l6lq7o?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/cly6g6l6lq7o?at_campaign=rss&at_medium=RSS",
+        "title": "Australia and EU agree sweeping trade deal in face of global uncertainty",
+        "summary": "Australia and the EU sign sweeping trade and security deals after years of negotiations.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/cly6g6l6lq7o?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/cvgk02j4l4ko?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/cvgk02j4l4ko?at_campaign=rss&at_medium=RSS",
+        "title": "Danes vote as PM Mette Frederiksen seeks third term after Greenland boost",
+        "summary": "Frederiksen enjoyed a surge in popularity for standing up to the US over Greenland but her support is down on 2022.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/cvgk02j4l4ko?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/c8ejkz89k1ro?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/c8ejkz89k1ro?at_campaign=rss&at_medium=RSS",
+        "title": "Search for four missing soldiers after Colombia plane crash kills 66",
+        "summary": "The Hercules military transport plane crashed minutes after take-off near Colombia's southern border with Peru.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/c8ejkz89k1ro?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/MYH20260324224151k0d",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/MYH20260324224151k0d",
+        "title": "트럼프, 출구 전략 찾을까…'지상군' 카드 유효?",
+        "summary": "[앵커] 이란을 향해 무조건적인 항복을 요구하던 트럼프 미국 대통령이 사뭇 달라진 태도를 보이고 있습니다. 확전 기로에 선 상황에서 출구 전략을 찾으려는 모습인데요. 다만 미국이 지상군 카드를 배제하진 않으면서 역내 불안감은 이어질 전망입니다. 최진경 기자입니다. [기자] 전쟁을 시작한 지 한 달 만에 확전 기로에 선 미국과 이란. 트럼프 미국 대통령은 일단 기존 입장에서 한 발 물러서 출구 전략을 모색하는 모습입니다. 이스라엘도 트럼프 ...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/MYH20260324224151k0d",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/AKR20260324222756N1u",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/AKR20260324222756N1u",
+        "title": "법원, 김형석 전 독립기념관장 '해임 효력정지' 가처분 기각",
+        "summary": "청문회 출석하는 김형석 독립기념관장(세종=연합뉴스) 김주성 기자 = 독립기념관 이사회에서 해임건의안이 통과된 김형석 독립기념관장이 3일 정부세종청사 국가보훈부에서 열린 청문회에 출석하고 있다. 국가보훈부에 따르면 산하 기관장 해임 절차 중 하나인 이날 청문회를 거친 뒤 보훈부 장관의 해임 제청과 대통령 재가가 이뤄지면 김 관장에 대한 해임 절차는 마무리된다. 2026.2.3 utzza@yna.co.kr(세종=연합뉴스) 김주성 기자 = 독립...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/AKR20260324222756N1u",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/AKR20260324222638RF7",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/AKR20260324222638RF7",
+        "title": "G7 외교장관들 27일 프랑스서 회담…이란 문제 등 논의",
+        "summary": "주요 7개국(G7) 국기[EPA=연합뉴스. 재판매 및 DB 금지][EPA=연합뉴스. 재판매 및 DB 금지] G7 외교장관들이 한 자리에 모여 이란 문제 등을 논의합니다. AFP통신에 따르면 미 국무부는 마크 루비오 장관은 현지시간 27일 프랑스를 방문해 G7 외교장관 회의에 합류할 예정입니다. 이번 방문이 도널드 트럼프 미국 대통령이 이란과의 대화 방침을 발표한 이후 성사된 만큼 주목도가 높습니다. 미 국무부는 \"루비오 장관이 회동에서 러...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/AKR20260324222638RF7",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/AKR20260324215413DfT",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/AKR20260324215413DfT",
+        "title": "이 대통령, 뉴질랜드 총리와 통화…\"중동상황 긴밀 협력\"",
+        "summary": "이재명 대통령, 뉴질랜드 총리와 통화(서울=연합뉴스) 이재명 대통령이 24일 청와대 여민관 집무실에서 크리스토퍼 럭슨 뉴질랜드 총리와 통화하고 있다. 2026.3.24 [청와대 제공. 재판매 및 DB 금지] photo@yna.co.kr(서울=연합뉴스) 이재명 대통령이 24일 청와대 여민관 집무실에서 크리스토퍼 럭슨 뉴질랜드 총리와 통화하고 있다. 2026.3.24 [청와대 제공. 재판매 및 DB 금지] photo@yna.co.kr 이재명 ...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/AKR20260324215413DfT",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/MYH20260324215302JCU",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/MYH20260324215302JCU",
+        "title": "이스라엘 전역 피격…\"이란 겨냥 전면적 공격 계속\"",
+        "summary": "[앵커] 이란 발전소 등에 대한 도널드 트럼프 미국 대통령의 \"폭격 보류\" 선언 이후에도 중동 곳곳에서는 포성이 이어졌습니다. 이스라엘과 국경을 맞댄 이집트에 나가있는 특파원 연결해 보겠습니다. 박현우 특파원. [기자] 네, 이집트 카이로입니다. 트럼프 대통령의 '공격 유예' 발표 이후에도, 이스라엘 곳곳으로 이란 미사일이 날아들었습니다. 현지 매체 등에 따르면 이스라엘 중부와 남부 지역 등에서 여러발의 미사일이 탐지됐고, 곧바로 '요격 ...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/MYH20260324215302JCU",
+        "published_date": "",
+        "bucket": "korea"
+      }
+    ],
+    "ko": [
+      {
+        "story_key": "https://bbc.com/news/articles/cy91j9qwp4do?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/cy91j9qwp4do?at_campaign=rss&at_medium=RSS",
+        "title": "Israel says it will take control of large buffer zone in southern Lebanon",
+        "summary": "Thousands of displaced Lebanese residents will not be allowed to return home until northern Israel is safe, he says.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/cy91j9qwp4do?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/c87wxvn0z3vo?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/c87wxvn0z3vo?at_campaign=rss&at_medium=RSS",
+        "title": "At least five killed in massive wave of Russian strikes across Ukraine, officials say",
+        "summary": "Officials said the attacks were among the worst in ten days, with damage reported in eleven regions across the country.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/c87wxvn0z3vo?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/cly6g6l6lq7o?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/cly6g6l6lq7o?at_campaign=rss&at_medium=RSS",
+        "title": "Australia and EU agree sweeping trade deal in face of global uncertainty",
+        "summary": "Australia and the EU sign sweeping trade and security deals after years of negotiations.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/cly6g6l6lq7o?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/cvgk02j4l4ko?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/cvgk02j4l4ko?at_campaign=rss&at_medium=RSS",
+        "title": "Danes vote as PM Mette Frederiksen seeks third term after Greenland boost",
+        "summary": "Frederiksen enjoyed a surge in popularity for standing up to the US over Greenland but her support is down on 2022.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/cvgk02j4l4ko?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/c8ejkz89k1ro?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/c8ejkz89k1ro?at_campaign=rss&at_medium=RSS",
+        "title": "Search for four missing soldiers after Colombia plane crash kills 66",
+        "summary": "The Hercules military transport plane crashed minutes after take-off near Colombia's southern border with Peru.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/c8ejkz89k1ro?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/MYH20260324224151k0d",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/MYH20260324224151k0d",
+        "title": "트럼프, 출구 전략 찾을까…'지상군' 카드 유효?",
+        "summary": "[앵커] 이란을 향해 무조건적인 항복을 요구하던 트럼프 미국 대통령이 사뭇 달라진 태도를 보이고 있습니다. 확전 기로에 선 상황에서 출구 전략을 찾으려는 모습인데요. 다만 미국이 지상군 카드를 배제하진 않으면서 역내 불안감은 이어질 전망입니다. 최진경 기자입니다. [기자] 전쟁을 시작한 지 한 달 만에 확전 기로에 선 미국과 이란. 트럼프 미국 대통령은 일단 기존 입장에서 한 발 물러서 출구 전략을 모색하는 모습입니다. 이스라엘도 트럼프 ...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/MYH20260324224151k0d",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/AKR20260324222756N1u",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/AKR20260324222756N1u",
+        "title": "법원, 김형석 전 독립기념관장 '해임 효력정지' 가처분 기각",
+        "summary": "청문회 출석하는 김형석 독립기념관장(세종=연합뉴스) 김주성 기자 = 독립기념관 이사회에서 해임건의안이 통과된 김형석 독립기념관장이 3일 정부세종청사 국가보훈부에서 열린 청문회에 출석하고 있다. 국가보훈부에 따르면 산하 기관장 해임 절차 중 하나인 이날 청문회를 거친 뒤 보훈부 장관의 해임 제청과 대통령 재가가 이뤄지면 김 관장에 대한 해임 절차는 마무리된다. 2026.2.3 utzza@yna.co.kr(세종=연합뉴스) 김주성 기자 = 독립...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/AKR20260324222756N1u",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/AKR20260324222638RF7",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/AKR20260324222638RF7",
+        "title": "G7 외교장관들 27일 프랑스서 회담…이란 문제 등 논의",
+        "summary": "주요 7개국(G7) 국기[EPA=연합뉴스. 재판매 및 DB 금지][EPA=연합뉴스. 재판매 및 DB 금지] G7 외교장관들이 한 자리에 모여 이란 문제 등을 논의합니다. AFP통신에 따르면 미 국무부는 마크 루비오 장관은 현지시간 27일 프랑스를 방문해 G7 외교장관 회의에 합류할 예정입니다. 이번 방문이 도널드 트럼프 미국 대통령이 이란과의 대화 방침을 발표한 이후 성사된 만큼 주목도가 높습니다. 미 국무부는 \"루비오 장관이 회동에서 러...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/AKR20260324222638RF7",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/AKR20260324215413DfT",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/AKR20260324215413DfT",
+        "title": "이 대통령, 뉴질랜드 총리와 통화…\"중동상황 긴밀 협력\"",
+        "summary": "이재명 대통령, 뉴질랜드 총리와 통화(서울=연합뉴스) 이재명 대통령이 24일 청와대 여민관 집무실에서 크리스토퍼 럭슨 뉴질랜드 총리와 통화하고 있다. 2026.3.24 [청와대 제공. 재판매 및 DB 금지] photo@yna.co.kr(서울=연합뉴스) 이재명 대통령이 24일 청와대 여민관 집무실에서 크리스토퍼 럭슨 뉴질랜드 총리와 통화하고 있다. 2026.3.24 [청와대 제공. 재판매 및 DB 금지] photo@yna.co.kr 이재명 ...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/AKR20260324215413DfT",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/MYH20260324215302JCU",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/MYH20260324215302JCU",
+        "title": "이스라엘 전역 피격…\"이란 겨냥 전면적 공격 계속\"",
+        "summary": "[앵커] 이란 발전소 등에 대한 도널드 트럼프 미국 대통령의 \"폭격 보류\" 선언 이후에도 중동 곳곳에서는 포성이 이어졌습니다. 이스라엘과 국경을 맞댄 이집트에 나가있는 특파원 연결해 보겠습니다. 박현우 특파원. [기자] 네, 이집트 카이로입니다. 트럼프 대통령의 '공격 유예' 발표 이후에도, 이스라엘 곳곳으로 이란 미사일이 날아들었습니다. 현지 매체 등에 따르면 이스라엘 중부와 남부 지역 등에서 여러발의 미사일이 탐지됐고, 곧바로 '요격 ...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/MYH20260324215302JCU",
+        "published_date": "",
+        "bucket": "korea"
+      }
+    ],
+    "en": [
+      {
+        "story_key": "https://bbc.com/news/articles/cy91j9qwp4do?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/cy91j9qwp4do?at_campaign=rss&at_medium=RSS",
+        "title": "Israel says it will take control of large buffer zone in southern Lebanon",
+        "summary": "Thousands of displaced Lebanese residents will not be allowed to return home until northern Israel is safe, he says.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/cy91j9qwp4do?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/c87wxvn0z3vo?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/c87wxvn0z3vo?at_campaign=rss&at_medium=RSS",
+        "title": "At least five killed in massive wave of Russian strikes across Ukraine, officials say",
+        "summary": "Officials said the attacks were among the worst in ten days, with damage reported in eleven regions across the country.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/c87wxvn0z3vo?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/cly6g6l6lq7o?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/cly6g6l6lq7o?at_campaign=rss&at_medium=RSS",
+        "title": "Australia and EU agree sweeping trade deal in face of global uncertainty",
+        "summary": "Australia and the EU sign sweeping trade and security deals after years of negotiations.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/cly6g6l6lq7o?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/cvgk02j4l4ko?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/cvgk02j4l4ko?at_campaign=rss&at_medium=RSS",
+        "title": "Danes vote as PM Mette Frederiksen seeks third term after Greenland boost",
+        "summary": "Frederiksen enjoyed a surge in popularity for standing up to the US over Greenland but her support is down on 2022.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/cvgk02j4l4ko?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/c8ejkz89k1ro?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/c8ejkz89k1ro?at_campaign=rss&at_medium=RSS",
+        "title": "Search for four missing soldiers after Colombia plane crash kills 66",
+        "summary": "The Hercules military transport plane crashed minutes after take-off near Colombia's southern border with Peru.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/c8ejkz89k1ro?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/MYH20260324224151k0d",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/MYH20260324224151k0d",
+        "title": "트럼프, 출구 전략 찾을까…'지상군' 카드 유효?",
+        "summary": "[앵커] 이란을 향해 무조건적인 항복을 요구하던 트럼프 미국 대통령이 사뭇 달라진 태도를 보이고 있습니다. 확전 기로에 선 상황에서 출구 전략을 찾으려는 모습인데요. 다만 미국이 지상군 카드를 배제하진 않으면서 역내 불안감은 이어질 전망입니다. 최진경 기자입니다. [기자] 전쟁을 시작한 지 한 달 만에 확전 기로에 선 미국과 이란. 트럼프 미국 대통령은 일단 기존 입장에서 한 발 물러서 출구 전략을 모색하는 모습입니다. 이스라엘도 트럼프 ...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/MYH20260324224151k0d",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/AKR20260324222756N1u",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/AKR20260324222756N1u",
+        "title": "법원, 김형석 전 독립기념관장 '해임 효력정지' 가처분 기각",
+        "summary": "청문회 출석하는 김형석 독립기념관장(세종=연합뉴스) 김주성 기자 = 독립기념관 이사회에서 해임건의안이 통과된 김형석 독립기념관장이 3일 정부세종청사 국가보훈부에서 열린 청문회에 출석하고 있다. 국가보훈부에 따르면 산하 기관장 해임 절차 중 하나인 이날 청문회를 거친 뒤 보훈부 장관의 해임 제청과 대통령 재가가 이뤄지면 김 관장에 대한 해임 절차는 마무리된다. 2026.2.3 utzza@yna.co.kr(세종=연합뉴스) 김주성 기자 = 독립...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/AKR20260324222756N1u",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/AKR20260324222638RF7",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/AKR20260324222638RF7",
+        "title": "G7 외교장관들 27일 프랑스서 회담…이란 문제 등 논의",
+        "summary": "주요 7개국(G7) 국기[EPA=연합뉴스. 재판매 및 DB 금지][EPA=연합뉴스. 재판매 및 DB 금지] G7 외교장관들이 한 자리에 모여 이란 문제 등을 논의합니다. AFP통신에 따르면 미 국무부는 마크 루비오 장관은 현지시간 27일 프랑스를 방문해 G7 외교장관 회의에 합류할 예정입니다. 이번 방문이 도널드 트럼프 미국 대통령이 이란과의 대화 방침을 발표한 이후 성사된 만큼 주목도가 높습니다. 미 국무부는 \"루비오 장관이 회동에서 러...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/AKR20260324222638RF7",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/AKR20260324215413DfT",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/AKR20260324215413DfT",
+        "title": "이 대통령, 뉴질랜드 총리와 통화…\"중동상황 긴밀 협력\"",
+        "summary": "이재명 대통령, 뉴질랜드 총리와 통화(서울=연합뉴스) 이재명 대통령이 24일 청와대 여민관 집무실에서 크리스토퍼 럭슨 뉴질랜드 총리와 통화하고 있다. 2026.3.24 [청와대 제공. 재판매 및 DB 금지] photo@yna.co.kr(서울=연합뉴스) 이재명 대통령이 24일 청와대 여민관 집무실에서 크리스토퍼 럭슨 뉴질랜드 총리와 통화하고 있다. 2026.3.24 [청와대 제공. 재판매 및 DB 금지] photo@yna.co.kr 이재명 ...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/AKR20260324215413DfT",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yonhapnewstv.co.kr/news/MYH20260324215302JCU",
+        "canonical_url": "https://yonhapnewstv.co.kr/news/MYH20260324215302JCU",
+        "title": "이스라엘 전역 피격…\"이란 겨냥 전면적 공격 계속\"",
+        "summary": "[앵커] 이란 발전소 등에 대한 도널드 트럼프 미국 대통령의 \"폭격 보류\" 선언 이후에도 중동 곳곳에서는 포성이 이어졌습니다. 이스라엘과 국경을 맞댄 이집트에 나가있는 특파원 연결해 보겠습니다. 박현우 특파원. [기자] 네, 이집트 카이로입니다. 트럼프 대통령의 '공격 유예' 발표 이후에도, 이스라엘 곳곳으로 이란 미사일이 날아들었습니다. 현지 매체 등에 따르면 이스라엘 중부와 남부 지역 등에서 여러발의 미사일이 탐지됐고, 곧바로 '요격 ...",
+        "source": "연합뉴스",
+        "url": "https://www.yonhapnewstv.co.kr/news/MYH20260324215302JCU",
+        "published_date": "",
+        "bucket": "korea"
+      }
+    ]
+  }
+}

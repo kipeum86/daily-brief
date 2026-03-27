@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "brief_type": "daily",
+  "date": "2026-03-26",
+  "generated_at": "2026-03-26 01:05:08",
+  "market_pulse": {
+    "label_ko": "🟢 완만한 낙관",
+    "signals": [
+      "VIX -6.0% ↓↓",
+      "USD/KRW +0.5% (달러 강세)"
+    ]
+  },
+  "holidays": {
+    "kospi_holiday": false,
+    "nyse_holiday": false
+  },
+  "markets": {
+    "kr": [],
+    "us": [],
+    "fx": [],
+    "commodities": [],
+    "crypto": [],
+    "risk": [],
+    "sectors": []
+  },
+  "insight": {
+    "ko": "Key Insight\n\n오늘 시장은 중동발 지정학적 리스크가 에너지 공급망에 미치는 심각한 영향과 씨름하면서도, 기술 혁신에 대한 낙관론이 공존하는 이중적인 모습을 보였습니다. 특히 유가 하락이 중동 에너지 인프라 파괴 소식과 상충되는 가운데, 안전자산 선호와 특정 성장 섹터로의 자금 쏠림 현상이 동시에 나타나며 시장의 복잡한 심리를 반영하고 있습니다.\n\nMarket Overview\n\n한국 증시에서 코스피는 지정학적 불안정과 원화 약세의 영향으로 하락세를 보였으나, 코스닥은 인공지능(AI) 관련 기술주에 대한 강한 매수세에 힘입어 급등하며 시장 내 차별화된 흐름을 나타냈습니다. 미국 증시는 주요 지수들이 일제히 상승하며 견조한 흐름을 이어갔습니다. 이는 글로벌 불확실성 속에서도 미국 경제의 회복력과 기업 실적에 대한 기대감이 여전히 유효함을 시사합니다.\n\nCross-Market Signals\n\n금 가격 급등 + 원/달러 환율 상승:\n\n중동발 지정학적 리스크 고조와 원화 약세가 맞물려 글로벌 안전자산 선호 심리가 강화되고 있음을 시사합니다.\n\nWTI 유가 하락 + 중동 에너지 인프라 파괴 뉴스:\n\n에너지 공급 충격 가능성에도 불구하고 유가가 하락한 것은 글로벌 경기 둔화에 따른 수요 위축 우려가 공급 불안을 일시적으로 상쇄하고 있을 가능성을 보여줍니다.\n\n코스닥 급등 + AI 관련 뉴스:\n\n한국 증시 내에서 AI 및 기술 성장주에 대한 강한 투자 심리가 확인되며, 시장 전반의 하락세 속에서도 특정 성장 테마로의 자금 쏠림 현상이 두드러집니다.",
+    "en": "Today’s Key Insight\n\nGlobal markets are grappling with severe geopolitical escalation in the Middle East, yet the immediate market response is strikingly fragmented. While safe-haven assets like gold and the dollar gained, oil prices paradoxically declined, suggesting either skepticism about the reported infrastructure damage or an underlying concern for demand, even as the VIX surprisingly fell.\n\nMarket Overview\n\nKorean equities presented a divergent picture, with the KOSPI falling significantly, likely reflecting broader risk aversion and domestic real estate concerns following news of impending multi-homeowner loan regulations. In contrast, the KOSDAQ surged, buoyed by strong interest in AI-related technologies and potential tech IPOs. US equities showed resilience, posting moderate gains across major indices, as investors appeared to either shrug off geopolitical risks or focus on specific growth narratives such as the reported SpaceX IPO filing.\n\nCross-Market Signals\n\nGeopolitical Risk & Safe Havens:\n\nGold’s significant rally alongside a stronger Dollar Index and weaker Korean Won clearly signals a flight to safety amidst the escalating Middle East conflict.\n\nOil Price Anomaly:\n\nWTI Oil’s decline despite reports of substantial Gulf energy infrastructure damage presents a significant market anomaly, potentially indicating skepticism regarding the immediate supply impact or overriding demand concerns.\n\nConflicting Risk Signals:\n\nThe drop in US 10-year Treasury yields suggests a flight to safety into government bonds, aligning with gold and FX moves, yet the VIX’s decline offers a conflicting signal on immediate market fear.\n\nKOSDAQ Divergence:\n\nKOSDAQ’s strong rally against KOSPI’s decline highlights a domestic divergence, likely driven by specific tech/AI sector optimism offsetting broader market anxieties."
+  },
+  "articles": {
+    "raw": [
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNclExTmFCdGtEcUJHalNUcl9KckkwdGZLeWlLcGE1TXNHb0E1RHJCRk1IMTZuTmkxT1l6RWp2OEJUNjBsYjFtZDItM3NrWGdsdnFNQTlfUW0wMVZVbU5DTjh5eUF6TTNlQ1d6Y0Y4WklzUDZtemgzVkRsTy1tbk04c0N2aUpLSTdrRWppZXlTYU5vXzJ6bjNB?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNclExTmFCdGtEcUJHalNUcl9KckkwdGZLeWlLcGE1TXNHb0E1RHJCRk1IMTZuTmkxT1l6RWp2OEJUNjBsYjFtZDItM3NrWGdsdnFNQTlfUW0wMVZVbU5DTjh5eUF6TTNlQ1d6Y0Y4WklzUDZtemgzVkRsTy1tbk04c0N2aUpLSTdrRWppZXlTYU5vXzJ6bjNB?oc=5",
+        "title": "트럼프, 이란 전쟁 지연 후 5월 시진핑과 회담 위해 중국 방문 계획 - 로이터",
+        "summary": "트럼프 대통령은 이란 전쟁 지연 이후 시진핑 주석과의 회담을 위해 5월 중국을 방문할 계획이라고 로이터 통신이 보도했다.",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNclExTmFCdGtEcUJHalNUcl9KckkwdGZLeWlLcGE1TXNHb0E1RHJCRk1IMTZuTmkxT1l6RWp2OEJUNjBsYjFtZDItM3NrWGdsdnFNQTlfUW0wMVZVbU5DTjh5eUF6TTNlQ1d6Y0Y4WklzUDZtemgzVkRsTy1tbk04c0N2aUpLSTdrRWppZXlTYU5vXzJ6bjNB?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMnQ4RTlUNUxyMmJwZUNQVXRPam9SMjc4cF9kRmx3RFJqaEV0c3kya0ZDVlF5SUJXQkQydVJLLThORHlnQW9rbV82Q2FMMjFNV01IZnZscTg3RW9RRTNsQ2hjdUlMSjYyTjk3R19BRFZmdXhXRXNhc21QSFZfN1R5R0g3Z1AxclJXRXQ4RGo5eDBxU1o5WVlKeXFQd2VMVEFuclVTUVRB?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMnQ4RTlUNUxyMmJwZUNQVXRPam9SMjc4cF9kRmx3RFJqaEV0c3kya0ZDVlF5SUJXQkQydVJLLThORHlnQW9rbV82Q2FMMjFNV01IZnZscTg3RW9RRTNsQ2hjdUlMSjYyTjk3R19BRFZmdXhXRXNhc21QSFZfN1R5R0g3Z1AxclJXRXQ4RGo5eDBxU1o5WVlKeXFQd2VMVEFuclVTUVRB?oc=5",
+        "title": "이란 전쟁, 카타르 헬륨 생산 중단시켜 글로벌 기술 공급망 위협 - AP 통신",
+        "summary": "이란 전쟁으로 카타르의 헬륨 생산이 중단되어 전 세계 기술 공급망이 위협받고 있다고 AP 통신이 전했다.",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMnQ4RTlUNUxyMmJwZUNQVXRPam9SMjc4cF9kRmx3RFJqaEV0c3kya0ZDVlF5SUJXQkQydVJLLThORHlnQW9rbV82Q2FMMjFNV01IZnZscTg3RW9RRTNsQ2hjdUlMSjYyTjk3R19BRFZmdXhXRXNhc21QSFZfN1R5R0g3Z1AxclJXRXQ4RGo5eDBxU1o5WVlKeXFQd2VMVEFuclVTUVRB?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://france24.com/en/france-confirms-oil-crisis-says-30-40-gulf-energy-infrastructure-destroyed",
+        "canonical_url": "https://france24.com/en/france-confirms-oil-crisis-says-30-40-gulf-energy-infrastructure-destroyed",
+        "title": "프랑스, 석유 위기 확인…걸프만 에너지 인프라 30~40% 파괴 발표",
+        "summary": "최신 비즈니스 및 경제 뉴스에 대한 일일 업데이트.",
+        "source": "France 24",
+        "url": "https://www.france24.com/en/france-confirms-oil-crisis-says-30-40-gulf-energy-infrastructure-destroyed",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://cnbc.com/2026/03/25/space-stocks-.html",
+        "canonical_url": "https://cnbc.com/2026/03/25/space-stocks-.html",
+        "title": "스페이스X의 임박한 IPO 신청 보도에 우주 관련 주식 급등",
+        "summary": "스페이스X가 이번 주 상장 신청을 할 수 있다는 보도 이후 AST 스페이스모바일, 로켓 랩, 파이어플라이 에어로스페이스를 포함한 우주 관련 주식들이 급등했다.",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/25/space-stocks-.html",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/c747x7gz249o?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/c747x7gz249o?at_campaign=rss&at_medium=RSS",
+        "title": "메타와 유튜브, 획기적인 소셜 미디어 중독 재판에서 책임 인정",
+        "summary": "한 여성이 600만 달러를 배상받았으며, 이 판결은 미국 내 수백 건의 다른 소송에 영향을 미칠 수 있다.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/c747x7gz249o?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://chosun.com/economy/economy_general/2026/03/26/ILECAMGTYFD3HMQIFJ6G3BZE6A",
+        "canonical_url": "https://chosun.com/economy/economy_general/2026/03/26/ILECAMGTYFD3HMQIFJ6G3BZE6A",
+        "title": "다주택자 대출 규제 초읽기...비거주 1주택은 유예, 임대 사업자부터 겨냥",
+        "summary": "",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/economy/economy_general/2026/03/26/ILECAMGTYFD3HMQIFJ6G3BZE6A/",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://donga.com/news/Politics/article/all/20260326/133612099/2",
+        "canonical_url": "https://donga.com/news/Politics/article/all/20260326/133612099/2",
+        "title": "[속보]당정 “민생지원금 선별 지원…K패스 환급률 상향 검토”",
+        "summary": "당정은 중동발 경제 위기에 대응하기 위한 25조 원 규모 ‘전쟁 추경(추가경정예산안)’에 지역화폐를 이용한 민생지원금을 선별 지급하는 방식을 포함하기로 했다. 에너지 수급 불안에 따라 시행된 차량 5부제와 관련해선 대중교통비 환급 제도인 ‘K패스’의 환급률을 상향하는 방안을 검토한다.더불어민주당 한정애 정책위의장은 이날 국회에서 진행된 2026년 추경 관련 당정협의 이후 기자들과 만나 민생지원금 지급 방식에 대해 “수도권에서 멀수록, 지방우대 기준, 그리고 어려운 계층에 조금 더 지원될 수 있는 방식”이라고 설명했다.이어 “석유류 최고가격제는 보편적 지원 방식이다. 이용하는 사람 모두에게 적용된다”며 “지역화폐, 민생안정지원은 그 과정에서도 더 충격이 큰 계층에 지원한다는 원칙”이라고 부연했다.그러면서 “완전히 확정되진 않았지만 피해가 많은 서민 취약계층을 중심으로 지원이 보강될 필요 있다는 공감대를 이뤘다”고 했다.지급 기준에 대해 국회 예산결산특별위원회 여당 간사인 이소영",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Politics/article/all/20260326/133612099/2",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yna.co.kr/view/AKR20260326041100003",
+        "canonical_url": "https://yna.co.kr/view/AKR20260326041100003",
+        "title": "사장단 회의 소집한 구광모 \"AI 전환에서 가장 중요한 건 속도\"",
+        "summary": "(서울=연합뉴스) 한지은 기자 = 구광모 LG그룹 회장이 올해 첫 사장단 회의를 열고 \"AX(AI 전환)에서 가장 중요한 것은 속도이며, 완벽한...",
+        "source": "연합뉴스",
+        "url": "https://www.yna.co.kr/view/AKR20260326041100003",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://hani.co.kr/arti/economy/biznews/1251157.html",
+        "canonical_url": "https://hani.co.kr/arti/economy/biznews/1251157.html",
+        "title": "삼육대 양민규 교수팀, 초저전력·고속 AI 반도체 핵심기술 개발",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/economy/biznews/1251157.html",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://hankyung.com/article/2026032674406",
+        "canonical_url": "https://hankyung.com/article/2026032674406",
+        "title": "서울 빌라 원룸 전·월세 동반 하락…4개월 만",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026032674406",
+        "published_date": "",
+        "bucket": "korea"
+      }
+    ],
+    "ko": [
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNclExTmFCdGtEcUJHalNUcl9KckkwdGZLeWlLcGE1TXNHb0E1RHJCRk1IMTZuTmkxT1l6RWp2OEJUNjBsYjFtZDItM3NrWGdsdnFNQTlfUW0wMVZVbU5DTjh5eUF6TTNlQ1d6Y0Y4WklzUDZtemgzVkRsTy1tbk04c0N2aUpLSTdrRWppZXlTYU5vXzJ6bjNB?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNclExTmFCdGtEcUJHalNUcl9KckkwdGZLeWlLcGE1TXNHb0E1RHJCRk1IMTZuTmkxT1l6RWp2OEJUNjBsYjFtZDItM3NrWGdsdnFNQTlfUW0wMVZVbU5DTjh5eUF6TTNlQ1d6Y0Y4WklzUDZtemgzVkRsTy1tbk04c0N2aUpLSTdrRWppZXlTYU5vXzJ6bjNB?oc=5",
+        "title": "트럼프, 이란 전쟁 지연 후 5월 시진핑과 회담 위해 중국 방문 계획 - 로이터",
+        "summary": "트럼프 대통령은 이란 전쟁 지연 이후 시진핑 주석과의 회담을 위해 5월 중국을 방문할 계획이라고 로이터 통신이 보도했다.",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNclExTmFCdGtEcUJHalNUcl9KckkwdGZLeWlLcGE1TXNHb0E1RHJCRk1IMTZuTmkxT1l6RWp2OEJUNjBsYjFtZDItM3NrWGdsdnFNQTlfUW0wMVZVbU5DTjh5eUF6TTNlQ1d6Y0Y4WklzUDZtemgzVkRsTy1tbk04c0N2aUpLSTdrRWppZXlTYU5vXzJ6bjNB?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMnQ4RTlUNUxyMmJwZUNQVXRPam9SMjc4cF9kRmx3RFJqaEV0c3kya0ZDVlF5SUJXQkQydVJLLThORHlnQW9rbV82Q2FMMjFNV01IZnZscTg3RW9RRTNsQ2hjdUlMSjYyTjk3R19BRFZmdXhXRXNhc21QSFZfN1R5R0g3Z1AxclJXRXQ4RGo5eDBxU1o5WVlKeXFQd2VMVEFuclVTUVRB?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMnQ4RTlUNUxyMmJwZUNQVXRPam9SMjc4cF9kRmx3RFJqaEV0c3kya0ZDVlF5SUJXQkQydVJLLThORHlnQW9rbV82Q2FMMjFNV01IZnZscTg3RW9RRTNsQ2hjdUlMSjYyTjk3R19BRFZmdXhXRXNhc21QSFZfN1R5R0g3Z1AxclJXRXQ4RGo5eDBxU1o5WVlKeXFQd2VMVEFuclVTUVRB?oc=5",
+        "title": "이란 전쟁, 카타르 헬륨 생산 중단시켜 글로벌 기술 공급망 위협 - AP 통신",
+        "summary": "이란 전쟁으로 카타르의 헬륨 생산이 중단되어 전 세계 기술 공급망이 위협받고 있다고 AP 통신이 전했다.",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMnQ4RTlUNUxyMmJwZUNQVXRPam9SMjc4cF9kRmx3RFJqaEV0c3kya0ZDVlF5SUJXQkQydVJLLThORHlnQW9rbV82Q2FMMjFNV01IZnZscTg3RW9RRTNsQ2hjdUlMSjYyTjk3R19BRFZmdXhXRXNhc21QSFZfN1R5R0g3Z1AxclJXRXQ4RGo5eDBxU1o5WVlKeXFQd2VMVEFuclVTUVRB?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://france24.com/en/france-confirms-oil-crisis-says-30-40-gulf-energy-infrastructure-destroyed",
+        "canonical_url": "https://france24.com/en/france-confirms-oil-crisis-says-30-40-gulf-energy-infrastructure-destroyed",
+        "title": "프랑스, 석유 위기 확인…걸프만 에너지 인프라 30~40% 파괴 발표",
+        "summary": "최신 비즈니스 및 경제 뉴스에 대한 일일 업데이트.",
+        "source": "France 24",
+        "url": "https://www.france24.com/en/france-confirms-oil-crisis-says-30-40-gulf-energy-infrastructure-destroyed",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://cnbc.com/2026/03/25/space-stocks-.html",
+        "canonical_url": "https://cnbc.com/2026/03/25/space-stocks-.html",
+        "title": "스페이스X의 임박한 IPO 신청 보도에 우주 관련 주식 급등",
+        "summary": "스페이스X가 이번 주 상장 신청을 할 수 있다는 보도 이후 AST 스페이스모바일, 로켓 랩, 파이어플라이 에어로스페이스를 포함한 우주 관련 주식들이 급등했다.",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/25/space-stocks-.html",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/c747x7gz249o?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/c747x7gz249o?at_campaign=rss&at_medium=RSS",
+        "title": "메타와 유튜브, 획기적인 소셜 미디어 중독 재판에서 책임 인정",
+        "summary": "한 여성이 600만 달러를 배상받았으며, 이 판결은 미국 내 수백 건의 다른 소송에 영향을 미칠 수 있다.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/c747x7gz249o?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://chosun.com/economy/economy_general/2026/03/26/ILECAMGTYFD3HMQIFJ6G3BZE6A",
+        "canonical_url": "https://chosun.com/economy/economy_general/2026/03/26/ILECAMGTYFD3HMQIFJ6G3BZE6A",
+        "title": "다주택자 대출 규제 초읽기...비거주 1주택은 유예, 임대 사업자부터 겨냥",
+        "summary": "",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/economy/economy_general/2026/03/26/ILECAMGTYFD3HMQIFJ6G3BZE6A/",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://donga.com/news/Politics/article/all/20260326/133612099/2",
+        "canonical_url": "https://donga.com/news/Politics/article/all/20260326/133612099/2",
+        "title": "[속보]당정 “민생지원금 선별 지원…K패스 환급률 상향 검토”",
+        "summary": "당정은 중동발 경제 위기에 대응하기 위한 25조 원 규모 ‘전쟁 추경(추가경정예산안)’에 지역화폐를 이용한 민생지원금을 선별 지급하는 방식을 포함하기로 했다. 에너지 수급 불안에 따라 시행된 차량 5부제와 관련해선 대중교통비 환급 제도인 ‘K패스’의 환급률을 상향하는 방안을 검토한다.더불어민주당 한정애 정책위의장은 이날 국회에서 진행된 2026년 추경 관련 당정협의 이후 기자들과 만나 민생지원금 지급 방식에 대해 “수도권에서 멀수록, 지방우대 기준, 그리고 어려운 계층에 조금 더 지원될 수 있는 방식”이라고 설명했다.이어 “석유류 최고가격제는 보편적 지원 방식이다. 이용하는 사람 모두에게 적용된다”며 “지역화폐, 민생안정지원은 그 과정에서도 더 충격이 큰 계층에 지원한다는 원칙”이라고 부연했다.그러면서 “완전히 확정되진 않았지만 피해가 많은 서민 취약계층을 중심으로 지원이 보강될 필요 있다는 공감대를 이뤘다”고 했다.지급 기준에 대해 국회 예산결산특별위원회 여당 간사인 이소영",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Politics/article/all/20260326/133612099/2",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yna.co.kr/view/AKR20260326041100003",
+        "canonical_url": "https://yna.co.kr/view/AKR20260326041100003",
+        "title": "사장단 회의 소집한 구광모 \"AI 전환에서 가장 중요한 건 속도\"",
+        "summary": "(서울=연합뉴스) 한지은 기자 = 구광모 LG그룹 회장이 올해 첫 사장단 회의를 열고 \"AX(AI 전환)에서 가장 중요한 것은 속도이며, 완벽한...",
+        "source": "연합뉴스",
+        "url": "https://www.yna.co.kr/view/AKR20260326041100003",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://hani.co.kr/arti/economy/biznews/1251157.html",
+        "canonical_url": "https://hani.co.kr/arti/economy/biznews/1251157.html",
+        "title": "삼육대 양민규 교수팀, 초저전력·고속 AI 반도체 핵심기술 개발",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/economy/biznews/1251157.html",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://hankyung.com/article/2026032674406",
+        "canonical_url": "https://hankyung.com/article/2026032674406",
+        "title": "서울 빌라 원룸 전·월세 동반 하락…4개월 만",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026032674406",
+        "published_date": "",
+        "bucket": "korea"
+      }
+    ],
+    "en": [
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNclExTmFCdGtEcUJHalNUcl9KckkwdGZLeWlLcGE1TXNHb0E1RHJCRk1IMTZuTmkxT1l6RWp2OEJUNjBsYjFtZDItM3NrWGdsdnFNQTlfUW0wMVZVbU5DTjh5eUF6TTNlQ1d6Y0Y4WklzUDZtemgzVkRsTy1tbk04c0N2aUpLSTdrRWppZXlTYU5vXzJ6bjNB?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNclExTmFCdGtEcUJHalNUcl9KckkwdGZLeWlLcGE1TXNHb0E1RHJCRk1IMTZuTmkxT1l6RWp2OEJUNjBsYjFtZDItM3NrWGdsdnFNQTlfUW0wMVZVbU5DTjh5eUF6TTNlQ1d6Y0Y4WklzUDZtemgzVkRsTy1tbk04c0N2aUpLSTdrRWppZXlTYU5vXzJ6bjNB?oc=5",
+        "title": "Trump plans May visit to China for talks with Xi after Iran war delay - Reuters",
+        "summary": "Trump plans May visit to China for talks with Xi after Iran war delayReuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNclExTmFCdGtEcUJHalNUcl9KckkwdGZLeWlLcGE1TXNHb0E1RHJCRk1IMTZuTmkxT1l6RWp2OEJUNjBsYjFtZDItM3NrWGdsdnFNQTlfUW0wMVZVbU5DTjh5eUF6TTNlQ1d6Y0Y4WklzUDZtemgzVkRsTy1tbk04c0N2aUpLSTdrRWppZXlTYU5vXzJ6bjNB?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMnQ4RTlUNUxyMmJwZUNQVXRPam9SMjc4cF9kRmx3RFJqaEV0c3kya0ZDVlF5SUJXQkQydVJLLThORHlnQW9rbV82Q2FMMjFNV01IZnZscTg3RW9RRTNsQ2hjdUlMSjYyTjk3R19BRFZmdXhXRXNhc21QSFZfN1R5R0g3Z1AxclJXRXQ4RGo5eDBxU1o5WVlKeXFQd2VMVEFuclVTUVRB?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMnQ4RTlUNUxyMmJwZUNQVXRPam9SMjc4cF9kRmx3RFJqaEV0c3kya0ZDVlF5SUJXQkQydVJLLThORHlnQW9rbV82Q2FMMjFNV01IZnZscTg3RW9RRTNsQ2hjdUlMSjYyTjk3R19BRFZmdXhXRXNhc21QSFZfN1R5R0g3Z1AxclJXRXQ4RGo5eDBxU1o5WVlKeXFQd2VMVEFuclVTUVRB?oc=5",
+        "title": "Iran war halts Qatar helium output, threatening global tech supply chains - AP News",
+        "summary": "Iran war halts Qatar helium output, threatening global tech supply chainsAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMnQ4RTlUNUxyMmJwZUNQVXRPam9SMjc4cF9kRmx3RFJqaEV0c3kya0ZDVlF5SUJXQkQydVJLLThORHlnQW9rbV82Q2FMMjFNV01IZnZscTg3RW9RRTNsQ2hjdUlMSjYyTjk3R19BRFZmdXhXRXNhc21QSFZfN1R5R0g3Z1AxclJXRXQ4RGo5eDBxU1o5WVlKeXFQd2VMVEFuclVTUVRB?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://france24.com/en/france-confirms-oil-crisis-says-30-40-gulf-energy-infrastructure-destroyed",
+        "canonical_url": "https://france24.com/en/france-confirms-oil-crisis-says-30-40-gulf-energy-infrastructure-destroyed",
+        "title": "France confirms oil crisis, says 30-40% Gulf energy infrastructure destroyed",
+        "summary": "A daily update on the latest business and economic news.",
+        "source": "France 24",
+        "url": "https://www.france24.com/en/france-confirms-oil-crisis-says-30-40-gulf-energy-infrastructure-destroyed",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://cnbc.com/2026/03/25/space-stocks-.html",
+        "canonical_url": "https://cnbc.com/2026/03/25/space-stocks-.html",
+        "title": "Space stocks rally on reports of SpaceX's imminent IPO filing",
+        "summary": "Space stocks, including AST SpaceMobile, Rocket Lab and Firefly Aerospace, rallied after a report that SpaceX may file to go public this week.",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/25/space-stocks-.html",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/c747x7gz249o?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/c747x7gz249o?at_campaign=rss&at_medium=RSS",
+        "title": "Meta and YouTube found liable in landmark social media addiction trial",
+        "summary": "A woman has been awarded $6m in a verdict that could have implications for hundreds of other cases in the US.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/c747x7gz249o?at_medium=RSS&at_campaign=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://chosun.com/economy/economy_general/2026/03/26/ILECAMGTYFD3HMQIFJ6G3BZE6A",
+        "canonical_url": "https://chosun.com/economy/economy_general/2026/03/26/ILECAMGTYFD3HMQIFJ6G3BZE6A",
+        "title": "Loan Regulations for Multiple Homeowners Imminent...Non-Residential Single Homes Exempted, Targeting Rental Business Owners First",
+        "summary": "",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/economy/economy_general/2026/03/26/ILECAMGTYFD3HMQIFJ6G3BZE6A/",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://donga.com/news/Politics/article/all/20260326/133612099/2",
+        "canonical_url": "https://donga.com/news/Politics/article/all/20260326/133612099/2",
+        "title": "[Breaking News] Ruling Party and Government: 'Selective Livelihood Support Funds...Considering Increasing K-Pass Refund Rate'",
+        "summary": "The ruling party and government have decided to include a method of selectively distributing livelihood support funds using local currency in the 25 trillion won 'war supplementary budget' (supplementary budget bill) aimed at responding to the economic crisis originating from the Middle East. Regarding the five-day vehicle rotation system implemented due to energy supply instability, they are considering increasing the refund rate of 'K-Pass,' a public transportation fare refund system. Han Jeong-ae, policy committee chairperson of the Democratic Party of Korea, met with reporters after the ruling party-government consultation on the 2026 supplementary budget held at the National Assembly today, explaining the method of distributing livelihood support funds as 'a way to provide more support to those further from the metropolitan area, based on regional preference criteria, and to vulnerable groups.' She added, 'The maximum price system for petroleum products is a universal support method. It applies to everyone who uses it,' and 'The principle of local currency and livelihood stabilization support is to provide aid to those who experience greater impact during this process.' She further stated, 'Although not fully finalized, there was a consensus that support needs to be strengthened, focusing on vulnerable low-income groups who have suffered significant damage.' Regarding the payment criteria, Lee So-young, the ruling party's chief secretary of the National Assembly's Special Committee on Budget and Accounts...",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Politics/article/all/20260326/133612099/2",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://yna.co.kr/view/AKR20260326041100003",
+        "canonical_url": "https://yna.co.kr/view/AKR20260326041100003",
+        "title": "Koo Kwang-mo, Convening Executive Meeting, Says 'Speed is Most Important in AI Transformation'",
+        "summary": "(SEOUL=Yonhap News) Reporter Han Ji-eun = LG Group Chairman Koo Kwang-mo held his first executive meeting of the year and stated, 'The most important thing in AX (AI transformation) is speed, and perfect...'",
+        "source": "연합뉴스",
+        "url": "https://www.yna.co.kr/view/AKR20260326041100003",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://hani.co.kr/arti/economy/biznews/1251157.html",
+        "canonical_url": "https://hani.co.kr/arti/economy/biznews/1251157.html",
+        "title": "Sahmyook University Professor Yang Min-kyu's Team Develops Core Technology for Ultra-Low Power, High-Speed AI Semiconductors",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/economy/biznews/1251157.html",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://hankyung.com/article/2026032674406",
+        "canonical_url": "https://hankyung.com/article/2026032674406",
+        "title": "Seoul Villa Studio Apartments See Simultaneous Decline in Jeonse and Monthly Rent...First Time in 4 Months",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026032674406",
+        "published_date": "",
+        "bucket": "korea"
+      }
+    ]
+  }
+}
