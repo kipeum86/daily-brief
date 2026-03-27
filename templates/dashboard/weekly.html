@@ -649,7 +649,7 @@
 
     <section class="section">
       <div class="section-heading">
-        <h2 class="section-title">{{ "Editor's View" if lang == 'en' else "에디터 뷰" }}</h2>
+        <h2 class="section-title">Editor's View</h2>
         <p class="section-lead">{{ 'A narrative layer for the numbers and headlines' if lang == 'en' else '숫자와 헤드라인 위에 얹는 이번 주의 서사' }}</p>
       </div>
 
@@ -700,7 +700,7 @@
 
     <section class="section">
       <div class="section-heading">
-        <h2 class="section-title">{{ 'Market Mosaic' if lang == 'en' else '마켓 모자이크' }}</h2>
+        <h2 class="section-title">Market Mosaic</h2>
         <p class="section-lead">{{ "Core assets in motion, with the week's strongest and weakest stretches alongside them" if lang == 'en' else '핵심 자산 흐름과 함께 주간 상승·하락 상위를 한 눈에 읽는 섹션' }}</p>
       </div>
 
@@ -775,14 +775,14 @@
 
     <section class="section">
       <div class="section-heading">
-        <h2 class="section-title">{{ 'Story Journal' if lang == 'en' else '스토리 저널' }}</h2>
+        <h2 class="section-title">Story Journal</h2>
         <p class="section-lead">{{ 'The most discussed issues surfaced from the recent 7-day news pool' if lang == 'en' else '최근 7일 뉴스 기사 풀에서 가장 자주 언급된 이슈를 추려낸 섹션' }}</p>
       </div>
 
       <div class="journal-shell">
         <div class="journal-column">
           <div class="column-top">
-            <div class="column-title">World</div>
+            <div class="column-title">World This Week</div>
             <div class="column-count">{{ world_news|length }} {{ 'selected' if lang == 'en' else '선정' }}</div>
           </div>
           {% if world_news %}
@@ -836,7 +836,7 @@
 
         <div class="journal-column">
           <div class="column-top">
-            <div class="column-title">Korea</div>
+            <div class="column-title">Korea This Week</div>
             <div class="column-count">{{ korea_news|length }} {{ 'selected' if lang == 'en' else '선정' }}</div>
           </div>
           {% if korea_news %}
@@ -889,6 +889,15 @@
         </div>
       </div>
     </section>
+
+    {% if week_ahead %}
+    <section class="section">
+      <div class="section-heading">
+        <h2 class="section-title">Week Ahead</h2>
+      </div>
+      <div class="section-body">{{ week_ahead | safe }}</div>
+    </section>
+    {% endif %}
 
     <footer class="footer">
       <a class="footer-link" href="{{ archive_index_url }}">{{ 'Browse Weekly Archive' if lang == 'en' else '주간 아카이브 보기' }}</a>
