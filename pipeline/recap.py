@@ -44,26 +44,6 @@ _PRICE_RE = re.compile(r"-?\d[\d,]*(?:\.\d+)?")
 _PCT_RE = re.compile(r"([+-]?\d+(?:\.\d+)?)%")
 
 
-def _build_korea_source_names(config: dict) -> set[str]:
-    """Collect source names that should be treated as Korea news."""
-    korea_source_names: set[str] = set()
-    for korea_key in ("korea", "korea_major"):
-        korea_cfg = config.get("news", {}).get(korea_key, [])
-        if isinstance(korea_cfg, list):
-            for src in korea_cfg:
-                if isinstance(src, dict):
-                    korea_source_names.add(src.get("name", ""))
-        elif isinstance(korea_cfg, dict):
-            korea_source_names.add("네이버뉴스")
-    return korea_source_names
-
-
-def classify_article_bucket(article: Any, config: dict) -> str:
-    """Classify article as world or korea using configured source names."""
-    source = article.get("source", "") if isinstance(article, dict) else getattr(article, "source", "")
-    return "korea" if source in _build_korea_source_names(config) else "world"
-
-
 def _canonical_story_key(url: str, source: str, title: str) -> str:
     """Generate a stable story key."""
     if url:
@@ -119,7 +99,11 @@ def _serialize_article(article: Any, config: dict) -> dict[str, Any]:
         "source": source,
         "url": url,
         "published_date": published_date,
-        "bucket": classify_article_bucket(article, config),
+        "bucket": (
+            article.get("bucket", "")
+            if isinstance(article, dict)
+            else getattr(article, "bucket", "")
+        ),
     }
 
 
@@ -239,6 +223,7 @@ def _parse_news_sections_from_archive(soup: BeautifulSoup) -> dict[str, list[dic
                 "summary": summary_node.get_text(" ", strip=True) if summary_node else "",
                 "source": source_node.get_text(" ", strip=True) if source_node else "",
                 "published_date": "",
+                "bucket": title,
             })
 
     return buckets
@@ -650,7 +635,7 @@ def build_weekly_news_digest(
 
         day_weight = 10 + day_index
         for story_key, raw_article in raw_by_key.items():
-            bucket = raw_article.get("bucket") or classify_article_bucket(raw_article, config)
+            bucket = raw_article.get("bucket", "")
             entry = candidates.setdefault(
                 story_key,
                 {

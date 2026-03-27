@@ -77,6 +77,7 @@ def _render_dashboard_stub(
     insight: str,
     run_date: str,
     output_dir: str,
+    **_: Any,
 ) -> str:
     logger.warning("pipeline.render.dashboard not implemented yet — returning empty path")
     return ""
@@ -331,38 +332,55 @@ def run(args: argparse.Namespace) -> int:
         logger.error("News filtering failed: %s", exc)
         errors.append(f"filter: {exc}")
 
+    all_articles = list(articles)
+    if len(all_articles) < 3:
+        logger.warning("Only %d articles collected — skipping email send", len(all_articles))
+        config.setdefault("email", {})["enabled"] = False
+
     # ── 6.5. AI 뉴스 중요도 선별 ──────────────────────────────────────────
-    if not args.no_llm and articles:
-        logger.info("Stage 6.5: AI selecting top news by importance")
+    if articles:
+        logger.info("Stage 6.5: Selecting and classifying top news")
         try:
             from pipeline.ai.briefing import _get_provider
-            from pipeline.news.selector import select_top_news
-            from pipeline.render.dashboard import _split_news
-            selector_provider = _get_provider(config)
+            from pipeline.news.quality_gates import run_quality_gates
+            from pipeline.news.selector import select_and_classify_news
 
-            # 한국 소스 이름 수집 (korea + korea_major 모두)
-            korea_source_names = set()
-            for korea_key in ("korea", "korea_major"):
-                korea_cfg = config.get("news", {}).get(korea_key, {})
-                if isinstance(korea_cfg, list):
-                    for src in korea_cfg:
-                        if isinstance(src, dict):
-                            korea_source_names.add(src.get("name", ""))
-                elif isinstance(korea_cfg, dict):
-                    korea_source_names.add("네이버뉴스")
-
-            world_all = [a for a in articles if (a.source if hasattr(a, 'source') else a.get('source', '')) not in korea_source_names]
-            korea_all = [a for a in articles if (a.source if hasattr(a, 'source') else a.get('source', '')) in korea_source_names]
-
+            selector_provider = None if args.no_llm else _get_provider(config)
             top_n = config.get("news", {}).get("top_n", 5)
-            world_selected = select_top_news(selector_provider, world_all, top_n=top_n, category="world")
-            korea_selected = select_top_news(selector_provider, korea_all, top_n=top_n, category="korea")
+            classified = select_and_classify_news(
+                selector_provider,
+                all_articles,
+                top_n=top_n,
+                config=config,
+            )
+            world_selected, korea_selected = run_quality_gates(
+                classified.get("world", []),
+                classified.get("korea", []),
+                config,
+            )
 
-            # 선별된 기사로 교체
             articles = world_selected + korea_selected
-            logger.info("AI 선별 완료: world %d개 + korea %d개", len(world_selected), len(korea_selected))
+            logger.info(
+                "News selection complete: world %d개 + korea %d개",
+                len(world_selected),
+                len(korea_selected),
+            )
         except Exception as exc:
-            logger.warning("AI 뉴스 선별 실패 (전체 기사 사용): %s", exc)
+            logger.warning("Unified news selection failed (using full filtered set): %s", exc)
+            try:
+                from pipeline.news.quality_gates import run_quality_gates
+                from pipeline.news.selector import select_and_classify_news
+
+                classified = select_and_classify_news(None, all_articles, top_n=config.get("news", {}).get("top_n", 5), config=config)
+                world_selected, korea_selected = run_quality_gates(
+                    classified.get("world", []),
+                    classified.get("korea", []),
+                    config,
+                )
+                articles = world_selected + korea_selected
+            except Exception:
+                logger.warning("Heuristic news selection fallback also failed")
+                articles = all_articles
 
     # ── 7. Generate AI briefing + translate news (Korean + English) ─────
     insight: str = ""

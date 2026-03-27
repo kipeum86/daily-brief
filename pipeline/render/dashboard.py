@@ -169,29 +169,12 @@ def _normalize_market_items(items: list) -> list[dict[str, Any]]:
     return result
 
 
-def _split_news(articles: list, config: dict) -> tuple[list[dict], list[dict]]:
-    """Split articles into world_news and korea_news lists of dicts.
-
-    Uses the source name to classify: sources defined under news.korea go to
-    korea_news, everything else goes to world_news.
-    """
-    korea_source_names: set[str] = set()
-    for korea_key in ("korea", "korea_major"):
-        korea_cfg = config.get("news", {}).get(korea_key, [])
-        if isinstance(korea_cfg, list):
-            # RSS mode: list of {"name": "연합뉴스", "url": "..."}
-            for src in korea_cfg:
-                if isinstance(src, dict):
-                    korea_source_names.add(src.get("name", ""))
-        elif isinstance(korea_cfg, dict):
-            # Naver API mode: korea config is a dict, source name is "네이버뉴스"
-            korea_source_names.add("네이버뉴스")
-
+def _split_news(articles: list, config: dict | None = None) -> tuple[list[dict], list[dict]]:
+    """Split articles by AI-assigned bucket field."""
     world_news: list[dict] = []
     korea_news: list[dict] = []
 
     for art in articles:
-        # Support both Article dataclass and plain dict
         if isinstance(art, dict):
             entry = {
                 "title": art.get("title", ""),
@@ -199,7 +182,7 @@ def _split_news(articles: list, config: dict) -> tuple[list[dict], list[dict]]:
                 "source": art.get("source", ""),
                 "url": art.get("url", ""),
             }
-            source_name = art.get("source", "")
+            bucket = art.get("bucket", "")
         else:
             entry = {
                 "title": getattr(art, "title", ""),
@@ -207,15 +190,14 @@ def _split_news(articles: list, config: dict) -> tuple[list[dict], list[dict]]:
                 "source": getattr(art, "source", ""),
                 "url": getattr(art, "url", ""),
             }
-            source_name = getattr(art, "source", "")
+            bucket = getattr(art, "bucket", "")
 
-        if source_name in korea_source_names:
+        if bucket == "korea":
             korea_news.append(entry)
-        else:
+        elif bucket == "world":
             world_news.append(entry)
 
-    top_n = config.get("news", {}).get("top_n", 5)
-    return world_news[:top_n], korea_news[:top_n]
+    return world_news, korea_news
 
 
 # ---------------------------------------------------------------------------

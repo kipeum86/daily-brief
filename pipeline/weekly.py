@@ -7,9 +7,9 @@ from typing import Any
 
 from pipeline.ai.briefing import _get_provider
 from pipeline.ai.weekly import generate_weekly_recap
-from pipeline.news.weekly import build_weekly_news_digest
 from pipeline.recap import (
     backfill_daily_snapshots_from_archives,
+    build_weekly_news_digest,
     build_weekly_market_summary,
     get_week_window,
     load_daily_snapshots,
@@ -70,15 +70,24 @@ def build_weekly_recap_data(
     news_top_n = max(3, int(config.get("news", {}).get("top_n", 5)))
     news_digest = build_weekly_news_digest(
         config,
-        start_date=week_window["start_date"],
-        end_date=week_window["end_date"],
+        snapshots=snapshots,
         provider=provider,
         top_n=news_top_n,
     )
+    news_pool_count = sum(
+        len(snapshot.get("articles", {}).get("raw", []))
+        for snapshot in snapshots
+    )
+    news_source_count = len({
+        article.get("source", "")
+        for snapshot in snapshots
+        for article in snapshot.get("articles", {}).get("raw", [])
+        if article.get("source", "")
+    })
     weekly_data.update({
         "unique_story_count": news_digest["unique_story_count"],
-        "news_pool_count": news_digest["news_pool_count"],
-        "news_source_count": news_digest["news_source_count"],
+        "news_pool_count": news_pool_count,
+        "news_source_count": news_source_count,
         "world_news_raw": news_digest["world_raw"],
         "korea_news_raw": news_digest["korea_raw"],
         "world_news_ko": news_digest["world_ko"],
@@ -111,7 +120,13 @@ def run_weekly_recap(
     no_llm: bool = False,
 ) -> tuple[str, dict[str, Any]]:
     """Generate a weekly recap site from stored daily snapshots."""
-    from pipeline.render.weekly import render_weekly_recap
+    try:
+        from pipeline.render.weekly import render_weekly_recap
+    except ImportError as exc:
+        logger.warning("Weekly renderer unavailable (%s) — returning empty path", exc)
+
+        def render_weekly_recap(_config: dict, _weekly_data: dict[str, Any], _output_dir: str) -> str:
+            return ""
 
     weekly_data = build_weekly_recap_data(
         config,
