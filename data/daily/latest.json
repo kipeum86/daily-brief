@@ -2,7 +2,7 @@
   "schema_version": 1,
   "brief_type": "daily",
   "date": "2026-03-28",
-  "generated_at": "2026-03-28T02:01:02",
+  "generated_at": "2026-03-28T02:55:35",
   "market_pulse": {
     "level": "risk_off",
     "label_ko": "🔴 위험 회피",
@@ -193,35 +193,35 @@
       {
         "ticker": "BTC-USD",
         "name": "Bitcoin",
-        "price": 66133.45,
-        "change_pct": -3.86,
+        "price": 65987.23,
+        "change_pct": -4.08,
         "prev_close": 68791.62,
         "sparkline": [
           70517.86,
           71309.88,
           68791.62,
-          66133.45
+          65987.23
         ],
-        "volume": 46118604800,
-        "price_fmt": "66,133.45",
-        "change_fmt": "-3.86%",
+        "volume": 45941108736,
+        "price_fmt": "65,987.23",
+        "change_fmt": "-4.08%",
         "prev_close_fmt": "68,791.62"
       },
       {
         "ticker": "ETH-USD",
         "name": "Ethereum",
-        "price": 1989.37,
-        "change_pct": -3.41,
+        "price": 1985.25,
+        "change_pct": -3.61,
         "prev_close": 2059.58,
         "sparkline": [
           2155.7,
           2168.02,
           2059.58,
-          1989.37
+          1985.25
         ],
-        "volume": 19245602816,
-        "price_fmt": "1,989.37",
-        "change_fmt": "-3.41%",
+        "volume": 19147288576,
+        "price_fmt": "1,985.25",
+        "change_fmt": "-3.61%",
         "prev_close_fmt": "2,059.58"
       }
     ],
@@ -283,70 +283,60 @@
     ]
   },
   "insight": {
-    "ko": "## Key Insight\n중동 지역의 군사적 충돌이 현실화되며 글로벌 금융시장이 전형적인 '전시(War-time) 리스크 오프' 장세로 진입했습니다. 국제 유가가 배럴당 100달러를 돌파하고 안전자산으로 자금이 쏠리면서, 지정학적 위기가 에너지 공급망을 위협해 스태그플레이션 공포를 다시 일깨우는 형국입니다.\n\n## Market Overview\n미국 증시는 이란의 미군 기지 공격에 따른 확전 공포로 기술주 중심의 투매가 발생하며 급락했습니다. VIX 지수가 30선을 돌파하며 시장의 극심한 불안 심리를 반영했습니다. 한국 증시는 코스피가 소폭 하락에 그치며 상대적으로 선방했으나, 원/달러 환율이 1,500원 선을 돌파하고 국내 기름값이 급등하는 등 거시경제의 펀더멘털 부담은 가중되고 있습니다.\n\n## Cross-Market Signals\n- **유가 폭등 + 국채 금리 상승 → 인플레이션 고착화 우려**: WTI 폭등과 미국 10년물 금리의 동반 상승은 에너지 가격 급등이 중앙은행의 금리 인하 기대를 꺾고 있음을 시사합니다.\n- **금 가격 급등 + 비트코인 하락 → 전통적 안전자산의 귀환**: 금이 3% 이상 급등한 반면 암호화폐는 하락하며, 극단적 위기 속에서 투자자들이 대체 자산보다 전통적 안전자산으로 회귀하고 있음을 보여줍니다.\n- **환율 1,500원 돌파 + 대출 금리 상승 → 내수 침체 압력 가중**: 강달러와 수입 물가 상승이 맞물려 한국은행의 통화정책 운신 폭이 좁아지고, 이는 가계의 이자 부담 증가로 이어질 가능성이 높습니다.",
-    "en": "## Today's Key Insight\n\nThe sudden escalation of Middle Eastern conflict, marked by an Iranian strike on US troops in Saudi Arabia, has violently reawakened stagflationary fears across global markets. As WTI crude breaches the $100 threshold and safe-haven assets surge, investors are rapidly unwinding risk positions in favor of defense and energy plays. This geopolitical premium threatens to complicate central bank trajectories, forcing policymakers into a difficult corner between taming supply-driven inflation and supporting faltering economic growth.\n\n## Market Overview\n\nWall Street suffered a broad and aggressive sell-off, with tech-heavy indices bearing the brunt of the impact as investors fled risk assets. The combination of the VIX spiking above 30 and rising Treasury yields suggests markets are pricing in both immediate geopolitical uncertainty and the prolonged inflationary consequences of a renewed energy shock. \n\nSouth Korean equities displayed relative resilience on the surface, with the KOSPI posting only modest declines and the KOSDAQ edging slightly higher, likely supported by localized defensive rotations. However, the underlying macroeconomic picture is darkening for Seoul; a weakening won breaching the historic 1,500 level against the dollar, combined with surging global oil prices, is already exacerbating domestic inflation and pushing local mortgage rates higher, which will likely squeeze consumer spending.\n\n## Cross-Market Signals\n\n- **Oil Spike + USD/KRW Breakout → Compounding Import Inflation:** WTI crude surging past $100 alongside a dollar-won exchange rate above 1,500 creates a severe double-blow for energy-dependent economies, directly translating into failing domestic price caps and surging pump prices in South Korea.\n- **Gold Surge + Crypto Sell-off → Traditional Safe-Haven Preference:** Gold's sharp 3.3% jump contrasting with Bitcoin's near 4% decline underscores that during acute geopolitical crises, institutional capital still overwhelmingly prefers traditional hard assets over digital alternatives.\n- **Rising US 10Y + VIX Spike → Stagflationary Risk-Off:** A flight to safety typically lowers bond yields, but the simultaneous rise in the US 10-year yield and the volatility index suggests markets currently fear the inflationary impact of the Middle Eastern oil shock more than they seek the safety of sovereign debt."
+    "ko": "## Key Insight\n이란 본토 폭격이 글로벌 시장에 스태그플레이션 공포를 소환했습니다. 중동발 지정학적 위기가 유가 100달러 돌파를 촉발했고, 미국의 정치적 불확실성과 빅테크 규제 리스크가 겹치며 투자자들은 위험자산을 투매하고 안전자산으로 대피하고 있습니다.\n\n## Market Overview\n미국 증시는 유가 급등과 소셜미디어 규제 압박이 맞물리며 나스닥을 중심으로 일제히 급락했습니다. 한국 증시는 1,500원을 돌파한 환율과 시중 금리 상승 압박에 코스피가 하락한 반면, 코스닥은 개별 종목 장세로 소폭 상승하며 대형주와 중소형주 간의 디커플링 현상을 보였습니다.\n\n## Cross-Market Signals\n- **유가 폭등 + 미 국채 금리 상승**: 에너지 가격 급등이 인플레이션을 재점화할 수 있다는 스태그플레이션 경고 신호로 보입니다.\n- **VIX 급등 + 금·달러 동반 강세**: 암호화폐 등 위험자산이 급락하고 전통적 피난처로 자금이 쏠리는 극단적 위험 회피(Risk-off) 장세가 전개되고 있습니다.\n- **환율 1,500원 돌파 + 국내 대출금리 상승**: 수입 물가 폭등과 가계 이자 부담이 겹치며 내수 경제의 하방 압력이 커질 가능성이 있습니다.",
+    "en": "## Today's Key Insight\n\nThe outbreak of intense military conflict in Iran is sending shockwaves through global markets, triggering a severe flight to safety and reviving stagflationary fears. As oil surges past the $100 threshold and gold spikes, the Trump administration's unilateral geopolitical stance appears to be compounding global uncertainty by sidelining European allies. This volatile geopolitical backdrop is aggressively punishing risk assets, forcing a rapid repricing of global risk premiums and driving capital out of high-growth technology sectors into traditional safe havens.\n\n## Market Overview\n\n**US Markets**\nWall Street suffered a broad and severe sell-off, with the tech-heavy Nasdaq bearing the brunt of the damage as geopolitical anxieties intersected with emerging structural headwinds for Big Tech. The combination of the VIX surging past the critical 30 level and rising Treasury yields suggests investors are rapidly liquidating risk assets, further pressured by new AI developments threatening cybersecurity valuations and mounting regulatory liabilities for social media giants. \n\n**Korean Markets**\nSouth Korean equities displayed a bifurcated response, with the benchmark KOSPI retreating under the weight of a rapidly weakening won and global risk aversion, while the KOSDAQ managed to remain surprisingly resilient. Domestically, the macroeconomic picture appears increasingly strained; rising bank mortgage rates and aggressive corporate restructuring efforts at major firms like KT indicate a tightening economic environment that will likely constrain domestic demand and corporate margins.\n\n## Cross-Market Signals\n\n- **WTI Crude spike + Gold rally → Acute geopolitical distress:** Oil breaking $101 alongside a sharp 3.3% rise in gold signals severe market anxiety over the escalating conflict in Tehran and the potential for sustained energy supply disruptions.\n- **USD/KRW breaching 1,500 + Rising domestic rates → Amplified stagflation risk:** The won's depreciation past a major psychological threshold, combined with five consecutive months of rising mortgage rates, threatens to import inflation while simultaneously squeezing South Korean household liquidity.\n- **Nasdaq decline + Crypto sell-off → Unwinding of high-beta risk:** A steep drop in Bitcoin and Ethereum mirroring the Nasdaq's underperformance underscores a broad liquidation of speculative and high-duration assets in favor of defensive positioning."
   },
   "articles": {
     "raw": [
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTlBMamdMdnU2Zk5tWE1TMWpWRVJ2SGp3eGMxVHJycmVjYUR4TU40N2lPN1Z0RlBXXzYzdmNpc2FKQzBfcFBYdlEtYlVhN1RNVDItMVI3Q1o4cFVCN1Jnejd6bjRkRmFDbkk5cndGbUNFM1NjRkt2UjQyNlZ6WXV2elFLRVFkU2pGdWZVcndvTXFxb3FUbU5TRmdLZzY1U1pLaVBCT1dXcWZIZGJ2WWJZU2N2NFluT2FXdF9oYXE1a2xpQ1k?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTlBMamdMdnU2Zk5tWE1TMWpWRVJ2SGp3eGMxVHJycmVjYUR4TU40N2lPN1Z0RlBXXzYzdmNpc2FKQzBfcFBYdlEtYlVhN1RNVDItMVI3Q1o4cFVCN1Jnejd6bjRkRmFDbkk5cndGbUNFM1NjRkt2UjQyNlZ6WXV2elFLRVFkU2pGdWZVcndvTXFxb3FUbU5TRmdLZzY1U1pLaVBCT1dXcWZIZGJ2WWJZU2N2NFluT2FXdF9oYXE1a2xpQ1k?oc=5",
-        "title": "Twelve US troops wounded in Iran strike on base in Saudi Arabia, US official says - Reuters",
-        "summary": "Twelve US troops wounded in Iran strike on base in Saudi Arabia, US official saysReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTlBMamdMdnU2Zk5tWE1TMWpWRVJ2SGp3eGMxVHJycmVjYUR4TU40N2lPN1Z0RlBXXzYzdmNpc2FKQzBfcFBYdlEtYlVhN1RNVDItMVI3Q1o4cFVCN1Jnejd6bjRkRmFDbkk5cndGbUNFM1NjRkt2UjQyNlZ6WXV2elFLRVFkU2pGdWZVcndvTXFxb3FUbU5TRmdLZzY1U1pLaVBCT1dXcWZIZGJ2WWJZU2N2NFluT2FXdF9oYXE1a2xpQ1k?oc=5",
-        "published_date": "2026-03-27",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbHhkbHI5LXQ0TXhCTkVDRHYxNldoZVBWRk5wVXJMZEZ0TEloQ09hY1JqUUlIeFAxSS1hdHBWLXk0LUJQMDcyS202bVJlbVVwYVRzTm1tWDB3WVp6NEdJb2pFTmhBeDJLWUVUN0dZTDNKQXdQZUh1X0VwVENLX3RwMWdnRk90ZFNXeHY1VklEYkVmbmVDS3lyeWppb25YRUxFZlpDMmk3a2xFQU81eV80Mg?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbHhkbHI5LXQ0TXhCTkVDRHYxNldoZVBWRk5wVXJMZEZ0TEloQ09hY1JqUUlIeFAxSS1hdHBWLXk0LUJQMDcyS202bVJlbVVwYVRzTm1tWDB3WVp6NEdJb2pFTmhBeDJLWUVUN0dZTDNKQXdQZUh1X0VwVENLX3RwMWdnRk90ZFNXeHY1VklEYkVmbmVDS3lyeWppb25YRUxFZlpDMmk3a2xFQU81eV80Mg?oc=5",
-        "title": "Trump says 'Cuba is next' in speech touting US military successes - Reuters",
-        "summary": "Trump says 'Cuba is next' in speech touting US military successesReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbHhkbHI5LXQ0TXhCTkVDRHYxNldoZVBWRk5wVXJMZEZ0TEloQ09hY1JqUUlIeFAxSS1hdHBWLXk0LUJQMDcyS202bVJlbVVwYVRzTm1tWDB3WVp6NEdJb2pFTmhBeDJLWUVUN0dZTDNKQXdQZUh1X0VwVENLX3RwMWdnRk90ZFNXeHY1VklEYkVmbmVDS3lyeWppb25YRUxFZlpDMmk3a2xFQU81eV80Mg?oc=5",
-        "published_date": "2026-03-27",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://aljazeera.com/news/2026/3/27/what-is-the-taco-trade-and-are-investors-profiting-amid-war-on-iran?traffic_source=rss",
-        "canonical_url": "https://aljazeera.com/news/2026/3/27/what-is-the-taco-trade-and-are-investors-profiting-amid-war-on-iran?traffic_source=rss",
-        "title": "What is the TACO trade and are investors profiting amid war on Iran?",
-        "summary": "Global energy crisis continues to widen amid market volatility, while so-called 'TACO traders' attempt to capitalise.",
+        "story_key": "https://aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
+        "canonical_url": "https://aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
+        "title": "Intense bombing in Tehran, Isfahan",
+        "summary": "Black smoke is rising over Tehran and Isfahan after early morning US-Israeli airstrikes on the cities.",
         "source": "Al Jazeera",
-        "url": "https://www.aljazeera.com/news/2026/3/27/what-is-the-taco-trade-and-are-investors-profiting-amid-war-on-iran?traffic_source=rss",
-        "published_date": "2026-03-27",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://france24.com/en/tv-shows/talking-europe/20260327-we-need-to-double-down-on-energy-autonomy-eib-chief-nadia-calvi%C3%B1o",
-        "canonical_url": "https://france24.com/en/tv-shows/talking-europe/20260327-we-need-to-double-down-on-energy-autonomy-eib-chief-nadia-calvi%C3%B1o",
-        "title": "'We need to double down' on energy autonomy: EIB chief Nadia Calviño",
-        "summary": "Europe must speed up its push for energy independence and break free from \"excessive dependence on fossil fuels\" as the continent grapples with a more volatile and hostile global order, the head of the world's largest public bank told FRANCE 24's Douglas Herbert in Talking Europe.",
-        "source": "France 24",
-        "url": "https://www.france24.com/en/tv-shows/talking-europe/20260327-we-need-to-double-down-on-energy-autonomy-eib-chief-nadia-calvi%C3%B1o",
-        "published_date": "2026-03-27",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://cnbc.com/2026/03/27/jeffrey-epstein-victims-sue-trump-administration-google.html",
-        "canonical_url": "https://cnbc.com/2026/03/27/jeffrey-epstein-victims-sue-trump-administration-google.html",
-        "title": "Epstein victims sue Google and the Trump administration over alleged disclosure of personal information",
-        "summary": "A lawsuit filed in Northern California alleges that Google's AI features generated contact information for Epstein victims.",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/27/jeffrey-epstein-victims-sue-trump-administration-google.html",
-        "published_date": "2026-03-27",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://yna.co.kr/view/AKR20260328001200081",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328001200081",
-        "title": "佛, 내주 마크롱 방한에 \"양국관계 새로운 차원으로 격상\"",
-        "summary": "(파리=연합뉴스) 송진원 특파원 = 에마뉘엘 마크롱 프랑스 대통령이 내달 초 임기 중 처음으로 한국을 국빈 방문하면서 양국 협력 관계가 한층 강...",
-        "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328001200081",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
         "published_date": "2026-03-28",
-        "bucket": "korea"
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://france24.com/en/tv-shows/talking-europe/20260327-trump-administration-sidelines-threatens-europe-in-iran-war-eu-flounders-in-new-world-order",
+        "canonical_url": "https://france24.com/en/tv-shows/talking-europe/20260327-trump-administration-sidelines-threatens-europe-in-iran-war-eu-flounders-in-new-world-order",
+        "title": "Trump administration sidelines, threatens Europe in Iran war: EU flounders in new world order",
+        "summary": "After Greenland and trade tariffs, US President Donald Trump is threatening European countries once again. If they fail to help reopen the Strait of Hormuz, \"it will be very bad for the future of NATO\", Trump has said. US Secretary of State Marco Rubio has made it clear that the US will make its own security decisions, whatever Europe thinks. Admittedly, Europe's own standing has been diminished by its inability to speak with one clear voice on this crisis, as on previous ones. Our guests evaluate the EU's response as US-Israeli strikes on Iran continue.",
+        "source": "France 24",
+        "url": "https://www.france24.com/en/tv-shows/talking-europe/20260327-trump-administration-sidelines-threatens-europe-in-iran-war-eu-flounders-in-new-world-order",
+        "published_date": "2026-03-27",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "title": "Trump signs order to pay TSA employees after Congress fails to agree on DHS funding - AP News",
+        "summary": "Trump signs order to pay TSA employees after Congress fails to agree on DHS fundingAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "published_date": "2026-03-27",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://marketwatch.com/story/big-tech-deserves-its-big-tobacco-moment-social-media-is-now-a-massive-liability-for-meta-and-google-5d81bd70?mod=mw_rss_topstories",
+        "canonical_url": "https://marketwatch.com/story/big-tech-deserves-its-big-tobacco-moment-social-media-is-now-a-massive-liability-for-meta-and-google-5d81bd70?mod=mw_rss_topstories",
+        "title": "Social media is now a massive liability for Meta, Google and the rest of Big Tech",
+        "summary": "Landmark verdicts shatter the Section 230 shield, turning ‘addictive’ product design into a legal thicket for Meta, Alphabet and others.",
+        "source": "MarketWatch",
+        "url": "https://www.marketwatch.com/story/big-tech-deserves-its-big-tobacco-moment-social-media-is-now-a-massive-liability-for-meta-and-google-5d81bd70?mod=mw_rss_topstories",
+        "published_date": "2026-03-27",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://cnbc.com/2026/03/27/anthropic-cybersecurity-stocks-ai-mythos.html",
+        "canonical_url": "https://cnbc.com/2026/03/27/anthropic-cybersecurity-stocks-ai-mythos.html",
+        "title": "Cybersecurity stocks fall on report Anthropic is testing a powerful new model",
+        "summary": "The cybersecurity sector has slumped this year on fears that new AI will massively disrupt their business models.",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/27/anthropic-cybersecurity-stocks-ai-mythos.html",
+        "published_date": "2026-03-27",
+        "bucket": "world"
       },
       {
         "story_key": "https://imnews.imbc.com/replay/2026/nwdesk/article/6810841_37004.html",
@@ -356,16 +346,6 @@
         "source": "MBC",
         "url": "https://imnews.imbc.com/replay/2026/nwdesk/article/6810841_37004.html",
         "published_date": "2026-03-27 20:11",
-        "bucket": "korea"
-      },
-      {
-        "story_key": "https://hankyung.com/article/2026032826747",
-        "canonical_url": "https://hankyung.com/article/2026032826747",
-        "title": "'2차 최고가격제' 이틀째 기름값 급등…서울 휘발유 1900원 눈앞",
-        "summary": "2차 최고가격제 이틀째 기름값 급등…서울 휘발유 1900원 눈앞 | 한국경제 본문 바로가기 ADVERTISEMENT '2차 최고가격제' 이틀째 기름값 급등…서울 휘발유 1900원 눈앞 신용현 기자 구독하기 입력 2026.03.28 10:13 수정 2026.03.28 10:14 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 2차 석유 최고가격제 시행 첫날인 27일 서울 시내 한 주…",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026032826747",
-        "published_date": "2026-03-28",
         "bucket": "korea"
       },
       {
@@ -379,76 +359,86 @@
         "bucket": "korea"
       },
       {
-        "story_key": "https://donga.com/news/Society/article/all/20260328/133627442/1",
-        "canonical_url": "https://donga.com/news/Society/article/all/20260328/133627442/1",
-        "title": "초·중생 ‘디지털 역량’ 60점에 그쳐…창의적 생산 부족",
-        "summary": "인공지능(AI) 시대 초·중학생의 디지털 활용 역량이 낮은 수준이라는 지적이 나왔다. 특히 창의적 생산 역량이 뚜렷하게 부족하다는 평가다. 28일 교육계에 따르면 교육부, 성평등가족부, 과학기술정보통신부, 방송미디어통신위원회 등 4개 정부기관은 지난 26일 ‘안전하고 포용적인 AI·과학기술 기반 마련과 청소년 보호를 위한 업무협약’을 체결했다. 온라인 환경에서의 청소년 보호와 과의존 예방을 위한 AI윤리·안전 제도 정비, AI 기반 위기청소년 지원 확대, 학교와 청소년시설 등을 활용한 디지털 역량 제고 및 과학기술·AI 분야 여성 인력 성장지원 등 다양한 분야에서 협력을 강화한다. 최교진 교육부 장관은 “학교 현장을 중심으로 AI와 디지털 역량 교육을 강화하고 관계 부처와의 긴밀한 협력을 통해 청소년을 보호할 수 있는 안전한 AI 활용 환경을 조성하겠다”고 밝혔다. ◆100점 만점에 초 ‘60.46점’, 중 ‘59.98점’실제 학생들의 디지털 활용 역량은 낮은 수준으로 파악",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Society/article/all/20260328/133627442/1",
+        "story_key": "https://yna.co.kr/view/AKR20260327134900017",
+        "canonical_url": "https://yna.co.kr/view/AKR20260327134900017",
+        "title": "KT '고위 임원 물갈이' 임박…조직 슬림화 속도",
+        "summary": "(서울=연합뉴스) 박형빈 기자 = KT[030200]가 오는 31일 정기 주주총회에서 박윤영 대표이사 후보자를 공식 선임한 이후 대규모 임원 인...",
+        "source": "연합뉴스",
+        "url": "https://www.yna.co.kr/view/AKR20260327134900017",
+        "published_date": "2026-03-28",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://mk.co.kr/news/society/12001007",
+        "canonical_url": "https://mk.co.kr/news/society/12001007",
+        "title": "‘조용히 해달라’ 했을 뿐인데…식당서 만취남이 바지 벗고 한 짓",
+        "summary": "법원, 50대 남성에 징역형 집행유예 선고음식점에서 바지를 벗고 소란을 피운 혐의로 재판에 넘겨진 50대 남성이 징역형 집행유예를 선고받았다. 28일 법조계에 따르면 부산지법 형사..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/society/12001007",
+        "published_date": "2026-03-28",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://hankyung.com/article/2026032720421",
+        "canonical_url": "https://hankyung.com/article/2026032720421",
+        "title": "'이러다 다 나간다'…법관에 '月50만원 사기진작' 수당",
+        "summary": "이러다 다 나간다…법관에 月50만원 사기진작 수당 | 한국경제 본문 바로가기 ADVERTISEMENT '이러다 다 나간다'…법관에 '月50만원 사기진작' 수당 이인혁 기자 구독하기 입력 2026.03.28 10:00 수정 2026.03.28 10:00 지면 A17 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 수도권 고법판사 지방근무 축소 원격 근무도 1주일에 2회로 확대 법원행…",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026032720421",
         "published_date": "2026-03-28",
         "bucket": "korea"
       }
     ],
     "ko": [
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTlBMamdMdnU2Zk5tWE1TMWpWRVJ2SGp3eGMxVHJycmVjYUR4TU40N2lPN1Z0RlBXXzYzdmNpc2FKQzBfcFBYdlEtYlVhN1RNVDItMVI3Q1o4cFVCN1Jnejd6bjRkRmFDbkk5cndGbUNFM1NjRkt2UjQyNlZ6WXV2elFLRVFkU2pGdWZVcndvTXFxb3FUbU5TRmdLZzY1U1pLaVBCT1dXcWZIZGJ2WWJZU2N2NFluT2FXdF9oYXE1a2xpQ1k?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTlBMamdMdnU2Zk5tWE1TMWpWRVJ2SGp3eGMxVHJycmVjYUR4TU40N2lPN1Z0RlBXXzYzdmNpc2FKQzBfcFBYdlEtYlVhN1RNVDItMVI3Q1o4cFVCN1Jnejd6bjRkRmFDbkk5cndGbUNFM1NjRkt2UjQyNlZ6WXV2elFLRVFkU2pGdWZVcndvTXFxb3FUbU5TRmdLZzY1U1pLaVBCT1dXcWZIZGJ2WWJZU2N2NFluT2FXdF9oYXE1a2xpQ1k?oc=5",
-        "title": "미 당국자, 사우디아라비아 기지에 대한 이란의 공격으로 미군 12명 부상 - 로이터",
-        "summary": "미 당국자, 사우디아라비아 기지에 대한 이란의 공격으로 미군 12명 부상 - 로이터",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTlBMamdMdnU2Zk5tWE1TMWpWRVJ2SGp3eGMxVHJycmVjYUR4TU40N2lPN1Z0RlBXXzYzdmNpc2FKQzBfcFBYdlEtYlVhN1RNVDItMVI3Q1o4cFVCN1Jnejd6bjRkRmFDbkk5cndGbUNFM1NjRkt2UjQyNlZ6WXV2elFLRVFkU2pGdWZVcndvTXFxb3FUbU5TRmdLZzY1U1pLaVBCT1dXcWZIZGJ2WWJZU2N2NFluT2FXdF9oYXE1a2xpQ1k?oc=5",
-        "published_date": "",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbHhkbHI5LXQ0TXhCTkVDRHYxNldoZVBWRk5wVXJMZEZ0TEloQ09hY1JqUUlIeFAxSS1hdHBWLXk0LUJQMDcyS202bVJlbVVwYVRzTm1tWDB3WVp6NEdJb2pFTmhBeDJLWUVUN0dZTDNKQXdQZUh1X0VwVENLX3RwMWdnRk90ZFNXeHY1VklEYkVmbmVDS3lyeWppb25YRUxFZlpDMmk3a2xFQU81eV80Mg?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbHhkbHI5LXQ0TXhCTkVDRHYxNldoZVBWRk5wVXJMZEZ0TEloQ09hY1JqUUlIeFAxSS1hdHBWLXk0LUJQMDcyS202bVJlbVVwYVRzTm1tWDB3WVp6NEdJb2pFTmhBeDJLWUVUN0dZTDNKQXdQZUh1X0VwVENLX3RwMWdnRk90ZFNXeHY1VklEYkVmbmVDS3lyeWppb25YRUxFZlpDMmk3a2xFQU81eV80Mg?oc=5",
-        "title": "트럼프, 미군 성공 과시하는 연설에서 '다음은 쿠바'라고 언급 - 로이터",
-        "summary": "트럼프, 미군 성공 과시하는 연설에서 '다음은 쿠바'라고 언급 - 로이터",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbHhkbHI5LXQ0TXhCTkVDRHYxNldoZVBWRk5wVXJMZEZ0TEloQ09hY1JqUUlIeFAxSS1hdHBWLXk0LUJQMDcyS202bVJlbVVwYVRzTm1tWDB3WVp6NEdJb2pFTmhBeDJLWUVUN0dZTDNKQXdQZUh1X0VwVENLX3RwMWdnRk90ZFNXeHY1VklEYkVmbmVDS3lyeWppb25YRUxFZlpDMmk3a2xFQU81eV80Mg?oc=5",
-        "published_date": "",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://aljazeera.com/news/2026/3/27/what-is-the-taco-trade-and-are-investors-profiting-amid-war-on-iran?traffic_source=rss",
-        "canonical_url": "https://aljazeera.com/news/2026/3/27/what-is-the-taco-trade-and-are-investors-profiting-amid-war-on-iran?traffic_source=rss",
-        "title": "TACO 거래란 무엇이며 이란과의 전쟁 속에서 투자자들은 수익을 내고 있는가?",
-        "summary": "시장 변동성 속에서 글로벌 에너지 위기가 계속 확대되는 가운데, 이른바 'TACO 트레이더'들이 이를 이용해 수익 창출을 시도하고 있다.",
+        "story_key": "https://aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
+        "canonical_url": "https://aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
+        "title": "테헤란과 이스파한에 집중 폭격",
+        "summary": "이른 아침 미국과 이스라엘이 테헤란과 이스파한을 공습한 후, 이들 도시 위로 검은 연기가 피어오르고 있다.",
         "source": "Al Jazeera",
-        "url": "https://www.aljazeera.com/news/2026/3/27/what-is-the-taco-trade-and-are-investors-profiting-amid-war-on-iran?traffic_source=rss",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
         "published_date": "",
         "bucket": "world"
       },
       {
-        "story_key": "https://france24.com/en/tv-shows/talking-europe/20260327-we-need-to-double-down-on-energy-autonomy-eib-chief-nadia-calvi%C3%B1o",
-        "canonical_url": "https://france24.com/en/tv-shows/talking-europe/20260327-we-need-to-double-down-on-energy-autonomy-eib-chief-nadia-calvi%C3%B1o",
-        "title": "나디아 칼비뇨 EIB 총재 \"에너지 자립에 '배가된 노력' 필요해\"",
-        "summary": "세계 최대 공공 은행의 총재는 프랑스 24의 '토킹 유럽(Talking Europe)' 프로그램에서 더글러스 허버트와 만나, 유럽이 더욱 변동성이 크고 적대적인 글로벌 질서에 직면한 가운데 에너지 독립 추진을 가속화하고 \"화석 연료에 대한 과도한 의존\"에서 벗어나야 한다고 말했다.",
+        "story_key": "https://france24.com/en/tv-shows/talking-europe/20260327-trump-administration-sidelines-threatens-europe-in-iran-war-eu-flounders-in-new-world-order",
+        "canonical_url": "https://france24.com/en/tv-shows/talking-europe/20260327-trump-administration-sidelines-threatens-europe-in-iran-war-eu-flounders-in-new-world-order",
+        "title": "트럼프 행정부, 이란 전쟁에서 유럽 배제 및 위협: 새로운 세계 질서 속에서 허우적대는 EU",
+        "summary": "그린란드와 무역 관세 문제에 이어, 도널드 트럼프 미국 대통령이 다시 한번 유럽 국가들을 위협하고 있다. 트럼프 대통령은 유럽이 호르무즈 해협을 다시 여는 데 도움을 주지 않는다면 \"나토(NATO)의 미래에 매우 나쁜 일이 될 것\"이라고 말했다. 마르코 루비오 미 국무장관은 유럽의 생각과 무관하게 미국이 독자적인 안보 결정을 내릴 것임을 분명히 했다. 이전의 위기들과 마찬가지로 이번 위기에서도 하나의 통일된 목소리를 내지 못하면서 유럽의 입지가 좁아진 것은 사실이다. 미국과 이스라엘의 이란 공습이 계속되는 가운데, 게스트들과 함께 EU의 대응을 평가해 본다.",
         "source": "France 24",
-        "url": "https://www.france24.com/en/tv-shows/talking-europe/20260327-we-need-to-double-down-on-energy-autonomy-eib-chief-nadia-calvi%C3%B1o",
+        "url": "https://www.france24.com/en/tv-shows/talking-europe/20260327-trump-administration-sidelines-threatens-europe-in-iran-war-eu-flounders-in-new-world-order",
         "published_date": "",
         "bucket": "world"
       },
       {
-        "story_key": "https://cnbc.com/2026/03/27/jeffrey-epstein-victims-sue-trump-administration-google.html",
-        "canonical_url": "https://cnbc.com/2026/03/27/jeffrey-epstein-victims-sue-trump-administration-google.html",
-        "title": "엡스타인 피해자들, 개인정보 유출 혐의로 구글과 트럼프 행정부 고소",
-        "summary": "북캘리포니아 법원에 제기된 소송은 구글의 AI 기능이 엡스타인 피해자들의 연락처 정보를 생성했다고 주장하고 있다.",
+        "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "title": "의회의 국토안보부(DHS) 예산 합의 실패 후, 트럼프 대통령 TSA 직원 급여 지급 명령에 서명 - AP 통신",
+        "summary": "의회의 국토안보부(DHS) 예산 합의 실패 후, 트럼프 대통령 TSA 직원 급여 지급 명령에 서명 - AP 통신",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://marketwatch.com/story/big-tech-deserves-its-big-tobacco-moment-social-media-is-now-a-massive-liability-for-meta-and-google-5d81bd70?mod=mw_rss_topstories",
+        "canonical_url": "https://marketwatch.com/story/big-tech-deserves-its-big-tobacco-moment-social-media-is-now-a-massive-liability-for-meta-and-google-5d81bd70?mod=mw_rss_topstories",
+        "title": "소셜 미디어, 이제 메타, 구글 및 기타 빅테크 기업에 막대한 법적 책임으로 대두",
+        "summary": "기념비적인 판결들이 통신품위법 제230조의 방패를 무너뜨리면서, '중독성 있는' 제품 디자인이 메타, 알파벳 등에게 복잡한 법적 난관이 되고 있다.",
+        "source": "MarketWatch",
+        "url": "https://www.marketwatch.com/story/big-tech-deserves-its-big-tobacco-moment-social-media-is-now-a-massive-liability-for-meta-and-google-5d81bd70?mod=mw_rss_topstories",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://cnbc.com/2026/03/27/anthropic-cybersecurity-stocks-ai-mythos.html",
+        "canonical_url": "https://cnbc.com/2026/03/27/anthropic-cybersecurity-stocks-ai-mythos.html",
+        "title": "앤스로픽이 강력한 새 모델을 테스트 중이라는 보도에 사이버 보안 주가 하락",
+        "summary": "새로운 AI가 비즈니스 모델을 크게 붕괴시킬 것이라는 우려로 인해 올해 사이버 보안 부문이 침체를 겪고 있다.",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/27/jeffrey-epstein-victims-sue-trump-administration-google.html",
+        "url": "https://www.cnbc.com/2026/03/27/anthropic-cybersecurity-stocks-ai-mythos.html",
         "published_date": "",
         "bucket": "world"
-      },
-      {
-        "story_key": "https://yna.co.kr/view/AKR20260328001200081",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328001200081",
-        "title": "佛, 내주 마크롱 방한에 \"양국관계 새로운 차원으로 격상\"",
-        "summary": "(파리=연합뉴스) 송진원 특파원 = 에마뉘엘 마크롱 프랑스 대통령이 내달 초 임기 중 처음으로 한국을 국빈 방문하면서 양국 협력 관계가 한층 강...",
-        "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328001200081",
-        "published_date": "",
-        "bucket": "korea"
       },
       {
         "story_key": "https://imnews.imbc.com/replay/2026/nwdesk/article/6810841_37004.html",
@@ -457,16 +447,6 @@
         "summary": "◀ 앵커 ▶ 청와대가 부동산 정책의 업무 배제 대상이 되는 다주택 공직자 기준을, 고위공직자뿐 아니라 실무 책임자인 과장급 공무원까지로 확대하는 방안을 검토하고 있습니다. 이해충돌 소지를 엄격하게 판단해서...",
         "source": "MBC",
         "url": "https://imnews.imbc.com/replay/2026/nwdesk/article/6810841_37004.html",
-        "published_date": "",
-        "bucket": "korea"
-      },
-      {
-        "story_key": "https://hankyung.com/article/2026032826747",
-        "canonical_url": "https://hankyung.com/article/2026032826747",
-        "title": "'2차 최고가격제' 이틀째 기름값 급등…서울 휘발유 1900원 눈앞",
-        "summary": "2차 최고가격제 이틀째 기름값 급등…서울 휘발유 1900원 눈앞 | 한국경제 본문 바로가기 ADVERTISEMENT '2차 최고가격제' 이틀째 기름값 급등…서울 휘발유 1900원 눈앞 신용현 기자 구독하기 입력 2026.03.28 10:13 수정 2026.03.28 10:14 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 2차 석유 최고가격제 시행 첫날인 27일 서울 시내 한 주…",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026032826747",
         "published_date": "",
         "bucket": "korea"
       },
@@ -481,114 +461,134 @@
         "bucket": "korea"
       },
       {
-        "story_key": "https://donga.com/news/Society/article/all/20260328/133627442/1",
-        "canonical_url": "https://donga.com/news/Society/article/all/20260328/133627442/1",
-        "title": "초·중생 ‘디지털 역량’ 60점에 그쳐…창의적 생산 부족",
-        "summary": "인공지능(AI) 시대 초·중학생의 디지털 활용 역량이 낮은 수준이라는 지적이 나왔다. 특히 창의적 생산 역량이 뚜렷하게 부족하다는 평가다. 28일 교육계에 따르면 교육부, 성평등가족부, 과학기술정보통신부, 방송미디어통신위원회 등 4개 정부기관은 지난 26일 ‘안전하고 포용적인 AI·과학기술 기반 마련과 청소년 보호를 위한 업무협약’을 체결했다. 온라인 환경에서의 청소년 보호와 과의존 예방을 위한 AI윤리·안전 제도 정비, AI 기반 위기청소년 지원 확대, 학교와 청소년시설 등을 활용한 디지털 역량 제고 및 과학기술·AI 분야 여성 인력 성장지원 등 다양한 분야에서 협력을 강화한다. 최교진 교육부 장관은 “학교 현장을 중심으로 AI와 디지털 역량 교육을 강화하고 관계 부처와의 긴밀한 협력을 통해 청소년을 보호할 수 있는 안전한 AI 활용 환경을 조성하겠다”고 밝혔다. ◆100점 만점에 초 ‘60.46점’, 중 ‘59.98점’실제 학생들의 디지털 활용 역량은 낮은 수준으로 파악",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Society/article/all/20260328/133627442/1",
+        "story_key": "https://yna.co.kr/view/AKR20260327134900017",
+        "canonical_url": "https://yna.co.kr/view/AKR20260327134900017",
+        "title": "KT '고위 임원 물갈이' 임박…조직 슬림화 속도",
+        "summary": "(서울=연합뉴스) 박형빈 기자 = KT[030200]가 오는 31일 정기 주주총회에서 박윤영 대표이사 후보자를 공식 선임한 이후 대규모 임원 인...",
+        "source": "연합뉴스",
+        "url": "https://www.yna.co.kr/view/AKR20260327134900017",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://mk.co.kr/news/society/12001007",
+        "canonical_url": "https://mk.co.kr/news/society/12001007",
+        "title": "‘조용히 해달라’ 했을 뿐인데…식당서 만취남이 바지 벗고 한 짓",
+        "summary": "법원, 50대 남성에 징역형 집행유예 선고음식점에서 바지를 벗고 소란을 피운 혐의로 재판에 넘겨진 50대 남성이 징역형 집행유예를 선고받았다. 28일 법조계에 따르면 부산지법 형사..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/society/12001007",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://hankyung.com/article/2026032720421",
+        "canonical_url": "https://hankyung.com/article/2026032720421",
+        "title": "'이러다 다 나간다'…법관에 '月50만원 사기진작' 수당",
+        "summary": "이러다 다 나간다…법관에 月50만원 사기진작 수당 | 한국경제 본문 바로가기 ADVERTISEMENT '이러다 다 나간다'…법관에 '月50만원 사기진작' 수당 이인혁 기자 구독하기 입력 2026.03.28 10:00 수정 2026.03.28 10:00 지면 A17 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 수도권 고법판사 지방근무 축소 원격 근무도 1주일에 2회로 확대 법원행…",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026032720421",
         "published_date": "",
         "bucket": "korea"
       }
     ],
     "en": [
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTlBMamdMdnU2Zk5tWE1TMWpWRVJ2SGp3eGMxVHJycmVjYUR4TU40N2lPN1Z0RlBXXzYzdmNpc2FKQzBfcFBYdlEtYlVhN1RNVDItMVI3Q1o4cFVCN1Jnejd6bjRkRmFDbkk5cndGbUNFM1NjRkt2UjQyNlZ6WXV2elFLRVFkU2pGdWZVcndvTXFxb3FUbU5TRmdLZzY1U1pLaVBCT1dXcWZIZGJ2WWJZU2N2NFluT2FXdF9oYXE1a2xpQ1k?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTlBMamdMdnU2Zk5tWE1TMWpWRVJ2SGp3eGMxVHJycmVjYUR4TU40N2lPN1Z0RlBXXzYzdmNpc2FKQzBfcFBYdlEtYlVhN1RNVDItMVI3Q1o4cFVCN1Jnejd6bjRkRmFDbkk5cndGbUNFM1NjRkt2UjQyNlZ6WXV2elFLRVFkU2pGdWZVcndvTXFxb3FUbU5TRmdLZzY1U1pLaVBCT1dXcWZIZGJ2WWJZU2N2NFluT2FXdF9oYXE1a2xpQ1k?oc=5",
-        "title": "Twelve US troops wounded in Iran strike on base in Saudi Arabia, US official says - Reuters",
-        "summary": "Twelve US troops wounded in Iran strike on base in Saudi Arabia, US official saysReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNTlBMamdMdnU2Zk5tWE1TMWpWRVJ2SGp3eGMxVHJycmVjYUR4TU40N2lPN1Z0RlBXXzYzdmNpc2FKQzBfcFBYdlEtYlVhN1RNVDItMVI3Q1o4cFVCN1Jnejd6bjRkRmFDbkk5cndGbUNFM1NjRkt2UjQyNlZ6WXV2elFLRVFkU2pGdWZVcndvTXFxb3FUbU5TRmdLZzY1U1pLaVBCT1dXcWZIZGJ2WWJZU2N2NFluT2FXdF9oYXE1a2xpQ1k?oc=5",
-        "published_date": "",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbHhkbHI5LXQ0TXhCTkVDRHYxNldoZVBWRk5wVXJMZEZ0TEloQ09hY1JqUUlIeFAxSS1hdHBWLXk0LUJQMDcyS202bVJlbVVwYVRzTm1tWDB3WVp6NEdJb2pFTmhBeDJLWUVUN0dZTDNKQXdQZUh1X0VwVENLX3RwMWdnRk90ZFNXeHY1VklEYkVmbmVDS3lyeWppb25YRUxFZlpDMmk3a2xFQU81eV80Mg?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbHhkbHI5LXQ0TXhCTkVDRHYxNldoZVBWRk5wVXJMZEZ0TEloQ09hY1JqUUlIeFAxSS1hdHBWLXk0LUJQMDcyS202bVJlbVVwYVRzTm1tWDB3WVp6NEdJb2pFTmhBeDJLWUVUN0dZTDNKQXdQZUh1X0VwVENLX3RwMWdnRk90ZFNXeHY1VklEYkVmbmVDS3lyeWppb25YRUxFZlpDMmk3a2xFQU81eV80Mg?oc=5",
-        "title": "Trump says 'Cuba is next' in speech touting US military successes - Reuters",
-        "summary": "Trump says 'Cuba is next' in speech touting US military successesReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQbHhkbHI5LXQ0TXhCTkVDRHYxNldoZVBWRk5wVXJMZEZ0TEloQ09hY1JqUUlIeFAxSS1hdHBWLXk0LUJQMDcyS202bVJlbVVwYVRzTm1tWDB3WVp6NEdJb2pFTmhBeDJLWUVUN0dZTDNKQXdQZUh1X0VwVENLX3RwMWdnRk90ZFNXeHY1VklEYkVmbmVDS3lyeWppb25YRUxFZlpDMmk3a2xFQU81eV80Mg?oc=5",
-        "published_date": "",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://aljazeera.com/news/2026/3/27/what-is-the-taco-trade-and-are-investors-profiting-amid-war-on-iran?traffic_source=rss",
-        "canonical_url": "https://aljazeera.com/news/2026/3/27/what-is-the-taco-trade-and-are-investors-profiting-amid-war-on-iran?traffic_source=rss",
-        "title": "What is the TACO trade and are investors profiting amid war on Iran?",
-        "summary": "Global energy crisis continues to widen amid market volatility, while so-called 'TACO traders' attempt to capitalise.",
+        "story_key": "https://aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
+        "canonical_url": "https://aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
+        "title": "Intense bombing in Tehran, Isfahan",
+        "summary": "Black smoke is rising over Tehran and Isfahan after early morning US-Israeli airstrikes on the cities.",
         "source": "Al Jazeera",
-        "url": "https://www.aljazeera.com/news/2026/3/27/what-is-the-taco-trade-and-are-investors-profiting-amid-war-on-iran?traffic_source=rss",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
         "published_date": "",
         "bucket": "world"
       },
       {
-        "story_key": "https://france24.com/en/tv-shows/talking-europe/20260327-we-need-to-double-down-on-energy-autonomy-eib-chief-nadia-calvi%C3%B1o",
-        "canonical_url": "https://france24.com/en/tv-shows/talking-europe/20260327-we-need-to-double-down-on-energy-autonomy-eib-chief-nadia-calvi%C3%B1o",
-        "title": "'We need to double down' on energy autonomy: EIB chief Nadia Calviño",
-        "summary": "Europe must speed up its push for energy independence and break free from \"excessive dependence on fossil fuels\" as the continent grapples with a more volatile and hostile global order, the head of the world's largest public bank told FRANCE 24's Douglas Herbert in Talking Europe.",
+        "story_key": "https://france24.com/en/tv-shows/talking-europe/20260327-trump-administration-sidelines-threatens-europe-in-iran-war-eu-flounders-in-new-world-order",
+        "canonical_url": "https://france24.com/en/tv-shows/talking-europe/20260327-trump-administration-sidelines-threatens-europe-in-iran-war-eu-flounders-in-new-world-order",
+        "title": "Trump administration sidelines, threatens Europe in Iran war: EU flounders in new world order",
+        "summary": "After Greenland and trade tariffs, US President Donald Trump is threatening European countries once again. If they fail to help reopen the Strait of Hormuz, \"it will be very bad for the future of NATO\", Trump has said. US Secretary of State Marco Rubio has made it clear that the US will make its own security decisions, whatever Europe thinks. Admittedly, Europe's own standing has been diminished by its inability to speak with one clear voice on this crisis, as on previous ones. Our guests evaluate the EU's response as US-Israeli strikes on Iran continue.",
         "source": "France 24",
-        "url": "https://www.france24.com/en/tv-shows/talking-europe/20260327-we-need-to-double-down-on-energy-autonomy-eib-chief-nadia-calvi%C3%B1o",
+        "url": "https://www.france24.com/en/tv-shows/talking-europe/20260327-trump-administration-sidelines-threatens-europe-in-iran-war-eu-flounders-in-new-world-order",
         "published_date": "",
         "bucket": "world"
       },
       {
-        "story_key": "https://cnbc.com/2026/03/27/jeffrey-epstein-victims-sue-trump-administration-google.html",
-        "canonical_url": "https://cnbc.com/2026/03/27/jeffrey-epstein-victims-sue-trump-administration-google.html",
-        "title": "Epstein victims sue Google and the Trump administration over alleged disclosure of personal information",
-        "summary": "A lawsuit filed in Northern California alleges that Google's AI features generated contact information for Epstein victims.",
+        "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "title": "Trump signs order to pay TSA employees after Congress fails to agree on DHS funding - AP News",
+        "summary": "Trump signs order to pay TSA employees after Congress fails to agree on DHS fundingAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://marketwatch.com/story/big-tech-deserves-its-big-tobacco-moment-social-media-is-now-a-massive-liability-for-meta-and-google-5d81bd70?mod=mw_rss_topstories",
+        "canonical_url": "https://marketwatch.com/story/big-tech-deserves-its-big-tobacco-moment-social-media-is-now-a-massive-liability-for-meta-and-google-5d81bd70?mod=mw_rss_topstories",
+        "title": "Social media is now a massive liability for Meta, Google and the rest of Big Tech",
+        "summary": "Landmark verdicts shatter the Section 230 shield, turning ‘addictive’ product design into a legal thicket for Meta, Alphabet and others.",
+        "source": "MarketWatch",
+        "url": "https://www.marketwatch.com/story/big-tech-deserves-its-big-tobacco-moment-social-media-is-now-a-massive-liability-for-meta-and-google-5d81bd70?mod=mw_rss_topstories",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://cnbc.com/2026/03/27/anthropic-cybersecurity-stocks-ai-mythos.html",
+        "canonical_url": "https://cnbc.com/2026/03/27/anthropic-cybersecurity-stocks-ai-mythos.html",
+        "title": "Cybersecurity stocks fall on report Anthropic is testing a powerful new model",
+        "summary": "The cybersecurity sector has slumped this year on fears that new AI will massively disrupt their business models.",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/27/jeffrey-epstein-victims-sue-trump-administration-google.html",
+        "url": "https://www.cnbc.com/2026/03/27/anthropic-cybersecurity-stocks-ai-mythos.html",
         "published_date": "",
         "bucket": "world"
-      },
-      {
-        "story_key": "https://yna.co.kr/view/AKR20260328001200081",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328001200081",
-        "title": "France: Macron's Visit to Korea Next Week to \"Elevate Bilateral Relations to a New Level\"",
-        "summary": "(Paris=Yonhap News) Correspondent Song Jin-won = As French President Emmanuel Macron makes his first state visit to South Korea early next month during his term, the cooperative relations between the two countries are expected to be further strength...",
-        "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328001200081",
-        "published_date": "",
-        "bucket": "korea"
       },
       {
         "story_key": "https://imnews.imbc.com/replay/2026/nwdesk/article/6810841_37004.html",
         "canonical_url": "https://imnews.imbc.com/replay/2026/nwdesk/article/6810841_37004.html",
-        "title": "'Director-level Multiple Homeowners' Also Excluded from Real Estate Duties? Cheong Wa Dae \"Assessing the Situation and Reviewing...",
-        "summary": "◀ Anchor ▶ Cheong Wa Dae is considering expanding the criteria for multiple-homeowning public officials subject to exclusion from real estate policy duties, from not only high-ranking officials but also to director-level civil servants who are in charge of practical affairs. By strictly judging the potential for conflicts of interest...",
+        "title": "Exclude 'manager-level multiple-home owners' from real estate duties?‥Cheong Wa Dae \"Assessing the situation and reviewing...\"",
+        "summary": "◀ Anchor ▶ Cheong Wa Dae is considering expanding the criteria for multiple-home owning public officials subject to exclusion from real estate policy duties, from not only high-ranking officials but also to manager-level civil servants who are in charge of practical affairs. By strictly judging the potential for conflicts of interest...",
         "source": "MBC",
         "url": "https://imnews.imbc.com/replay/2026/nwdesk/article/6810841_37004.html",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://hankyung.com/article/2026032826747",
-        "canonical_url": "https://hankyung.com/article/2026032826747",
-        "title": "Oil Prices Surge for Second Day Under '2nd Price Ceiling System'... Seoul Gasoline Nears 1,900 Won",
-        "summary": "Oil prices surge for the second day under the 2nd price ceiling system... Seoul gasoline nears 1,900 won | Korea Economic Daily Skip to main content ADVERTISEMENT '2nd price ceiling system' second day oil prices surge... Seoul gasoline nears 1,900 won Reporter Shin Yong-hyun Subscribe Input 2026.03.28 10:13 Modified 2026.03.28 10:14 Adjust font size Article scrap Article scrap Share Share Comments 0 Comments Clean view Clean view Print Print On the 27th, the first day of the implementation of the 2nd petroleum price ceiling system, a gas station in Seoul...",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026032826747",
-        "published_date": "",
-        "bucket": "korea"
-      },
-      {
         "story_key": "https://nocutnews.co.kr/news/6492286",
         "canonical_url": "https://nocutnews.co.kr/news/6492286",
-        "title": "Bank Mortgage Loan Rates Rise for 5th Consecutive Month... 4.32% in February",
-        "summary": "According to the 'Weighted Average Interest Rates of Financial Institutions' statistics released by the Bank of Korea on the 27th, the weighted average interest rate for mortgage loans at depository banks in February was 4.32% per annum, up 0.03 percentage points (p) from the previous month. This marks a five-month consecutive increase, since November 2023...",
+        "title": "Bank mortgage loan rates rise for 5 consecutive months... 4.32% in February",
+        "summary": "According to the 'Weighted Average Interest Rates of Financial Institutions' statistics released by the Bank of Korea on the 27th, the weighted average interest rate for mortgage loans at deposit banks in February was 4.32% per annum, up 0.03 percentage points (p) from the previous month. This marks the fifth consecutive month of increase, since November 2023...",
         "source": "노컷뉴스",
         "url": "https://www.nocutnews.co.kr/news/6492286?utm_source=naver&utm_medium=article&utm_campaign=20260327012231",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://donga.com/news/Society/article/all/20260328/133627442/1",
-        "canonical_url": "https://donga.com/news/Society/article/all/20260328/133627442/1",
-        "title": "Elementary and Middle School Students' 'Digital Competency' Stalls at 60 Points... Lack of Creative Production",
-        "summary": "It has been pointed out that the digital utilization competency of elementary and middle school students in the artificial intelligence (AI) era is at a low level. In particular, it is evaluated that creative production competency is distinctly lacking. According to the education community on the 28th, four government agencies, including the Ministry of Education, the Ministry of Gender Equality and Family, the Ministry of Science and ICT, and the Broadcasting and Media Communications Commission, signed a 'Business Agreement for Establishing a Safe and Inclusive AI and Science Technology Foundation and Protecting Youth' on the 26th. They will strengthen cooperation in various fields, such as overhauling AI ethics and safety systems to protect youth and prevent overdependence in online environments, expanding AI-based support for at-risk youth, enhancing digital competency utilizing schools and youth facilities, and supporting the growth of female personnel in the science, technology, and AI sectors. Minister of Education Choi Kyo-jin stated, \"We will strengthen AI and digital competency education centered on school sites and create a safe AI utilization environment that can protect youth through close cooperation with relevant ministries.\" ◆ Out of 100 points, elementary '60.46 points', middle '59.98 points' Actual students' digital utilization competency is identified as being at a low level.",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Society/article/all/20260328/133627442/1",
+        "story_key": "https://yna.co.kr/view/AKR20260327134900017",
+        "canonical_url": "https://yna.co.kr/view/AKR20260327134900017",
+        "title": "KT's 'high-ranking executive reshuffle' imminent... Speeding up organizational streamlining",
+        "summary": "(Seoul=Yonhap News) Reporter Park Hyung-bin = After KT [030200] officially appoints CEO nominee Park Yoon-young at the regular general shareholders' meeting on the 31st, a large-scale executive reshuffle...",
+        "source": "연합뉴스",
+        "url": "https://www.yna.co.kr/view/AKR20260327134900017",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://mk.co.kr/news/society/12001007",
+        "canonical_url": "https://mk.co.kr/news/society/12001007",
+        "title": "Just asked to 'be quiet'... What a heavily intoxicated man did after taking off his pants at a restaurant",
+        "summary": "Court sentences a man in his 50s to a suspended prison term. A man in his 50s, who was brought to trial on charges of causing a disturbance by taking off his pants at a restaurant, received a suspended prison sentence. According to the legal circle on the 28th, the Busan District Court Criminal...",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/society/12001007",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://hankyung.com/article/2026032720421",
+        "canonical_url": "https://hankyung.com/article/2026032720421",
+        "title": "'Everyone will leave at this rate'... Judges to receive '500,000 won monthly morale-boosting' allowance",
+        "summary": "Everyone will leave at this rate... Judges to receive 500,000 won monthly morale-boosting allowance | Korea Economic Daily Skip to main content ADVERTISEMENT 'Everyone will leave at this rate'... Judges to receive '500,000 won monthly morale-boosting' allowance Reporter Lee In-hyuk Subscribe Input 2026.03.28 10:00 Modified 2026.03.28 10:00 Print Edition A17 Font size adjustment Article scrap Article scrap Share Share Comments 0 Comments Clean view Clean view Print Print Reduction of provincial assignments for high court judges in the metropolitan area, remote work also expanded to twice a week Court Administration...",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026032720421",
         "published_date": "",
         "bucket": "korea"
       }
@@ -625,6 +625,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQVBfWmtidVJFellyYmo5UGV2VHoyTWMzU0VxcDhXRnRWRWlUeTNoV0RGVi1ibUxzdDZRdURteC1JN1RYQlhuRGJkbV9aXzl3WF8yMENBS1N3ZURsZC1wRnpwcXN3eWMxWnhhb3BZLVN1alZzV0JiVHplQXdYMDJnSEQyazFZWDNEak15d0hRYnU2Mk1HTVEyUDVCQ3BkRXl0R1ZMbnRoekJrR3lUYkE?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQVBfWmtidVJFellyYmo5UGV2VHoyTWMzU0VxcDhXRnRWRWlUeTNoV0RGVi1ibUxzdDZRdURteC1JN1RYQlhuRGJkbV9aXzl3WF8yMENBS1N3ZURsZC1wRnpwcXN3eWMxWnhhb3BZLVN1alZzV0JiVHplQXdYMDJnSEQyazFZWDNEak15d0hRYnU2Mk1HTVEyUDVCQ3BkRXl0R1ZMbnRoekJrR3lUYkE?oc=5",
+        "title": "Bank of America agrees to pay $72.5 million to settle Epstein accusers' lawsuit - Reuters",
+        "summary": "Bank of America agrees to pay $72.5 million to settle Epstein accusers' lawsuitReuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNQVBfWmtidVJFellyYmo5UGV2VHoyTWMzU0VxcDhXRnRWRWlUeTNoV0RGVi1ibUxzdDZRdURteC1JN1RYQlhuRGJkbV9aXzl3WF8yMENBS1N3ZURsZC1wRnpwcXN3eWMxWnhhb3BZLVN1alZzV0JiVHplQXdYMDJnSEQyazFZWDNEak15d0hRYnU2Mk1HTVEyUDVCQ3BkRXl0R1ZMbnRoekJrR3lUYkE?oc=5",
+        "published_date": "2026-03-27",
+        "bucket": ""
+      },
+      {
         "story_key": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPWDFmdndUM1dObTJvbUFLX3BGTDVic09BRzJCYlNVZlpkNndtNU9yYzRUU2tRMmcxZU50Z09fVlZtamxDdXVNdzRCSERVWVlfMHoxTmpQS1UzQlk0M3I0MnZ3eGp6OVMxZmNBeVB0RUExTTlWU0xtLWpuVGQ3U1FxMk9vSGxHNUZSdDdlMzVhd0o1TXF1MXhhSkRBMFVrWmVFZDhZdDFPczJxbWRPRnF4cm1UR0d0ak5XNkFFSWs1dXlRNGRaRGc?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPWDFmdndUM1dObTJvbUFLX3BGTDVic09BRzJCYlNVZlpkNndtNU9yYzRUU2tRMmcxZU50Z09fVlZtamxDdXVNdzRCSERVWVlfMHoxTmpQS1UzQlk0M3I0MnZ3eGp6OVMxZmNBeVB0RUExTTlWU0xtLWpuVGQ3U1FxMk9vSGxHNUZSdDdlMzVhd0o1TXF1MXhhSkRBMFVrWmVFZDhZdDFPczJxbWRPRnF4cm1UR0d0ak5XNkFFSWs1dXlRNGRaRGc?oc=5",
         "title": "Russian and Iranian foreign ministers discuss possibility of conflict settlement - Reuters",
@@ -655,22 +665,22 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNb0dkQnc1ZjB1eGdHeXpLaTVJTXJVbVNoWkstZFNTajNtRTVPTmtZakt6aUZVaHFscXBING02OHJkSUVsdXRNUWwwOWExQmpKcFJwYWxyVUMwX1NRS2JVaUVsa25UT1hBVlBvV2JSd3hnSnZFWUlSVWxzU0lrU3hBcFROTXB0R0xfLWRsSnBNRmVZZkpGTHNzb19IeGJ2NF9WVWVUekdTUQ?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNb0dkQnc1ZjB1eGdHeXpLaTVJTXJVbVNoWkstZFNTajNtRTVPTmtZakt6aUZVaHFscXBING02OHJkSUVsdXRNUWwwOWExQmpKcFJwYWxyVUMwX1NRS2JVaUVsa25UT1hBVlBvV2JSd3hnSnZFWUlSVWxzU0lrU3hBcFROTXB0R0xfLWRsSnBNRmVZZkpGTHNzb19IeGJ2NF9WVWVUekdTUQ?oc=5",
-        "title": "UN moves to create mechanism to safeguard Hormuz trade in face of Iran war - Reuters",
-        "summary": "UN moves to create mechanism to safeguard Hormuz trade in face of Iran warReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNb0dkQnc1ZjB1eGdHeXpLaTVJTXJVbVNoWkstZFNTajNtRTVPTmtZakt6aUZVaHFscXBING02OHJkSUVsdXRNUWwwOWExQmpKcFJwYWxyVUMwX1NRS2JVaUVsa25UT1hBVlBvV2JSd3hnSnZFWUlSVWxzU0lrU3hBcFROTXB0R0xfLWRsSnBNRmVZZkpGTHNzb19IeGJ2NF9WVWVUekdTUQ?oc=5",
-        "published_date": "2026-03-27",
-        "bucket": ""
-      },
-      {
         "story_key": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQN2k4aFRqNWs1TUlKLXJybHhEOUFZQkhBVl9RWHBGUWFMLVkwZjhMd29ObURnVmVXdUxRZGc0VzZUTkRHeXdNTndUZFpRN0ZtREY4Q2puaElJR2tNVnQ4dnpMcm1zTS1LUkFtd3N3YnJWWlhxN2t5TktRTVVXTG1UUXFXbnA4TWpHMGk1T0ZmTEVHcEk2am5FcHlKNnZQdVJzdWFmTGNna1ZjbDhQRDdVSE83RUJfa1hnckd2cUFiTFB3dmZ5ak9zYk1xcVg?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQN2k4aFRqNWs1TUlKLXJybHhEOUFZQkhBVl9RWHBGUWFMLVkwZjhMd29ObURnVmVXdUxRZGc0VzZUTkRHeXdNTndUZFpRN0ZtREY4Q2puaElJR2tNVnQ4dnpMcm1zTS1LUkFtd3N3YnJWWlhxN2t5TktRTVVXTG1UUXFXbnA4TWpHMGk1T0ZmTEVHcEk2am5FcHlKNnZQdVJzdWFmTGNna1ZjbDhQRDdVSE83RUJfa1hnckd2cUFiTFB3dmZ5ak9zYk1xcVg?oc=5",
         "title": "More than 400 Hezbollah fighters killed in new war with Israel so far, sources say - Reuters",
         "summary": "More than 400 Hezbollah fighters killed in new war with Israel so far, sources sayReuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQN2k4aFRqNWs1TUlKLXJybHhEOUFZQkhBVl9RWHBGUWFMLVkwZjhMd29ObURnVmVXdUxRZGc0VzZUTkRHeXdNTndUZFpRN0ZtREY4Q2puaElJR2tNVnQ4dnpMcm1zTS1LUkFtd3N3YnJWWlhxN2t5TktRTVVXTG1UUXFXbnA4TWpHMGk1T0ZmTEVHcEk2am5FcHlKNnZQdVJzdWFmTGNna1ZjbDhQRDdVSE83RUJfa1hnckd2cUFiTFB3dmZ5ak9zYk1xcVg?oc=5",
+        "published_date": "2026-03-27",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNb0dkQnc1ZjB1eGdHeXpLaTVJTXJVbVNoWkstZFNTajNtRTVPTmtZakt6aUZVaHFscXBING02OHJkSUVsdXRNUWwwOWExQmpKcFJwYWxyVUMwX1NRS2JVaUVsa25UT1hBVlBvV2JSd3hnSnZFWUlSVWxzU0lrU3hBcFROTXB0R0xfLWRsSnBNRmVZZkpGTHNzb19IeGJ2NF9WVWVUekdTUQ?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNb0dkQnc1ZjB1eGdHeXpLaTVJTXJVbVNoWkstZFNTajNtRTVPTmtZakt6aUZVaHFscXBING02OHJkSUVsdXRNUWwwOWExQmpKcFJwYWxyVUMwX1NRS2JVaUVsa25UT1hBVlBvV2JSd3hnSnZFWUlSVWxzU0lrU3hBcFROTXB0R0xfLWRsSnBNRmVZZkpGTHNzb19IeGJ2NF9WVWVUekdTUQ?oc=5",
+        "title": "UN moves to create mechanism to safeguard Hormuz trade in face of Iran war - Reuters",
+        "summary": "UN moves to create mechanism to safeguard Hormuz trade in face of Iran warReuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNb0dkQnc1ZjB1eGdHeXpLaTVJTXJVbVNoWkstZFNTajNtRTVPTmtZakt6aUZVaHFscXBING02OHJkSUVsdXRNUWwwOWExQmpKcFJwYWxyVUMwX1NRS2JVaUVsa25UT1hBVlBvV2JSd3hnSnZFWUlSVWxzU0lrU3hBcFROTXB0R0xfLWRsSnBNRmVZZkpGTHNzb19IeGJ2NF9WVWVUekdTUQ?oc=5",
         "published_date": "2026-03-27",
         "bucket": ""
       },
@@ -695,12 +705,12 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMmVaRnBYanM0V3hFZ3hIYnpDMldCR09yeGUxMm1rWHgwNWVqT0ZvS3paTy0tenNhRFBZUUg4RVpiV1k3WGpnV0pBV0xQajQtZWwxRUNmRmlpbHNSR21jeFZySGdXRHcyaGtoMTJYNElMSjBMcUlxNVUtY0lCTmpnd3VLN1hES3RBdWVyV2ZaMVlTc0N4X3NlMlVGY0hDQzh5SnMxeDlUUDdxTEx0eEE?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMmVaRnBYanM0V3hFZ3hIYnpDMldCR09yeGUxMm1rWHgwNWVqT0ZvS3paTy0tenNhRFBZUUg4RVpiV1k3WGpnV0pBV0xQajQtZWwxRUNmRmlpbHNSR21jeFZySGdXRHcyaGtoMTJYNElMSjBMcUlxNVUtY0lCTmpnd3VLN1hES3RBdWVyV2ZaMVlTc0N4X3NlMlVGY0hDQzh5SnMxeDlUUDdxTEx0eEE?oc=5",
-        "title": "German Chancellor Merz says he has doubts over Iran war aims - Reuters",
-        "summary": "German Chancellor Merz says he has doubts over Iran war aimsReuters",
+        "story_key": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQMHlrQ3c4VFMxZmdad0prMVhQM0NJOHExZWRleGNMTVVMbUVfVFg2TVR0aGs3TEFpS0VYb29rd0pjR0hsVnl3azhiQU1vOEhnSmRfNmdRalZhUEY3VVgzd1c1dnYwZTBCNXZ2cV9uSDlYVjIwcGlibXNGMndLNXczX3ZWdmsta00ySkZ4UlRwSVNPTGY3dXYzTktDN2lLRzM0ZVdOYm5MMWRxbEoxcjFIZS1tVXpuZw?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQMHlrQ3c4VFMxZmdad0prMVhQM0NJOHExZWRleGNMTVVMbUVfVFg2TVR0aGs3TEFpS0VYb29rd0pjR0hsVnl3azhiQU1vOEhnSmRfNmdRalZhUEY3VVgzd1c1dnYwZTBCNXZ2cV9uSDlYVjIwcGlibXNGMndLNXczX3ZWdmsta00ySkZ4UlRwSVNPTGY3dXYzTktDN2lLRzM0ZVdOYm5MMWRxbEoxcjFIZS1tVXpuZw?oc=5",
+        "title": "Yemen's Houthis say 'fingers on the trigger' as US-Israeli war on Iran widens - Reuters",
+        "summary": "Yemen's Houthis say 'fingers on the trigger' as US-Israeli war on Iran widensReuters",
         "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMmVaRnBYanM0V3hFZ3hIYnpDMldCR09yeGUxMm1rWHgwNWVqT0ZvS3paTy0tenNhRFBZUUg4RVpiV1k3WGpnV0pBV0xQajQtZWwxRUNmRmlpbHNSR21jeFZySGdXRHcyaGtoMTJYNElMSjBMcUlxNVUtY0lCTmpnd3VLN1hES3RBdWVyV2ZaMVlTc0N4X3NlMlVGY0hDQzh5SnMxeDlUUDdxTEx0eEE?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQMHlrQ3c4VFMxZmdad0prMVhQM0NJOHExZWRleGNMTVVMbUVfVFg2TVR0aGs3TEFpS0VYb29rd0pjR0hsVnl3azhiQU1vOEhnSmRfNmdRalZhUEY3VVgzd1c1dnYwZTBCNXZ2cV9uSDlYVjIwcGlibXNGMndLNXczX3ZWdmsta00ySkZ4UlRwSVNPTGY3dXYzTktDN2lLRzM0ZVdOYm5MMWRxbEoxcjFIZS1tVXpuZw?oc=5",
         "published_date": "2026-03-27",
         "bucket": ""
       },
@@ -715,6 +725,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMmVaRnBYanM0V3hFZ3hIYnpDMldCR09yeGUxMm1rWHgwNWVqT0ZvS3paTy0tenNhRFBZUUg4RVpiV1k3WGpnV0pBV0xQajQtZWwxRUNmRmlpbHNSR21jeFZySGdXRHcyaGtoMTJYNElMSjBMcUlxNVUtY0lCTmpnd3VLN1hES3RBdWVyV2ZaMVlTc0N4X3NlMlVGY0hDQzh5SnMxeDlUUDdxTEx0eEE?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMmVaRnBYanM0V3hFZ3hIYnpDMldCR09yeGUxMm1rWHgwNWVqT0ZvS3paTy0tenNhRFBZUUg4RVpiV1k3WGpnV0pBV0xQajQtZWwxRUNmRmlpbHNSR21jeFZySGdXRHcyaGtoMTJYNElMSjBMcUlxNVUtY0lCTmpnd3VLN1hES3RBdWVyV2ZaMVlTc0N4X3NlMlVGY0hDQzh5SnMxeDlUUDdxTEx0eEE?oc=5",
+        "title": "German Chancellor Merz says he has doubts over Iran war aims - Reuters",
+        "summary": "German Chancellor Merz says he has doubts over Iran war aimsReuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMmVaRnBYanM0V3hFZ3hIYnpDMldCR09yeGUxMm1rWHgwNWVqT0ZvS3paTy0tenNhRFBZUUg4RVpiV1k3WGpnV0pBV0xQajQtZWwxRUNmRmlpbHNSR21jeFZySGdXRHcyaGtoMTJYNElMSjBMcUlxNVUtY0lCTmpnd3VLN1hES3RBdWVyV2ZaMVlTc0N4X3NlMlVGY0hDQzh5SnMxeDlUUDdxTEx0eEE?oc=5",
+        "published_date": "2026-03-27",
+        "bucket": ""
+      },
+      {
         "story_key": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdVpTQmJMSGo4by1WSVhpSXJRQjhtcGRiSGd1Q19meU9sdVFRR0xzaWhfRHJ4aXZPdmxmTGwyUW5hcEtINmM2aWNFVWJpeVlqcjJ6eTFWajBXQTdkbUdvYWU5dmszd29QWF80XzNHa3k5bHhQMXZRNjJ6Sy1OZ0U2b1VwYUxINXRQRmI5cEZXNjFjZmkxVHdSVHZWTHVpQzVZdUl0cnE3WnBxVzhtZG9yb2lFMzFaUQ?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdVpTQmJMSGo4by1WSVhpSXJRQjhtcGRiSGd1Q19meU9sdVFRR0xzaWhfRHJ4aXZPdmxmTGwyUW5hcEtINmM2aWNFVWJpeVlqcjJ6eTFWajBXQTdkbUdvYWU5dmszd29QWF80XzNHa3k5bHhQMXZRNjJ6Sy1OZ0U2b1VwYUxINXRQRmI5cEZXNjFjZmkxVHdSVHZWTHVpQzVZdUl0cnE3WnBxVzhtZG9yb2lFMzFaUQ?oc=5",
         "title": "Iran's response to US peace proposal expected Friday, source says - Reuters",
@@ -725,22 +745,12 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbk5UU21MRVZ2UW9kMENwZ2dBY1NjSzRVbFYxMFlWbkJtUGZGc3U2QWdkZzA0bHJWYXhLWk0wekhRWS00Y0pjRjNHMHJIRExjZ051bkowMGc2RzVreWhBMTNFTjhWeHJXeVNvNjhLLWRQVXV5aFZaVk1VUHVKU0F2dlBoUEJsRngyTUhoQng0RmtxVEpxMTFxREg3V2pKNHZmYUZwQTI0Vkp2QmMtaVVTZWFEN3Q1QQ?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbk5UU21MRVZ2UW9kMENwZ2dBY1NjSzRVbFYxMFlWbkJtUGZGc3U2QWdkZzA0bHJWYXhLWk0wekhRWS00Y0pjRjNHMHJIRExjZ051bkowMGc2RzVreWhBMTNFTjhWeHJXeVNvNjhLLWRQVXV5aFZaVk1VUHVKU0F2dlBoUEJsRngyTUhoQng0RmtxVEpxMTFxREg3V2pKNHZmYUZwQTI0Vkp2QmMtaVVTZWFEN3Q1QQ?oc=5",
-        "title": "Exclusive: US sends subpoenas in Warner-Paramount antitrust review as probe picks up steam - Reuters",
-        "summary": "Exclusive: US sends subpoenas in Warner-Paramount antitrust review as probe picks up steamReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbk5UU21MRVZ2UW9kMENwZ2dBY1NjSzRVbFYxMFlWbkJtUGZGc3U2QWdkZzA0bHJWYXhLWk0wekhRWS00Y0pjRjNHMHJIRExjZ051bkowMGc2RzVreWhBMTNFTjhWeHJXeVNvNjhLLWRQVXV5aFZaVk1VUHVKU0F2dlBoUEJsRngyTUhoQng0RmtxVEpxMTFxREg3V2pKNHZmYUZwQTI0Vkp2QmMtaVVTZWFEN3Q1QQ?oc=5",
-        "published_date": "2026-03-27",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWDJlcDZwOEN1YkpWeU9xaGpwVmZSUWJ6V01NS3dScGtUTFA5RVhRZlk5dzd4Zjk3ZEtyRXpXNUwxNkNKOUJrT0lpM2NDR2xmczdGcll0UHU3QWtaTkc4ME1zT3NrQkRvSmV1UkhXZVN3cUJhdU1qWVQzY0l5em9UUVhuVjNkeDc2MFd2YU9TSlNwbm4xVTVtTnBNSVRBMGxyVURhallOdFBxb05qcjdXQnlDNEpjTmZQ?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWDJlcDZwOEN1YkpWeU9xaGpwVmZSUWJ6V01NS3dScGtUTFA5RVhRZlk5dzd4Zjk3ZEtyRXpXNUwxNkNKOUJrT0lpM2NDR2xmczdGcll0UHU3QWtaTkc4ME1zT3NrQkRvSmV1UkhXZVN3cUJhdU1qWVQzY0l5em9UUVhuVjNkeDc2MFd2YU9TSlNwbm4xVTVtTnBNSVRBMGxyVURhallOdFBxb05qcjdXQnlDNEpjTmZQ?oc=5",
-        "title": "Apple hires ex-Google executive to head AI marketing amid push to improve Siri - Reuters",
-        "summary": "Apple hires ex-Google executive to head AI marketing amid push to improve SiriReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOWDJlcDZwOEN1YkpWeU9xaGpwVmZSUWJ6V01NS3dScGtUTFA5RVhRZlk5dzd4Zjk3ZEtyRXpXNUwxNkNKOUJrT0lpM2NDR2xmczdGcll0UHU3QWtaTkc4ME1zT3NrQkRvSmV1UkhXZVN3cUJhdU1qWVQzY0l5em9UUVhuVjNkeDc2MFd2YU9TSlNwbm4xVTVtTnBNSVRBMGxyVURhallOdFBxb05qcjdXQnlDNEpjTmZQ?oc=5",
+        "story_key": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQ3B3WGdRb2x0QmZJSE13di13WWJheWhPaDdtamVmTTBqUFVEalk0akU2Tm05RUcwRklzbjVkeVpoT0NKYjBhbW9FTU8zWm0xYlJkV2ZxaDNpMnhQWVl5czhnWkNXcGgxZXVWRHRMU0R6VldkUnZ5NEVMUXl3ZEtlbVNhdEZFTHJ1OFZVRndmc0dMbXk2ZkQta25JUUo5OTVZeWQ3ZUZHSGQ0Zw?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQ3B3WGdRb2x0QmZJSE13di13WWJheWhPaDdtamVmTTBqUFVEalk0akU2Tm05RUcwRklzbjVkeVpoT0NKYjBhbW9FTU8zWm0xYlJkV2ZxaDNpMnhQWVl5czhnWkNXcGgxZXVWRHRMU0R6VldkUnZ5NEVMUXl3ZEtlbVNhdEZFTHJ1OFZVRndmc0dMbXk2ZkQta25JUUo5OTVZeWQ3ZUZHSGQ0Zw?oc=5",
+        "title": "The sea beneath Arctic and Antarctic ice holds many secrets. These scientists dive deep to find out - AP News",
+        "summary": "The sea beneath Arctic and Antarctic ice holds many secrets. These scientists dive deep to find outAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQ3B3WGdRb2x0QmZJSE13di13WWJheWhPaDdtamVmTTBqUFVEalk0akU2Tm05RUcwRklzbjVkeVpoT0NKYjBhbW9FTU8zWm0xYlJkV2ZxaDNpMnhQWVl5czhnWkNXcGgxZXVWRHRMU0R6VldkUnZ5NEVMUXl3ZEtlbVNhdEZFTHJ1OFZVRndmc0dMbXk2ZkQta25JUUo5OTVZeWQ3ZUZHSGQ0Zw?oc=5",
         "published_date": "2026-03-27",
         "bucket": ""
       },
@@ -755,12 +765,12 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQ3B3WGdRb2x0QmZJSE13di13WWJheWhPaDdtamVmTTBqUFVEalk0akU2Tm05RUcwRklzbjVkeVpoT0NKYjBhbW9FTU8zWm0xYlJkV2ZxaDNpMnhQWVl5czhnWkNXcGgxZXVWRHRMU0R6VldkUnZ5NEVMUXl3ZEtlbVNhdEZFTHJ1OFZVRndmc0dMbXk2ZkQta25JUUo5OTVZeWQ3ZUZHSGQ0Zw?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQ3B3WGdRb2x0QmZJSE13di13WWJheWhPaDdtamVmTTBqUFVEalk0akU2Tm05RUcwRklzbjVkeVpoT0NKYjBhbW9FTU8zWm0xYlJkV2ZxaDNpMnhQWVl5czhnWkNXcGgxZXVWRHRMU0R6VldkUnZ5NEVMUXl3ZEtlbVNhdEZFTHJ1OFZVRndmc0dMbXk2ZkQta25JUUo5OTVZeWQ3ZUZHSGQ0Zw?oc=5",
-        "title": "The sea beneath Arctic and Antarctic ice holds many secrets. These scientists dive deep to find out - AP News",
-        "summary": "The sea beneath Arctic and Antarctic ice holds many secrets. These scientists dive deep to find outAP News",
+        "story_key": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPaHdsbWVrXzBTalJkTklZN2xoeEpUMW9mek5ELW1Lejh1YVMzRzRTWmgtV2owVTJWMHZOdlVCQlk1N0lsSlVQeFFsX1NkRGZRS3NaNFhmM21tUjRROTBJai1QcWxFNWZVczNtWllPaHk1andwcmlkcUFXeC1kUnZNaVllcmN5a2JiUlZPQXhtUzU2dw?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPaHdsbWVrXzBTalJkTklZN2xoeEpUMW9mek5ELW1Lejh1YVMzRzRTWmgtV2owVTJWMHZOdlVCQlk1N0lsSlVQeFFsX1NkRGZRS3NaNFhmM21tUjRROTBJai1QcWxFNWZVczNtWllPaHk1andwcmlkcUFXeC1kUnZNaVllcmN5a2JiUlZPQXhtUzU2dw?oc=5",
+        "title": "Wall Street drops again to close its 5th straight losing week and its worst since the Iran war - AP News",
+        "summary": "Wall Street drops again to close its 5th straight losing week and its worst since the Iran warAP News",
         "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQ3B3WGdRb2x0QmZJSE13di13WWJheWhPaDdtamVmTTBqUFVEalk0akU2Tm05RUcwRklzbjVkeVpoT0NKYjBhbW9FTU8zWm0xYlJkV2ZxaDNpMnhQWVl5czhnWkNXcGgxZXVWRHRMU0R6VldkUnZ5NEVMUXl3ZEtlbVNhdEZFTHJ1OFZVRndmc0dMbXk2ZkQta25JUUo5OTVZeWQ3ZUZHSGQ0Zw?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPaHdsbWVrXzBTalJkTklZN2xoeEpUMW9mek5ELW1Lejh1YVMzRzRTWmgtV2owVTJWMHZOdlVCQlk1N0lsSlVQeFFsX1NkRGZRS3NaNFhmM21tUjRROTBJai1QcWxFNWZVczNtWllPaHk1andwcmlkcUFXeC1kUnZNaVllcmN5a2JiUlZPQXhtUzU2dw?oc=5",
         "published_date": "2026-03-27",
         "bucket": ""
       },
@@ -805,12 +815,12 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
-        "title": "Trump signs order to pay TSA employees after Congress fails to agree on DHS funding - AP News",
-        "summary": "Trump signs order to pay TSA employees after Congress fails to agree on DHS fundingAP News",
+        "story_key": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNandtOVMtUHVuQTJmdnNWTkk0UXZlVjhUelpZdHJPU2xOYjc2amVfUF9USVJMbHBTcXdXSi1pelRjNDhVSDJHZVpVX1pldkI5WDFEUUFscVpYcXZ1eTdyRVVmbGxnZVB1cG5OX284aFB6U3RIaXpSeF9Rajk0eUU5blM0MUZtSGU1OHpuUEFUVWJTVl9PanpHU2VaeVpETnFF?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNandtOVMtUHVuQTJmdnNWTkk0UXZlVjhUelpZdHJPU2xOYjc2amVfUF9USVJMbHBTcXdXSi1pelRjNDhVSDJHZVpVX1pldkI5WDFEUUFscVpYcXZ1eTdyRVVmbGxnZVB1cG5OX284aFB6U3RIaXpSeF9Rajk0eUU5blM0MUZtSGU1OHpuUEFUVWJTVl9PanpHU2VaeVpETnFF?oc=5",
+        "title": "Nepal’s youngest prime minister takes the oath of office - AP News",
+        "summary": "Nepal’s youngest prime minister takes the oath of officeAP News",
         "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNandtOVMtUHVuQTJmdnNWTkk0UXZlVjhUelpZdHJPU2xOYjc2amVfUF9USVJMbHBTcXdXSi1pelRjNDhVSDJHZVpVX1pldkI5WDFEUUFscVpYcXZ1eTdyRVVmbGxnZVB1cG5OX284aFB6U3RIaXpSeF9Rajk0eUU5blM0MUZtSGU1OHpuUEFUVWJTVl9PanpHU2VaeVpETnFF?oc=5",
         "published_date": "2026-03-27",
         "bucket": ""
       },
@@ -835,6 +845,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "title": "Trump signs order to pay TSA employees after Congress fails to agree on DHS funding - AP News",
+        "summary": "Trump signs order to pay TSA employees after Congress fails to agree on DHS fundingAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUWtGU2d3c3BLS1BZWHZtOXVKMW9EanY0Und6Z3lPbE1uMjlEc2JQYWpiT1dCRV9CbDhTZ1BRY3QtRFViYmplWFgyN3dteXlrQVhPQ2F1Zld5ZTlkRFR4Y2tGZlJkbU9IbU5yNkIwc01kRk5faTB0aUI0X3pQdVlfckUyc05XSGZkV3RtQUU2c0ZieHlRMFNVUGFmVGlSc1ZYaFEyaDZ3?oc=5",
+        "published_date": "2026-03-27",
+        "bucket": ""
+      },
+      {
         "story_key": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNSUtJSnhWQVFTMXh0MEEydkpPLUVycG13WjRWcU1CVERBWWotOEpZY2ppdjZKRHlqOWlKSjFvc251c0dIUTJHM251aWtCV3hsdlQ2QlZRU21PckZnMU9lV1JmUzY1MlZBeGxjRldmX3J4eFZfNkR2azRRR3NWOGRHRjhQT21kTlVaZXY3MVNxUUR5bjl0VUJqdk1qdlBYY2hkRUdQcEt5Yw?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNSUtJSnhWQVFTMXh0MEEydkpPLUVycG13WjRWcU1CVERBWWotOEpZY2ppdjZKRHlqOWlKSjFvc251c0dIUTJHM251aWtCV3hsdlQ2QlZRU21PckZnMU9lV1JmUzY1MlZBeGxjRldmX3J4eFZfNkR2azRRR3NWOGRHRjhQT21kTlVaZXY3MVNxUUR5bjl0VUJqdk1qdlBYY2hkRUdQcEt5Yw?oc=5",
         "title": "Russia is sending upgraded drones used in the Ukraine war to Iran, officials say - AP News",
@@ -855,16 +875,6 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNc2VoeUJqU2l5akQxck1yemZjaFhMYVVXc3ZjQzlwOTg1alhHMkk4Z0lmYXdHYUh6QXIxN3hiVHYwM09nUmdVVlA3c0hZQy0tdVJla3hjdFVzWUVTazhXZ0I4TXZjOF9JaUFjOGxEU3J0YkwzaWVRSXhOT0ZxTEVBS1JMZ1NkY2d3R2FCZm5JeFdtVV9GX05aYWNVajFWTzk4X1FXVFcwUGRsUQ?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNc2VoeUJqU2l5akQxck1yemZjaFhMYVVXc3ZjQzlwOTg1alhHMkk4Z0lmYXdHYUh6QXIxN3hiVHYwM09nUmdVVlA3c0hZQy0tdVJla3hjdFVzWUVTazhXZ0I4TXZjOF9JaUFjOGxEU3J0YkwzaWVRSXhOT0ZxTEVBS1JMZ1NkY2d3R2FCZm5JeFdtVV9GX05aYWNVajFWTzk4X1FXVFcwUGRsUQ?oc=5",
-        "title": "Minnesota to host 'No Kings' flagship rally, headlining Springsteen amid tensions over ICE and war - AP News",
-        "summary": "Minnesota to host 'No Kings' flagship rally, headlining Springsteen amid tensions over ICE and warAP News",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNc2VoeUJqU2l5akQxck1yemZjaFhMYVVXc3ZjQzlwOTg1alhHMkk4Z0lmYXdHYUh6QXIxN3hiVHYwM09nUmdVVlA3c0hZQy0tdVJla3hjdFVzWUVTazhXZ0I4TXZjOF9JaUFjOGxEU3J0YkwzaWVRSXhOT0ZxTEVBS1JMZ1NkY2d3R2FCZm5JeFdtVV9GX05aYWNVajFWTzk4X1FXVFcwUGRsUQ?oc=5",
-        "published_date": "2026-03-27",
-        "bucket": ""
-      },
-      {
         "story_key": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQX0lxcXRYWXoxNmJJekhKd3ZUVmR0UkpGN0RFbmROU012d2l3QWJ0TElNcUc0aFJJRVlzaUpuM2VEMUJ0c0xQZENXbUZrU0RheFZtaXdWMmQxc1JtVzRxTTQxMElnbzc1dkJjcnVpaElvZ05DUlZ1LVBiLUtRUWJsQWtxNlFqS3JXNTJDR0JuVU41eHFoMWEtOEpoREdkYldT?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQX0lxcXRYWXoxNmJJekhKd3ZUVmR0UkpGN0RFbmROU012d2l3QWJ0TElNcUc0aFJJRVlzaUpuM2VEMUJ0c0xQZENXbUZrU0RheFZtaXdWMmQxc1JtVzRxTTQxMElnbzc1dkJjcnVpaElvZ05DUlZ1LVBiLUtRUWJsQWtxNlFqS3JXNTJDR0JuVU41eHFoMWEtOEpoREdkYldT?oc=5",
         "title": "Secret Service agent assigned to Jill Biden accidentally shoots himself in leg at airport - AP News",
@@ -875,22 +885,12 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPY1FaNm13UmVsLW5lRVl4SFBXU2tHNUxYblpwYlNZYklyRDVmaDRCQzJxSHdhaFZRZUlCTHNXYVF1NEw5UFY2UUZncGRVbjBHTEZ3dnZGdHlORzBObElkNWhlYjNHcmhoZEYxR01hWFZncTNUWGdFNkI2aUVheXBTNExLSDhiTDN0VWFWVkg3MVZpLXZKRG9CZTBBdWtGVmY1WmpjOEwxckk?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPY1FaNm13UmVsLW5lRVl4SFBXU2tHNUxYblpwYlNZYklyRDVmaDRCQzJxSHdhaFZRZUlCTHNXYVF1NEw5UFY2UUZncGRVbjBHTEZ3dnZGdHlORzBObElkNWhlYjNHcmhoZEYxR01hWFZncTNUWGdFNkI2aUVheXBTNExLSDhiTDN0VWFWVkg3MVZpLXZKRG9CZTBBdWtGVmY1WmpjOEwxckk?oc=5",
-        "title": "A Minneapolis woman recounts death of Alex Pretti as lawyers eye a class action lawsuit - AP News",
-        "summary": "A Minneapolis woman recounts death of Alex Pretti as lawyers eye a class action lawsuitAP News",
+        "story_key": "https://news.google.com/rss/articles/CBMipwFBVV95cUxONVd5UWxXTWN1c2wzdlFtVExfQXg2NEMxVkJiQUU2Wi1ZT1RTRldSTzdpb1hRMlVKbzY3RDM4Tl9md01PNmVTeEE0amYzcFpOQV9BQmRjY1RSVmxLci16SUpUNEJLR1JjRlMyRWlDb19pOUtFc3VmTjBlSGhrZGR3MVgxTFdkLTZtdDhVMm9qRWhiUTFWa1NtU0JjaDRCbjlFM2pvQmpGVQ?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxONVd5UWxXTWN1c2wzdlFtVExfQXg2NEMxVkJiQUU2Wi1ZT1RTRldSTzdpb1hRMlVKbzY3RDM4Tl9md01PNmVTeEE0amYzcFpOQV9BQmRjY1RSVmxLci16SUpUNEJLR1JjRlMyRWlDb19pOUtFc3VmTjBlSGhrZGR3MVgxTFdkLTZtdDhVMm9qRWhiUTFWa1NtU0JjaDRCbjlFM2pvQmpGVQ?oc=5",
+        "title": "Austria plans to ban social media use for under-14s, joining a string of other countries - AP News",
+        "summary": "Austria plans to ban social media use for under-14s, joining a string of other countriesAP News",
         "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPY1FaNm13UmVsLW5lRVl4SFBXU2tHNUxYblpwYlNZYklyRDVmaDRCQzJxSHdhaFZRZUlCTHNXYVF1NEw5UFY2UUZncGRVbjBHTEZ3dnZGdHlORzBObElkNWhlYjNHcmhoZEYxR01hWFZncTNUWGdFNkI2aUVheXBTNExLSDhiTDN0VWFWVkg3MVZpLXZKRG9CZTBBdWtGVmY1WmpjOEwxckk?oc=5",
-        "published_date": "2026-03-27",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNbWYwNlJ6SVUyS3JaSk1vc1FhdG5MSFdqN3B6YWxQOFJIZFlTY1lxQWpBbkk1UzF6dFVKMVhERy1oSGdDNHQ0UzdKTUIxYWVDcUViVnZCQXkwejBSQlVVNW0teGFIRjc5eTZmM2dQTFMyNHAyZERaeXk3RkloUkRrVm9EaG0yOXNX?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNbWYwNlJ6SVUyS3JaSk1vc1FhdG5MSFdqN3B6YWxQOFJIZFlTY1lxQWpBbkk1UzF6dFVKMVhERy1oSGdDNHQ0UzdKTUIxYWVDcUViVnZCQXkwejBSQlVVNW0teGFIRjc5eTZmM2dQTFMyNHAyZERaeXk3RkloUkRrVm9EaG0yOXNX?oc=5",
-        "title": "25-year-old Noelia Castillo dies by legal euthanasia in case that drew national spotlight in Spain - AP News",
-        "summary": "25-year-old Noelia Castillo dies by legal euthanasia in case that drew national spotlight in SpainAP News",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNbWYwNlJ6SVUyS3JaSk1vc1FhdG5MSFdqN3B6YWxQOFJIZFlTY1lxQWpBbkk1UzF6dFVKMVhERy1oSGdDNHQ0UzdKTUIxYWVDcUViVnZCQXkwejBSQlVVNW0teGFIRjc5eTZmM2dQTFMyNHAyZERaeXk3RkloUkRrVm9EaG0yOXNX?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxONVd5UWxXTWN1c2wzdlFtVExfQXg2NEMxVkJiQUU2Wi1ZT1RTRldSTzdpb1hRMlVKbzY3RDM4Tl9md01PNmVTeEE0amYzcFpOQV9BQmRjY1RSVmxLci16SUpUNEJLR1JjRlMyRWlDb19pOUtFc3VmTjBlSGhrZGR3MVgxTFdkLTZtdDhVMm9qRWhiUTFWa1NtU0JjaDRCbjlFM2pvQmpGVQ?oc=5",
         "published_date": "2026-03-27",
         "bucket": ""
       },
@@ -1195,6 +1195,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
+        "canonical_url": "https://aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
+        "title": "Intense bombing in Tehran, Isfahan",
+        "summary": "Black smoke is rising over Tehran and Isfahan after early morning US-Israeli airstrikes on the cities.",
+        "source": "Al Jazeera",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/3/28/intense-bombing-in-tehran-isfahan?traffic_source=rss",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
         "story_key": "https://aljazeera.com/video/newsfeed/2026/3/28/tiger-woods-arrested-for-suspected-dui-after-rolling-his?traffic_source=rss",
         "canonical_url": "https://aljazeera.com/video/newsfeed/2026/3/28/tiger-woods-arrested-for-suspected-dui-after-rolling-his?traffic_source=rss",
         "title": "Tiger Woods arrested for suspected DUI after rolling his car",
@@ -1321,16 +1331,6 @@
         "summary": "Impact of US-Israeli war on Iran poses serious risks beyond energy sector.",
         "source": "Al Jazeera",
         "url": "https://www.aljazeera.com/video/inside-story/2026/3/27/how-important-are-the-gulf-economies-to-the-world?traffic_source=rss",
-        "published_date": "2026-03-27",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://aljazeera.com/news/2026/3/27/house-republicans-shoot-down-bill-that-would-pay-federal-airport-workers?traffic_source=rss",
-        "canonical_url": "https://aljazeera.com/news/2026/3/27/house-republicans-shoot-down-bill-that-would-pay-federal-airport-workers?traffic_source=rss",
-        "title": "House Republicans shoot down bill that would pay federal airport workers",
-        "summary": "White House memo says Trump has instructed DHS to pay federal airport workers as long lines snarl travel.",
-        "source": "Al Jazeera",
-        "url": "https://www.aljazeera.com/news/2026/3/27/house-republicans-shoot-down-bill-that-would-pay-federal-airport-workers?traffic_source=rss",
         "published_date": "2026-03-27",
         "bucket": ""
       },
@@ -1525,16 +1525,6 @@
         "bucket": ""
       },
       {
-        "story_key": "https://dw.com/en/austria-plans-to-ban-social-media-for-under-14s/a-76571330?maca=en-rss-en-all-1573-rdf",
-        "canonical_url": "https://dw.com/en/austria-plans-to-ban-social-media-for-under-14s/a-76571330?maca=en-rss-en-all-1573-rdf",
-        "title": "Austria plans to ban social media for under-14s",
-        "summary": "Austria is set to follow other countries in curbing young people's access to social media. The three-party governing coalition plans to present a draft law by the end of June.",
-        "source": "DW",
-        "url": "https://www.dw.com/en/austria-plans-to-ban-social-media-for-under-14s/a-76571330?maca=en-rss-en-all-1573-rdf",
-        "published_date": "2026-03-27",
-        "bucket": ""
-      },
-      {
         "story_key": "https://dw.com/en/iran-war-israel-hits-iranian-heavy-water-nuclear-reactor/live-76555531?maca=en-rss-en-all-1573-rdf",
         "canonical_url": "https://dw.com/en/iran-war-israel-hits-iranian-heavy-water-nuclear-reactor/live-76555531?maca=en-rss-en-all-1573-rdf",
         "title": "Iran war: Israel hits Iranian heavy water nuclear reactor",
@@ -1675,6 +1665,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://france24.com/en/europe/20260327-spanish-woman-dies-by-euthanasia-in-case-that-drew-national-spotlight",
+        "canonical_url": "https://france24.com/en/europe/20260327-spanish-woman-dies-by-euthanasia-in-case-that-drew-national-spotlight",
+        "title": "Spanish woman dies by euthanasia in case that drew national spotlight",
+        "summary": "A 25-year-old woman underwent legal euthanasia in Spain on Thursday after a nearly two-year protracted legal battle and struggling with psychiatric illness since she was a teenager. Noelia Castillo's case was closely followed in Spain, which passed legislation in 2021 enshrining the right to euthanasia and medically assisted suicide for patients meeting certain conditions.",
+        "source": "France 24",
+        "url": "https://www.france24.com/en/europe/20260327-spanish-woman-dies-by-euthanasia-in-case-that-drew-national-spotlight",
+        "published_date": "2026-03-27",
+        "bucket": ""
+      },
+      {
         "story_key": "https://france24.com/en/video/20260327-caribbean-scientists-release-rare-footage-of-sperm-whale-birth",
         "canonical_url": "https://france24.com/en/video/20260327-caribbean-scientists-release-rare-footage-of-sperm-whale-birth",
         "title": "Caribbean: scientists release rare footage of sperm whale birth",
@@ -1692,6 +1692,36 @@
         "source": "France 24",
         "url": "https://www.france24.com/en/tv-shows/talking-europe/20260327-trump-administration-sidelines-threatens-europe-in-iran-war-eu-flounders-in-new-world-order",
         "published_date": "2026-03-27",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://scmp.com/sport/rugby/hk-sevens/article/3348128/first-hong-kong-sevens-rugby-tourney-held-1976-scmp-archive",
+        "canonical_url": "https://scmp.com/sport/rugby/hk-sevens/article/3348128/first-hong-kong-sevens-rugby-tourney-held-1976-scmp-archive",
+        "title": "First Hong Kong Sevens rugby tourney held in 1976 – SCMP archive",
+        "summary": "This article was first published on March 29, 1976.\nBy Jack Beattie\nWorld ‘sevens’ for HK?\nA seven-a-side rugby union world cup competition – and possibly staged in Hongkong!\nThat’s the exciting prospect that emerged after yesterday’s first International “Sevens” Championships held at the Hongkong Football Club.\nLast night Rothmans and Cathay Pacific, the joint-sponsors of this unique event, which had 12 countries competing, were playing it a bit coy – but both agreed that a similar promotion...",
+        "source": "SCMP",
+        "url": "https://www.scmp.com/sport/rugby/hk-sevens/article/3348128/first-hong-kong-sevens-rugby-tourney-held-1976-scmp-archive?utm_source=rss_feed",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://scmp.com/news/world/united-states-canada/article/3348223/us-special-envoy-witkoff-predicts-iran-talks-war-enters-second-month",
+        "canonical_url": "https://scmp.com/news/world/united-states-canada/article/3348223/us-special-envoy-witkoff-predicts-iran-talks-war-enters-second-month",
+        "title": "US special envoy Witkoff predicts Iran talks as war enters second month",
+        "summary": "US President Donald Trump’s special envoy Steve Witkoff said on Friday he believed Iran would hold talks with Washington “this week” as the US-Israeli war against Tehran entered its second month.\nThe war began on February 28 when the United States and Israel launched air strikes across Iran, killing supreme leader Ayatollah Ali Khamenei and sending shock waves across the globe.\nA month later the conflict showed no sign of ending, with US-Israeli strikes hitting two Iranian nuclear facilities on...",
+        "source": "SCMP",
+        "url": "https://www.scmp.com/news/world/united-states-canada/article/3348223/us-special-envoy-witkoff-predicts-iran-talks-war-enters-second-month?utm_source=rss_feed",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://scmp.com/business/china-evs/article/3348131/how-chinas-ev-makers-think-they-can-outrun-disastrous-price-wars",
+        "canonical_url": "https://scmp.com/business/china-evs/article/3348131/how-chinas-ev-makers-think-they-can-outrun-disastrous-price-wars",
+        "title": "How China’s EV makers think they can outrun disastrous price wars",
+        "summary": "The era of price wars in China’s electric vehicle (EV) market is giving way to a new contest: who can deliver better technology at the same price.\nOn a cloudy evening in March, Shenzhen-based BYD put forward its answer with the unveiling of a battery capable of charging from 10 to 70 per cent in just five minutes – and to 97 per cent in nine minutes. The company said it would apply the technology to models priced as low as 155,000 yuan (US$22,500) while building 20,000 charging stations this...",
+        "source": "SCMP",
+        "url": "https://www.scmp.com/business/china-evs/article/3348131/how-chinas-ev-makers-think-they-can-outrun-disastrous-price-wars?utm_source=rss_feed",
+        "published_date": "2026-03-28",
         "bucket": ""
       },
       {
@@ -1805,23 +1835,13 @@
         "bucket": ""
       },
       {
-        "story_key": "https://scmp.com/opinion/china-opinion/article/3347692/why-chinas-space-based-solar-power-next-frontier-green-energy",
-        "canonical_url": "https://scmp.com/opinion/china-opinion/article/3347692/why-chinas-space-based-solar-power-next-frontier-green-energy",
-        "title": "Why China’s space-based solar power is the next frontier of green energy",
-        "summary": "Amid turmoil in the Middle East, including the effective closure of the Strait of Hormuz, through which roughly a quarter of the world’s seaborne oil passes, Beijing is pressing ahead with its Zhuri (sun-chasing) project to build solar power stations in space.\nChinese Academy of Engineering academician and senior rocket scientist Long Lehao likened this space-based solar power programme to putting the Three Gorges Dam into geostationary orbit, underscoring its extraordinary scale and ambition....",
-        "source": "SCMP",
-        "url": "https://www.scmp.com/opinion/china-opinion/article/3347692/why-chinas-space-based-solar-power-next-frontier-green-energy?utm_source=rss_feed",
-        "published_date": "2026-03-27",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://scmp.com/news/china/diplomacy/article/3348217/china-denies-retaliating-against-panama-ships-accuses-washington-canal-grab",
-        "canonical_url": "https://scmp.com/news/china/diplomacy/article/3348217/china-denies-retaliating-against-panama-ships-accuses-washington-canal-grab",
-        "title": "China denies retaliating against Panama ships, accuses Washington of canal grab",
-        "summary": "China denied on Friday that it had intensified inspections of Panama-flagged vessels in retaliation for Panama’s decision to strip a Hong Kong-based conglomerate of port concessions at both ends of the Panama Canal, accusing Washington of seeking to seize control of the strategic waterway.\nDuring the daily press briefing at the Chinese Ministry of Foreign Affairs in Beijing, spokesman Lin Jian charged that the US had made “repeated wrongful allegations” about the inspections that exposed...",
-        "source": "SCMP",
-        "url": "https://www.scmp.com/news/china/diplomacy/article/3348217/china-denies-retaliating-against-panama-ships-accuses-washington-canal-grab?utm_source=rss_feed",
-        "published_date": "2026-03-27",
+        "story_key": "https://abc.net.au/news/2026-03-28/australia-women-defeat-west-indies-by-103-runs-in-first-odi/106506858",
+        "canonical_url": "https://abc.net.au/news/2026-03-28/australia-women-defeat-west-indies-by-103-runs-in-first-odi/106506858",
+        "title": "Australia sets record score to claim 1-0 series lead over West Indies",
+        "summary": "Australia power to a 103-run win over the West Indies, despite Stafanie Taylor's breakthrough one-day century.",
+        "source": "ABC Australia",
+        "url": "https://www.abc.net.au/news/2026-03-28/australia-women-defeat-west-indies-by-103-runs-in-first-odi/106506858",
+        "published_date": "2026-03-28",
         "bucket": ""
       },
       {
@@ -1941,16 +1961,6 @@
         "summary": "Henry Sue says kung fu taught him how to stand up for himself and live an honourable life.",
         "source": "ABC Australia",
         "url": "https://www.abc.net.au/news/2026-03-27/how-fighting-brisbane-bikies-helped-henry-sue-hone-kung-fu/106499624",
-        "published_date": "2026-03-27",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://abc.net.au/news/2026-03-27/afl-admits-crucial-umpire-error-late-in-crows-defeat-to-cats/106503360",
-        "canonical_url": "https://abc.net.au/news/2026-03-27/afl-admits-crucial-umpire-error-late-in-crows-defeat-to-cats/106503360",
-        "title": "AFL admits crucial umpire error late in Crows' defeat to Cats",
-        "summary": "Geelong's Tom Atkins convinced umpires a free-kick was his in a decision the AFL has since clarified should have gone Adelaide's way in a tight contest.",
-        "source": "ABC Australia",
-        "url": "https://www.abc.net.au/news/2026-03-27/afl-admits-crucial-umpire-error-late-in-crows-defeat-to-cats/106503360",
         "published_date": "2026-03-27",
         "bucket": ""
       },
@@ -2095,6 +2105,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://marketwatch.com/story/i-want-safe-returns-im-73-with-300-000-saved-im-not-interested-in-the-stock-market-what-should-i-do-85db84e2?mod=mw_rss_topstories",
+        "canonical_url": "https://marketwatch.com/story/i-want-safe-returns-im-73-with-300-000-saved-im-not-interested-in-the-stock-market-what-should-i-do-85db84e2?mod=mw_rss_topstories",
+        "title": "‘I want safe returns’: I’m 73 with $300,000 saved. I’m not interested in the stock market. What should I do?",
+        "summary": "“I’m not concerned about leaving money to the next generation.”",
+        "source": "MarketWatch",
+        "url": "https://www.marketwatch.com/story/i-want-safe-returns-im-73-with-300-000-saved-im-not-interested-in-the-stock-market-what-should-i-do-85db84e2?mod=mw_rss_topstories",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
         "story_key": "https://marketwatch.com/story/is-trump-losing-his-grip-on-the-market-sustained-stock-declines-suggest-the-presidents-influence-has-waned-02bc5938?mod=mw_rss_topstories",
         "canonical_url": "https://marketwatch.com/story/is-trump-losing-his-grip-on-the-market-sustained-stock-declines-suggest-the-presidents-influence-has-waned-02bc5938?mod=mw_rss_topstories",
         "title": "Is Trump losing his grip on the stock market? Sustained declines suggest the president’s influence has waned.",
@@ -2185,272 +2205,212 @@
         "bucket": ""
       },
       {
-        "story_key": "https://marketwatch.com/story/metas-stock-extends-decline-and-the-pressure-may-not-abate-anytime-soon-ea01a671?mod=mw_rss_topstories",
-        "canonical_url": "https://marketwatch.com/story/metas-stock-extends-decline-and-the-pressure-may-not-abate-anytime-soon-ea01a671?mod=mw_rss_topstories",
-        "title": "Meta’s stock extends decline — and the pressure may not abate anytime soon",
-        "summary": "Investors are worried that recent adverse legal rulings could open the door for widespread further penalties.",
-        "source": "MarketWatch",
-        "url": "https://www.marketwatch.com/story/metas-stock-extends-decline-and-the-pressure-may-not-abate-anytime-soon-ea01a671?mod=mw_rss_topstories",
-        "published_date": "2026-03-27",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://yna.co.kr/view/AKR20260328027400005",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328027400005",
-        "title": "메릴 스트리프·앤 해서웨이 내달 방한…'유퀴즈' 나온다",
-        "summary": "(서울=연합뉴스) 조윤희 기자 = 영화 '악마는 프라다를 입는다 2'의 주연 배우인 메릴 스트리프와 앤 해서웨이가 tvN 예능 '유 퀴즈 온 더...",
+        "story_key": "https://yna.co.kr/view/AKR20260328028600001",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328028600001",
+        "title": "장동혁 \"청년의 힘으로 선거승리\"…'논란' 이혁재와 오디션 참석",
+        "summary": "(서울=연합뉴스) 박수윤 기자 = 국민의힘은 6·3 지방선거를 앞두고 28일 '광역의원 비례 청년 공개 오디션' 결선을 진행했다.",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328027400005",
+        "url": "https://www.yna.co.kr/view/AKR20260328028600001",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328001200081",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328001200081",
-        "title": "佛, 내주 마크롱 방한에 \"양국관계 새로운 차원으로 격상\"",
-        "summary": "(파리=연합뉴스) 송진원 특파원 = 에마뉘엘 마크롱 프랑스 대통령이 내달 초 임기 중 처음으로 한국을 국빈 방문하면서 양국 협력 관계가 한층 강...",
+        "story_key": "https://yna.co.kr/view/AKR20260328029300073",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328029300073",
+        "title": "日자민당, '일장기 훼손죄' 논의 본격화…초점은 벌칙 유무",
+        "summary": "(도쿄=연합뉴스) 박상현 특파원 = 일본 집권 자민당이 당내 보수파가 도입을 바라는 일장기 훼손죄에 관한 논의를 본격적으로 시작했다고 아사히신문...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328001200081",
+        "url": "https://www.yna.co.kr/view/AKR20260328029300073",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328027800061",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328027800061",
-        "title": "정명근 화성시장, 예비후보 등록…시정 직무대행 체제 전환",
-        "summary": "(화성=연합뉴스) 김광호 기자 = 정명근 경기 화성시장이 지난 27일 화성시 만세구 선거관리위원회에 6·3 지방선거 화성시장 선거 더불어민주당 ...",
+        "story_key": "https://yna.co.kr/view/AKR20260328029400104",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328029400104",
+        "title": "중동전쟁에도 아세안 정상회의 예정대로 5월 개최…규모는 축소",
+        "summary": "(자카르타=연합뉴스) 손현규 특파원 = 중동전쟁이 장기화하는 가운데 아세안(ASEAN·동남아시아국가연합) 정상회의가 오늘 5월 의장국인 필리핀에...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328027800061",
+        "url": "https://www.yna.co.kr/view/AKR20260328029400104",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328027600004",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328027600004",
-        "title": "법원, 한학자 구속집행정지…내달 30일까지 석방",
-        "summary": "(서울=연합뉴스) 이승연 기자 = 법원이 구속 상태로 재판받으며 건강 악화를 호소해온 한학자 통일교 총재에게 일시 석방을 허가했다.",
+        "story_key": "https://yna.co.kr/view/AKR20260328026400009",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328026400009",
+        "title": "트럼프 또 '나토 패싱' 위협…유럽 \"최악 시나리오될라\" 초조",
+        "summary": "(서울=연합뉴스) 임화섭 기자 = 미국이 나토(NATO·북대서양조약기구) 동맹국들을 저버리고 러시아와 손잡을 수도 있다는 우려를 영국과 유럽의 ...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328027600004",
+        "url": "https://www.yna.co.kr/view/AKR20260328026400009",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328027200104",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328027200104",
-        "title": "말레이 총리·인니 대통령 회담…중동전쟁 여파 대응 방안 논의",
-        "summary": "(자카르타=연합뉴스) 손현규 특파원 = 중동전쟁이 장기화하는 가운데 안와르 이브라힘 말레이시아 총리가 프라보워 수비안토 인도네시아 대통령과 만나...",
+        "story_key": "https://yna.co.kr/view/AKR20260328018400065",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328018400065",
+        "title": "인천 송도에 국제대회 규격 갖춘 RC카 경기장 문열어",
+        "summary": "(인천=연합뉴스) 홍현기 기자 = 인천경제자유구역청은 28일 송도달빛공원에서 무선조종 자동차(RC카) 경기장 준공식을 열었다고 밝혔다.",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328027200104",
+        "url": "https://www.yna.co.kr/view/AKR20260328018400065",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328027300073",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328027300073",
-        "title": "日서 유가 상승 여파 확산…전기요금 인상·가격 할증제 도입",
-        "summary": "(도쿄=연합뉴스) 박상현 특파원 = 중동 정세 악화에 따른 유가 상승이 일본 경제 전반에 영향을 미치는 가운데 일본 주요 전력회사들이 내달 일제...",
+        "story_key": "https://yna.co.kr/view/AKR20260328029500007",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328029500007",
+        "title": "홍명보호 월드컵 최종전 상대 남아공, 파나마와 1-1 무승부",
+        "summary": "(서울=연합뉴스) 오명언 기자 = 2026 북중미 월드컵 본선에서 한국과 맞붙을 남아프리카공화국이 안방에서 열린 파나마와의 평가전에서 아쉬운 결...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328027300073",
+        "url": "https://www.yna.co.kr/view/AKR20260328029500007",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328026900009",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328026900009",
-        "title": "日, 정부 클라우드에 첫 자국기업 '사쿠라' 선정…\"美의존 탈피\"",
-        "summary": "(서울=연합뉴스) 이도연 기자 = 일본 국가기관과 지방자치단체가 사용하는 공용 클라우드 제공 사업자로 일본 업체가 처음으로 선정됐다고 요미우리신...",
+        "story_key": "https://yna.co.kr/view/AKR20260328028700075",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328028700075",
+        "title": "NASA '아르테미스Ⅱ' 발사 D-5…우주비행사 \"달로 갑시다\"",
+        "summary": "(로스앤젤레스=연합뉴스) 김경윤 특파원 = \"로켓은 준비됐고, 우리도 준비됐습니다. 이 우주비행선은 확실히 떠날 준비가 됐습니다. (…) 달로 ...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328026900009",
+        "url": "https://www.yna.co.kr/view/AKR20260328028700075",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328027100011",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328027100011",
-        "title": "[연합뉴스 이 시각 헤드라인] - 10:30",
-        "summary": "■ 트럼프 \"다음은 쿠바\"…이란 이어 무력행사 가능성 시사",
+        "story_key": "https://yna.co.kr/view/AKR20260328029200007",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328029200007",
+        "title": "신네르, 츠베레프 상대 7연승…마이애미오픈 테니스 결승 진출",
+        "summary": "(서울=연합뉴스) 김동찬 기자 = 얀니크 신네르(2위·이탈리아)가 남자프로테니스(ATP) 투어 마이애미오픈(총상금 941만5천725달러) 단식 ...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328027100011",
+        "url": "https://www.yna.co.kr/view/AKR20260328029200007",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328026600062",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328026600062",
-        "title": "봄철 대형화재 예방…강원소방, 공사장·요양시설 현장 점검",
-        "summary": "(춘천=연합뉴스) 강태현 기자 = 강원특별자치도소방본부는 봄철 대형화재를 예방하기 위해 대형 공사장과 요양시설에서 현장 지도·점검을 했다고 28...",
+        "story_key": "https://yna.co.kr/view/AKR20260328024800009",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328024800009",
+        "title": "협상이냐 지상전이냐…중동전쟁 한달째 이번주말 최대고비",
+        "summary": "(서울=연합뉴스) 오수진 기자 = 미국과 이스라엘의 이란 공습으로 시작된 중동 전쟁이 27일(현지시간) 한달째에 접어든 가운데 양측은 종전안을 ...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328026600062",
+        "url": "https://www.yna.co.kr/view/AKR20260328024800009",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328026500007",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328026500007",
-        "title": "김효주, LPGA 포드 챔피언십 2R 3언더파…코르다와 또 선두 경쟁",
-        "summary": "(서울=연합뉴스) 김경윤 기자 = 세계랭킹 4위 김효주가 미국여자프로골프(LPGA) 투어 포드 챔피언십(총상금 225만달러) 2라운드에서 선두권...",
+        "story_key": "https://yna.co.kr/view/AKR20260328002701007",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328002701007",
+        "title": "페퍼서 뛴 조이, 미국 올랜도와 계약…다음 시즌 유럽행 확정(종합)",
+        "summary": "(서울=연합뉴스) 이동칠 기자 = 이번 2025-2026시즌 여자 프로배구 페퍼저축은행에서 뛴 외국인 거포 조이 웨데링턴(등록명 조이)이 미국 ...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328026500007",
+        "url": "https://www.yna.co.kr/view/AKR20260328002701007",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328024600005",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328024600005",
-        "title": "숏폼 시대의 역설…'롱폼'으로 회귀하는 웹 예능",
-        "summary": "(서울=연합뉴스) 고가혜 기자 = '30초의 미학' 숏폼(Short-form)이 콘텐츠 시장을 점령한 요즘, 정작 유튜브 인기 급상승 차트 상단...",
+        "story_key": "https://yna.co.kr/view/AKR20260328028900004",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328028900004",
+        "title": "[동정] 오세훈 서울시장, '2026 유아차 런' 참가자들 응원",
+        "summary": "▲ 오세훈 서울시장은 28일 오전 광화문광장에서 열린 '2026 유아차 런' 참가자들을 응원하고 여의도공원까지 안전하게 달리기를 당부했다. 오 ...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328024600005",
+        "url": "https://www.yna.co.kr/view/AKR20260328028900004",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260327099000057",
-        "canonical_url": "https://yna.co.kr/view/AKR20260327099000057",
-        "title": "울주 온산 도시재생사업 '온산콘서트' 개최…\"상권 활성화\"",
-        "summary": "(울산=연합뉴스) 장영은 기자 = 울산 울주군은 28일 온산읍 덕신소공원에서 온산 도시재생사업의 일환으로 '덕신온마켓 with 온산콘서트'를 개...",
+        "story_key": "https://yna.co.kr/view/AKR20260328028000005",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328028000005",
+        "title": "서울대 관악대상 받은 이수만 \"한국문화 세계화 위해 최선\"",
+        "summary": "(서울=연합뉴스) 김선우 기자 = 프로듀서 이수만이 27일 서울 중구 롯데호텔에서 진행된 서울대 총동창회 정기총회에서 제28회 관악대상을 받았다...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260327099000057",
+        "url": "https://www.yna.co.kr/view/AKR20260328028000005",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328025000055",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328025000055",
-        "title": "전북도, 산사태 예방 대응 강화…취약지 점검·사방사업",
-        "summary": "(전주=연합뉴스) 최영수 기자 = 전북특별자치도는 집중호우와 태풍 등 자연 재난에 대비해 산사태 예방 및 대응체계를 강화한다고 28일 밝혔다.",
+        "story_key": "https://yna.co.kr/view/AKR20260327143300062",
+        "canonical_url": "https://yna.co.kr/view/AKR20260327143300062",
+        "title": "춘천시, 주말·휴일 농기계 임대 지원…영농 공백 최소화",
+        "summary": "(춘천=연합뉴스) 이상학 기자 = 강원 춘천시가 28일 영농철을 맞아 주말과 휴일에도 농기계 임대 서비스 운영에 들어갔다.",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328025000055",
+        "url": "https://www.yna.co.kr/view/AKR20260327143300062",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260328025500527",
-        "canonical_url": "https://yna.co.kr/view/AKR20260328025500527",
-        "title": "순천 등 전남 3곳 건조주의보",
-        "summary": "(광주=연합뉴스) 기상청은 28일 오전 10시를 기해 순천·광양·구례에 건조주의보를 발효한다고 밝혔다.",
+        "story_key": "https://yna.co.kr/view/AKR20260327134900017",
+        "canonical_url": "https://yna.co.kr/view/AKR20260327134900017",
+        "title": "KT '고위 임원 물갈이' 임박…조직 슬림화 속도",
+        "summary": "(서울=연합뉴스) 박형빈 기자 = KT[030200]가 오는 31일 정기 주주총회에서 박윤영 대표이사 후보자를 공식 선임한 이후 대규모 임원 인...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260328025500527",
+        "url": "https://www.yna.co.kr/view/AKR20260327134900017",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/national/national_general/2026/03/27/DBO6HDG2WBC4PFARVVN2MBMIAI",
-        "canonical_url": "https://chosun.com/national/national_general/2026/03/27/DBO6HDG2WBC4PFARVVN2MBMIAI",
-        "title": "‘마약 누명’ 배우 이상보, 숨진 채 발견... 소속사 “사인 비공개”",
+        "story_key": "https://yna.co.kr/view/AKR20260328028500009",
+        "canonical_url": "https://yna.co.kr/view/AKR20260328028500009",
+        "title": "中BYD, 작년 순익 4년만에 감소…국내 판매 부진에 수익성 압박",
+        "summary": "(서울=연합뉴스) 권수현 기자 = 중국 전기차업체 BYD(비야디)가 지난해 국내 판매 부진으로 순이익이 시장 예상치를 하회하며 4년 만에 감소했...",
+        "source": "연합뉴스",
+        "url": "https://www.yna.co.kr/view/AKR20260328028500009",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/culture-life/book/2026/03/28/UWNZT2MGXJFPXPSMQZRRGNSXWQ",
+        "canonical_url": "https://chosun.com/culture-life/book/2026/03/28/UWNZT2MGXJFPXPSMQZRRGNSXWQ",
+        "title": "[잠깐 이 저자] 달리기는 곧 명상… ‘中道’를 향해 뛴다",
         "summary": "",
         "source": "조선일보",
-        "url": "https://www.chosun.com/national/national_general/2026/03/27/DBO6HDG2WBC4PFARVVN2MBMIAI/",
+        "url": "https://www.chosun.com/culture-life/book/2026/03/28/UWNZT2MGXJFPXPSMQZRRGNSXWQ/",
         "published_date": "2026-03-27",
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/international/international_general/2026/03/28/OYIA455DBJBV3PIKKL7OYKJU4E",
-        "canonical_url": "https://chosun.com/international/international_general/2026/03/28/OYIA455DBJBV3PIKKL7OYKJU4E",
-        "title": "이스라엘, 이란 핵시설 잇따라 공습... “방사능 위험·인명피해 없어”",
-        "summary": "",
+        "story_key": "https://chosun.com/sports/baseball/2026/03/28/GA3DGYRXGUZGMMJVGE3DSOBTMY",
+        "canonical_url": "https://chosun.com/sports/baseball/2026/03/28/GA3DGYRXGUZGMMJVGE3DSOBTMY",
+        "title": "한화팬 대박! 입장권·굿즈 50% 할인에 철도 5% 할인까지 된다고?…'팬심 저격' 한화이글스 삼성카드 출시",
+        "summary": "[스포츠조선 이종서 기자] 한화 이글스가 삼성카드와 제휴해 야구장에서 각종 혜택을 제공하는 '한화이글스 삼성카드'를 출시했다. '한화이글스 삼성카드'는 홈 경기 입장권 및 굿즈샵 50％ 할인, 대전 한화생명 볼파크 내 식음매장 할인 10％를 각각 월 최대 2만원까지 제공한다. 또한 철도 요금 5％, 성심당 10％, 디지털콘텐츠 50%, 커피전문점·편의점 1",
         "source": "조선일보",
-        "url": "https://www.chosun.com/international/international_general/2026/03/28/OYIA455DBJBV3PIKKL7OYKJU4E/",
-        "published_date": "2026-03-27",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/entertainments/broadcast/2026/03/28/MUZTSZJTGMYTIOLDGM4TSMZZMY",
-        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/03/28/MUZTSZJTGMYTIOLDGM4TSMZZMY",
-        "title": "박보영, '차태현 소속사' 잠입..차태현 아내에게 '찐친 특권' SOS ('마니또클럽')",
-        "summary": "[OSEN=최이정 기자] MBC '마니또 클럽'이 역대급 마니또 작전과 함께 3기 회원들의 첫 만남을 공개한다. 오는 29일(일) 저녁 6시 5분 방송되는 MBC 예능 '마니또 클럽' 9회에서는 3기 회원 차태현, 박보영, 이선빈, 황광희, 강훈의 개별 마니또 미션이 펼쳐진다. 여기에 '시크릿 마니또'를 위한 대망의 첫 완전체 만남까지 공개될 예정으로 기대",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/entertainments/broadcast/2026/03/28/MUZTSZJTGMYTIOLDGM4TSMZZMY/",
+        "url": "https://www.chosun.com/sports/baseball/2026/03/28/GA3DGYRXGUZGMMJVGE3DSOBTMY/",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/entertainments/broadcast/2026/03/28/MQ3GIMZSMNQTEMRXGI2DOYRTGU",
-        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/03/28/MQ3GIMZSMNQTEMRXGI2DOYRTGU",
-        "title": "'계곡 살인' 이은해 \"무기징역 선고 후에도 남편 보험금 청구\" (용감한 형사들5)",
-        "summary": "[OSEN=최이정 기자] ‘용감한 형사들5’에서 집념으로 밝혀낸 이은해 살인사건과 주택가 모자 살인사건의 전말을 조명했다.지난 27일 방송된 티캐스트 E채널 ‘용감한 형사들5’(연출 이지선) 1회는 '터줏대감' 안정환, 권일용을 비롯해 새 MC 곽선영, 윤두준이 함께했다. 여기에 김면중 인천 미추홀경찰서 형사2과장과 과학수사대(KCSI) 윤외출 전 경무관,",
+        "story_key": "https://chosun.com/sports/world-football/2026/03/28/GIYGCYTCGFSTSMBZGJRTMNJUGQ",
+        "canonical_url": "https://chosun.com/sports/world-football/2026/03/28/GIYGCYTCGFSTSMBZGJRTMNJUGQ",
+        "title": "'한국은 1-0 겨우 이겼는데' 오스트리아, 골골골골골! '최정예' 가나 5-1 박살냈다...홍명보호와 A매치 앞두고 '예열 완료'",
+        "summary": "[OSEN=고성환 기자] 홍명보호와 맞붙을 예정인 오스트리아가 무서운 화력을 뽐냈다. '아프리카 강호' 가나를 상대로 5골을 폭격하며 대승을 거뒀다.국제축구연맹(FIFA) 랭킹 25위 오스트리아는 28일(한국시간) 오스트리아 빈의 에른스트 하펠 슈타디온에서 열린 친선경기에서 가나(FIFA 랭킹 72위)를 5-1로 완파했다. 이날 오스트리아는 4-2-3-1",
         "source": "조선일보",
-        "url": "https://www.chosun.com/entertainments/broadcast/2026/03/28/MQ3GIMZSMNQTEMRXGI2DOYRTGU/",
+        "url": "https://www.chosun.com/sports/world-football/2026/03/28/GIYGCYTCGFSTSMBZGJRTMNJUGQ/",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/sports/baseball/2026/03/28/GQ3TCZJRMQ2WCOLBHAYTMMTCHE",
-        "canonical_url": "https://chosun.com/sports/baseball/2026/03/28/GQ3TCZJRMQ2WCOLBHAYTMMTCHE",
-        "title": "\"우승준비 끝났다\" LG보다 세? 박진만 감독의 자신감, 어디에서 나오나",
-        "summary": "[대구=스포츠조선 정현석 기자]\"우승할 준비를 마쳤습니다.\" 화력 세고, 애정 넘치기로 유명한 삼성 팬들이 환호할 반가운 말이다. 하지만 감독이 이렇게 막 공언해도 괜찮은걸까. 긴 시즌 피할 수 없는 업다운 속에 돌아올 비난이 두렵지 않을까. 하지만 삼성 박진만 감독은 짊어져야 할 무게와 책임을 회피하지 않았다. 2026 개막을 맞는 삼성 라이온즈. 강한",
+        "story_key": "https://chosun.com/sports/world-baseball/2026/03/28/GBTGCYLBGBRWEOBVGVRGIODDME",
+        "canonical_url": "https://chosun.com/sports/world-baseball/2026/03/28/GBTGCYLBGBRWEOBVGVRGIODDME",
+        "title": "'트리플A 강등' 김혜성, 떨공 공략해 안타→163km 강습 타구는 아웃...ML 콜업 본격 준비",
+        "summary": "[OSEN=조형래 기자] 마이너리그로 강등된 김혜성이 트리플A 개막전에서 안타를 때려냈다.다저스 산하 트리플A 오클라호마 코메츠 소속이 된 김혜성은 28일(이하 한국시간) 미국 오클라호마주 오클라호마시티 치카소 브릭타운 볼파크에서 열리는 마이너리그 트리플A 개막전 앨버커키 아이소톱스(콜로라도 로키스 산하)와의 경기에 1번 타자 2루수로 선발 출장해 5타수",
         "source": "조선일보",
-        "url": "https://www.chosun.com/sports/baseball/2026/03/28/GQ3TCZJRMQ2WCOLBHAYTMMTCHE/",
+        "url": "https://www.chosun.com/sports/world-baseball/2026/03/28/GBTGCYLBGBRWEOBVGVRGIODDME/",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/international/international_general/2026/03/28/MFSTKZLGHAZDAY3BMRRTANLGMM",
-        "canonical_url": "https://chosun.com/international/international_general/2026/03/28/MFSTKZLGHAZDAY3BMRRTANLGMM",
-        "title": "타이거 우즈, 음주 또는 약물 운전 혐의로 체포",
-        "summary": "골프 황제 타이거 우즈가 음주·약물 운전 혐의(DUI)로 경찰에 체포돼 구금됐다고 27일(현지 시각) 미국 ABC방송과 AP통신 등이 보도했다. 보도에 따르면 우즈는 이날 오후 2시쯤 미국 플로리다주 마틴 카운티 아일랜드의 왕복 2차선 도로에서 차량을 몰다 충돌 사고에 연루됐다. 이 자리에서 음주·약물 혐의로 붙잡혔다. 우즈가 술에 취한 것인지 약물에 취한",
+        "story_key": "https://chosun.com/sports/world-football/2026/03/28/GBSDENJWMVSDMMJWGEYTGZJVG4",
+        "canonical_url": "https://chosun.com/sports/world-football/2026/03/28/GBSDENJWMVSDMMJWGEYTGZJVG4",
+        "title": "\"홈에서 야유라니, 실망\" 투헬의 팬 향한 질타.. '개인사정' 화이트 겸허히 받아들여",
+        "summary": "[OSEN=강필주 기자] 토마스 투헬(53) 잉글랜드 축구 국가대표팀 감독이 벤 화이트(29, 아스날)를 향한 홈팬들의 야유에 실망감을 드러냈다.투헬 감독이 이끄는 잉글랜드는 28일(한국시간) 영국 런던의 웸블리 스타디움에서 열린 우루과이와의 친선 경기에서 1-1로 승부를 가리지 못했다. 잉글랜드는 후반 36분 터진 수비수 벤 화이트의 선제골로 승리를 눈앞",
         "source": "조선일보",
-        "url": "https://www.chosun.com/international/international_general/2026/03/28/MFSTKZLGHAZDAY3BMRRTANLGMM/",
+        "url": "https://www.chosun.com/sports/world-football/2026/03/28/GBSDENJWMVSDMMJWGEYTGZJVG4/",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/sports/baseball/2026/03/28/MY2GGZTDMM4DIYJSGAZWMOBYG4",
-        "canonical_url": "https://chosun.com/sports/baseball/2026/03/28/MY2GGZTDMM4DIYJSGAZWMOBYG4",
-        "title": "'오재원만 있는게 아니다' 타팀도 탐내는 신인 전격 승선 \"완성도가 높다\"",
-        "summary": "[창원=스포츠조선 나유리 기자]혜성처럼 등장해 주전 진입까지 노리는 한화 이글스의 고졸 신인 오재원. 그러나 NC 다이노스 신재인 역시 그에 못지 않은 주목을 받으며 개막 엔트리에 전격 승선했다. NC는 28일 창원 NC파크에서 두산 베어스와 2026시즌 개막 시리즈 맞대결을 펼친다. 27일 발표한 개막 엔트리에서, NC는 무려 3명의 고졸 신인을 엔트리에",
+        "story_key": "https://chosun.com/sports/sports_photo/2026/03/28/MI2DINBTGY3DINZTMM3TAOJVGM",
+        "canonical_url": "https://chosun.com/sports/sports_photo/2026/03/28/MI2DINBTGY3DINZTMM3TAOJVGM",
+        "title": "[사진]에레디아,'홈런 세리머니는 이렇게'",
+        "summary": "[OSEN=인천, 민경훈 기자] 28일 인천 SSG랜더스필드에서 ‘2026 신한 SOL KBO리그’ SSG 랜더스와 KIA 타이거즈의 개막전이 열릴 예정인 가운데 경기 전 그라운드 훈련이 진행됐다.이날 경기에서 SSG은 화이트를, KIA는 네일을 선발로 내세운다.SSG 에레디아가 세리머니 연습을 하며 환하게 웃고 있다. 2026.03.28/ rumi@ose",
         "source": "조선일보",
-        "url": "https://www.chosun.com/sports/baseball/2026/03/28/MY2GGZTDMM4DIYJSGAZWMOBYG4/",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/entertainments/broadcast/2026/03/28/GFRTMMBWGRSTEN3FGFSWMNJZGU",
-        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/03/28/GFRTMMBWGRSTEN3FGFSWMNJZGU",
-        "title": "'5월 결혼' 최준희, 어깨+승모근 시술까지 받았다..\"제니+닝닝같은 어깨 원해\"",
-        "summary": "[OSEN=김나연 기자] 배우 故최진실의 딸 최준희가 결혼식을 앞두고 어깨라인 시술까지 받은 근황을 전했다.27일 최준희는 자신의 소셜 계정에 \"신부관리 정보공유\"라며 영상을 업로드 했다.영상에서 최준희는 \"전 살 쪘을때도 팔 라인이 늘 고민이었다. 체지방 다 없애고 나니 어깨 라인이 자꾸 신경쓰였다. 저 이제 곧 드레스도 입어야 하지 않나.. 너무 뭉툭ㅎ",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/entertainments/broadcast/2026/03/28/GFRTMMBWGRSTEN3FGFSWMNJZGU/",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/entertainments/broadcast/2026/03/28/G5RWIMBXGRQTIOLBGI3GEODCGY",
-        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/03/28/G5RWIMBXGRQTIOLBGI3GEODCGY",
-        "title": "'윤승아♥' 김무열, 비에 손절위기 \"너 잔짜 사람 미치게 할래?\" (크레이지 투어)",
-        "summary": "[OSEN=최이정 기자] ENA 예능 ‘크레이지 투어’가 20년 지기 절친 비(정지훈)와 김무열의 손절 위기를 예고했다.오늘(28일) 방송되는 ENA ‘크레이지 투어’ 5회에서는 호주에서의 마지막 밤을 보내기 위해 캠핑장으로 향하는 멤버들의 파란만장한 여정이 그려진다. 특히 한마디를 던지면 일장연설로 받아치는 집요한 수다력 보유자 김무열이 절친 비의 인내심",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/entertainments/broadcast/2026/03/28/G5RWIMBXGRQTIOLBGI3GEODCGY/",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/sports/world-football/2026/03/28/HE2GMMJTGQZWINJZMM4TSZLCMU",
-        "canonical_url": "https://chosun.com/sports/world-football/2026/03/28/HE2GMMJTGQZWINJZMM4TSZLCMU",
-        "title": "\"PL 한 시대 막 내린다\" 손흥민, 전설로 남을 'GOAT 12인' 포함...\"슈퍼스타 진열장 텅텅\" 살라도 작별 확정",
-        "summary": "[OSEN=고성환 기자] 이제는 '파라오' 모하메드 살라(34, 리버풀)마저 작별이 확정됐다. 손흥민(34, LAFC)과 함께 잉글랜드 축구를 호령했던 스타 플레이어들이 모두 떠나가고 있다.축구 콘텐츠 제작 매체 '라이브 스코어'는 26일(한국시간) \"프리미어리그의 한 시대가 막을 내리고 있다\"라며 프리미어리그를 대표하던 스타들의 근황을 전했다. 여기에 G",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/sports/world-football/2026/03/28/HE2GMMJTGQZWINJZMM4TSZLCMU/",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/entertainments/broadcast/2026/03/28/GVTGGNZUGNSDCODFGUZTKMLFMM",
-        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/03/28/GVTGGNZUGNSDCODFGUZTKMLFMM",
-        "title": "46kg 유지어터 구혜선, 주말에도 출근하는 대표님…미모 성수기",
-        "summary": "[OSEN=장우영 기자] 배우 구혜선이 바쁜 일상과 함께 46kg 몸무게를 유지 중이라고 밝혔다.28일 구혜선은 자신의 소셜 계정에 “주말이 없는 대퓨. 업무 중입니다. 체중도 유지 중”이라는 글과 사진을 공개했다.사진에서 구혜선은 대표님으로 활동하며 눈코뜰새 없이 바쁜 일상을 공개했다. 헤어와 메이크업도 제대로 정돈하지 못할 정도로 바쁜 일상을 보내고 있",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/entertainments/broadcast/2026/03/28/GVTGGNZUGNSDCODFGUZTKMLFMM/",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/sports/baseball/2026/03/28/G4ZWGNLFME3TIMZQGAZGIYRTGY",
-        "canonical_url": "https://chosun.com/sports/baseball/2026/03/28/G4ZWGNLFME3TIMZQGAZGIYRTGY",
-        "title": "2년 차 투수가 우승의 키를 쥐었다고? 국민 유격수가 콕 찍은 '키플레이어' 158km 좌완 [오!쎈 대구]",
-        "summary": "[OSEN=대구, 손찬익 기자] 데뷔 첫해 강렬한 인상을 남긴 프로야구 삼성 라이온즈 좌완 배찬승이 한 단계 더 도약을 준비하고 있다. 그의 성장 여부가 올 시즌 삼성의 운명을 좌우할 ‘키’가 될 전망이다.청소년대표 출신 배찬승은 지난해 1군 무대에 데뷔해 풀타임을 소화하며 19홀드를 기록, 김태훈과 함께 팀 내 공동 1위에 올랐다. 신인답지 않은 배짱과",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/sports/baseball/2026/03/28/G4ZWGNLFME3TIMZQGAZGIYRTGY/",
+        "url": "https://www.chosun.com/sports/sports_photo/2026/03/28/MI2DINBTGY3DINZTMM3TAOJVGM/",
         "published_date": "2026-03-28",
         "bucket": ""
       },
@@ -2465,22 +2425,112 @@
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/economy/economy_general/2026/03/28/2ERLXSWRZBDWDB4WSWMAJMOH7Y",
-        "canonical_url": "https://chosun.com/economy/economy_general/2026/03/28/2ERLXSWRZBDWDB4WSWMAJMOH7Y",
-        "title": "이란 전쟁에 엔저… 엔화 환율 1년 8개월 만에 160엔 돌파",
-        "summary": "",
+        "story_key": "https://chosun.com/sports/sports_photo/2026/03/28/GU3TCNJYMM3WKZBXHEYDEM3CG4",
+        "canonical_url": "https://chosun.com/sports/sports_photo/2026/03/28/GU3TCNJYMM3WKZBXHEYDEM3CG4",
+        "title": "[사진]염경엽 감독, 2연패 시동",
+        "summary": "[OSEN=잠실, 지형준 기자] 28일 서울 잠실야구장에서 2026 신한 SOL KBO리그 개막전 LG 트윈스와 KT 위즈의 경기가 열렸다. 이날 LG는 요니 치리노스, KT는 맷 사우어를 선발로 내세웠다.LG 염경엽 감독이 인터뷰를 하고 있다. 2026.03.28/ jpnews@osen.co.kr",
         "source": "조선일보",
-        "url": "https://www.chosun.com/economy/economy_general/2026/03/28/2ERLXSWRZBDWDB4WSWMAJMOH7Y/",
+        "url": "https://www.chosun.com/sports/sports_photo/2026/03/28/GU3TCNJYMM3WKZBXHEYDEM3CG4/",
         "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/sports/world-baseball/2026/03/28/GMZWMZDBGM2TKNBQHE3GGOJRMQ",
-        "canonical_url": "https://chosun.com/sports/world-baseball/2026/03/28/GMZWMZDBGM2TKNBQHE3GGOJRMQ",
-        "title": "'무안타 헛방망이' 이정후 보고있나? 5타수 무안타 4K → 결승 투런포 대변신! 저지, WBC 부진 씻고 일어섰다",
-        "summary": "[스포츠조선 김영록 기자] 뉴욕 양키스 애런 저지가 새 시즌을 맞이하는 기지개를 켰다. 반면 샌프란시스코 자이언츠 이정후는 침묵을 지켰다. 양키스는 28일(한국시각) 미국 샌프란시스코 오라클파크에서 열린 메이저리그 샌프란시스코전에서 3대0으로 승리했다. 0-0으로 맞선 6회초, 샌프란시스코 선발 로비 레이를 상대로 저지가 선제 투런포를 쏘아올렸다. 이어 지",
+        "story_key": "https://chosun.com/entertainments/broadcast/2026/03/28/MQ2DENZSHEYTIM3FME4GIYRRME",
+        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/03/28/MQ2DENZSHEYTIM3FME4GIYRRME",
+        "title": "'10년 논란 정리' 서인영, 유튜브 다시 부활…돌연 삭제 하루 만 \"아임 백\" [Oh!쎈 이슈]",
+        "summary": "[OSEN=장우영 기자] 가수 서인영의 개과천선을 담은 유튜브 채널이 돌연 삭제 하루 만에 복구됐다.28일 유튜브 채널 ‘서인영의 개과천선’은 다시 복구가 된 상태다. 지난 27일 돌연 삭제된 지 약 하루 만으로, “여러분 저 다시 돌아왔어요~ I’m back♥”라는 고정 댓글도 달렸다.서인영은 지난 26일 유튜브 채널 ‘서인영의 개과천선’을 열고 10년",
         "source": "조선일보",
-        "url": "https://www.chosun.com/sports/world-baseball/2026/03/28/GMZWMZDBGM2TKNBQHE3GGOJRMQ/",
+        "url": "https://www.chosun.com/entertainments/broadcast/2026/03/28/MQ2DENZSHEYTIM3FME4GIYRRME/",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/entertainments/music/2026/03/28/MZQTCM3BGA2TOZDDMYZTAOBYMM",
+        "canonical_url": "https://chosun.com/entertainments/music/2026/03/28/MZQTCM3BGA2TOZDDMYZTAOBYMM",
+        "title": "로제 '아파트', 2026년에도 신드롬ing..美 아이하트라디오 '2관왕'",
+        "summary": "[OSEN=지민경 기자] 아티스트 로제가 '아이하트라디오' 2관왕에 등극했다.지난 26일(이하 현지 시간) 미국 로스앤젤레스에서 개최된 '2026 아이하트라디오 뮤직 어워즈(iHeart Radio Music Awards 2026)'에서 로제가 브루노 마스와의 듀엣 곡 'APT.'(아파트)로 '베스트 컬래버레이션'과 '올해의 K팝 아티스트' 두 부문을 수상했",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/entertainments/music/2026/03/28/MZQTCM3BGA2TOZDDMYZTAOBYMM/",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/video_photo/2026/03/28/HWINZIFYFNGXJF4GBINQEAWVME",
+        "canonical_url": "https://chosun.com/video_photo/2026/03/28/HWINZIFYFNGXJF4GBINQEAWVME",
+        "title": "공장이 멈췄다...중동전쟁에 ‘종량제봉투 품절 사태’",
+        "summary": "",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/video_photo/2026/03/28/HWINZIFYFNGXJF4GBINQEAWVME/",
+        "published_date": "2026-03-27",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/entertainments/broadcast/2026/03/28/G5QTKMZVMY2DCYZUMM2GCNBZG4",
+        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/03/28/G5QTKMZVMY2DCYZUMM2GCNBZG4",
+        "title": "'이혼' 최동석, '면접교섭'으로 만난 아이들..\"함께 어디라도 떠나고파\" 애틋",
+        "summary": "[OSEN=김나연 기자] 방송인 최동석이 면접교섭으로 만난 아이들과 함께 보내는 일상을 전했다.27일 최동석은 자신의 소셜 계정에 \"아이들과 게임도 하고 넷플릭스 '달라달라' 보면서 텍사스 가고싶다고 연발하는 금요일 저녁이다\"라며 사진을 올렸다.공개된 사진에는 최동석의 집에서 넷플릭스 예능 '이서진의 달라달라'를 시청하고 있는 최동석과 그의 두 아이들의 모",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/entertainments/broadcast/2026/03/28/G5QTKMZVMY2DCYZUMM2GCNBZG4/",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Inter/article/all/20260328/133627548/1",
+        "canonical_url": "https://donga.com/news/Inter/article/all/20260328/133627548/1",
+        "title": "암으로 세상 떠난 아내 위해…말레이시아 반도 ‘2200㎞’ 대장정 나선 中 남편",
+        "summary": "중국의 한 60대 남성이 암으로 세상을 떠난 아내를 기리기 위해 말레이시아 반도 2200㎞를 완주하는 대장정에 나섰다.28일 홍콩 매체 사우스차이나모닝포스트(SCMP) 등 외신에 따르면 전직 토목 엔지니어인 림샹구이(66·남)씨는 이날 자신의 67세 생일인 6월 22일까지 90일 동안 말레이시아 전역을 달리는 ‘런 포 골드(Run for Gold)’ 공익 캠페인을 시작했다. 이번 여정은 림씨가 직접 기획한 캠페인으로, 말레이시아 국립암협회(NCSM)와 협력해 전국적인 암 인식 개선 활동과 모금 운동을 병행한다.캠페인을 시작하게 된 배경에는 뒤늦게 암 판정을 받은 아내 고씨와의 이별에 있다. 2023년 11월 림씨는 아내와 생애 첫 하프 마라톤을 완주하며 큰 기쁨을 만끽했는데, 이후 고씨는 심한 복통을 호소하다 담도암 4기 판정을 받았다. 아내는 딸이 일하는 호주의 한 병원에서 두 차례의 항암 치료를 받았지만 2024년 8월 끝내 세상을 떠났다.림씨는 “때로는 나 자신에게, 때로",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Inter/article/all/20260328/133627548/1",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Inter/article/all/20260328/133627545/1",
+        "canonical_url": "https://donga.com/news/Inter/article/all/20260328/133627545/1",
+        "title": "“결혼식 때 입은 웨딩드레스 다시 입었어요”…1년만에 43㎏ 감량한 英 여성",
+        "summary": "영국의 한 40대 여성이 비만 치료제의 도움으로 설탕 중독을 극복하고 1년 만에 약 43㎏을 감량해 화제가 되고 있다.26일(현지시각) 영국 데일리메일 등 외신에 따르면 머지사이드주 위럴에 거주하는 다니엘 태너(41·여)는 불과 1년 전까지만 해도 몸무게가 104㎏에 달하는 고도비만 상태였다. 체질량지수(BMI)는 42.1로 정상 범위(18.5~24.9)를 크게 벗어났고, 옷 치수는 20사이즈(한국 기준 2XL 이상)를 입어야 할 수준이었다.그녀의 비만 원인은 심각한 ‘설탕 중독(sugar addict)’ 때문이었다. 태너는 아이들을 학교에 등교시킨 직후부터 잠들기까지 하루 최소 15개의 초콜릿 바와 초콜릿 과자 한 박스를 먹어 치우는 일과를 반복했다. 그녀는 당시 상황에 대해 “마치 알코올 중독자 같았다. 초콜릿이 너무 맛있어서 먹는 것을 멈출 수 없었고, 머릿속에서 계속 단 음식을 찾는 괴물을 잠재워야만 했다”고 회상했다.건강 악화를 우려한 의사의 경고에 태너는 지난해 1월",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Inter/article/all/20260328/133627545/1",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Politics/article/all/20260328/133627536/1",
+        "canonical_url": "https://donga.com/news/Politics/article/all/20260328/133627536/1",
+        "title": "국힘 “李, 천안함 유족 면박…가슴에 비수”",
+        "summary": "국민의힘이 28일 이재명 대통령을 향해 “북한의 천안함 폭침에 대해 대한민국 대통령으로서 분명하고 단호하게 사과를 요구하라”고 말했다. 또 “이 대통령이 천안함 유족 가슴에 또다시 비수를 꽂았다”고 비판했다.박성훈 수석대변인은 이날 논평을 통해 이 대통령이 전날 ‘서해 수호의 날 기념식’에서 ‘북한에 사과를 요구해달라’는 천안함 피격 사건 유족의 요청에 ‘사과하라고 한다고 해서 북한이 하겠습니까’라고 답했다는 언론 보도를 거론하며 “이 대통령이 천안함 피격이라는 북한의 만행 앞에 또다시 침묵했다”라고 비판했다. 그는 이어 “‘사과하란다고 해서 북한이 사과하겠습니까’라는 이 대통령의 그 가벼운 한마디가 46명 용사의 희생과 유가족의 절규를 짓밟았다”며 “‘끝까지 사과를 요구하겠다’는 그 한마디가 그리 어렵나. 서해를 지키다 쓰러진 장병들의 희생은 대통령에게는 그저 불편한 과거인가”라고 되물었다. 장동혁 대표도 이날 페이스북을 통해 해당 언론 보도를 거론하며 “이 대통령에게 딱 한",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Politics/article/all/20260328/133627536/1",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Inter/article/all/20260328/133627526/1",
+        "canonical_url": "https://donga.com/news/Inter/article/all/20260328/133627526/1",
+        "title": "여유만만 트럼프?…호르무즈 두고 “트럼프 해협” 등 농담 쏟아내",
+        "summary": "도널드 트럼프 미국 대통령이 27일(현지 시간) 이란이 봉쇄하고 있는 호르무즈 해협을 두고 ‘트럼프 해협’이라고 부르는 등 농담을 쏟아냈다. 21∼26일 5일 동안에만 두 번이나 이란 공격을 유예하는 등 오락가락 행보를 보이는 가운데 나온 발언들이다. AP통신에 따르면 트럼프 대통령은 이날 미국 플로리다주 마이애미에서 사우디 국부 펀드가 주최한 퓨처 인베스트먼트 이니셔티브(FII) 행사 연설에서 “그들은 트럼프 해협, 아니, 호르무즈 해협을 열어야 한다”고 말했다. 미군이 이란과의 전쟁에서 군사적 목표를 달성하고 있다고 강조하는 과정에서 나온 발언이다.그는 이어 “정말 죄송하다. 끔찍한 실수였다”면서도 “가짜 뉴스는 그가 실수로 ‘트럼프 해협’이라고 말했다고 보도할 것”이라고 덧붙였다. 하지만 이내 또 다시 “아니다. 나에게는 실수란 없다. 거의 없다”고 자신의 말을 정정했다. 베네수엘라, 이란에 이어 쿠바를 향해 무력을 행사할 가능성을 시사하는 과정에선 “못 들은 것으로",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Inter/article/all/20260328/133627526/1",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Culture/article/all/20260328/133622325/1",
+        "canonical_url": "https://donga.com/news/Culture/article/all/20260328/133622325/1",
+        "title": "“나보다 힘들게 둘 순 없어 끌어냈더니 …이젠 와이어에 매달려 보겠답니다”[유재영의 전국깐부자랑]",
+        "summary": "깐부. ‘같은 편’, 나아가 ‘어떤 경우라도 모든 것을 함께 나눌 수 있는 사이’라는 의미의 은어(속어)죠. 제아무리 모두 갖춘 인생이라도 건전하게 교감하는 평생의 벗이 없다면 잘 살았다고 말할 수 있을까요. 좋은 인간관계는 건강에도 긍정적인 영향을 준다고 합니다. 깐부들 사이에 피어나는 ‘같이의 가치’를 소개합니다.“혼자인 게 좋아~.”그런데 요즘은 혼자가 아니다. 노래 가사였지만 김종서는 정말 혼자가 편한 사람이다. 미성으로 열정을 토해 내는 록가수이지만, 스스로를 ‘극(極)내향인’이라고 부를 정도다.  무대 밖에선 혼자 있을 때 안정감을 느낀다. 그의 노래처럼 ‘아름다운 구속’을 좋아한다.김장훈은 정반대다. 사람 좋아하고, 사람 사이를 누비며 에너지를 만든다. 그렇다고 아무나 어울리는 스타일은 아니다. 이런 사람, 저런 사람 다 겪어 본 다음에 마음이 맞지 않으면 차라리 혼자가 낫다고 여긴다. 대신 한두 명이라도 맞는 사람이 있으면 그건 축복이라 믿는다. 그 사람에게는 자",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Culture/article/all/20260328/133622325/1",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Economy/article/all/20260327/133621220/2",
+        "canonical_url": "https://donga.com/news/Economy/article/all/20260327/133621220/2",
+        "title": "“형제끼리 부모 집 나누다 결국 경매”…싸움 나면 이렇게 된다",
+        "summary": "형제 간 부모 집 상속 후 분쟁이 발생하면 부동산은 어떻게 나뉠까. 법원은 원칙적으로 현물분할을 우선 검토하며, 경매는 예외적으로 진행된다. 공유 부동산 분할 기준과 경매 시 손해 가능성까지 정리했다.",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Economy/article/all/20260327/133621220/2",
         "published_date": "2026-03-28",
         "bucket": ""
       },
@@ -2575,63 +2625,23 @@
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Culture/article/all/20260328/133627445/1",
-        "canonical_url": "https://donga.com/news/Culture/article/all/20260328/133627445/1",
-        "title": "엔믹스, 첫 월드투어 亞 개최 지역 발표…국내외 17개 도시 19회 공연",
-        "summary": "그룹 ‘엔믹스(NMIXX)’가 첫 월드투어의 아시아 개최 지역을 발표했다. 28일 소속사 JYP엔터테인먼트에 따르면, 엔믹스는 오는 6월13일 방콕, 20일 싱가포르, 7월11일 가오슝, 25일 홍콩에서 ‘에피소드 1: 제로 프론티어’를 펼친다.   앞서 개최 소식을 전한 8월 8~9일 도쿄까지 아시아 5개 도시에서 6회 단독 콘서트를 진행한다.지난해 11월 29~30일 인천 인스파이어 아레나를 매진시키며 데뷔 약 3년9개월 만에 성사된 월드투어 항해의 닻을 올린 엔믹스는 이로써 국내외 17개 도시 19회 공연으로 투어 규모를 확장한다.엔믹스는 첫 월드투어에 뜨거운 열정과 에너지를 쏟아붓고 있다. 지난 17일(이하 현지시간) 마드리드에서 출발한 유럽 투어는 20일 암스테르담, 22일 파리, 24일 프랑크푸르트, 26일 런던까지 5개 도시에서 화려하게 열렸다.생생한 밴드 사운드에 맞춰 라이브로 선사하는 ‘오오’, ‘다이스’, ‘대시’, ‘러브 미 라이크 디스’ ‘블루 밸런타인",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Culture/article/all/20260328/133627445/1",
-        "published_date": "2026-03-28",
+        "story_key": "https://hani.co.kr/arti/economy/economy_general/1251526.html",
+        "canonical_url": "https://hani.co.kr/arti/economy/economy_general/1251526.html",
+        "title": "2차 최고가격제 둘째날, 서울 휘발유 1900원 육박",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/economy/economy_general/1251526.html",
+        "published_date": "",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Society/article/all/20260328/133627442/1",
-        "canonical_url": "https://donga.com/news/Society/article/all/20260328/133627442/1",
-        "title": "초·중생 ‘디지털 역량’ 60점에 그쳐…창의적 생산 부족",
-        "summary": "인공지능(AI) 시대 초·중학생의 디지털 활용 역량이 낮은 수준이라는 지적이 나왔다. 특히 창의적 생산 역량이 뚜렷하게 부족하다는 평가다. 28일 교육계에 따르면 교육부, 성평등가족부, 과학기술정보통신부, 방송미디어통신위원회 등 4개 정부기관은 지난 26일 ‘안전하고 포용적인 AI·과학기술 기반 마련과 청소년 보호를 위한 업무협약’을 체결했다. 온라인 환경에서의 청소년 보호와 과의존 예방을 위한 AI윤리·안전 제도 정비, AI 기반 위기청소년 지원 확대, 학교와 청소년시설 등을 활용한 디지털 역량 제고 및 과학기술·AI 분야 여성 인력 성장지원 등 다양한 분야에서 협력을 강화한다. 최교진 교육부 장관은 “학교 현장을 중심으로 AI와 디지털 역량 교육을 강화하고 관계 부처와의 긴밀한 협력을 통해 청소년을 보호할 수 있는 안전한 AI 활용 환경을 조성하겠다”고 밝혔다. ◆100점 만점에 초 ‘60.46점’, 중 ‘59.98점’실제 학생들의 디지털 활용 역량은 낮은 수준으로 파악",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Society/article/all/20260328/133627442/1",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://donga.com/news/Society/article/all/20260328/133627439/1",
-        "canonical_url": "https://donga.com/news/Society/article/all/20260328/133627439/1",
-        "title": "“주차 단속 막아줬으니 2만원 달라”…무안 마을 이장 발언 논란",
-        "summary": "무안 소재 한 마을 이장이 불법 주정차 단속을 막아줬다며 금전을 요구해 논란이다.28일 〈뉴스1〉 취재를 종합하면 전남 무안 교촌리에 거주하는 30대 A 씨는 지난 26일 오후 5시 30분쯤 마을 이장 B 씨로부터 “차를 빼달라”는 전화를 받았다.B 씨는 A 씨에게 자신을 “마을 이장이자 주민자치회 소속”이라고 강조하며 “아는 사람이 단속을 하러 왔지만 내가 돌려보냈다”고 말한 것으로 전해졌다.A 씨는 해당 구역이 주정차 금지구역(노란 선)이 아닌 주정차가 일정 정도 가능한 흰색 실선 구간이었으며 차량 역시 정상적으로 주차돼 있었다고 주장했지만, 그럼에도 B 씨가 차량 이동을 재차 요구하자 결국 차량을 옮겼다.이 과정에서 B 씨는 A 씨에게 “단속을 피하게 해줬으니 2만 원을 달라”는 취지의 발언까지 한 것으로 알려졌다.A 씨가 “왜 돈을 줘야 하느냐”고 문제를 제기하자, 그제야 B 씨는 “농담이었다”고 말했다.A 씨는 “단속 권한이 없는 사람이 단속을 막아준 것처럼 말하",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Society/article/all/20260328/133627439/1",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://donga.com/news/Entertainment/article/all/20260328/133627436/1",
-        "canonical_url": "https://donga.com/news/Entertainment/article/all/20260328/133627436/1",
-        "title": "‘병역 비리’ 라비, 소집해제 후 사과 “비겁한 선택으로 상처드려”",
-        "summary": "병역의무를 회피한 혐의로 징역형을 선고받았던 그룹 빅스 출신 래퍼 라비(33·김원식)가 소집해제 후 사과했다.라비는 지난 27일 자신의 사회관계망서비스(SNS) 계정에 “오랜만에 인사드린다”며 글을 올렸다.그는 “저는 2022년 10월부터 사회복무요원으로 근무하던 중 병역법 위반과 관련된 재판을 받게 되었고, 그 과정으로 인해 복무가 중단됐다”며 “이후 병무청의 처분과 지시에 따라 남은 복무 기간을 이행해 지난 2025년 12월 13일 자로 소집 해제됐다”고 알렸다.이어 “이 과정을 겪으며 스스로를 돌아보고 다그쳐야 할 때 개인의 상황과 환경을 핑계 삼아 이해를 바랐던 저 자신이 더없이 부끄럽게 느껴졌고, 비겁한 선택으로 타인에게 상처와 피해를 줄 수 있다는 걸 깨닫게 됐다”며 “저의 잘못된 행동으로 상처를 입으신 분들께 다시 한번 사과 말씀드리며 앞으로 더 나은 사람으로 살기 위해 끊임없이 배우고 스스로를 다잡아가겠다”고 전했다.지난 2023년 병역 브로커 구 모 씨와 공모",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Entertainment/article/all/20260328/133627436/1",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://donga.com/news/Culture/article/all/20260328/133627433/1",
-        "canonical_url": "https://donga.com/news/Culture/article/all/20260328/133627433/1",
-        "title": "엄지원, 가문 비화 공개…“단종 시신 수습한 엄흥도 후손”",
-        "summary": "배우 엄지원이 단종 시신을 수습한 엄흥도의 후손이라고 밝혔다.소속사 ABM컴퍼니는 27일 공식 소셜미디어를 통해 “나 엄지원, 엄흥도 선생님 후손 이야기 푼다”라는 글과 함께 영상을 공개했다. 영상에서 엄지원은 “영화 ‘왕과 사는 남자’ 엄흥도 선생님 후손이냐”라는 질문을 받았다. 그는 “원래 엄씨는 본이 영월 엄씨 하나라 다 가족이다. 다 친척이다”라고 답했다.엄지원은 어린 시절 가족에 대해 호기심을 갖게 되면서 엄흥도를 알게 됐다고 한다. 그는 “어렸을 때 족보를 공부할 때 ‘우리는 왜 집안에 유명한 사람이 없어’ 이랬다”며 “아빠가 맨날 ‘우리는 엄흥도 선생님이 계신다’라고 해서 ‘엄흥도 선생님이 누구야’라고 했다”고 전했다.엄지원은 자신이 엄흥도의 31대손이라고 밝혔다. 그러면서 “패밀리 히스토리를 공부하면서 이미 알고 있었던 사실”이라고 했다. 엄지원은 ‘왕과 사는 남자’ 흥행에 대해 “우리 패밀리의 가장 유명하셨던 조상님이 많은 사랑을 받게 되어 감개무량하다”고",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Culture/article/all/20260328/133627433/1",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://donga.com/news/Entertainment/article/all/20260328/133627430/1",
-        "canonical_url": "https://donga.com/news/Entertainment/article/all/20260328/133627430/1",
-        "title": "BTS, 스포티파이 주간 차트 석권…‘스윔’ 올해 최다 주간 재생수",
-        "summary": "그룹 방탄소년단(BTS)이 글로벌 차트에서 팀 최고 성적을 기록했다.28일 발표된 영국 오피셜 차트에 따르면 방탄소년단의 정규 5집 ‘아리랑’(ARIRANG)은 영국 ‘오피셜 앨범 톱 100’ 차트(3월 27일~4월 2일 자) 정상에 올랐다.이는 미니 6집 ‘맵 오브 더 솔 : 페르소나’(MAP OF THE SOUL : PERSONA)와 정규 4집 ‘맵 오브 더 솔 : 7’에 이은 통산 세 번째 1위다. 또한 ‘오피셜 바이닐 앨범 차트’에서도 정상을 찍었다.타이틀곡 ‘스윔’은 ‘오피셜 싱글 톱 100’ 2위에 자리했다. 이는 2020년 ‘다이너마이트’(Dynamite)와 2021년 ‘버터’(Butter)가 세운 3위를 뛰어넘는 자체 최고 성적이다. 수록곡인 ‘보디 투 보디’(Body to Body)(28위)와 ‘FYA’(39위) 역시 차트인에 성공했다.글로벌 음원 스트리밍 플랫폼 스포티파이 주간 차트(3월 20~26일)에서도 성과를 거뒀다. 방탄소년단은 ‘위클리 톱 앨범’,",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Entertainment/article/all/20260328/133627430/1",
-        "published_date": "2026-03-28",
+        "story_key": "https://hani.co.kr/arti/international/international_general/1251525.html",
+        "canonical_url": "https://hani.co.kr/arti/international/international_general/1251525.html",
+        "title": "또 차량 전복…타이거 우즈, 음주·약물운전 혐의 체포돼 구금",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/international/international_general/1251525.html",
+        "published_date": "",
         "bucket": ""
       },
       {
@@ -2661,6 +2671,16 @@
         "summary": "",
         "source": "한겨레",
         "url": "https://www.hani.co.kr/arti/culture/book/1251522.html",
+        "published_date": "",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hani.co.kr/arti/international/international_general/1251521.html",
+        "canonical_url": "https://hani.co.kr/arti/international/international_general/1251521.html",
+        "title": "이스라엘, 이란 핵시설 잇따라 공습…“방사능 유출∙인명 피해 없어”",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/international/international_general/1251521.html",
         "published_date": "",
         "bucket": ""
       },
@@ -2755,23 +2775,53 @@
         "bucket": ""
       },
       {
-        "story_key": "https://hani.co.kr/arti/sports/volleyball/1251511.html",
-        "canonical_url": "https://hani.co.kr/arti/sports/volleyball/1251511.html",
-        "title": "현대캐피탈, 85% 확률 잡았다…V리그 PO 1차전 우리카드에 대역전승",
+        "story_key": "https://hankyung.com/article/2026032827267",
+        "canonical_url": "https://hankyung.com/article/2026032827267",
+        "title": "中 전기차, 테슬라보다 잘 팔렸는데…충격 결과에 '초비상'",
         "summary": "",
-        "source": "한겨레",
-        "url": "https://www.hani.co.kr/arti/sports/volleyball/1251511.html",
-        "published_date": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026032827267",
+        "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://hani.co.kr/arti/society/society_general/1251510.html",
-        "canonical_url": "https://hani.co.kr/arti/society/society_general/1251510.html",
-        "title": "배민에서 개인정보 빼돌려…오물 투척 등 ‘보복 대행’ 일당 체포",
+        "story_key": "https://hankyung.com/article/202603271813i",
+        "canonical_url": "https://hankyung.com/article/202603271813i",
+        "title": "\"돈 벌어야죠\" 위험 감수한 직장인들 '베팅'…'32조' 뚫었다",
         "summary": "",
-        "source": "한겨레",
-        "url": "https://www.hani.co.kr/arti/society/society_general/1251510.html",
-        "published_date": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/202603271813i",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hankyung.com/article/202603271195g",
+        "canonical_url": "https://hankyung.com/article/202603271195g",
+        "title": "'아이폰' 깨물던 지드래곤도 '좋아요'…애플 '야심작' 뭐길래 [테크로그]",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/202603271195g",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hankyung.com/article/202603064323i",
+        "canonical_url": "https://hankyung.com/article/202603064323i",
+        "title": "\"공공건축은 도시 기억…정치 대상 아냐\" [강영연의 건축 그리고 건축가]",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/202603064323i",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hankyung.com/article/2026032827157",
+        "canonical_url": "https://hankyung.com/article/2026032827157",
+        "title": "법원, 통일교 한학자 총재 '구속집행정지'…4월 30일까지 석방",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026032827157",
+        "published_date": "2026-03-28",
         "bucket": ""
       },
       {
@@ -2785,22 +2835,22 @@
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/2026032826747",
-        "canonical_url": "https://hankyung.com/article/2026032826747",
-        "title": "'2차 최고가격제' 이틀째 기름값 급등…서울 휘발유 1900원 눈앞",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026032826747",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
         "story_key": "https://hankyung.com/article/2026032720421",
         "canonical_url": "https://hankyung.com/article/2026032720421",
         "title": "'이러다 다 나간다'…법관에 '月50만원 사기진작' 수당",
         "summary": "",
         "source": "한국경제",
         "url": "https://www.hankyung.com/article/2026032720421",
+        "published_date": "2026-03-28",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hankyung.com/article/2026032826657",
+        "canonical_url": "https://hankyung.com/article/2026032826657",
+        "title": "엔달러 환율 160엔 돌파…1년 8개월만",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026032826657",
         "published_date": "2026-03-28",
         "bucket": ""
       },
@@ -2845,53 +2895,53 @@
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/202603272174i",
-        "canonical_url": "https://hankyung.com/article/202603272174i",
-        "title": "[마켓칼럼]상법 개정이 여는 새로운 시대, 그 이후",
+        "story_key": "https://hankyung.com/article/2026032825937",
+        "canonical_url": "https://hankyung.com/article/2026032825937",
+        "title": "트럼프 \"다음은 쿠바\"…이란 이어 '무력행사' 가능성 시사",
         "summary": "",
         "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202603272174i",
+        "url": "https://www.hankyung.com/article/2026032825937",
         "published_date": "2026-03-27",
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/2026032720691",
-        "canonical_url": "https://hankyung.com/article/2026032720691",
-        "title": "\"우리도 '전쟁' 같다\" 비명 쏟아진 곳이…'생계형 업체' 쇼크",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026032720691",
-        "published_date": "2026-03-27",
+        "story_key": "https://mk.co.kr/news/society/12001039",
+        "canonical_url": "https://mk.co.kr/news/society/12001039",
+        "title": "“이국종 교수가 알려준 건강정보, 허구였다”…딥페이크 사칭 계정 논란",
+        "summary": "이국종 국군대전병원장의 얼굴을 무단 도용해 딥페이크로 만든 사칭 계정이 잘못된 건강 정보를 무작위로 게시하고 있어 논란이다. 실제 이 교수의 영상이라고 오인한 사람들의 건강 및 생..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/society/12001039",
+        "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/202603282526i",
-        "canonical_url": "https://hankyung.com/article/202603282526i",
-        "title": "안 먹히는 트럼프 '타코'…\"목·금요일 피하라\" [김현석의 월스트리트나우]",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202603282526i",
-        "published_date": "2026-03-27",
+        "story_key": "https://mk.co.kr/news/culture/12001037",
+        "canonical_url": "https://mk.co.kr/news/culture/12001037",
+        "title": "“눈 쌍꺼풀 했다 코는 상담받았는데”…성형 고백한 ‘솔로지옥5’ 김고은",
+        "summary": "‘솔로지옥5’에 출연해 화제를 모은 모델 김고은이 성형 수술을 고백했다. 김고은은 지난 27일 유튜브 채널에 “여러분 저 했어요! 대.답.했.어.요”라는 제목의 영상을 올렸다. 영..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/culture/12001037",
+        "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/2026032825377",
-        "canonical_url": "https://hankyung.com/article/2026032825377",
-        "title": "호르무즈를 '트럼프 해협'으로 불러…트럼프 농담에 '화들짝'",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026032825377",
-        "published_date": "2026-03-27",
+        "story_key": "https://mk.co.kr/news/society/12001033",
+        "canonical_url": "https://mk.co.kr/news/society/12001033",
+        "title": "“이거 설치 안하면 벌금 폭탄”…공무원 사칭 ‘강매’ 사기 주의보",
+        "summary": "소방공무원을 사칭해 숙박업소 등 가게에게 소방용품 구매를 강요하는 사기가 기승을 부려 주의가 요구된다. 28일 제주도 소방안전본부에 따르면 최근 전화와 문자로 다중이용업소 관계자에..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/society/12001033",
+        "published_date": "2026-03-28",
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/2026032825257",
-        "canonical_url": "https://hankyung.com/article/2026032825257",
-        "title": "낮 최고 23도 '봄 날씨'…일교차 20도·짙은 안개·미세먼지 '주의'",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026032825257",
-        "published_date": "2026-03-27",
+        "story_key": "https://mk.co.kr/news/culture/12001018",
+        "canonical_url": "https://mk.co.kr/news/culture/12001018",
+        "title": "“난 단종 시신 수습한 엄홍도 후손”…가문 공개한 여배우의 정체",
+        "summary": "배우 엄지원이 단종 시신을 수습한 엄흥도의 후손이라고 밝혔다. 소속사 ABM컴퍼니는 27일 공식 소셜미디어를 통해 “나 엄지원, 엄흥도 선생님 후손 이야기 푼다”라는 글과 함께 영..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/culture/12001018",
+        "published_date": "2026-03-28",
         "bucket": ""
       },
       {
@@ -3001,36 +3051,6 @@
         "summary": "공동주택 내 흡연 문제로 고통받던 가족의 가장이 “극한 상황으로 치닫기 전 흡연을 멈추라”며 경고하고 나서 화제다. 최근 층간 소음 등 이웃간 마찰이 사회적 문제로 대두되고 있는 ..",
         "source": "매일경제",
         "url": "https://www.mk.co.kr/news/society/12000997",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://mk.co.kr/news/world/12000995",
-        "canonical_url": "https://mk.co.kr/news/world/12000995",
-        "title": "“다음은 쿠바다”…이란 이어 무력행사 가능성 시사한 트럼프, 왜?",
-        "summary": "도널드 트럼프 미국 대통령은 27일(현지시간) 대이란 전쟁과 관련, “우리는 지금 협상 중이며 뭔가 해낼 수 있으면 좋을 것”이라고 말했다. 트럼프 대통령은 이날 미 플로리다주 마..",
-        "source": "매일경제",
-        "url": "https://www.mk.co.kr/news/world/12000995",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://mk.co.kr/news/business/12000994",
-        "canonical_url": "https://mk.co.kr/news/business/12000994",
-        "title": "퇴직금만 14억?…억대 연봉 은행원들 앞다퉈 짐 싸는 이유",
-        "summary": "4대 시중은행 임직원 1년새 1021명 감소 디지털 전환에 몸집 줄이기 가속  연 2000명 희망퇴직으로 떠나 신규 채용도 100명가량 축소  부행장급 최고 14억5000만원 수령..",
-        "source": "매일경제",
-        "url": "https://www.mk.co.kr/news/business/12000994",
-        "published_date": "2026-03-28",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://mk.co.kr/news/economy/12000993",
-        "canonical_url": "https://mk.co.kr/news/economy/12000993",
-        "title": "‘파도에 보트가 붕~ 날라 쿵~’ 영구장해 30대 “1억5천만원 배상해라”…법원 판단은? [어쩌다 세상이]",
-        "summary": "업체 “파도 높으니 조심하라” 안내문 설치 법원 “안내문만으론 부족…책임 60% 져야” “수상 레저 특성상 탑승객도 위험 감수해야”즐거운 마음으로 떠난 가족 여행이 한순간에 악몽으..",
-        "source": "매일경제",
-        "url": "https://www.mk.co.kr/news/economy/12000993",
         "published_date": "2026-03-28",
         "bucket": ""
       },
