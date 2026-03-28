@@ -480,6 +480,7 @@ def run(args: argparse.Namespace) -> int:
             run_date,
             output_dir,
             market_pulse=market_pulse,
+            all_candidates=all_articles,
         )
         sections.append("snapshot")
     except Exception as exc:

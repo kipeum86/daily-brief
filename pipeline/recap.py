@@ -383,6 +383,7 @@ def save_daily_snapshot(
     run_date: str,
     output_dir: str,
     market_pulse: dict | None = None,
+    all_candidates: list | None = None,
 ) -> str:
     """Persist a daily briefing snapshot for future recap jobs."""
     snapshot_dir = Path(output_dir) / "data" / "daily"
@@ -405,6 +406,7 @@ def save_daily_snapshot(
             "raw": [_serialize_article(article, config) for article in articles],
             "ko": [_serialize_article(article, config) for article in articles_ko],
             "en": [_serialize_article(article, config) for article in articles_en],
+            "pool": [_serialize_article(article, config) for article in (all_candidates or [])],
         },
     }
 
@@ -610,47 +612,65 @@ def build_weekly_news_digest(
     provider: Any | None = None,
     top_n: int = 5,
 ) -> dict[str, Any]:
-    """Select weekly top stories from saved daily snapshots."""
+    """Select weekly top stories from saved daily snapshots.
+
+    Uses two article layers from each snapshot:
+    - ``pool`` (full dedup'd candidates, 50-100/day): drives coverage count
+    - ``raw`` (AI-selected top 10/day): provides display headlines & translations
+    When ``pool`` is absent (older snapshots), falls back to ``raw`` for counting.
+    """
     candidates: dict[str, dict[str, Any]] = {}
     for day_index, snapshot in enumerate(snapshots):
         date_iso = snapshot.get("date", "")
+        articles_section = snapshot.get("articles", {})
+
+        # Pool = full dedup'd candidates for coverage counting; fall back to raw
+        pool_articles = articles_section.get("pool", []) or articles_section.get("raw", [])
+        raw_articles = articles_section.get("raw", [])
+
         raw_by_key = {
             article.get("story_key") or _canonical_story_key(
                 article.get("url", ""), article.get("source", ""), article.get("title", ""),
             ): article
-            for article in snapshot.get("articles", {}).get("raw", [])
+            for article in raw_articles
         }
         ko_by_key = {
             article.get("story_key") or _canonical_story_key(
                 article.get("url", ""), article.get("source", ""), article.get("title", ""),
             ): article
-            for article in snapshot.get("articles", {}).get("ko", [])
+            for article in articles_section.get("ko", [])
         }
         en_by_key = {
             article.get("story_key") or _canonical_story_key(
                 article.get("url", ""), article.get("source", ""), article.get("title", ""),
             ): article
-            for article in snapshot.get("articles", {}).get("en", [])
+            for article in articles_section.get("en", [])
         }
 
+        # Count coverage from the full pool (many outlets covering same story)
         day_weight = 10 + day_index
-        for story_key, raw_article in raw_by_key.items():
-            bucket = raw_article.get("bucket", "")
+        for pool_article in pool_articles:
+            story_key = pool_article.get("story_key") or _canonical_story_key(
+                pool_article.get("url", ""), pool_article.get("source", ""), pool_article.get("title", ""),
+            )
+            bucket = pool_article.get("bucket", "")
+            # Use raw version for display if available, otherwise pool version
+            display_article = raw_by_key.get(story_key, pool_article)
             entry = candidates.setdefault(
                 story_key,
                 {
                     "story_key": story_key,
-                    "url": raw_article.get("url", ""),
-                    "source": raw_article.get("source", ""),
-                    "title": raw_article.get("title", ""),
-                    "description": raw_article.get("summary", ""),
+                    "url": display_article.get("url", ""),
+                    "source": display_article.get("source", ""),
+                    "title": display_article.get("title", ""),
+                    "description": display_article.get("summary", ""),
                     "bucket": bucket,
                     "dates": set(),
                     "count": 0,
                     "score": 0,
                     "latest_date": "",
-                    "display_ko": raw_article,
-                    "display_en": raw_article,
+                    "display_ko": display_article,
+                    "display_en": display_article,
                 },
             )
             entry["count"] += 1
@@ -658,12 +678,12 @@ def build_weekly_news_digest(
             entry["dates"].add(date_iso)
             if date_iso >= entry["latest_date"]:
                 entry["latest_date"] = date_iso
-                entry["title"] = raw_article.get("title", "")
-                entry["description"] = raw_article.get("summary", "")
-                entry["source"] = raw_article.get("source", "")
-                entry["url"] = raw_article.get("url", "")
-                entry["display_ko"] = ko_by_key.get(story_key, raw_article)
-                entry["display_en"] = en_by_key.get(story_key, raw_article)
+                entry["title"] = display_article.get("title", "")
+                entry["description"] = display_article.get("summary", "")
+                entry["source"] = display_article.get("source", "")
+                entry["url"] = display_article.get("url", "")
+                entry["display_ko"] = ko_by_key.get(story_key, display_article)
+                entry["display_en"] = en_by_key.get(story_key, display_article)
 
     ranked_world = sorted(
         (entry for entry in candidates.values() if entry["bucket"] == "world"),
