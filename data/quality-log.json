@@ -1,0 +1,16 @@
+[
+  {
+    "check": "korea_purity",
+    "section": "korea",
+    "detail": "“기름값·환율 무섭다” LCC 잇단 감편 운항…비상 경영 돌입",
+    "action": "replaced with [뉴스더] 나프타가 뭐길래…수출 제한 효과 있을까?",
+    "date": "2026-03-28"
+  },
+  {
+    "check": "category_balance",
+    "section": "korea",
+    "detail": "only 2 categories before swap",
+    "action": "replaced 장동혁 \"청년의 힘으로 선거승리\"…'논란' 이혁재와 오디션 참석 with '이러다 다 나간다'…법관에 '月50만원 사기진작' 수당",
+    "date": "2026-03-28"
+  }
+]
