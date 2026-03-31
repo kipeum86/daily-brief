@@ -2,16 +2,16 @@
   "schema_version": 1,
   "brief_type": "daily",
   "date": "2026-04-01",
-  "generated_at": "2026-03-31T16:23:03",
+  "generated_at": "2026-03-31T16:36:11",
   "market_pulse": {
     "level": "risk_on",
     "label_ko": "🟢 위험 선호",
     "label_en": "🟢 Risk-On",
     "score": 2,
     "signals": [
-      "VIX -9.3% ↓↓",
+      "VIX -10.7% ↓↓",
       "USD/KRW +1.0% (달러 강세)",
-      "S&P 500 +1.4%"
+      "S&P 500 +1.6%"
     ]
   },
   "holidays": {
@@ -62,55 +62,55 @@
       {
         "ticker": "^GSPC",
         "name": "S&P 500",
-        "price": 6430.52,
-        "change_pct": 1.37,
+        "price": 6442.63,
+        "change_pct": 1.56,
         "prev_close": 6343.72,
         "sparkline": [
           6591.9,
           6477.16,
           6368.85,
           6343.72,
-          6430.52
+          6442.63
         ],
-        "volume": 1110052000,
-        "price_fmt": "6,430.52",
-        "change_fmt": "+1.37%",
+        "volume": 1196468000,
+        "price_fmt": "6,442.63",
+        "change_fmt": "+1.56%",
         "prev_close_fmt": "6,343.72"
       },
       {
         "ticker": "^IXIC",
         "name": "Nasdaq",
-        "price": 21182.98,
-        "change_pct": 1.87,
+        "price": 21232.91,
+        "change_pct": 2.11,
         "prev_close": 20794.64,
         "sparkline": [
           21929.82,
           21408.08,
           20948.36,
           20794.64,
-          21182.98
+          21232.91
         ],
-        "volume": 4543010000,
-        "price_fmt": "21,182.98",
-        "change_fmt": "+1.87%",
+        "volume": 4741027000,
+        "price_fmt": "21,232.91",
+        "change_fmt": "+2.11%",
         "prev_close_fmt": "20,794.64"
       },
       {
         "ticker": "^DJI",
         "name": "Dow",
-        "price": 45664.76,
-        "change_pct": 0.99,
+        "price": 45744.09,
+        "change_pct": 1.17,
         "prev_close": 45216.14,
         "sparkline": [
           46429.49,
           45960.11,
           45166.64,
           45216.14,
-          45664.76
+          45744.09
         ],
-        "volume": 196952380,
-        "price_fmt": "45,664.76",
-        "change_fmt": "+0.99%",
+        "volume": 212128528,
+        "price_fmt": "45,744.09",
+        "change_fmt": "+1.17%",
         "prev_close_fmt": "45,216.14"
       }
     ],
@@ -118,26 +118,26 @@
       {
         "ticker": "USDKRW=X",
         "name": "USD/KRW",
-        "price": 1522.63,
-        "change_pct": 1.04,
+        "price": 1522.34,
+        "change_pct": 1.02,
         "prev_close": 1507.02,
         "sparkline": [
           1497.31,
           1500.97,
           1508.36,
           1507.02,
-          1522.63
+          1522.34
         ],
         "volume": 0,
-        "price_fmt": "1,522.63",
-        "change_fmt": "+1.04%",
+        "price_fmt": "1,522.34",
+        "change_fmt": "+1.02%",
         "prev_close_fmt": "1,507.02"
       },
       {
         "ticker": "JPYKRW=X",
         "name": "JPY/KRW",
         "price": 9.57,
-        "change_pct": 1.73,
+        "change_pct": 1.71,
         "prev_close": 9.4,
         "sparkline": [
           9.43,
@@ -148,7 +148,7 @@
         ],
         "volume": 0,
         "price_fmt": "9.57",
-        "change_fmt": "+1.73%",
+        "change_fmt": "+1.71%",
         "prev_close_fmt": "9.40"
       }
     ],
@@ -156,35 +156,35 @@
       {
         "ticker": "GC=F",
         "name": "Gold",
-        "price": 4648.7,
-        "change_pct": 2.71,
+        "price": 4642.8,
+        "change_pct": 2.58,
         "prev_close": 4526.0,
         "sparkline": [
           4375.5,
           4492.0,
           4526.0,
-          4648.7
+          4642.8
         ],
-        "volume": 127840,
-        "price_fmt": "4,648.70",
-        "change_fmt": "+2.71%",
+        "volume": 130021,
+        "price_fmt": "4,642.80",
+        "change_fmt": "+2.58%",
         "prev_close_fmt": "4,526.00"
       },
       {
         "ticker": "CL=F",
         "name": "WTI Oil",
-        "price": 104.22,
-        "change_pct": 1.3,
+        "price": 104.69,
+        "change_pct": 1.76,
         "prev_close": 102.88,
         "sparkline": [
           94.48,
           99.64,
           102.88,
-          104.22
+          104.69
         ],
-        "volume": 278071,
-        "price_fmt": "104.22",
-        "change_fmt": "+1.30%",
+        "volume": 286021,
+        "price_fmt": "104.69",
+        "change_fmt": "+1.76%",
         "prev_close_fmt": "102.88"
       }
     ],
@@ -192,37 +192,37 @@
       {
         "ticker": "BTC-USD",
         "name": "Bitcoin",
-        "price": 66914.27,
-        "change_pct": 0.33,
+        "price": 67038.64,
+        "change_pct": 0.52,
         "prev_close": 66691.45,
         "sparkline": [
           66338.38,
           66319.7,
           65954.92,
           66691.45,
-          66914.27
+          67038.64
         ],
-        "volume": 39312916480,
-        "price_fmt": "66,914.27",
-        "change_fmt": "+0.33%",
+        "volume": 39363731456,
+        "price_fmt": "67,038.64",
+        "change_fmt": "+0.52%",
         "prev_close_fmt": "66,691.45"
       },
       {
         "ticker": "ETH-USD",
         "name": "Ethereum",
-        "price": 2063.05,
-        "change_pct": 1.95,
+        "price": 2064.81,
+        "change_pct": 2.04,
         "prev_close": 2023.51,
         "sparkline": [
           1991.27,
           1992.69,
           1982.56,
           2023.51,
-          2063.05
+          2064.81
         ],
-        "volume": 18608144384,
-        "price_fmt": "2,063.05",
-        "change_fmt": "+1.95%",
+        "volume": 18629976064,
+        "price_fmt": "2,064.81",
+        "change_fmt": "+2.04%",
         "prev_close_fmt": "2,023.51"
       }
     ],
@@ -230,26 +230,26 @@
       {
         "ticker": "^VIX",
         "name": "VIX",
-        "price": 27.77,
-        "change_pct": -9.28,
+        "price": 27.35,
+        "change_pct": -10.65,
         "prev_close": 30.61,
         "sparkline": [
           25.33,
           27.44,
           31.05,
           30.61,
-          27.77
+          27.35
         ],
         "volume": 0,
-        "price_fmt": "27.77",
-        "change_fmt": "-9.28%",
+        "price_fmt": "27.35",
+        "change_fmt": "-10.65%",
         "prev_close_fmt": "30.61"
       },
       {
         "ticker": "^TNX",
         "name": "US 10Y",
         "price": 4.33,
-        "change_pct": -0.32,
+        "change_pct": -0.35,
         "prev_close": 4.34,
         "sparkline": [
           4.33,
@@ -260,24 +260,24 @@
         ],
         "volume": 0,
         "price_fmt": "4.33",
-        "change_fmt": "-0.32%",
+        "change_fmt": "-0.35%",
         "prev_close_fmt": "4.34"
       },
       {
         "ticker": "DX-Y.NYB",
         "name": "Dollar Index",
-        "price": 100.15,
-        "change_pct": -0.36,
+        "price": 100.22,
+        "change_pct": -0.29,
         "prev_close": 100.51,
         "sparkline": [
           99.9,
           100.15,
           100.51,
-          100.15
+          100.22
         ],
         "volume": 0,
-        "price_fmt": "100.15",
-        "change_fmt": "-0.36%",
+        "price_fmt": "100.22",
+        "change_fmt": "-0.29%",
         "prev_close_fmt": "100.51"
       }
     ],
@@ -285,209 +285,229 @@
       {
         "ticker": "XLK",
         "name": "Tech",
-        "price": 129.74,
-        "change_pct": 1.75,
+        "price": 130.17,
+        "change_pct": 2.09,
         "prev_close": 127.5,
         "sparkline": [
           136.76,
           132.5,
           129.92,
           127.5,
-          129.74
+          130.17
         ],
-        "volume": 6652427,
-        "price_fmt": "129.74",
-        "change_fmt": "+1.75%",
+        "volume": 7159731,
+        "price_fmt": "130.17",
+        "change_fmt": "+2.09%",
         "prev_close_fmt": "127.50"
       },
       {
         "ticker": "XLF",
         "name": "Finance",
-        "price": 48.71,
-        "change_pct": 0.71,
+        "price": 48.8,
+        "change_pct": 0.91,
         "prev_close": 48.36,
         "sparkline": [
           49.34,
           49.05,
           47.81,
           48.36,
-          48.71
+          48.8
         ],
-        "volume": 30225194,
-        "price_fmt": "48.71",
-        "change_fmt": "+0.71%",
+        "volume": 31114504,
+        "price_fmt": "48.80",
+        "change_fmt": "+0.91%",
         "prev_close_fmt": "48.36"
       },
       {
         "ticker": "XLV",
         "name": "Health",
-        "price": 145.33,
-        "change_pct": 1.05,
+        "price": 145.29,
+        "change_pct": 1.02,
         "prev_close": 143.82,
         "sparkline": [
           146.24,
           145.74,
           143.26,
           143.82,
-          145.33
+          145.29
         ],
-        "volume": 6288655,
-        "price_fmt": "145.33",
-        "change_fmt": "+1.05%",
+        "volume": 6572563,
+        "price_fmt": "145.29",
+        "change_fmt": "+1.02%",
         "prev_close_fmt": "143.82"
       },
       {
         "ticker": "XLE",
         "name": "Energy",
-        "price": 62.28,
-        "change_pct": 0.52,
+        "price": 62.47,
+        "change_pct": 0.83,
         "prev_close": 61.96,
         "sparkline": [
           60.57,
           61.52,
           62.56,
           61.96,
-          62.28
+          62.47
         ],
-        "volume": 23772472,
-        "price_fmt": "62.28",
-        "change_fmt": "+0.52%",
+        "volume": 25312214,
+        "price_fmt": "62.47",
+        "change_fmt": "+0.83%",
         "prev_close_fmt": "61.96"
       },
       {
         "ticker": "XLI",
         "name": "Industrial",
-        "price": 158.85,
-        "change_pct": 1.43,
+        "price": 159.1,
+        "change_pct": 1.59,
         "prev_close": 156.61,
         "sparkline": [
           165.1,
           161.27,
           159.2,
           156.61,
-          158.85
+          159.1
         ],
-        "volume": 6406532,
-        "price_fmt": "158.85",
-        "change_fmt": "+1.43%",
+        "volume": 6736055,
+        "price_fmt": "159.10",
+        "change_fmt": "+1.59%",
         "prev_close_fmt": "156.61"
       },
       {
         "ticker": "XLP",
         "name": "Staples",
-        "price": 81.29,
-        "change_pct": -0.73,
+        "price": 81.32,
+        "change_pct": -0.69,
         "prev_close": 81.88,
         "sparkline": [
           81.51,
           81.14,
           81.78,
           81.88,
-          81.29
+          81.32
         ],
-        "volume": 9161895,
-        "price_fmt": "81.29",
-        "change_fmt": "-0.73%",
+        "volume": 9451995,
+        "price_fmt": "81.32",
+        "change_fmt": "-0.69%",
         "prev_close_fmt": "81.88"
       },
       {
         "ticker": "XLU",
         "name": "Utilities",
-        "price": 45.53,
-        "change_pct": -0.84,
+        "price": 45.62,
+        "change_pct": -0.65,
         "prev_close": 45.92,
         "sparkline": [
           45.25,
           45.33,
           45.59,
           45.92,
-          45.53
+          45.62
         ],
-        "volume": 15782834,
-        "price_fmt": "45.53",
-        "change_fmt": "-0.84%",
+        "volume": 16347521,
+        "price_fmt": "45.62",
+        "change_fmt": "-0.65%",
         "prev_close_fmt": "45.92"
       },
       {
         "ticker": "XLRE",
         "name": "Real Estate",
-        "price": 40.65,
-        "change_pct": 1.11,
+        "price": 40.67,
+        "change_pct": 1.16,
         "prev_close": 40.21,
         "sparkline": [
           40.27,
           40.29,
           40.01,
           40.21,
-          40.65
+          40.67
         ],
-        "volume": 5500546,
-        "price_fmt": "40.65",
-        "change_fmt": "+1.11%",
+        "volume": 5919360,
+        "price_fmt": "40.67",
+        "change_fmt": "+1.16%",
         "prev_close_fmt": "40.21"
       },
       {
         "ticker": "XLB",
         "name": "Materials",
-        "price": 49.4,
-        "change_pct": 0.62,
+        "price": 49.44,
+        "change_pct": 0.71,
         "prev_close": 49.09,
         "sparkline": [
           49.41,
           49.09,
           48.91,
           49.09,
-          49.4
+          49.44
         ],
-        "volume": 8567186,
-        "price_fmt": "49.40",
-        "change_fmt": "+0.62%",
+        "volume": 9081189,
+        "price_fmt": "49.44",
+        "change_fmt": "+0.71%",
         "prev_close_fmt": "49.09"
       },
       {
         "ticker": "XLC",
         "name": "Comms",
-        "price": 109.48,
-        "change_pct": 1.41,
+        "price": 109.89,
+        "change_pct": 1.79,
         "prev_close": 107.96,
         "sparkline": [
           111.44,
           108.81,
           107.04,
           107.96,
-          109.48
+          109.89
         ],
-        "volume": 3728502,
-        "price_fmt": "109.48",
-        "change_fmt": "+1.41%",
+        "volume": 4065343,
+        "price_fmt": "109.89",
+        "change_fmt": "+1.79%",
         "prev_close_fmt": "107.96"
       },
       {
         "ticker": "XLY",
         "name": "Discretionary",
-        "price": 107.34,
-        "change_pct": 1.59,
+        "price": 107.5,
+        "change_pct": 1.75,
         "prev_close": 105.66,
         "sparkline": [
           110.73,
           108.83,
           105.68,
           105.66,
-          107.34
+          107.5
         ],
-        "volume": 4804019,
-        "price_fmt": "107.34",
-        "change_fmt": "+1.59%",
+        "volume": 5008189,
+        "price_fmt": "107.50",
+        "change_fmt": "+1.75%",
         "prev_close_fmt": "105.66"
       }
     ]
   },
   "insight": {
-    "ko": "## Key Insight\n글로벌 증시는 AI 랠리와 금리 하락에 환호하고 있지만, 한국 경제는 '전쟁 추경'이라는 극단적 재정 정책과 환율 폭등의 이중고에 직면해 있습니다. 지정학적 위기 속에서 단행되는 26조 원 규모의 현금 살포는 원화 가치를 1,520원대까지 추락시키며, 글로벌 기술주 호황과 철저히 디커플링(탈동조화)되는 한국 고유의 취약성을 적나라하게 드러냅니다.\n\n## Market Overview\n미국 증시는 엔비디아의 마벨 대규모 투자로 촉발된 AI 모멘텀과 국채 금리 하락이 맞물리며 나스닥을 중심으로 강력한 위험 선호 심리를 보였습니다. 반면 한국 시장은 삼성전자와 SK하이닉스의 역대급 실적 전망에도 불구하고, 대규모 추경 편성에 따른 재정 건전성 훼손 우려가 외국인의 원화 투매로 이어지며 기업 펀더멘털의 이점이 거시경제 리스크에 완전히 희석되는 모습입니다.\n\n## Cross-Market Signals\n* **글로벌 달러 약세 vs 원화 나홀로 폭락:** 달러 인덱스가 하락(-0.36%)했음에도 원/달러 환율이 1,520원 선을 돌파한 것은, 대규모 재정 지출에 따른 한국의 국가 신용 리스크가 환율에 직접적으로 반영된 결과로 분석됩니다.\n* **금·유가 급등 vs VIX 하락:** 트럼프의 이란 경고 발언 등으로 금과 유가가 치솟고 있으나 주식시장 변동성(VIX)은 오히려 하락해, 원자재 시장과 주식 시장 간의 지정학적 위험 인식 괴리가 극단적으로 벌어지고 있습니다.",
-    "en": "## Today's Key Insight\n\nA stark divergence is emerging between US technological exceptionalism and severe geopolitical risk premiums elsewhere. While Wall Street aggressively bids up AI infrastructure, extreme moves in gold, oil, and the Korean won—coupled with Seoul's emergency \"war budget\"—suggest global capital is bracing for escalating security threats. Investors appear to be compartmentalizing domestic US tech growth from mounting global instability, creating a highly bifurcated market landscape.\n\n## Market Overview\n\nUS equities posted robust gains, led by a Nasdaq rally energized by Nvidia's strategic $2 billion investment in Marvell. The upward momentum suggests investors are looking past elevated geopolitical tensions, focusing instead on the structural growth of AI adoption and resilient corporate dealmaking. \n\nConversely, South Korean assets are facing immense pressure, highlighted by the won collapsing past the 1,520 threshold against the dollar. Reports of a 26 trillion won emergency supplementary budget indicate severe domestic and geopolitical stress. Although local semiconductor giants anticipate record operating profits, stagnant shareholder return policies and acute sovereign risk appear to be paralyzing local equity sentiment and driving capital flight.\n\n## Cross-Market Signals\n\n*   **Surging Gold + Oil > $104 → Geopolitical Risk Premium:** The extreme spike in precious metals alongside rising crude prices indicates a classic safe-haven rotation, likely triggered by renewed US military threats against Iran.\n*   **USD/KRW > 1,520 + Deficit Spending → Sovereign Stress:** The collapse of the Korean won, compounded by massive emergency fiscal stimulus plans, signals acute vulnerability in export-driven economies facing both currency devaluation and geopolitical shocks.\n*   **Declining VIX + US Equity Rally → Localized Contagion:** The drop in volatility indices amid a US stock surge, despite soaring safe-haven commodities, suggests markets are pricing in regional geopolitical conflicts rather than systemic contagion to the US economy."
+    "ko": "## Key Insight\n글로벌 증시는 AI 모멘텀과 금리 하락에 환호하며 위험 선호 심리를 회복했지만, 한국 경제는 1,520원을 돌파한 환율이라는 무거운 현실과 마주하고 있습니다. 반도체 생산이 기록적인 호조를 보임에도 불구하고 국내 주요 기업들이 유동성 확보 전쟁에 돌입한 것은, 거시 지표의 착시 이면에 자리한 내수와 자금 시장의 구조적 취약성을 여실히 보여줍니다.\n\n## Market Overview\n미국 증시는 엔비디아의 마벨 대규모 투자 소식 등 AI 생태계 확장 기대감에 힘입어 나스닥을 중심으로 강력한 랠리를 펼쳤습니다. 국채 금리 하락과 변동성 지수(VIX)의 급락이 기술주 중심의 투자 심리에 불을 지핀 것으로 분석됩니다.\n\n반면 한국 시장은 38년 만의 최대 반도체 생산 증가라는 호재가 무색할 정도로 외환 시장의 압박이 거셉니다. 당국의 유동성 우려 일축에도 불구하고, 롯데 등 주요 그룹이 부동산을 활용한 현금 확보에 나서는 등 실물 경제의 긴장감은 오히려 고조되는 양상입니다.\n\n## Cross-Market Signals\n* **달러 약세 속 원화의 나홀로 급락:** 글로벌 달러 인덱스가 하락(-0.29%)했음에도 원/달러 환율이 1% 이상 급등한 것은, 현재의 원화 가치 하락이 글로벌 달러 강세가 아닌 한국 고유의 펀더멘털 우려에서 기인하고 있음을 시사합니다.\n* **위험 선호와 안전 자산의 기묘한 동행:** 미국 증시 급등과 VIX 하락(-10.65%)에도 불구하고 금과 국제 유가가 동반 강세를 보였습니다. 이는 시장이 AI 랠리를 즐기면서도, 중동 지정학적 리스크(프랑스-이스라엘 갈등 등)에 대비해 인플레이션 헤지 자산을 동시에 매집하고 있음을 보여줍니다.",
+    "en": "## Today's Key Insight\n\nGlobal markets are exhibiting a stark divergence between equity exuberance and commodity-driven geopolitical anxiety. While Wall Street celebrates AI-fueled tech rallies and a retreating volatility index, the surge in crude oil past $100 and gold's aggressive climb suggest deep-seated systemic hedging against Middle East escalation. For export-driven economies like South Korea, the combination of a severely depreciated currency and soaring energy costs threatens to overshadow record-breaking industrial output.\n\n## Market Overview\n\n**US Equities**\nA robust risk-on sentiment dominated Wall Street, heavily skewed toward the technology sector following Nvidia's strategic $2 billion investment in Marvell. Despite simmering geopolitical tensions regarding airspace access in the Middle East, investors appeared to take comfort in a cooling VIX and slightly softer Treasury yields, pushing the Nasdaq up over 2% and driving broad-based gains across major indices. \n\n**Korean Equities**\nSouth Korean markets face a highly complex trading environment, caught between exceptional fundamental data—highlighted by a 38-year high in semiconductor production—and severe macroeconomic headwinds. With the USD/KRW exchange rate surging past the historic 1,520 threshold, domestic equities must weigh the theoretical benefits of enhanced export competitiveness against the immediate threat of imported inflation, even as financial authorities attempt to downplay dollar liquidity concerns.\n\n## Cross-Market Signals\n\n- **WTI Crude surge + USD/KRW spike → Compounding import shock:** Oil surpassing $104 combined with a severely weakened Korean Won creates a multiplier effect on energy import costs, likely squeezing domestic corporate margins despite strong export volumes.\n- **Gold rally + Tech equity momentum → Bifurcated capital allocation:** The simultaneous surge in safe-haven gold and high-beta tech equities suggests investors are aggressively chasing AI growth while simultaneously building massive hedges against geopolitical tail risks.\n- **DXY decline + USD/KRW rise → Localized currency vulnerability:** The US Dollar Index softened slightly, yet the Won depreciated by over 1% against the dollar, indicating that Korea's currency weakness is currently driven by regional risk aversion and structural outflows rather than broad global dollar strength."
   },
   "articles": {
     "raw": [
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTy1kWVVzSmFtQU5rX2lUcERsQUphZFZZckZHZW8xRzdiYXVUSDd0RFNEV1RfYmpYOTQwakR0ZkVsMjVUTTVmQ1JhS1podXA3aUhJVGJrcUtycURqS2dCMWVMUlBsVlhsVWp6OVppOXhWZmM4czVabF9wZHd6eGJmRFhyUnFISlh2ck9vTEMySF9LS0lnOTBULTZxRDhzVU1sTGV1MmRoOGstVm9zN00wdE4ybWlDeDVaMEQ5RjZVdUl5QQ?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTy1kWVVzSmFtQU5rX2lUcERsQUphZFZZckZHZW8xRzdiYXVUSDd0RFNEV1RfYmpYOTQwakR0ZkVsMjVUTTVmQ1JhS1podXA3aUhJVGJrcUtycURqS2dCMWVMUlBsVlhsVWp6OVppOXhWZmM4czVabF9wZHd6eGJmRFhyUnFISlh2ck9vTEMySF9LS0lnOTBULTZxRDhzVU1sTGV1MmRoOGstVm9zN00wdE4ybWlDeDVaMEQ5RjZVdUl5QQ?oc=5",
+        "title": "France refused Israel use of its air space to transfer US weapons for Iran war - sources - Reuters",
+        "summary": "France refused Israel use of its air space to transfer US weapons for Iran war - sourcesReuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTy1kWVVzSmFtQU5rX2lUcERsQUphZFZZckZHZW8xRzdiYXVUSDd0RFNEV1RfYmpYOTQwakR0ZkVsMjVUTTVmQ1JhS1podXA3aUhJVGJrcUtycURqS2dCMWVMUlBsVlhsVWp6OVppOXhWZmM4czVabF9wZHd6eGJmRFhyUnFISlh2ck9vTEMySF9LS0lnOTBULTZxRDhzVU1sTGV1MmRoOGstVm9zN00wdE4ybWlDeDVaMEQ5RjZVdUl5QQ?oc=5",
+        "published_date": "2026-03-31",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNkQ0VUxadGhUVnIyS2pTcVpLWC1DclBtd3VEa3JDaEl5cFZral9TUC15QTB3b3BHQ1JPUHhYa0FpUWQyekZhY0s1OWF4YnhpRHlZcmFVcDRNN0RYQkdPdm13Z2c0UzRqZ0Z0NUkxcEZ0SF9OVjh5RlJBelIyWGtsSHR3azlDWHRTM01JcFZVMkxfa0tjU2d3?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNkQ0VUxadGhUVnIyS2pTcVpLWC1DclBtd3VEa3JDaEl5cFZral9TUC15QTB3b3BHQ1JPUHhYa0FpUWQyekZhY0s1OWF4YnhpRHlZcmFVcDRNN0RYQkdPdm13Z2c0UzRqZ0Z0NUkxcEZ0SF9OVjh5RlJBelIyWGtsSHR3azlDWHRTM01JcFZVMkxfa0tjU2d3?oc=5",
+        "title": "Spice maker McCormick to combine with Hellmann's maker Unilever in latest food industry shakeup - AP News",
+        "summary": "Spice maker McCormick to combine with Hellmann's maker Unilever in latest food industry shakeupAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNkQ0VUxadGhUVnIyS2pTcVpLWC1DclBtd3VEa3JDaEl5cFZral9TUC15QTB3b3BHQ1JPUHhYa0FpUWQyekZhY0s1OWF4YnhpRHlZcmFVcDRNN0RYQkdPdm13Z2c0UzRqZ0Z0NUkxcEZ0SF9OVjh5RlJBelIyWGtsSHR3azlDWHRTM01JcFZVMkxfa0tjU2d3?oc=5",
+        "published_date": "2026-03-31",
+        "bucket": "world"
+      },
       {
         "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSmh3NHVnejF0NmZSS0FhOXdHdUZ6bW5EdlpBODZ1YzN2b2swbG9WSkJYVW40MWNVN3IzRVk5S0VOeEJNS2g4TEoyVk50MkFVZXVPRk5tSFN5aFU0WWNSMVhGd0hFTXJkbEw2RDQta3FPa0dSamdPX2lMZ291bDNrMTk1eEpWSmY0NTBZNUl5SnJ6WGQ1N2toOHEwYVpuU2FYT1g1ellB?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSmh3NHVnejF0NmZSS0FhOXdHdUZ6bW5EdlpBODZ1YzN2b2swbG9WSkJYVW40MWNVN3IzRVk5S0VOeEJNS2g4TEoyVk50MkFVZXVPRk5tSFN5aFU0WWNSMVhGd0hFTXJkbEw2RDQta3FPa0dSamdPX2lMZ291bDNrMTk1eEpWSmY0NTBZNUl5SnJ6WGQ1N2toOHEwYVpuU2FYT1g1ellB?oc=5",
@@ -499,12 +519,12 @@
         "bucket": "world"
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
-        "title": "Unilever and McCormick agree to food business deal - Reuters",
-        "summary": "Unilever and McCormick agree to food business dealReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
+        "story_key": "https://npr.org/2026/03/31/nx-s1-5768105/supreme-court-conversion-therapy-colorado-ban",
+        "canonical_url": "https://npr.org/2026/03/31/nx-s1-5768105/supreme-court-conversion-therapy-colorado-ban",
+        "title": "Supreme Court strikes Colorado ban on conversion therapy",
+        "summary": "The Supreme Court has ruled that Colorado's law banning conversion therapy \"regulates speech based on viewpoint.\"",
+        "source": "NPR",
+        "url": "https://www.npr.org/2026/03/31/nx-s1-5768105/supreme-court-conversion-therapy-colorado-ban",
         "published_date": "2026-03-31",
         "bucket": "world"
       },
@@ -519,179 +539,179 @@
         "bucket": "world"
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
-        "title": "Trump again threatens widespread destruction in Iran if a deal is not reached ‘shortly’ - AP News",
-        "summary": "Trump again threatens widespread destruction in Iran if a deal is not reached ‘shortly’AP News",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
-        "published_date": "2026-03-31",
-        "bucket": "world"
+        "story_key": "https://view.asiae.co.kr/article/2026033110121449498",
+        "canonical_url": "https://view.asiae.co.kr/article/2026033110121449498",
+        "title": "'첫 출근' 신현송 \"환율 높지만 큰 우려 없어…달러 유동성 양호\"",
+        "summary": "신현송 한국은행 총재 후보자가 최근 1520원을 넘나드는 원·달러 환율 수준에 대해 \"큰 우려는 없다\"고... 연내 금리 인상 가능성에 대해서는 말을 아꼈다. 그는 \"중동 상황이 어떻게 진행될지 불확실해서 지켜봐야 한다\"며...",
+        "source": "아시아경제",
+        "url": "https://view.asiae.co.kr/article/2026033110121449498",
+        "published_date": "2026-03-31 10:18",
+        "bucket": "korea"
       },
       {
-        "story_key": "https://bbc.com/news/articles/cjd8nkezdyxo?at_campaign=rss&at_medium=RSS",
-        "canonical_url": "https://bbc.com/news/articles/cjd8nkezdyxo?at_campaign=rss&at_medium=RSS",
-        "title": "King Charles and Queen Camilla's state visit to US to go ahead in April",
-        "summary": "Despite political tensions between the US and UK, the King will travel to Washington next month.",
-        "source": "BBC World",
-        "url": "https://www.bbc.com/news/articles/cjd8nkezdyxo?at_medium=RSS&at_campaign=rss",
-        "published_date": "2026-03-31",
-        "bucket": "world"
+        "story_key": "https://sedaily.com/article/20026623",
+        "canonical_url": "https://sedaily.com/article/20026623",
+        "title": "반도체 생산 28% 뛰어…38년 만에 최대폭 증가",
+        "summary": "정부는 반도체 중심의 수출이 양호한 흐름을 보이고 있지만 국제유가 상승과 소비·기업 심리 둔화로 경기 하방 위험이 커질 수 있다고 보고 있다. 이두원 데이터처 경제동향심의관은 “3월에는 일부 지표에서 중동...",
+        "source": "서울경제",
+        "url": "https://www.sedaily.com/article/20026623?ref=naver",
+        "published_date": "2026-03-31 18:40",
+        "bucket": "korea"
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260331202952053",
-        "canonical_url": "https://yna.co.kr/view/AKR20260331202952053",
-        "title": "캐리어에 50대 여성 시신 담아 유기한 20대 딸 긴급체포(종합2보)",
-        "summary": "(대구=연합뉴스) 황수빈 기자 = 31일 대구 도심 하천인 신천에서 발견된 캐리어 속 50대 여성 시신 사건과 관련해 경찰이 숨진 여성의 딸과 ...",
+        "story_key": "https://yna.co.kr/view/AKR20260331204100001?input=1195m",
+        "canonical_url": "https://yna.co.kr/view/AKR20260331204100001?input=1195m",
+        "title": "與서울시장 후보들 부동산 정책 공방…\"내가 적임\" 경쟁력 부각",
+        "summary": "전현희·박주민·정원오 후보(기호순)는 이날 오후 서울 마포구 상암동 MBC 신사옥에서 열린 본경선 첫 합동토론회에서 서울시정의 핵심인 부동산 정책을 두고 격돌했다. 전 후보는 가격을 낮춘 실속형 아파트 공급을...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260331202952053",
+        "url": "https://www.yna.co.kr/view/AKR20260331204100001?input=1195m",
+        "published_date": "2026-03-31 22:51",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://mk.co.kr/news/business/12004276",
+        "canonical_url": "https://mk.co.kr/news/business/12004276",
+        "title": "롯데 현금확보 전쟁…계열사 땅 부동산 개발",
+        "summary": "롯데그룹이 계열사의 실적 부진과 유동성 위기를 정면 돌파하기 위해 보유 자산 가치만 50조원에 달하는 '부동산 개발'에 나선다. 롯데그룹이 보유한 유휴 용지를 아파트와 복합쇼핑몰로..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/business/12004276",
         "published_date": "2026-03-31",
         "bucket": "korea"
       },
       {
-        "story_key": "https://chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4",
-        "canonical_url": "https://chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4",
-        "title": "26조원 ‘전쟁 추경’ 국민 70% 지원금",
-        "summary": "26조원 ‘전쟁 추경’ 국민 70% 지원금",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4/",
-        "published_date": "2026-03-31",
-        "bucket": "korea"
-      },
-      {
-        "story_key": "https://donga.com/news/Economy/article/all/20260331/133648484/2",
-        "canonical_url": "https://donga.com/news/Economy/article/all/20260331/133648484/2",
-        "title": "국내 ‘AI칩 유니콘’ 리벨리온, 6400억 투자유치",
-        "summary": "인공지능(AI) 반도체 스타트업 리벨리온이 6400억 원 규모의 프리IPO(상장 전 투자 유치)를 마무리했다고 31일 밝혔다. 이번 투자 유치 금액까지 더하면 리벨리온이 유치한 총투자금액은 약 1조3000억 원이다. 이번 프리IPO를 통해 리벨리온은 기업 가치를 약 3조4000억 원으로 평가받았다.  이번 투자에는 정부가 조성한 국민성장펀드가 참여했다. 국민성장펀드는 AI, 반도체 등 전략 산업 육성을 위해 마련된 정책금융으로, 리벨리온은 첫 직접 투자 대상으로 선정됐다. 국민성장펀드가 2500억 원, 한국산업은행이 500억 원을 투자했다. 여기에 미래에셋그룹이 앵커 투자자로 참여하며 민간 자본도 유입됐다. 2020년 설립된 리벨리온은 AI 추론용 반도체(NPU) 분야를 중심으로 사업을 확대해 왔다. 회사 측에 따르면 2023년 대비 2025년 매출이 약 10배 증가했으며, 설립 5년 만에 조직 규모도 300명 수준으로 늘었다. 리벨리온은 창립 5년 만에 국내 최초의 AI 반도체",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Economy/article/all/20260331/133648484/2",
-        "published_date": "2026-03-31",
-        "bucket": "korea"
-      },
-      {
-        "story_key": "https://hani.co.kr/arti/economy/marketing/1252052.html",
-        "canonical_url": "https://hani.co.kr/arti/economy/marketing/1252052.html",
-        "title": "삼전·하닉 1분기 영업이익 70조 기대감…주주환원은 제자리",
-        "summary": "삼전·하닉 1분기 영업이익 70조 기대감…주주환원은 제자리 본문 경제 산업·재계 삼전·하닉 1분기 영업이익 70조 기대감…주주환원은 제자리 배지현 , 박종오 기자 수정 2026-03-31 22:42 펼침 기사를 읽어드립니다 Your browser does not support the audio element.",
-        "source": "한겨레",
-        "url": "https://www.hani.co.kr/arti/economy/marketing/1252052.html",
-        "published_date": "",
-        "bucket": "korea"
-      },
-      {
-        "story_key": "https://hankyung.com/article/202603319936i",
-        "canonical_url": "https://hankyung.com/article/202603319936i",
-        "title": "법원, 김영환 충북지사 공천 컷오프 제동…\"절차적 공정성 훼손\"",
-        "summary": "법원, 김영환 충북지사 공천 컷오프 제동…절차적 공정성 훼손 | 한국경제 본문 바로가기 ADVERTISEMENT 법원, 김영환 충북지사 공천 컷오프 제동…\"절차적 공정성 훼손\" 김유진 기자 구독하기 입력 2026.03.31 22:41 수정 2026.03.31 22:45 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 국민의힘 상대 공천배제 효력정지 가처분 인용 \"특정인 밀어주기 의…",
+        "story_key": "https://hankyung.com/article/202603319979i",
+        "canonical_url": "https://hankyung.com/article/202603319979i",
+        "title": "'10조 전분당 담합' 대상 실무진 구속…'윗선' 수사는 제동",
+        "summary": "10조 전분당 담합 대상 실무진 구속…윗선 수사는 제동 | 한국경제 본문 바로가기 ADVERTISEMENT '10조 전분당 담합' 대상 실무진 구속…'윗선' 수사는 제동 정희원 기자 구독하기 입력 2026.03.31 23:57 수정 2026.04.01 00:03 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 실무 주도한 본부장만 구속 대상·사조CPK 대표는 구속영장 기각 서울 한…",
         "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202603319936i",
+        "url": "https://www.hankyung.com/article/202603319979i",
         "published_date": "2026-03-31",
         "bucket": "korea"
       }
     ],
     "ko": [
       {
+        "story_key": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTy1kWVVzSmFtQU5rX2lUcERsQUphZFZZckZHZW8xRzdiYXVUSDd0RFNEV1RfYmpYOTQwakR0ZkVsMjVUTTVmQ1JhS1podXA3aUhJVGJrcUtycURqS2dCMWVMUlBsVlhsVWp6OVppOXhWZmM4czVabF9wZHd6eGJmRFhyUnFISlh2ck9vTEMySF9LS0lnOTBULTZxRDhzVU1sTGV1MmRoOGstVm9zN00wdE4ybWlDeDVaMEQ5RjZVdUl5QQ?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTy1kWVVzSmFtQU5rX2lUcERsQUphZFZZckZHZW8xRzdiYXVUSDd0RFNEV1RfYmpYOTQwakR0ZkVsMjVUTTVmQ1JhS1podXA3aUhJVGJrcUtycURqS2dCMWVMUlBsVlhsVWp6OVppOXhWZmM4czVabF9wZHd6eGJmRFhyUnFISlh2ck9vTEMySF9LS0lnOTBULTZxRDhzVU1sTGV1MmRoOGstVm9zN00wdE4ybWlDeDVaMEQ5RjZVdUl5QQ?oc=5",
+        "title": "프랑스, 이란 전쟁용 미국 무기 이송을 위한 이스라엘의 영공 사용 거부 - 소식통 - 로이터",
+        "summary": "프랑스, 이란 전쟁용 미국 무기 이송을 위한 이스라엘의 영공 사용 거부 - 소식통 로이터",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTy1kWVVzSmFtQU5rX2lUcERsQUphZFZZckZHZW8xRzdiYXVUSDd0RFNEV1RfYmpYOTQwakR0ZkVsMjVUTTVmQ1JhS1podXA3aUhJVGJrcUtycURqS2dCMWVMUlBsVlhsVWp6OVppOXhWZmM4czVabF9wZHd6eGJmRFhyUnFISlh2ck9vTEMySF9LS0lnOTBULTZxRDhzVU1sTGV1MmRoOGstVm9zN00wdE4ybWlDeDVaMEQ5RjZVdUl5QQ?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNkQ0VUxadGhUVnIyS2pTcVpLWC1DclBtd3VEa3JDaEl5cFZral9TUC15QTB3b3BHQ1JPUHhYa0FpUWQyekZhY0s1OWF4YnhpRHlZcmFVcDRNN0RYQkdPdm13Z2c0UzRqZ0Z0NUkxcEZ0SF9OVjh5RlJBelIyWGtsSHR3azlDWHRTM01JcFZVMkxfa0tjU2d3?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNkQ0VUxadGhUVnIyS2pTcVpLWC1DclBtd3VEa3JDaEl5cFZral9TUC15QTB3b3BHQ1JPUHhYa0FpUWQyekZhY0s1OWF4YnhpRHlZcmFVcDRNN0RYQkdPdm13Z2c0UzRqZ0Z0NUkxcEZ0SF9OVjh5RlJBelIyWGtsSHR3azlDWHRTM01JcFZVMkxfa0tjU2d3?oc=5",
+        "title": "향신료 제조업체 맥코믹, 헬만스 제조업체 유니레버와 합병... 식품 업계의 최신 지각 변동 - AP 통신",
+        "summary": "향신료 제조업체 맥코믹, 헬만스 제조업체 유니레버와 합병... 식품 업계의 최신 지각 변동 AP 통신",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNkQ0VUxadGhUVnIyS2pTcVpLWC1DclBtd3VEa3JDaEl5cFZral9TUC15QTB3b3BHQ1JPUHhYa0FpUWQyekZhY0s1OWF4YnhpRHlZcmFVcDRNN0RYQkdPdm13Z2c0UzRqZ0Z0NUkxcEZ0SF9OVjh5RlJBelIyWGtsSHR3azlDWHRTM01JcFZVMkxfa0tjU2d3?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
         "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSmh3NHVnejF0NmZSS0FhOXdHdUZ6bW5EdlpBODZ1YzN2b2swbG9WSkJYVW40MWNVN3IzRVk5S0VOeEJNS2g4TEoyVk50MkFVZXVPRk5tSFN5aFU0WWNSMVhGd0hFTXJkbEw2RDQta3FPa0dSamdPX2lMZ291bDNrMTk1eEpWSmY0NTBZNUl5SnJ6WGQ1N2toOHEwYVpuU2FYT1g1ellB?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSmh3NHVnejF0NmZSS0FhOXdHdUZ6bW5EdlpBODZ1YzN2b2swbG9WSkJYVW40MWNVN3IzRVk5S0VOeEJNS2g4TEoyVk50MkFVZXVPRk5tSFN5aFU0WWNSMVhGd0hFTXJkbEw2RDQta3FPa0dSamdPX2lMZ291bDNrMTk1eEpWSmY0NTBZNUl5SnJ6WGQ1N2toOHEwYVpuU2FYT1g1ellB?oc=5",
-        "title": "엔비디아, AI 도입 증가로 경쟁이 심화됨에 따라 마벨에 20억 달러 베팅 - 로이터",
-        "summary": "엔비디아, AI 도입 증가로 경쟁이 심화됨에 따라 마벨에 20억 달러 베팅 - 로이터",
+        "title": "엔비디아, AI 도입 증가로 경쟁 심화됨에 따라 마벨에 20억 달러 투자 - 로이터",
+        "summary": "엔비디아, AI 도입 증가로 경쟁 심화됨에 따라 마벨에 20억 달러 투자 로이터",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSmh3NHVnejF0NmZSS0FhOXdHdUZ6bW5EdlpBODZ1YzN2b2swbG9WSkJYVW40MWNVN3IzRVk5S0VOeEJNS2g4TEoyVk50MkFVZXVPRk5tSFN5aFU0WWNSMVhGd0hFTXJkbEw2RDQta3FPa0dSamdPX2lMZ291bDNrMTk1eEpWSmY0NTBZNUl5SnJ6WGQ1N2toOHEwYVpuU2FYT1g1ellB?oc=5",
         "published_date": "",
         "bucket": "world"
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
-        "title": "유니레버와 맥코믹, 식품 사업 계약 합의 - 로이터",
-        "summary": "유니레버와 맥코믹, 식품 사업 계약 합의 - 로이터",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
+        "story_key": "https://npr.org/2026/03/31/nx-s1-5768105/supreme-court-conversion-therapy-colorado-ban",
+        "canonical_url": "https://npr.org/2026/03/31/nx-s1-5768105/supreme-court-conversion-therapy-colorado-ban",
+        "title": "대법원, 콜로라도주의 전환 치료 금지법 위헌 판결",
+        "summary": "대법원은 전환 치료를 금지하는 콜로라도주의 법이 \"관점에 기반하여 표현을 규제한다\"고 판결했다.",
+        "source": "NPR",
+        "url": "https://www.npr.org/2026/03/31/nx-s1-5768105/supreme-court-conversion-therapy-colorado-ban",
         "published_date": "",
         "bucket": "world"
       },
       {
         "story_key": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPYjdrQ2NEOUw0WUFvMmlvN1k3VERPT3R5WTNqYmtCRjZmWHlUQ3FRMHg4ZFRuQzNFX2FPUVNodnhkc3hHb0ZLWEV3MGZRaS1OdFhzY2lFQ2stVFE5UURtVVQtdVB2Z2p5X2F6ZEs4VDRlR1hVUlB1UGVHRFBRa3g1S250SnFWeWhaLVZWVTd5N3pmWnBnQS04OWtR?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPYjdrQ2NEOUw0WUFvMmlvN1k3VERPT3R5WTNqYmtCRjZmWHlUQ3FRMHg4ZFRuQzNFX2FPUVNodnhkc3hHb0ZLWEV3MGZRaS1OdFhzY2lFQ2stVFE5UURtVVQtdVB2Z2p5X2F6ZEs4VDRlR1hVUlB1UGVHRFBRa3g1S250SnFWeWhaLVZWVTd5N3pmWnBnQS04OWtR?oc=5",
-        "title": "NASA, 53년 만에 인류의 첫 달 탐사선 발사 카운트다운 시작 - AP 통신",
-        "summary": "NASA, 53년 만에 인류의 첫 달 탐사선 발사 카운트다운 시작 - AP 통신",
+        "title": "NASA, 53년 만의 인류 달 탐사선 발사 카운트다운 시작 - AP 통신",
+        "summary": "NASA, 53년 만의 인류 달 탐사선 발사 카운트다운 시작 AP 통신",
         "source": "AP News",
         "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPYjdrQ2NEOUw0WUFvMmlvN1k3VERPT3R5WTNqYmtCRjZmWHlUQ3FRMHg4ZFRuQzNFX2FPUVNodnhkc3hHb0ZLWEV3MGZRaS1OdFhzY2lFQ2stVFE5UURtVVQtdVB2Z2p5X2F6ZEs4VDRlR1hVUlB1UGVHRFBRa3g1S250SnFWeWhaLVZWVTd5N3pmWnBnQS04OWtR?oc=5",
         "published_date": "",
         "bucket": "world"
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
-        "title": "트럼프, '조만간' 합의에 이르지 못하면 이란에 광범위한 파괴를 가하겠다고 재차 위협 - AP 통신",
-        "summary": "트럼프, '조만간' 합의에 이르지 못하면 이란에 광범위한 파괴를 가하겠다고 재차 위협 - AP 통신",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
+        "story_key": "https://view.asiae.co.kr/article/2026033110121449498",
+        "canonical_url": "https://view.asiae.co.kr/article/2026033110121449498",
+        "title": "'첫 출근' 신현송 \"환율 높지만 큰 우려 없어…달러 유동성 양호\"",
+        "summary": "신현송 한국은행 총재 후보자가 최근 1520원을 넘나드는 원·달러 환율 수준에 대해 \"큰 우려는 없다\"고... 연내 금리 인상 가능성에 대해서는 말을 아꼈다. 그는 \"중동 상황이 어떻게 진행될지 불확실해서 지켜봐야 한다\"며...",
+        "source": "아시아경제",
+        "url": "https://view.asiae.co.kr/article/2026033110121449498",
         "published_date": "",
-        "bucket": "world"
+        "bucket": "korea"
       },
       {
-        "story_key": "https://bbc.com/news/articles/cjd8nkezdyxo?at_campaign=rss&at_medium=RSS",
-        "canonical_url": "https://bbc.com/news/articles/cjd8nkezdyxo?at_campaign=rss&at_medium=RSS",
-        "title": "찰스 국왕과 카밀라 왕비, 4월 미국 국빈 방문 예정대로 진행",
-        "summary": "미국과 영국 간의 정치적 긴장에도 불구하고, 국왕은 다음 달 워싱턴을 방문할 예정이다.",
-        "source": "BBC World",
-        "url": "https://www.bbc.com/news/articles/cjd8nkezdyxo?at_medium=RSS&at_campaign=rss",
+        "story_key": "https://sedaily.com/article/20026623",
+        "canonical_url": "https://sedaily.com/article/20026623",
+        "title": "반도체 생산 28% 뛰어…38년 만에 최대폭 증가",
+        "summary": "정부는 반도체 중심의 수출이 양호한 흐름을 보이고 있지만 국제유가 상승과 소비·기업 심리 둔화로 경기 하방 위험이 커질 수 있다고 보고 있다. 이두원 데이터처 경제동향심의관은 “3월에는 일부 지표에서 중동...",
+        "source": "서울경제",
+        "url": "https://www.sedaily.com/article/20026623?ref=naver",
         "published_date": "",
-        "bucket": "world"
+        "bucket": "korea"
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260331202952053",
-        "canonical_url": "https://yna.co.kr/view/AKR20260331202952053",
-        "title": "캐리어에 50대 여성 시신 담아 유기한 20대 딸 긴급체포(종합2보)",
-        "summary": "(대구=연합뉴스) 황수빈 기자 = 31일 대구 도심 하천인 신천에서 발견된 캐리어 속 50대 여성 시신 사건과 관련해 경찰이 숨진 여성의 딸과 ...",
+        "story_key": "https://yna.co.kr/view/AKR20260331204100001?input=1195m",
+        "canonical_url": "https://yna.co.kr/view/AKR20260331204100001?input=1195m",
+        "title": "與서울시장 후보들 부동산 정책 공방…\"내가 적임\" 경쟁력 부각",
+        "summary": "전현희·박주민·정원오 후보(기호순)는 이날 오후 서울 마포구 상암동 MBC 신사옥에서 열린 본경선 첫 합동토론회에서 서울시정의 핵심인 부동산 정책을 두고 격돌했다. 전 후보는 가격을 낮춘 실속형 아파트 공급을...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260331202952053",
+        "url": "https://www.yna.co.kr/view/AKR20260331204100001?input=1195m",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4",
-        "canonical_url": "https://chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4",
-        "title": "26조원 ‘전쟁 추경’ 국민 70% 지원금",
-        "summary": "26조원 ‘전쟁 추경’ 국민 70% 지원금",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4/",
+        "story_key": "https://mk.co.kr/news/business/12004276",
+        "canonical_url": "https://mk.co.kr/news/business/12004276",
+        "title": "롯데 현금확보 전쟁…계열사 땅 부동산 개발",
+        "summary": "롯데그룹이 계열사의 실적 부진과 유동성 위기를 정면 돌파하기 위해 보유 자산 가치만 50조원에 달하는 '부동산 개발'에 나선다. 롯데그룹이 보유한 유휴 용지를 아파트와 복합쇼핑몰로..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/business/12004276",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://donga.com/news/Economy/article/all/20260331/133648484/2",
-        "canonical_url": "https://donga.com/news/Economy/article/all/20260331/133648484/2",
-        "title": "국내 ‘AI칩 유니콘’ 리벨리온, 6400억 투자유치",
-        "summary": "인공지능(AI) 반도체 스타트업 리벨리온이 6400억 원 규모의 프리IPO(상장 전 투자 유치)를 마무리했다고 31일 밝혔다. 이번 투자 유치 금액까지 더하면 리벨리온이 유치한 총투자금액은 약 1조3000억 원이다. 이번 프리IPO를 통해 리벨리온은 기업 가치를 약 3조4000억 원으로 평가받았다.  이번 투자에는 정부가 조성한 국민성장펀드가 참여했다. 국민성장펀드는 AI, 반도체 등 전략 산업 육성을 위해 마련된 정책금융으로, 리벨리온은 첫 직접 투자 대상으로 선정됐다. 국민성장펀드가 2500억 원, 한국산업은행이 500억 원을 투자했다. 여기에 미래에셋그룹이 앵커 투자자로 참여하며 민간 자본도 유입됐다. 2020년 설립된 리벨리온은 AI 추론용 반도체(NPU) 분야를 중심으로 사업을 확대해 왔다. 회사 측에 따르면 2023년 대비 2025년 매출이 약 10배 증가했으며, 설립 5년 만에 조직 규모도 300명 수준으로 늘었다. 리벨리온은 창립 5년 만에 국내 최초의 AI 반도체",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Economy/article/all/20260331/133648484/2",
-        "published_date": "",
-        "bucket": "korea"
-      },
-      {
-        "story_key": "https://hani.co.kr/arti/economy/marketing/1252052.html",
-        "canonical_url": "https://hani.co.kr/arti/economy/marketing/1252052.html",
-        "title": "삼전·하닉 1분기 영업이익 70조 기대감…주주환원은 제자리",
-        "summary": "삼전·하닉 1분기 영업이익 70조 기대감…주주환원은 제자리 본문 경제 산업·재계 삼전·하닉 1분기 영업이익 70조 기대감…주주환원은 제자리 배지현 , 박종오 기자 수정 2026-03-31 22:42 펼침 기사를 읽어드립니다 Your browser does not support the audio element.",
-        "source": "한겨레",
-        "url": "https://www.hani.co.kr/arti/economy/marketing/1252052.html",
-        "published_date": "",
-        "bucket": "korea"
-      },
-      {
-        "story_key": "https://hankyung.com/article/202603319936i",
-        "canonical_url": "https://hankyung.com/article/202603319936i",
-        "title": "법원, 김영환 충북지사 공천 컷오프 제동…\"절차적 공정성 훼손\"",
-        "summary": "법원, 김영환 충북지사 공천 컷오프 제동…절차적 공정성 훼손 | 한국경제 본문 바로가기 ADVERTISEMENT 법원, 김영환 충북지사 공천 컷오프 제동…\"절차적 공정성 훼손\" 김유진 기자 구독하기 입력 2026.03.31 22:41 수정 2026.03.31 22:45 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 국민의힘 상대 공천배제 효력정지 가처분 인용 \"특정인 밀어주기 의…",
+        "story_key": "https://hankyung.com/article/202603319979i",
+        "canonical_url": "https://hankyung.com/article/202603319979i",
+        "title": "'10조 전분당 담합' 대상 실무진 구속…'윗선' 수사는 제동",
+        "summary": "10조 전분당 담합 대상 실무진 구속…윗선 수사는 제동 | 한국경제 본문 바로가기 ADVERTISEMENT '10조 전분당 담합' 대상 실무진 구속…'윗선' 수사는 제동 정희원 기자 구독하기 입력 2026.03.31 23:57 수정 2026.04.01 00:03 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 실무 주도한 본부장만 구속 대상·사조CPK 대표는 구속영장 기각 서울 한…",
         "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202603319936i",
+        "url": "https://www.hankyung.com/article/202603319979i",
         "published_date": "",
         "bucket": "korea"
       }
     ],
     "en": [
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTy1kWVVzSmFtQU5rX2lUcERsQUphZFZZckZHZW8xRzdiYXVUSDd0RFNEV1RfYmpYOTQwakR0ZkVsMjVUTTVmQ1JhS1podXA3aUhJVGJrcUtycURqS2dCMWVMUlBsVlhsVWp6OVppOXhWZmM4czVabF9wZHd6eGJmRFhyUnFISlh2ck9vTEMySF9LS0lnOTBULTZxRDhzVU1sTGV1MmRoOGstVm9zN00wdE4ybWlDeDVaMEQ5RjZVdUl5QQ?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTy1kWVVzSmFtQU5rX2lUcERsQUphZFZZckZHZW8xRzdiYXVUSDd0RFNEV1RfYmpYOTQwakR0ZkVsMjVUTTVmQ1JhS1podXA3aUhJVGJrcUtycURqS2dCMWVMUlBsVlhsVWp6OVppOXhWZmM4czVabF9wZHd6eGJmRFhyUnFISlh2ck9vTEMySF9LS0lnOTBULTZxRDhzVU1sTGV1MmRoOGstVm9zN00wdE4ybWlDeDVaMEQ5RjZVdUl5QQ?oc=5",
+        "title": "France refused Israel use of its air space to transfer US weapons for Iran war - sources - Reuters",
+        "summary": "France refused Israel use of its air space to transfer US weapons for Iran war - sourcesReuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTy1kWVVzSmFtQU5rX2lUcERsQUphZFZZckZHZW8xRzdiYXVUSDd0RFNEV1RfYmpYOTQwakR0ZkVsMjVUTTVmQ1JhS1podXA3aUhJVGJrcUtycURqS2dCMWVMUlBsVlhsVWp6OVppOXhWZmM4czVabF9wZHd6eGJmRFhyUnFISlh2ck9vTEMySF9LS0lnOTBULTZxRDhzVU1sTGV1MmRoOGstVm9zN00wdE4ybWlDeDVaMEQ5RjZVdUl5QQ?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNkQ0VUxadGhUVnIyS2pTcVpLWC1DclBtd3VEa3JDaEl5cFZral9TUC15QTB3b3BHQ1JPUHhYa0FpUWQyekZhY0s1OWF4YnhpRHlZcmFVcDRNN0RYQkdPdm13Z2c0UzRqZ0Z0NUkxcEZ0SF9OVjh5RlJBelIyWGtsSHR3azlDWHRTM01JcFZVMkxfa0tjU2d3?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNkQ0VUxadGhUVnIyS2pTcVpLWC1DclBtd3VEa3JDaEl5cFZral9TUC15QTB3b3BHQ1JPUHhYa0FpUWQyekZhY0s1OWF4YnhpRHlZcmFVcDRNN0RYQkdPdm13Z2c0UzRqZ0Z0NUkxcEZ0SF9OVjh5RlJBelIyWGtsSHR3azlDWHRTM01JcFZVMkxfa0tjU2d3?oc=5",
+        "title": "Spice maker McCormick to combine with Hellmann's maker Unilever in latest food industry shakeup - AP News",
+        "summary": "Spice maker McCormick to combine with Hellmann's maker Unilever in latest food industry shakeupAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNkQ0VUxadGhUVnIyS2pTcVpLWC1DclBtd3VEa3JDaEl5cFZral9TUC15QTB3b3BHQ1JPUHhYa0FpUWQyekZhY0s1OWF4YnhpRHlZcmFVcDRNN0RYQkdPdm13Z2c0UzRqZ0Z0NUkxcEZ0SF9OVjh5RlJBelIyWGtsSHR3azlDWHRTM01JcFZVMkxfa0tjU2d3?oc=5",
+        "published_date": "",
+        "bucket": "world"
+      },
       {
         "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSmh3NHVnejF0NmZSS0FhOXdHdUZ6bW5EdlpBODZ1YzN2b2swbG9WSkJYVW40MWNVN3IzRVk5S0VOeEJNS2g4TEoyVk50MkFVZXVPRk5tSFN5aFU0WWNSMVhGd0hFTXJkbEw2RDQta3FPa0dSamdPX2lMZ291bDNrMTk1eEpWSmY0NTBZNUl5SnJ6WGQ1N2toOHEwYVpuU2FYT1g1ellB?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSmh3NHVnejF0NmZSS0FhOXdHdUZ6bW5EdlpBODZ1YzN2b2swbG9WSkJYVW40MWNVN3IzRVk5S0VOeEJNS2g4TEoyVk50MkFVZXVPRk5tSFN5aFU0WWNSMVhGd0hFTXJkbEw2RDQta3FPa0dSamdPX2lMZ291bDNrMTk1eEpWSmY0NTBZNUl5SnJ6WGQ1N2toOHEwYVpuU2FYT1g1ellB?oc=5",
@@ -703,12 +723,12 @@
         "bucket": "world"
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
-        "title": "Unilever and McCormick agree to food business deal - Reuters",
-        "summary": "Unilever and McCormick agree to food business dealReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
+        "story_key": "https://npr.org/2026/03/31/nx-s1-5768105/supreme-court-conversion-therapy-colorado-ban",
+        "canonical_url": "https://npr.org/2026/03/31/nx-s1-5768105/supreme-court-conversion-therapy-colorado-ban",
+        "title": "Supreme Court strikes Colorado ban on conversion therapy",
+        "summary": "The Supreme Court has ruled that Colorado's law banning conversion therapy \"regulates speech based on viewpoint.\"",
+        "source": "NPR",
+        "url": "https://www.npr.org/2026/03/31/nx-s1-5768105/supreme-court-conversion-therapy-colorado-ban",
         "published_date": "",
         "bucket": "world"
       },
@@ -723,72 +743,52 @@
         "bucket": "world"
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
-        "title": "Trump again threatens widespread destruction in Iran if a deal is not reached ‘shortly’ - AP News",
-        "summary": "Trump again threatens widespread destruction in Iran if a deal is not reached ‘shortly’AP News",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
+        "story_key": "https://view.asiae.co.kr/article/2026033110121449498",
+        "canonical_url": "https://view.asiae.co.kr/article/2026033110121449498",
+        "title": "'First Day at Work' Shin Hyun-song: \"Exchange Rate is High, but No Major Concerns... Dollar Liquidity is Good\"",
+        "summary": "Bank of Korea Governor nominee Shin Hyun-song stated that there are \"no major concerns\" regarding the recent won-dollar exchange rate hovering around 1,520 won... He remained cautious about the possibility of an interest rate hike within the year. He added, \"The situation in the Middle East is uncertain, so we have to wait and see,\"...",
+        "source": "아시아경제",
+        "url": "https://view.asiae.co.kr/article/2026033110121449498",
         "published_date": "",
-        "bucket": "world"
+        "bucket": "korea"
       },
       {
-        "story_key": "https://bbc.com/news/articles/cjd8nkezdyxo?at_campaign=rss&at_medium=RSS",
-        "canonical_url": "https://bbc.com/news/articles/cjd8nkezdyxo?at_campaign=rss&at_medium=RSS",
-        "title": "King Charles and Queen Camilla's state visit to US to go ahead in April",
-        "summary": "Despite political tensions between the US and UK, the King will travel to Washington next month.",
-        "source": "BBC World",
-        "url": "https://www.bbc.com/news/articles/cjd8nkezdyxo?at_medium=RSS&at_campaign=rss",
+        "story_key": "https://sedaily.com/article/20026623",
+        "canonical_url": "https://sedaily.com/article/20026623",
+        "title": "Semiconductor Production Jumps 28%... Largest Increase in 38 Years",
+        "summary": "The government believes that while semiconductor-driven exports are showing a positive trend, downside risks to the economy could increase due to rising international oil prices and slowing consumer and corporate sentiment. Lee Doo-won, Director General for Economic Trends at the Data Agency, said, \"In March, some indicators showed that the Middle East...",
+        "source": "서울경제",
+        "url": "https://www.sedaily.com/article/20026623?ref=naver",
         "published_date": "",
-        "bucket": "world"
+        "bucket": "korea"
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260331202952053",
-        "canonical_url": "https://yna.co.kr/view/AKR20260331202952053",
-        "title": "Daughter in her 20s urgently arrested for abandoning body of a woman in her 50s in a suitcase (Comprehensive 2nd Report)",
-        "summary": "(Daegu=Yonhap News) Reporter Hwang Su-bin = In connection with the case of a woman in her 50s whose body was found in a suitcase in Sincheon, a stream in downtown Daegu, on the 31st, police are investigating the deceased woman's daughter and...",
+        "story_key": "https://yna.co.kr/view/AKR20260331204100001?input=1195m",
+        "canonical_url": "https://yna.co.kr/view/AKR20260331204100001?input=1195m",
+        "title": "Ruling Party Seoul Mayoral Candidates Clash Over Real Estate Policies... Highlighting Competitiveness as \"The Right Person\"",
+        "summary": "Candidates Jeon Hyun-hee, Park Joo-min, and Chung Won-o (in order of ballot number) clashed over real estate policy, the core of Seoul's municipal administration, during the first joint debate of the primary held at the new MBC building in Sangam-dong, Mapo-gu, Seoul, this afternoon. Candidate Jeon proposed the supply of practical, lower-priced apartments...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260331202952053",
+        "url": "https://www.yna.co.kr/view/AKR20260331204100001?input=1195m",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4",
-        "canonical_url": "https://chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4",
-        "title": "26 trillion won 'war supplementary budget', relief funds for 70% of citizens",
-        "summary": "26 trillion won 'war supplementary budget', relief funds for 70% of citizens",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4/",
+        "story_key": "https://mk.co.kr/news/business/12004276",
+        "canonical_url": "https://mk.co.kr/news/business/12004276",
+        "title": "Lotte's War to Secure Cash... Real Estate Development on Affiliate Land",
+        "summary": "To tackle the sluggish performance and liquidity crisis of its affiliates head-on, Lotte Group is embarking on 'real estate development' with its held assets valued at 50 trillion won. The group plans to develop its idle land into apartments and complex shopping malls...",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/business/12004276",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://donga.com/news/Economy/article/all/20260331/133648484/2",
-        "canonical_url": "https://donga.com/news/Economy/article/all/20260331/133648484/2",
-        "title": "Domestic 'AI chip unicorn' Rebellions attracts 640 billion won investment",
-        "summary": "Artificial intelligence (AI) semiconductor startup Rebellions announced on the 31st that it has completed a pre-IPO (pre-listing investment attraction) worth 640 billion won. Adding this investment, the total investment amount attracted by Rebellions is about 1.3 trillion won. Through this pre-IPO, Rebellions was evaluated at a corporate value of about 3.4 trillion won. The National Growth Fund, created by the government, participated in this investment. The National Growth Fund is policy finance designed to foster strategic industries such as AI and semiconductors, and Rebellions was selected as its first direct investment target. The National Growth Fund invested 250 billion won, and the Korea Development Bank invested 50 billion won. In addition, private capital flowed in as Mirae Asset Group participated as an anchor investor. Founded in 2020, Rebellions has expanded its business focusing on the AI inference semiconductor (NPU) sector. According to the company, its sales in 2025 increased about 10 times compared to 2023, and its organizational size grew to about 300 people within five years of its establishment. Rebellions, five years after its founding, is Korea's first AI semiconductor...",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Economy/article/all/20260331/133648484/2",
-        "published_date": "",
-        "bucket": "korea"
-      },
-      {
-        "story_key": "https://hani.co.kr/arti/economy/marketing/1252052.html",
-        "canonical_url": "https://hani.co.kr/arti/economy/marketing/1252052.html",
-        "title": "Expectations of 70 trillion won in Q1 operating profit for Samsung Electronics and SK Hynix... Shareholder returns remain stagnant",
-        "summary": "Expectations of 70 trillion won in Q1 operating profit for Samsung Electronics and SK Hynix... Shareholder returns remain stagnant Main Text Economy Industry/Business Expectations of 70 trillion won in Q1 operating profit for Samsung Electronics and SK Hynix... Shareholder returns remain stagnant Reporters Bae Ji-hyun, Park Jong-oh Modified 2026-03-31 22:42 Expand Read the article to you Your browser does not support the audio element.",
-        "source": "한겨레",
-        "url": "https://www.hani.co.kr/arti/economy/marketing/1252052.html",
-        "published_date": "",
-        "bucket": "korea"
-      },
-      {
-        "story_key": "https://hankyung.com/article/202603319936i",
-        "canonical_url": "https://hankyung.com/article/202603319936i",
-        "title": "Court puts brakes on North Chungcheong Governor Kim Young-hwan's nomination cutoff... \"Procedural fairness compromised\"",
-        "summary": "Court puts brakes on North Chungcheong Governor Kim Young-hwan's nomination cutoff... Procedural fairness compromised | Hankyung Skip to main content ADVERTISEMENT Court puts brakes on North Chungcheong Governor Kim Young-hwan's nomination cutoff... \"Procedural fairness compromised\" Reporter Kim Yoo-jin Subscribe Input 2026.03.31 22:41 Modified 2026.03.31 22:45 Adjust font size Scrap article Scrap article Share Share Comments 0 Comments Clean view Clean view Print Print Injunction to suspend the effect of nomination exclusion against the People Power Party cited \"Suspicion of pushing a specific person...\"",
+        "story_key": "https://hankyung.com/article/202603319979i",
+        "canonical_url": "https://hankyung.com/article/202603319979i",
+        "title": "Working-Level Staff of Daesang Arrested in '10 Trillion Won Starch Syrup Collusion'... Investigation into 'Higher-Ups' Hits a Snag",
+        "summary": "Working-level staff of Daesang arrested in 10 trillion won starch syrup collusion... Investigation into higher-ups hits a snag | Korea Economic Daily Skip to main content ADVERTISEMENT Working-level staff of Daesang arrested in '10 trillion won starch syrup collusion'... Investigation into 'higher-ups' hits a snag Reporter Jung Hee-won Subscribe Input 2026.03.31 23:57 Modified 2026.04.01 00:03 Adjust font size Article scrap Article scrap Share Share Comments 0 Comments Clean view Clean view Print Print Only the director who led the working-level operations was arrested. Arrest warrants for the CEOs of Daesang and Sajo CPK were dismissed. A Seoul...",
         "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202603319936i",
+        "url": "https://www.hankyung.com/article/202603319979i",
         "published_date": "",
         "bucket": "korea"
       }
@@ -865,22 +865,22 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNGk5bFpWNWxDUTg5WGN6b09KRDd1RV9BUmdIUGJkcHlVZ1NyYVFZTDF3STc0WjEwZDNZOUZ0Rl9iVC05b242S0c3WlpwbUJ0bjVZMWZINl9KRktsemlaNVNwRlFGbkI2NWVkem9DYTY0ZGFJT1k0dElxcldsUURZc1FkUldPZjQ2WEdTUHRPd1lxS3N4VmdBNQ?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNGk5bFpWNWxDUTg5WGN6b09KRDd1RV9BUmdIUGJkcHlVZ1NyYVFZTDF3STc0WjEwZDNZOUZ0Rl9iVC05b242S0c3WlpwbUJ0bjVZMWZINl9KRktsemlaNVNwRlFGbkI2NWVkem9DYTY0ZGFJT1k0dElxcldsUURZc1FkUldPZjQ2WEdTUHRPd1lxS3N4VmdBNQ?oc=5",
-        "title": "Trump urges countries seeking oil to go to Strait of Hormuz and 'just take it' - Reuters",
-        "summary": "Trump urges countries seeking oil to go to Strait of Hormuz and 'just take it'Reuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNGk5bFpWNWxDUTg5WGN6b09KRDd1RV9BUmdIUGJkcHlVZ1NyYVFZTDF3STc0WjEwZDNZOUZ0Rl9iVC05b242S0c3WlpwbUJ0bjVZMWZINl9KRktsemlaNVNwRlFGbkI2NWVkem9DYTY0ZGFJT1k0dElxcldsUURZc1FkUldPZjQ2WEdTUHRPd1lxS3N4VmdBNQ?oc=5",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
         "story_key": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
         "title": "Unilever and McCormick agree to food business deal - Reuters",
         "summary": "Unilever and McCormick agree to food business dealReuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNGk5bFpWNWxDUTg5WGN6b09KRDd1RV9BUmdIUGJkcHlVZ1NyYVFZTDF3STc0WjEwZDNZOUZ0Rl9iVC05b242S0c3WlpwbUJ0bjVZMWZINl9KRktsemlaNVNwRlFGbkI2NWVkem9DYTY0ZGFJT1k0dElxcldsUURZc1FkUldPZjQ2WEdTUHRPd1lxS3N4VmdBNQ?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNGk5bFpWNWxDUTg5WGN6b09KRDd1RV9BUmdIUGJkcHlVZ1NyYVFZTDF3STc0WjEwZDNZOUZ0Rl9iVC05b242S0c3WlpwbUJ0bjVZMWZINl9KRktsemlaNVNwRlFGbkI2NWVkem9DYTY0ZGFJT1k0dElxcldsUURZc1FkUldPZjQ2WEdTUHRPd1lxS3N4VmdBNQ?oc=5",
+        "title": "Trump urges countries seeking oil to go to Strait of Hormuz and 'just take it' - Reuters",
+        "summary": "Trump urges countries seeking oil to go to Strait of Hormuz and 'just take it'Reuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNNGk5bFpWNWxDUTg5WGN6b09KRDd1RV9BUmdIUGJkcHlVZ1NyYVFZTDF3STc0WjEwZDNZOUZ0Rl9iVC05b242S0c3WlpwbUJ0bjVZMWZINl9KRktsemlaNVNwRlFGbkI2NWVkem9DYTY0ZGFJT1k0dElxcldsUURZc1FkUldPZjQ2WEdTUHRPd1lxS3N4VmdBNQ?oc=5",
         "published_date": "2026-03-31",
         "bucket": ""
       },
@@ -1045,6 +1045,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQV2xPODFqbjZxWUFpd3RXcVRQMFEwNVpUWWhXQ0Y0eHZPUXlOcThlaWRQbm9aYUYzbFNsNWRTRHVOWE5oR1dsSGdwQUY1YWxaeVNEd3c4aFppN3JiS3NkdE9ac1p5aGt0VXpyUXdBeGdIODFkWkEwTk9vQnpaQk5xbVM0eEJLVEFLTmlHZnBFRk9nYWNYQlBJeXhETTRVR1VnQ1JfRlIwUlltNnYxSnU5dFZsQktIM0JFVVJfZzR1cld2TGF5ZFE?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQV2xPODFqbjZxWUFpd3RXcVRQMFEwNVpUWWhXQ0Y0eHZPUXlOcThlaWRQbm9aYUYzbFNsNWRTRHVOWE5oR1dsSGdwQUY1YWxaeVNEd3c4aFppN3JiS3NkdE9ac1p5aGt0VXpyUXdBeGdIODFkWkEwTk9vQnpaQk5xbVM0eEJLVEFLTmlHZnBFRk9nYWNYQlBJeXhETTRVR1VnQ1JfRlIwUlltNnYxSnU5dFZsQktIM0JFVVJfZzR1cld2TGF5ZFE?oc=5",
+        "title": "The birthright citizenship case at the Supreme Court hits close to home for this immigrant mother - AP News",
+        "summary": "The birthright citizenship case at the Supreme Court hits close to home for this immigrant motherAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQV2xPODFqbjZxWUFpd3RXcVRQMFEwNVpUWWhXQ0Y0eHZPUXlOcThlaWRQbm9aYUYzbFNsNWRTRHVOWE5oR1dsSGdwQUY1YWxaeVNEd3c4aFppN3JiS3NkdE9ac1p5aGt0VXpyUXdBeGdIODFkWkEwTk9vQnpaQk5xbVM0eEJLVEFLTmlHZnBFRk9nYWNYQlBJeXhETTRVR1VnQ1JfRlIwUlltNnYxSnU5dFZsQktIM0JFVVJfZzR1cld2TGF5ZFE?oc=5",
+        "published_date": "2026-03-30",
+        "bucket": ""
+      },
+      {
         "story_key": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5",
         "title": "Trump again threatens widespread destruction in Iran if a deal is not reached ‘shortly’ - AP News",
@@ -1065,16 +1075,6 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQV2xPODFqbjZxWUFpd3RXcVRQMFEwNVpUWWhXQ0Y0eHZPUXlOcThlaWRQbm9aYUYzbFNsNWRTRHVOWE5oR1dsSGdwQUY1YWxaeVNEd3c4aFppN3JiS3NkdE9ac1p5aGt0VXpyUXdBeGdIODFkWkEwTk9vQnpaQk5xbVM0eEJLVEFLTmlHZnBFRk9nYWNYQlBJeXhETTRVR1VnQ1JfRlIwUlltNnYxSnU5dFZsQktIM0JFVVJfZzR1cld2TGF5ZFE?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQV2xPODFqbjZxWUFpd3RXcVRQMFEwNVpUWWhXQ0Y0eHZPUXlOcThlaWRQbm9aYUYzbFNsNWRTRHVOWE5oR1dsSGdwQUY1YWxaeVNEd3c4aFppN3JiS3NkdE9ac1p5aGt0VXpyUXdBeGdIODFkWkEwTk9vQnpaQk5xbVM0eEJLVEFLTmlHZnBFRk9nYWNYQlBJeXhETTRVR1VnQ1JfRlIwUlltNnYxSnU5dFZsQktIM0JFVVJfZzR1cld2TGF5ZFE?oc=5",
-        "title": "The birthright citizenship case at the Supreme Court hits close to home for this immigrant mother - AP News",
-        "summary": "The birthright citizenship case at the Supreme Court hits close to home for this immigrant motherAP News",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQV2xPODFqbjZxWUFpd3RXcVRQMFEwNVpUWWhXQ0Y0eHZPUXlOcThlaWRQbm9aYUYzbFNsNWRTRHVOWE5oR1dsSGdwQUY1YWxaeVNEd3c4aFppN3JiS3NkdE9ac1p5aGt0VXpyUXdBeGdIODFkWkEwTk9vQnpaQk5xbVM0eEJLVEFLTmlHZnBFRk9nYWNYQlBJeXhETTRVR1VnQ1JfRlIwUlltNnYxSnU5dFZsQktIM0JFVVJfZzR1cld2TGF5ZFE?oc=5",
-        "published_date": "2026-03-30",
-        "bucket": ""
-      },
-      {
         "story_key": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNaS04V1AxRnRQdlJVcTlYSnVRbEVUbVJ2MERaZzgyQjRqMDRKOFA4VGxObGhLZnYtWTVVcWtFbzhZSFVIWlFLNUFmVHdGbG9iT0F2YjFjX1o4OE1QSG1RejNrZFBVeTRlYkdNQkpGeTktN1d3b2lxa2NSNkRudGdaN0hEaE1QRHd4LTdHOEJ0c3ZnY3JFcFE?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNaS04V1AxRnRQdlJVcTlYSnVRbEVUbVJ2MERaZzgyQjRqMDRKOFA4VGxObGhLZnYtWTVVcWtFbzhZSFVIWlFLNUFmVHdGbG9iT0F2YjFjX1o4OE1QSG1RejNrZFBVeTRlYkdNQkpGeTktN1d3b2lxa2NSNkRudGdaN0hEaE1QRHd4LTdHOEJ0c3ZnY3JFcFE?oc=5",
         "title": "Airport bottlenecks ease as TSA workers get paid, but shutdown continues - AP News",
@@ -1085,23 +1085,13 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOcmtxdnpBM09kVlFSM3pBVmtHMC1vUGxPd2xQNXM2alJFR0thZDZlRnM2TzJzZS0zTWFpWk5aNlcyVEtubzVRbjZiaFRNWEFqTm1YMHFIV0k4ZE5HYllvZnV3MXN1TGhMNzJfeUo0ZzZiWE11Nm1PX1ZSY0hCOHBPdVkwWnJUME45ejVPZHVaTVJDUQ?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOcmtxdnpBM09kVlFSM3pBVmtHMC1vUGxPd2xQNXM2alJFR0thZDZlRnM2TzJzZS0zTWFpWk5aNlcyVEtubzVRbjZiaFRNWEFqTm1YMHFIV0k4ZE5HYllvZnV3MXN1TGhMNzJfeUo0ZzZiWE11Nm1PX1ZSY0hCOHBPdVkwWnJUME45ejVPZHVaTVJDUQ?oc=5",
-        "title": "Perfect homework, blank stares: Why colleges are turning to oral exams to combat AI - AP News",
-        "summary": "Perfect homework, blank stares: Why colleges are turning to oral exams to combat AIAP News",
+        "story_key": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbEVCYW5qYUdxR3NzckpSeXBTd0lNV3cyMzdnSWJuOGYwOE9nSDh4ck9uMUh3N0duTUtndjlYNTNjQWJaU2Z6anc4MVNUS2x4aXpHdF9QZnZiZVNxTER1WktTQTdkWkxtOWJLc0E3Q2s4T3BkV0ZtVWY5bnFJdjV3NkxIbGRfRjlNSWY3QjdzNDcxRzl2RmYyWVk3OFRKUUVONVdV?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbEVCYW5qYUdxR3NzckpSeXBTd0lNV3cyMzdnSWJuOGYwOE9nSDh4ck9uMUh3N0duTUtndjlYNTNjQWJaU2Z6anc4MVNUS2x4aXpHdF9QZnZiZVNxTER1WktTQTdkWkxtOWJLc0E3Q2s4T3BkV0ZtVWY5bnFJdjV3NkxIbGRfRjlNSWY3QjdzNDcxRzl2RmYyWVk3OFRKUUVONVdV?oc=5",
+        "title": "Trump threatens to destroy Iran's desalination plants. Here’s what that could mean for the Mideast - AP News",
+        "summary": "Trump threatens to destroy Iran's desalination plants. Here’s what that could mean for the MideastAP News",
         "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOcmtxdnpBM09kVlFSM3pBVmtHMC1vUGxPd2xQNXM2alJFR0thZDZlRnM2TzJzZS0zTWFpWk5aNlcyVEtubzVRbjZiaFRNWEFqTm1YMHFIV0k4ZE5HYllvZnV3MXN1TGhMNzJfeUo0ZzZiWE11Nm1PX1ZSY0hCOHBPdVkwWnJUME45ejVPZHVaTVJDUQ?oc=5",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://bbc.com/news/articles/cpwj7r5yxv1o?at_campaign=rss&at_medium=RSS",
-        "canonical_url": "https://bbc.com/news/articles/cpwj7r5yxv1o?at_campaign=rss&at_medium=RSS",
-        "title": "US defence secretary calls on allies to 'step up' over Strait of Hormuz",
-        "summary": "The defence secretary's comments came after US President Donald Trump told other nations to \"go get your own oil\".",
-        "source": "BBC World",
-        "url": "https://www.bbc.com/news/articles/cpwj7r5yxv1o?at_medium=RSS&at_campaign=rss",
-        "published_date": "2026-03-31",
+        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNbEVCYW5qYUdxR3NzckpSeXBTd0lNV3cyMzdnSWJuOGYwOE9nSDh4ck9uMUh3N0duTUtndjlYNTNjQWJaU2Z6anc4MVNUS2x4aXpHdF9QZnZiZVNxTER1WktTQTdkWkxtOWJLc0E3Q2s4T3BkV0ZtVWY5bnFJdjV3NkxIbGRfRjlNSWY3QjdzNDcxRzl2RmYyWVk3OFRKUUVONVdV?oc=5",
+        "published_date": "2026-03-30",
         "bucket": ""
       },
       {
@@ -1135,22 +1125,22 @@
         "bucket": ""
       },
       {
-        "story_key": "https://bbc.com/news/articles/clyx1lrv0w5o?at_campaign=rss&at_medium=RSS",
-        "canonical_url": "https://bbc.com/news/articles/clyx1lrv0w5o?at_campaign=rss&at_medium=RSS",
-        "title": "Russian oil tanker docks in Cuba ending near-total blockade",
-        "summary": "A Russian oil tanker has docked in Cuba, providing temporary relief after months of shortages.",
-        "source": "BBC World",
-        "url": "https://www.bbc.com/news/articles/clyx1lrv0w5o?at_medium=RSS&at_campaign=rss",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
         "story_key": "https://bbc.com/news/articles/cx2rwq53zxyo?at_campaign=rss&at_medium=RSS",
         "canonical_url": "https://bbc.com/news/articles/cx2rwq53zxyo?at_campaign=rss&at_medium=RSS",
         "title": "Eurovision Song Contest launches first-ever Asia edition",
         "summary": "Broadcasters from 10 countries, including South Korea and the Philippines, will be taking part.",
         "source": "BBC World",
         "url": "https://www.bbc.com/news/articles/cx2rwq53zxyo?at_medium=RSS&at_campaign=rss",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://bbc.com/news/articles/clyx1lrv0w5o?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/clyx1lrv0w5o?at_campaign=rss&at_medium=RSS",
+        "title": "Russian oil tanker docks in Cuba ending near-total blockade",
+        "summary": "A Russian oil tanker has docked in Cuba, providing temporary relief after months of shortages.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/clyx1lrv0w5o?at_medium=RSS&at_campaign=rss",
         "published_date": "2026-03-31",
         "bucket": ""
       },
@@ -1385,6 +1375,26 @@
         "bucket": ""
       },
       {
+        "story_key": "https://aljazeera.com/video/newsfeed/2026/3/31/trump-attacks-nato-allies-as-pressure-mounts-over-strait-of-hormuz?traffic_source=rss",
+        "canonical_url": "https://aljazeera.com/video/newsfeed/2026/3/31/trump-attacks-nato-allies-as-pressure-mounts-over-strait-of-hormuz?traffic_source=rss",
+        "title": "Trump attacks NATO allies as pressure mounts over Strait of Hormuz",
+        "summary": "Al Jazeera’s Alan Fisher explains what Trump’s latest criticism of US allies means.",
+        "source": "Al Jazeera",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/3/31/trump-attacks-nato-allies-as-pressure-mounts-over-strait-of-hormuz?traffic_source=rss",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://aljazeera.com/news/2026/3/31/qatar-warns-iranian-attacks-on-region-causing-catastrophic-effects?traffic_source=rss",
+        "canonical_url": "https://aljazeera.com/news/2026/3/31/qatar-warns-iranian-attacks-on-region-causing-catastrophic-effects?traffic_source=rss",
+        "title": "Qatar says Iran’s attacks on neighbours crossed ‘many red lines’",
+        "summary": "Iranian attacks on Qatar are having a 'catastrophic effect on the relationship between the two countries', Doha says.",
+        "source": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/3/31/qatar-warns-iranian-attacks-on-region-causing-catastrophic-effects?traffic_source=rss",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
         "story_key": "https://aljazeera.com/news/2026/3/31/cuba-crisis-explained-who-holds-power-and-could-diaz-canel-be-replaced?traffic_source=rss",
         "canonical_url": "https://aljazeera.com/news/2026/3/31/cuba-crisis-explained-who-holds-power-and-could-diaz-canel-be-replaced?traffic_source=rss",
         "title": "Cuba crisis explained: Who holds power, and could Diaz-Canel be replaced?",
@@ -1511,26 +1521,6 @@
         "summary": "Rights groups condemn Israel's new law, which will primarily apply to Palestinians, as discriminatory.",
         "source": "Al Jazeera",
         "url": "https://www.aljazeera.com/news/2026/3/31/whats-israels-death-penalty-law-that-only-applies-to-palestinians?traffic_source=rss",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://aljazeera.com/video/newsfeed/2026/3/31/are-ice-detention-deaths-caused-by-systemic-failures?traffic_source=rss",
-        "canonical_url": "https://aljazeera.com/video/newsfeed/2026/3/31/are-ice-detention-deaths-caused-by-systemic-failures?traffic_source=rss",
-        "title": "Are ICE detention deaths caused by systemic failures?",
-        "summary": "Mexican official Vanessa Calva Ruiz says the deaths of immigrants in ICE detention are caused by systemic failures.",
-        "source": "Al Jazeera",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/3/31/are-ice-detention-deaths-caused-by-systemic-failures?traffic_source=rss",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://aljazeera.com/sports/2026/3/31/pakistan-cricketer-fakhar-zaman-handed-two-match-psl-ban-for-ball-tampering?traffic_source=rss",
-        "canonical_url": "https://aljazeera.com/sports/2026/3/31/pakistan-cricketer-fakhar-zaman-handed-two-match-psl-ban-for-ball-tampering?traffic_source=rss",
-        "title": "Pakistan cricketer Fakhar Zaman handed two-match PSL ban for ball tampering",
-        "summary": "Lahore Qalandars batter was found guilty of changing the condition of the ball in the match against Karachi Kings.",
-        "source": "Al Jazeera",
-        "url": "https://www.aljazeera.com/sports/2026/3/31/pakistan-cricketer-fakhar-zaman-handed-two-match-psl-ban-for-ball-tampering?traffic_source=rss",
         "published_date": "2026-03-31",
         "bucket": ""
       },
@@ -2185,12 +2175,12 @@
         "bucket": ""
       },
       {
-        "story_key": "https://cnbc.com/2026/03/31/warren-buffett-says-he-sold-apple-too-soon-and-would-buy-more-of-it-though-not-in-this-market-.html",
-        "canonical_url": "https://cnbc.com/2026/03/31/warren-buffett-says-he-sold-apple-too-soon-and-would-buy-more-of-it-though-not-in-this-market-.html",
-        "title": "Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market",
-        "summary": "Apple remains Berkshire Hathaway's largest holding even after the conglomerate trimmed its stake at the end of last year.",
+        "story_key": "https://cnbc.com/2026/03/31/why-4-a-gallon-gas-prices-wont-trigger-fed-interest-rate-hikes-and-could-lead-to-cuts.html",
+        "canonical_url": "https://cnbc.com/2026/03/31/why-4-a-gallon-gas-prices-wont-trigger-fed-interest-rate-hikes-and-could-lead-to-cuts.html",
+        "title": "Why $4 a gallon gas prices won’t trigger Fed interest rate hikes — and could lead to cuts",
+        "summary": "While there's still plenty of uncertainty about where rates are headed, Wall Street commentary shifted back to expectations for cuts.",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/31/warren-buffett-says-he-sold-apple-too-soon-and-would-buy-more-of-it-though-not-in-this-market-.html",
+        "url": "https://www.cnbc.com/2026/03/31/why-4-a-gallon-gas-prices-wont-trigger-fed-interest-rate-hikes-and-could-lead-to-cuts.html",
         "published_date": "2026-03-31",
         "bucket": ""
       },
@@ -2215,12 +2205,22 @@
         "bucket": ""
       },
       {
-        "story_key": "https://cnbc.com/2026/03/31/warren-buffett-bill-gates-epstein.html",
-        "canonical_url": "https://cnbc.com/2026/03/31/warren-buffett-bill-gates-epstein.html",
-        "title": "Epstein files: Buffett says he hasn't talked to Bill Gates 'since the whole thing was unveiled'",
-        "summary": "Microsoft founder Bill Gates is one of many high-profile people who have suffered reputational fallout from their relationship with Jeffrey Epstein.",
+        "story_key": "https://cnbc.com/2026/03/31/stocks-making-the-biggest-moves-midday-snap-mkc-rklb-apls-mrvl.html",
+        "canonical_url": "https://cnbc.com/2026/03/31/stocks-making-the-biggest-moves-midday-snap-mkc-rklb-apls-mrvl.html",
+        "title": "Stocks making the biggest moves midday: Snap, McCormick & Co, Rocket Lab, Apellis, Marvell & more",
+        "summary": "Here are some of the names making headlines in midday trading.",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/31/warren-buffett-bill-gates-epstein.html",
+        "url": "https://www.cnbc.com/2026/03/31/stocks-making-the-biggest-moves-midday-snap-mkc-rklb-apls-mrvl.html",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://cnbc.com/2026/03/31/warren-buffett-says-he-sold-apple-too-soon-and-would-buy-more-of-it-though-not-in-this-market-.html",
+        "canonical_url": "https://cnbc.com/2026/03/31/warren-buffett-says-he-sold-apple-too-soon-and-would-buy-more-of-it-though-not-in-this-market-.html",
+        "title": "Warren Buffett says he sold Apple too soon and would buy more of it, though not in this market",
+        "summary": "Apple remains Berkshire Hathaway's largest holding even after the conglomerate trimmed its stake at the end of last year.",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/31/warren-buffett-says-he-sold-apple-too-soon-and-would-buy-more-of-it-though-not-in-this-market-.html",
         "published_date": "2026-03-31",
         "bucket": ""
       },
@@ -2235,42 +2235,32 @@
         "bucket": ""
       },
       {
-        "story_key": "https://cnbc.com/2026/03/30/stock-market-today-live-updates.html",
-        "canonical_url": "https://cnbc.com/2026/03/30/stock-market-today-live-updates.html",
-        "title": "Dow rallies more than 400 points in final day of March on hopes the U.S.-Iran war could end soon: Live updates",
-        "summary": "The broad market S&P 500 fell for a third consecutive session on Monday as oil prices rose once again.",
+        "story_key": "https://cnbc.com/2026/03/31/warren-buffett-bill-gates-epstein.html",
+        "canonical_url": "https://cnbc.com/2026/03/31/warren-buffett-bill-gates-epstein.html",
+        "title": "Epstein files: Buffett says he hasn't talked to Bill Gates 'since the whole thing was unveiled'",
+        "summary": "Microsoft founder Bill Gates is one of many high-profile people who have suffered reputational fallout from their relationship with Jeffrey Epstein.",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/30/stock-market-today-live-updates.html",
+        "url": "https://www.cnbc.com/2026/03/31/warren-buffett-bill-gates-epstein.html",
         "published_date": "2026-03-31",
         "bucket": ""
       },
       {
-        "story_key": "https://cnbc.com/2026/03/31/eli-lilly-to-acquire-centessa-and-sleep-disorder-drugs.html",
-        "canonical_url": "https://cnbc.com/2026/03/31/eli-lilly-to-acquire-centessa-and-sleep-disorder-drugs.html",
-        "title": "Lilly to spend up to $7.8 billion to acquire Centessa, a maker of experimental sleep disorder drugs",
-        "summary": "Centessa is one of several companies working on a new class of drugs to treat narcolepsy, a condition that makes it difficult for people to stay awake.",
+        "story_key": "https://cnbc.com/2026/03/31/nike-nke-earnings-q3-2026.html",
+        "canonical_url": "https://cnbc.com/2026/03/31/nike-nke-earnings-q3-2026.html",
+        "title": "Nike is set to report earnings after the bell. Here's what Wall Street expects",
+        "summary": "Nike has shown some gains in North America, its largest market, amid its turnaround, but the strength was offset by weakness in China.",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/31/eli-lilly-to-acquire-centessa-and-sleep-disorder-drugs.html",
+        "url": "https://www.cnbc.com/2026/03/31/nike-nke-earnings-q3-2026.html",
         "published_date": "2026-03-31",
         "bucket": ""
       },
       {
         "story_key": "https://cnbc.com/2026/03/31/tiger-woods-opioids-dui-arrest-affidavit.html",
         "canonical_url": "https://cnbc.com/2026/03/31/tiger-woods-opioids-dui-arrest-affidavit.html",
-        "title": "Tiger Woods found with opioids in pocket after DUI rollover crash: Police arrest affidavit",
-        "summary": "\"I asked Woods if he consumed any prescription medication to which he stated, 'I take a few,'\"  a Florida sheriff's deputy wrote.",
+        "title": "Tiger Woods had opioids in pants after DUI rollover crash in Florida: Arrest affidavit",
+        "summary": "President Donald Trump, whose former daughter-in-law Vanessa Trump is dating Woods, told The New York Post that Woods \"lives a life of pain.\"",
         "source": "CNBC",
         "url": "https://www.cnbc.com/2026/03/31/tiger-woods-opioids-dui-arrest-affidavit.html",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://cnbc.com/2026/03/31/opendoor-doma-closing-escrow-business-mortgage-refinance-costs.html",
-        "canonical_url": "https://cnbc.com/2026/03/31/opendoor-doma-closing-escrow-business-mortgage-refinance-costs.html",
-        "title": "Opendoor acquires Doma's closing and escrow business in bid to lower mortgage refinance costs",
-        "summary": "Doma's technology has been used in a Fannie Mae pilot program designed to reduce title insurance costs on eligible refinance transactions.",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/31/opendoor-doma-closing-escrow-business-mortgage-refinance-costs.html",
         "published_date": "2026-03-31",
         "bucket": ""
       },
@@ -2285,26 +2275,6 @@
         "bucket": ""
       },
       {
-        "story_key": "https://cnbc.com/2026/03/31/gas-prices-hit-low-income-consumers-falling-markets-hurt-high-earners.html",
-        "canonical_url": "https://cnbc.com/2026/03/31/gas-prices-hit-low-income-consumers-falling-markets-hurt-high-earners.html",
-        "title": "While low-income consumers struggle with rising gas prices, higher earners grow nervous as markets fall",
-        "summary": "Bank of America data reveals lower-income consumers are already pulling back on spending. Consumer sentiment shows higher earners are feeling less confident.",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/31/gas-prices-hit-low-income-consumers-falling-markets-hurt-high-earners.html",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://cnbc.com/2026/03/31/marvell-nvidia-stock-stake.html",
-        "canonical_url": "https://cnbc.com/2026/03/31/marvell-nvidia-stock-stake.html",
-        "title": "Marvell stock pops 7% as Nvidia takes $2 billion stake, continuing run of similar bets",
-        "summary": "Nvidia has also made $2 billion investments in CoreWeave, Nebius and Coherent in recent months.",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/31/marvell-nvidia-stock-stake.html",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
         "story_key": "https://cnbc.com/2026/03/31/project-hail-mary-box-office-amazon-mgm.html",
         "canonical_url": "https://cnbc.com/2026/03/31/project-hail-mary-box-office-amazon-mgm.html",
         "title": "'Project Hail Mary' is the box office proof point Amazon MGM has been waiting for",
@@ -2315,12 +2285,42 @@
         "bucket": ""
       },
       {
-        "story_key": "https://cnbc.com/2026/03/31/pete-hegseth-defence-investments-iran-war-pentagon.html",
-        "canonical_url": "https://cnbc.com/2026/03/31/pete-hegseth-defence-investments-iran-war-pentagon.html",
-        "title": "Pete Hegseth's broker attempted to make defense investments before Iran war: Financial Times",
-        "summary": "Pentagon chief spokesperson Sean Parnell dismissed the report in a post on X, calling it \"entirely false and fabricated.\"",
+        "story_key": "https://cnbc.com/2026/03/31/warren-buffett-says-hes-still-making-calls-on-investments-at-berkshire-flags-tiny-new-buy.html",
+        "canonical_url": "https://cnbc.com/2026/03/31/warren-buffett-says-hes-still-making-calls-on-investments-at-berkshire-flags-tiny-new-buy.html",
+        "title": "Warren Buffett says he's still making calls on investments at Berkshire, flags 'tiny' new buy",
+        "summary": "The 95-year-old investor said he still comes into the office daily and stays engaged with markets.",
         "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/03/31/pete-hegseth-defence-investments-iran-war-pentagon.html",
+        "url": "https://www.cnbc.com/2026/03/31/warren-buffett-says-hes-still-making-calls-on-investments-at-berkshire-flags-tiny-new-buy.html",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://cnbc.com/2026/03/31/eli-lilly-to-acquire-centessa-and-sleep-disorder-drugs.html",
+        "canonical_url": "https://cnbc.com/2026/03/31/eli-lilly-to-acquire-centessa-and-sleep-disorder-drugs.html",
+        "title": "Lilly to spend up to $7.8 billion to acquire Centessa, a maker of experimental sleep disorder drugs",
+        "summary": "Centessa is one of several companies working on a new class of drugs to treat narcolepsy, a condition that makes it difficult for people to stay awake.",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/31/eli-lilly-to-acquire-centessa-and-sleep-disorder-drugs.html",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://cnbc.com/2026/03/31/opendoor-doma-closing-escrow-business-mortgage-refinance-costs.html",
+        "canonical_url": "https://cnbc.com/2026/03/31/opendoor-doma-closing-escrow-business-mortgage-refinance-costs.html",
+        "title": "Opendoor acquires Doma's closing and escrow business in bid to lower mortgage refinance costs",
+        "summary": "Doma's technology has been used in a Fannie Mae pilot program designed to reduce title insurance costs on eligible refinance transactions.",
+        "source": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/31/opendoor-doma-closing-escrow-business-mortgage-refinance-costs.html",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://marketwatch.com/story/trump-urges-other-nations-to-take-the-strait-of-hormuz-heres-who-has-the-most-at-stake-9677d0f3?mod=mw_rss_topstories",
+        "canonical_url": "https://marketwatch.com/story/trump-urges-other-nations-to-take-the-strait-of-hormuz-heres-who-has-the-most-at-stake-9677d0f3?mod=mw_rss_topstories",
+        "title": "Trump urges other nations to ‘take’ the Strait of Hormuz. Here’s who has the most at stake.",
+        "summary": "President Trump is urging other nations to launch their own missions to control the Strait of Hormuz, a move that would benefit one area of the world the most.",
+        "source": "MarketWatch",
+        "url": "https://www.marketwatch.com/story/trump-urges-other-nations-to-take-the-strait-of-hormuz-heres-who-has-the-most-at-stake-9677d0f3?mod=mw_rss_topstories",
         "published_date": "2026-03-31",
         "bucket": ""
       },
@@ -2415,12 +2415,22 @@
         "bucket": ""
       },
       {
-        "story_key": "https://marketwatch.com/story/these-20-stocks-in-the-s-p-500-fell-hardest-during-march-cdd8d670?mod=mw_rss_topstories",
-        "canonical_url": "https://marketwatch.com/story/these-20-stocks-in-the-s-p-500-fell-hardest-during-march-cdd8d670?mod=mw_rss_topstories",
-        "title": "These 20 stocks in the S&P 500 fell hardest during March",
-        "summary": "These stocks saw significant declines in the month.",
-        "source": "MarketWatch",
-        "url": "https://www.marketwatch.com/story/these-20-stocks-in-the-s-p-500-fell-hardest-during-march-cdd8d670?mod=mw_rss_topstories",
+        "story_key": "https://yna.co.kr/view/AKR20260331180251109",
+        "canonical_url": "https://yna.co.kr/view/AKR20260331180251109",
+        "title": "伊, 공군기지 美사용 불허…폴란드는 패트리엇 중동 재배치 거부(종합)",
+        "summary": "(로마·베를린=연합뉴스) 민경락 김계연 특파원 = 이탈리아가 미국이 이란과 전쟁 중 시칠리아 공군기지를 사용하는 것을 불허했다.",
+        "source": "연합뉴스",
+        "url": "https://www.yna.co.kr/view/AKR20260331180251109",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://yna.co.kr/view/AKR20260401001200072",
+        "canonical_url": "https://yna.co.kr/view/AKR20260401001200072",
+        "title": "트럼프 \"이란 이미 초토화…호르무즈해협, 이용국가가 열면 돼\"",
+        "summary": "(뉴욕=연합뉴스) 이지헌 특파원 = 도널드 트럼프 미 대통령은 31일(현지시간) 미군이 이란 전쟁을 오래 수행하지 않을 것이라면서 호르무즈 해협...",
+        "source": "연합뉴스",
+        "url": "https://www.yna.co.kr/view/AKR20260401001200072",
         "published_date": "2026-03-31",
         "bucket": ""
       },
@@ -2447,7 +2457,7 @@
       {
         "story_key": "https://yna.co.kr/view/AKR20260401000800009",
         "canonical_url": "https://yna.co.kr/view/AKR20260401000800009",
-        "title": "UAE·카타르 정상, 이란 공격 '테러'로 지칭",
+        "title": "UAE·카타르 정상, 이란의 걸프공격 '테러'로 지칭",
         "summary": "(서울=연합뉴스) 강훈상 기자 = 이란의 집중 공격을 받고 있는 아랍에미리트(UAE)와 카타르 정상은 31일(현지시간) UAE 아부다비에서 정상...",
         "source": "연합뉴스",
         "url": "https://www.yna.co.kr/view/AKR20260401000800009",
@@ -2555,22 +2565,72 @@
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260331207900108",
-        "canonical_url": "https://yna.co.kr/view/AKR20260331207900108",
-        "title": "FIFA 회장 \"이란, 월드컵에 참가할 것\"",
-        "summary": "(이스탄불=연합뉴스) 김동호 특파원 = 잔니 인판티노 국제축구연맹(FIFA) 회장은 31일(현지시간) 이란이 2026 북중미월드컵에 참가할 것이...",
-        "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260331207900108",
+        "story_key": "https://chosun.com/sports/baseball/2026/04/01/GA4DSMBRGJTDQZTGGJSDMZRQMQ",
+        "canonical_url": "https://chosun.com/sports/baseball/2026/04/01/GA4DSMBRGJTDQZTGGJSDMZRQMQ",
+        "title": "'도영아 부상 조심' 잠실에서 재회한 김도영 따뜻하게 안아준 김용일 코치, 보는 순간 훈훈 [잠실 현장]",
+        "summary": "[잠실=스포츠조선 박재만 기자] '도영아 자나 깨나 부상 조심! 알지?' 잠실구장을 찾은 김도영이 김용일 코치 품에 안겼다.  쌀쌀한 날씨 속, 김도영을 향한 따뜻한 포옹이 눈길을 끌었다.  31일 잠실구장에서 열린 LG 트윈스와 KIA 타이거즈의 주중 3연전 첫 경기. 홈팀 LG 선수들의 타격 훈련이 마무리될 무렵 경기장에 도착한 KIA 선수들은 3루 더",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/baseball/2026/04/01/GA4DSMBRGJTDQZTGGJSDMZRQMQ/",
         "published_date": "2026-03-31",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260331207700009",
-        "canonical_url": "https://yna.co.kr/view/AKR20260331207700009",
-        "title": "뉴욕증시, 중동 종전 기대감에 상승 출발",
-        "summary": "(서울=연합뉴스) 윤정원 연합인포맥스 기자 = 뉴욕증시의 3대 주가지수는 중동지역의 종전 기대감에 상승 출발했다.",
-        "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260331207700009",
+        "story_key": "https://chosun.com/sports/world-baseball/2026/04/01/MFTDSZBZGVRTCOLFGY4DCZJSHE",
+        "canonical_url": "https://chosun.com/sports/world-baseball/2026/04/01/MFTDSZBZGVRTCOLFGY4DCZJSHE",
+        "title": "‘충격 마이너 강등’ 김혜성 어렵게 입 열었다, 로버츠 원망 NO→왜 자책했을까 “WBC 참가 후회 안 해, 그냥 내가 못했다”",
+        "summary": "[OSEN=이후광 기자] 시범경기 타율 4할대 맹타에도 마이너리그 강등을 통보받은 김혜성(LA 다저스)이 어렵게 입을 열었다. 데이브 로버츠 감독이 원망스러울 법도 했지만, 김혜성은 모든 일의 책임을 스스로에게 돌렸다. 김혜성은 최근 미국 텍사스주 댈러스 지역 한인 매체 ‘DKNET’과의 인터뷰에서 마이너리그 강등과 관련한 솔직한 속내를 밝혔다. 지난해 다",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/world-baseball/2026/04/01/MFTDSZBZGVRTCOLFGY4DCZJSHE/",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/sports/baseball/2026/04/01/GZQTIYRYGRRTENJXMY2GCNZZG4",
+        "canonical_url": "https://chosun.com/sports/baseball/2026/04/01/GZQTIYRYGRRTENJXMY2GCNZZG4",
+        "title": "삼성 웃어야 하나, 울어야 하나...드디어 홈런 터졌다, 그런데 이걸 못 넘기다니 [대구 현장]",
+        "summary": "[대구=스포츠조선 김용 기자] 웃어야 해, 울어야 해. 우승 후보 삼성 라이온즈가 1승을 하는 게 이렇게나 힘든 일인 것인가. 드디어 터졌다. 하지만 웃지는 못했다. 분위기를 완전히 가져와놓고, 마지막 점을 찍지 못했다. 삼성은 31일 대구삼성라이온즈파크에서 열린 두산 베어스전에서 5대5로 비겼다. 롯데 자이언츠와의 개막 2연전을 모두 지고, 첫 승을 따내",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/baseball/2026/04/01/GZQTIYRYGRRTENJXMY2GCNZZG4/",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/sports/baseball/2026/04/01/MQYWKNRXMQ4DKMRQGEZDKNDEGU",
+        "canonical_url": "https://chosun.com/sports/baseball/2026/04/01/MQYWKNRXMQ4DKMRQGEZDKNDEGU",
+        "title": "고비마다 KKKKK! 고개숙인 토종 홈런왕 '5타수 5삼진'…젊은피 활약에 '찬물' → 사건사고보다 컸던 존재감 [대전피플]",
+        "summary": "[대전=스포츠조선 김영록 기자] 뜨거운 심장만큼이나 젊은피들의 불방망이가 빛났다. 하지만 팀 타선의 중심, 4번타자 '토종' 홈런왕의 'KKKKK' 행진은 결국 팀의 운명에 '찬물'을 부었다. 한화 이글스는 31일 한화생명볼파크에서 열린 KT 위즈와의 경기에서 4대9로 패했다. 양팀 합쳐 13명의 투수가 등판, 21안타 18사사구 5실책을 주고받은 난타전이",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/baseball/2026/04/01/MQYWKNRXMQ4DKMRQGEZDKNDEGU/",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/sports/baseball/2026/04/01/GBRWMNLFG5RTINTGMM2DAZBWGE",
+        "canonical_url": "https://chosun.com/sports/baseball/2026/04/01/GBRWMNLFG5RTINTGMM2DAZBWGE",
+        "title": "롯데 실책 후 4실점, 누구 탓인가 → 박세웅 평균자책점은 '0.00'이다",
+        "summary": "[창원=스포츠조선 한동훈 기자] 안타 연속 4방에 도루까지 허용하며 4점을 줬지만 자책점은 '제로'였다. 2사 이후에 나온 실책 때문이다. 롯데 자이언츠 선발투수 박세웅이 아웃카운트 하나에 애를 먹으며 승기를 빼앗겼다. 박세웅은 31일 창원 NC파크에서 열린 2026 KBO리그 NC 다이노스전에 선발 등판했다. 박세웅은 5이닝 4실점하며 패전투수가 됐지만",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/baseball/2026/04/01/GBRWMNLFG5RTINTGMM2DAZBWGE/",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/sports/baseball/2026/04/01/MEYTIMBRGUZGEZBXMMZTCZTCGI",
+        "canonical_url": "https://chosun.com/sports/baseball/2026/04/01/MEYTIMBRGUZGEZBXMMZTCZTCGI",
+        "title": "또 악재, 지명타자도 안 되려나…LG 4번타자, 이번에는 허벅지를 부여잡고 교체되다",
+        "summary": "[OSEN=잠실, 한용섭 기자] 프로야구 LG 트윈스의 4번타자 문보경이 허벅지 잔부상으로 교체됐다. 3루 수비 출장이 더 늦어질 전망이다. 더 큰 부상을 예방하기 위해서는 지명타자 출장도 힘들 수도 있다. 개막 3연패에 빠진 LG에 악재다. 문보경은 31일 잠실구장에서 열린 KIA 타이거즈와 경기에 4번 지명타자로 선발 출장했다. 개막전부터 3경기 연속",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/baseball/2026/04/01/MEYTIMBRGUZGEZBXMMZTCZTCGI/",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/sports/world-baseball/2026/04/01/MJQTCZBQGY2DGM3CGM2TCZBZGU",
+        "canonical_url": "https://chosun.com/sports/world-baseball/2026/04/01/MJQTCZBQGY2DGM3CGM2TCZBZGU",
+        "title": "'역대급' 야구장 알바생 뺨 때린 관중, 영구 출입 금지에 해고까지 당했다",
+        "summary": "[스포츠조선 나유리 기자]신 구장 첫 경기를 치르는 날. 2만3500명의 관중이 야구장에 가득 들어찼는데, 예상치 못한 사건이 발생했다. 대만 타이난 아시아태평양 야구장에서 지난 3월 30일 유니 라이온즈의 시즌 첫 경기가 열렸다. 지난해 개장한 이 구장은 유니의 새 홈이기도 하다. 지난해까지는 이전 구장을 사용하다가 올 시즌부터 본격 신 구장 시대를 열었",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/world-baseball/2026/04/01/MJQTCZBQGY2DGM3CGM2TCZBZGU/",
         "published_date": "2026-03-31",
         "bucket": ""
       },
@@ -2605,16 +2665,6 @@
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/entertainments/broadcast/2026/03/31/HA2DSYRWGQ4DIMJZGE3DANRUMU",
-        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/03/31/HA2DSYRWGQ4DIMJZGE3DANRUMU",
-        "title": "이숙캠 '투견부부', 이혼 후 ''X의사생활'은 또 왜 나왔나..\"양육권 없어\" 눈길",
-        "summary": "리뷰 : 방송 시청 후 작성된 리뷰 기사입니다.[OSEN=김수형 기자] ‘X의 사생활’ 에서 투견부부로 알려진 길현주가 또 X의 사생활에 출연한 이유를 밝혔다. 31일 화요일 TV조선 예능 'X의 사생활'에서 투견부부가 이혼한 근황을 전했다. 이혼숙려캠프’에서 투견부부로 화제를 모았던 잔현근과 길연주가 출연, 김구라는 “이상적인 이혼 부부를 봤지만치열하게",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/entertainments/broadcast/2026/03/31/HA2DSYRWGQ4DIMJZGE3DANRUMU/",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
         "story_key": "https://chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4",
         "canonical_url": "https://chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4",
         "title": "26조원 ‘전쟁 추경’ 국민 70% 지원금",
@@ -2635,92 +2685,22 @@
         "bucket": ""
       },
       {
+        "story_key": "https://chosun.com/entertainments/broadcast/2026/03/31/HA2DSYRWGQ4DIMJZGE3DANRUMU",
+        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/03/31/HA2DSYRWGQ4DIMJZGE3DANRUMU",
+        "title": "이숙캠 '투견부부', 이혼 후 ''X의사생활'은 또 왜 나왔나..\"양육권 없어\" 눈길",
+        "summary": "리뷰 : 방송 시청 후 작성된 리뷰 기사입니다.[OSEN=김수형 기자] ‘X의 사생활’ 에서 투견부부로 알려진 길현주가 또 X의 사생활에 출연한 이유를 밝혔다. 31일 화요일 TV조선 예능 'X의 사생활'에서 투견부부가 이혼한 근황을 전했다. 이혼숙려캠프’에서 투견부부로 화제를 모았던 잔현근과 길연주가 출연, 김구라는 “이상적인 이혼 부부를 봤지만치열하게",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/entertainments/broadcast/2026/03/31/HA2DSYRWGQ4DIMJZGE3DANRUMU/",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
         "story_key": "https://chosun.com/national/regional/2026/04/01/MCHTZLCTMFFLVMF6N2VVRJC4PE",
         "canonical_url": "https://chosun.com/national/regional/2026/04/01/MCHTZLCTMFFLVMF6N2VVRJC4PE",
         "title": "인구 5만인데 연 12만명 온다… 예천 살린 전지훈련",
         "summary": "",
         "source": "조선일보",
         "url": "https://www.chosun.com/national/regional/2026/04/01/MCHTZLCTMFFLVMF6N2VVRJC4PE/",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/international/mideast-africa-latin/2026/04/01/OCP7AIJNBFF5BP4KNWUQFAGVWY",
-        "canonical_url": "https://chosun.com/international/mideast-africa-latin/2026/04/01/OCP7AIJNBFF5BP4KNWUQFAGVWY",
-        "title": "이란, 호르무즈 해협 통행세 징수 승인… 트럼프, 동맹에 “직접 석유 쟁취하라”",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/international/mideast-africa-latin/2026/04/01/OCP7AIJNBFF5BP4KNWUQFAGVWY/",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/sports/baseball/2026/04/01/MUYWGNLEGRSDQNBZMY3GEMRSHA",
-        "canonical_url": "https://chosun.com/sports/baseball/2026/04/01/MUYWGNLEGRSDQNBZMY3GEMRSHA",
-        "title": "'초비상' 한화, 1패가 문제가 아니다…'다리찢기 투혼' 새 외인 긴급강판, 심각한 부상 아니어야 할 텐데 [오!쎈 대전]",
-        "summary": "[OSEN=대전, 조은혜 기자] 한화 이글스에 날벼락이 떨어졌다. 새 외국인 투수 오웬 화이트가 첫 등판에 허벅지 통증으로 절뚝이며 마운드를 내려갔다.김경문 감독이 이끄는 한화는31일 대전 한화생명 볼파크에서 열린 2026 신한 SOL KBO리그 KT 위즈와의 홈경기에서 4-9로 패했다. 이날 선발투수로 등판한 화이트는 수비 과정에서 허벅지를 다치면서 2⅓",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/sports/baseball/2026/04/01/MUYWGNLEGRSDQNBZMY3GEMRSHA/",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/sports/world-baseball/2026/04/01/GI4TIZTCMM2GCYJXGE4TIMRVMM",
-        "canonical_url": "https://chosun.com/sports/world-baseball/2026/04/01/GI4TIZTCMM2GCYJXGE4TIMRVMM",
-        "title": "'울컥' 눈물 꾹 참은 와이스 \"야구하려고 한국까지 갔는데…이런 날이 올 줄 몰랐다\" 잊지 못할 ML 데뷔 감격",
-        "summary": "[OSEN=이상학 객원기자] KBO리그 한화 이글스가 키운 ‘빅리거’ 라이언 와이스(29·휴스턴 애스트로스)가 애써 눈물을 참았다. 가족들과 눈을 마주치지 않고 벅찬 감정을 억누르며 메이저리그 데뷔를 알렸다. 와이스는 지난 31일(이하 한국시간) 미국 텍사스주 휴스턴 다이킨파크에서 열린 2026 메이저리그 보스턴 레드삭스와의 홈경기에 8회 구원등판, 2이닝",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/sports/world-baseball/2026/04/01/GI4TIZTCMM2GCYJXGE4TIMRVMM/",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/economy/economy_general/2026/04/01/IJFMBMZEHZETVLK3AFWDCLFKAM",
-        "canonical_url": "https://chosun.com/economy/economy_general/2026/04/01/IJFMBMZEHZETVLK3AFWDCLFKAM",
-        "title": "1530원 뚫은 환율, 5100 무너진 코스피",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/economy/economy_general/2026/04/01/IJFMBMZEHZETVLK3AFWDCLFKAM/",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/sports/world-football/2026/04/01/MQ4TONJTGY3GMNZYHE2GGMTCGY",
-        "canonical_url": "https://chosun.com/sports/world-football/2026/04/01/MQ4TONJTGY3GMNZYHE2GGMTCGY",
-        "title": "“결국 데 제르비” 토트넘, SON 없이 강등 위기서 승부수…강등 위기 속 체질 개선 선언 [공식발표]",
-        "summary": "[OSEN=이인환 기자] 토트넘 홋스퍼가 로베르토 데 제르비 감독 선임을 공식 발표했다.토트넘은 1일(한국시간) 구단 공식 SNS를 통해 “로베르토 데 제르비를 새로운 남자팀 감독으로 선임하게 돼 기쁘다. 장기 계약이며 워크 퍼밋 절차를 전제로 한다”고 밝혔다. 이미 기류는 형성돼 있었다. 토트넘은 최근 이고르 투도르 임시 감독 체제를 정리한 뒤 차기 사령",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/sports/world-football/2026/04/01/MQ4TONJTGY3GMNZYHE2GGMTCGY/",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/international/international_general/2026/04/01/TBCZ5NTKWNCMXACGWJGY7BKHYQ",
-        "canonical_url": "https://chosun.com/international/international_general/2026/04/01/TBCZ5NTKWNCMXACGWJGY7BKHYQ",
-        "title": "호르무즈 통행료 부과땐 유가 폭등… 이란은 年 150조원 챙겨",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/international/international_general/2026/04/01/TBCZ5NTKWNCMXACGWJGY7BKHYQ/",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/international/us/2026/04/01/WMC72N6TKNCIVGTUTMGUAQM7J4",
-        "canonical_url": "https://chosun.com/international/us/2026/04/01/WMC72N6TKNCIVGTUTMGUAQM7J4",
-        "title": "루비오 美국무 “이란戰 끝나면 나토 재검토”",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/international/us/2026/04/01/WMC72N6TKNCIVGTUTMGUAQM7J4/",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/economy/economy_general/2026/04/01/5E5ZY7SADFDPTG46SJEAVOEAGQ",
-        "canonical_url": "https://chosun.com/economy/economy_general/2026/04/01/5E5ZY7SADFDPTG46SJEAVOEAGQ",
-        "title": "정유사 기름 탱크 비워질라, 정부가 비축유 빌려준다",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/economy/economy_general/2026/04/01/5E5ZY7SADFDPTG46SJEAVOEAGQ/",
         "published_date": "2026-03-31",
         "bucket": ""
       },
@@ -3015,6 +2995,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://hankyung.com/article/202604010009i",
+        "canonical_url": "https://hankyung.com/article/202604010009i",
+        "title": "버핏,\"여전히 투자결정 관여,현재 美증시 흥분할 수준 못돼\"",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/202604010009i",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
         "story_key": "https://hankyung.com/article/2026033197691",
         "canonical_url": "https://hankyung.com/article/2026033197691",
         "title": "[포토] 요시토모作 150억…국내 경매 최고가 갱신",
@@ -3085,6 +3075,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://hankyung.com/article/202603319947i",
+        "canonical_url": "https://hankyung.com/article/202603319947i",
+        "title": "뉴욕증시, 종전 기대감에 상승출발…나스닥 1.9%↑",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/202603319947i",
+        "published_date": "2026-03-31",
+        "bucket": ""
+      },
+      {
         "story_key": "https://hankyung.com/article/202603319936i",
         "canonical_url": "https://hankyung.com/article/202603319936i",
         "title": "법원, 김영환 충북지사 공천 컷오프 제동…\"절차적 공정성 훼손\"",
@@ -3125,16 +3125,6 @@
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/202603319878i",
-        "canonical_url": "https://hankyung.com/article/202603319878i",
-        "title": "엔비디아, 맞춤형칩 설계업체 마벨에 3조원 투자한다",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202603319878i",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
         "story_key": "https://mk.co.kr/news/economy/12004297",
         "canonical_url": "https://mk.co.kr/news/economy/12004297",
         "title": "“매·비둘기 구분 적절치 않아”…한은 총재후보, 금리에 ‘신중’",
@@ -3171,16 +3161,6 @@
         "summary": "롯데그룹이 계열사의 실적 부진과 유동성 위기를 정면 돌파하기 위해 보유 자산 가치만 50조원에 달하는 '부동산 개발'에 나선다. 롯데그룹이 보유한 유휴 용지를 아파트와 복합쇼핑몰로..",
         "source": "매일경제",
         "url": "https://www.mk.co.kr/news/business/12004276",
-        "published_date": "2026-03-31",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://mk.co.kr/news/world/12004256",
-        "canonical_url": "https://mk.co.kr/news/world/12004256",
-        "title": "뉴욕증시, 종전 기대감에 상승 출발…다우 1.12%↑",
-        "summary": "도널드 트럼프 미국 대통령이 호르무즈 해협 개방 없이 전쟁을 끝낼 의사를 밝혔다는 보도가 나오면서 뉴욕증시가 상승 출발했다. 31일(현지 시간) 뉴욕증권거래소(NYSE)에 따르면 ..",
-        "source": "매일경제",
-        "url": "https://www.mk.co.kr/news/world/12004256",
         "published_date": "2026-03-31",
         "bucket": ""
       },
