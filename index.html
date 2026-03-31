@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Brief &middot; 2026년 3월 31일 화요일</title>
-  <meta name="description" content="AI-powered daily market & news briefing for 2026년 3월 31일 화요일">
+  <title>Daily Brief &middot; 2026년 4월 1일 수요일</title>
+  <meta name="description" content="AI-powered daily market & news briefing for 2026년 4월 1일 수요일">
   <meta name="robots" content="noindex, nofollow">
 
   <!-- Fonts -->
@@ -13,8 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
-  <!-- Chart.js (deferred — for future interactive charts) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+  <!-- Plotly.js for sector treemap heatmap -->
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2/plotly.min.js" defer></script>
 
   <style>
     /* ── CSS Custom Properties ─────────────────────────────── */
@@ -292,6 +292,11 @@
       .market-change { font-size: 14px; }
     }
 
+    /* ── Sector Treemap ────────────────────────────────────── */
+    @media (min-width: 640px) {
+      #sector-treemap { height: 220px; }
+    }
+
     /* ── News Section ──────────────────────────────────────── */
     .news-list {
       list-style: none;
@@ -405,13 +410,13 @@
         <span>Daily Brief</span>
         <a href="https://kipeum86.github.io/daily-brief/en//" style="font-size:13px;font-weight:600;letter-spacing:0.05em;color:var(--text-secondary);text-decoration:none;border:1px solid var(--border);border-radius:4px;padding:2px 10px;">KR → English</a>
       </div>
-      <h1 class="header-date">2026년 3월 31일 화요일</h1>
+      <h1 class="header-date">2026년 4월 1일 수요일</h1>
       <nav class="header-nav" aria-label="날짜 탐색">
         
-        <a href="https://kipeum86.github.io/daily-brief/archive/2026-03-30.html" aria-label="이전 브리핑: 2026-03-30">◀ 이전</a>
+        <a href="https://kipeum86.github.io/daily-brief/archive/2026-03-31.html" aria-label="이전 브리핑: 2026-03-31">◀ 이전</a>
         
 
-        <time datetime="2026-03-31">2026-03-31</time>
+        <time datetime="2026-04-01">2026-04-01</time>
 
         
         <span class="nav-disabled" aria-hidden="true">다음 ▶</span>
@@ -428,13 +433,13 @@
         
         <div class="insight-body">
           <h2>Key Insight</h2>
-<p>중동 지역의 군사적 긴장 고조가 국제 유가를 100달러 위로 밀어 올리며 글로벌 경제에 강력한 스태그플레이션 공포를 주입하고 있습니다. 특히 에너지 수입 의존도가 높은 한국은 원/달러 환율 1,500원 돌파와 공급망 붕괴가 맞물리는 &lsquo;트윈 쇼크&rsquo;에 직면하며 거시경제의 취약성이 극대화되는 국면입니다.</p>
+<p>글로벌 증시는 AI 랠리와 금리 하락에 환호하고 있지만, 한국 경제는 &lsquo;전쟁 추경&rsquo;이라는 극단적 재정 정책과 환율 폭등의 이중고에 직면해 있습니다. 지정학적 위기 속에서 단행되는 26조 원 규모의 현금 살포는 원화 가치를 1,520원대까지 추락시키며, 글로벌 기술주 호황과 철저히 디커플링(탈동조화)되는 한국 고유의 취약성을 적나라하게 드러냅니다.</p>
 <h2>Market Overview</h2>
-<p>미국 증시는 지정학적 리스크와 인플레이션 우려로 기술주 중심의 나스닥이 타격을 입은 반면, 전통 가치주 중심의 다우 지수는 상대적인 방어력을 입증했습니다. 한국 증시는 거시경제 지표 악화의 직격탄을 맞은 코스피가 하락세를 면치 못했으나, 코스닥은 AI 등 일부 기술 테마의 수익화 기대감에 힘입어 소폭 반등하며 시장 내 극심한 차별화를 보여주었습니다.</p>
+<p>미국 증시는 엔비디아의 마벨 대규모 투자로 촉발된 AI 모멘텀과 국채 금리 하락이 맞물리며 나스닥을 중심으로 강력한 위험 선호 심리를 보였습니다. 반면 한국 시장은 삼성전자와 SK하이닉스의 역대급 실적 전망에도 불구하고, 대규모 추경 편성에 따른 재정 건전성 훼손 우려가 외국인의 원화 투매로 이어지며 기업 펀더멘털의 이점이 거시경제 리스크에 완전히 희석되는 모습입니다.</p>
 <h2>Cross-Market Signals</h2>
 <ul>
-<li><strong>국제 유가 폭등 + 원/달러 환율 1,500원 상회</strong> → 수입 물가 급등을 초래하여 국내 제조업의 채산성을 구조적으로 압박하는 강력한 비용 인상(Cost-push) 인플레이션 신호입니다.</li>
-<li><strong>미 국채 금리 급락 + 금·달러 동반 강세</strong> → 위험자산 회피 심리가 강화되며, 글로벌 자본이 채권과 전통적 안전자산으로 급격히 도피(Flight to Quality)하고 있음을 시사합니다.</li>
+<li><strong>글로벌 달러 약세 vs 원화 나홀로 폭락:</strong> 달러 인덱스가 하락(-0.36%)했음에도 원/달러 환율이 1,520원 선을 돌파한 것은, 대규모 재정 지출에 따른 한국의 국가 신용 리스크가 환율에 직접적으로 반영된 결과로 분석됩니다.</li>
+<li><strong>금·유가 급등 vs VIX 하락:</strong> 트럼프의 이란 경고 발언 등으로 금과 유가가 치솟고 있으나 주식시장 변동성(VIX)은 오히려 하락해, 원자재 시장과 주식 시장 간의 지정학적 위험 인식 괴리가 극단적으로 벌어지고 있습니다.</li>
 </ul>
         </div>
         
@@ -448,14 +453,14 @@
       <h2 class="section-title" style="display:flex;justify-content:space-between;align-items:center;">
         <span>Markets</span>
         
-        <span style="font-size:14px;font-weight:600;letter-spacing:0;">⚪ 중립</span>
+        <span style="font-size:14px;font-weight:600;letter-spacing:0;">🟢 위험 선호</span>
         
       </h2>
 
       
       
       <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);margin-bottom:12px;">
-        VIX -1.4% ↓ · USD/KRW +0.5% (달러 강세)
+        VIX -9.3% ↓↓ · USD/KRW +1.0% (달러 강세) · S&amp;P 500 +1.4%
       </div>
       
 
@@ -472,48 +477,48 @@
         
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">KOSPI</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">5,438.87</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">nan</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">&#9660;-0.40%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-secondary);width:70px;flex-shrink:0;text-align:right;">0.00%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp69727" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,7.21 C6.668000000000001,7.21 10.002,2.0 16.67,2.0 C23.334,2.0 26.666,12.73 33.33,12.73 C39.998,12.73 43.332,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp69727)"/><path d="M0.0,7.21 C6.668000000000001,7.21 10.002,2.0 16.67,2.0 C23.334,2.0 26.666,12.73 33.33,12.73 C39.998,12.73 43.332,14.0 50.0,14.0" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="14.0" r="1.5" fill="#DC2626"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp59401" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,7.98 12.5,7.98 C17.5,7.98 20.0,8.69 25.0,8.69 C30.0,8.69 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,nan 50.0,nan L50.0,16 L0.0,16 Z" fill="url(#sp59401)"/><path d="M0.0,2.0 C5.0,2.0 7.5,7.98 12.5,7.98 C17.5,7.98 20.0,8.69 25.0,8.69 C30.0,8.69 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,nan 50.0,nan" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="nan" r="1.5" fill="#DC2626"/></svg>
       </div>
       
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">KOSDAQ</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">1,141.51</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">nan</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+0.43%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-secondary);width:70px;flex-shrink:0;text-align:right;">0.00%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp68982" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,2.0 16.67,2.0 C23.334,2.0 26.666,9.21 33.33,9.21 C39.998,9.21 43.332,7.68 50.0,7.68 L50.0,16 L0.0,16 Z" fill="url(#sp68982)"/><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,2.0 16.67,2.0 C23.334,2.0 26.666,9.21 33.33,9.21 C39.998,9.21 43.332,7.68 50.0,7.68" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="7.68" r="1.5" fill="#16A34A"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp95116" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,7.24 12.5,7.24 C17.5,7.24 20.0,6.12 25.0,6.12 C30.0,6.12 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,nan 50.0,nan L50.0,16 L0.0,16 Z" fill="url(#sp95116)"/><path d="M0.0,2.0 C5.0,2.0 7.5,7.24 12.5,7.24 C17.5,7.24 20.0,6.12 25.0,6.12 C30.0,6.12 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,nan 50.0,nan" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="nan" r="1.5" fill="#DC2626"/></svg>
       </div>
       
         
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">S&amp;P 500</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">6,343.72</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">6,430.52</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">&#9660;-0.39%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+1.37%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp49146" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,3.72 C5.0,3.72 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,7.55 25.0,7.55 C30.0,7.55 32.5,12.78 37.5,12.78 C42.5,12.78 45.0,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp49146)"/><path d="M0.0,3.72 C5.0,3.72 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,7.55 25.0,7.55 C30.0,7.55 32.5,12.78 37.5,12.78 C42.5,12.78 45.0,14.0 50.0,14.0" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="14.0" r="1.5" fill="#DC2626"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp86826" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,7.55 12.5,7.55 C17.5,7.55 20.0,12.78 25.0,12.78 C30.0,12.78 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,9.8 50.0,9.8 L50.0,16 L0.0,16 Z" fill="url(#sp86826)"/><path d="M0.0,2.0 C5.0,2.0 7.5,7.55 12.5,7.55 C17.5,7.55 20.0,12.78 25.0,12.78 C30.0,12.78 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,9.8 50.0,9.8" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="9.8" r="1.5" fill="#DC2626"/></svg>
       </div>
       
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Nasdaq</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">20,794.64</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">21,182.98</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">&#9660;-0.73%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+1.87%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp92274" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,3.78 C5.0,3.78 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,7.52 25.0,7.52 C30.0,7.52 32.5,12.38 37.5,12.38 C42.5,12.38 45.0,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp92274)"/><path d="M0.0,3.78 C5.0,3.78 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,7.52 25.0,7.52 C30.0,7.52 32.5,12.38 37.5,12.38 C42.5,12.38 45.0,14.0 50.0,14.0" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="14.0" r="1.5" fill="#DC2626"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp33189" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,7.52 12.5,7.52 C17.5,7.52 20.0,12.38 25.0,12.38 C30.0,12.38 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,9.89 50.0,9.89 L50.0,16 L0.0,16 Z" fill="url(#sp33189)"/><path d="M0.0,2.0 C5.0,2.0 7.5,7.52 12.5,7.52 C17.5,7.52 20.0,12.38 25.0,12.38 C30.0,12.38 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,9.89 50.0,9.89" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="9.89" r="1.5" fill="#DC2626"/></svg>
       </div>
       
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Dow</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">45,216.14</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">45,664.76</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+0.11%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+0.99%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp70558" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,4.9 C5.0,4.9 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,6.46 25.0,6.46 C30.0,6.46 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,13.53 50.0,13.53 L50.0,16 L0.0,16 Z" fill="url(#sp70558)"/><path d="M0.0,4.9 C5.0,4.9 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,6.46 25.0,6.46 C30.0,6.46 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,13.53 50.0,13.53" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="13.53" r="1.5" fill="#DC2626"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp21083" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,6.46 12.5,6.46 C17.5,6.46 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,13.53 37.5,13.53 C42.5,13.53 45.0,9.27 50.0,9.27 L50.0,16 L0.0,16 Z" fill="url(#sp21083)"/><path d="M0.0,2.0 C5.0,2.0 7.5,6.46 12.5,6.46 C17.5,6.46 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,13.53 37.5,13.53 C42.5,13.53 45.0,9.27 50.0,9.27" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="9.27" r="1.5" fill="#DC2626"/></svg>
       </div>
       
       </div>
@@ -523,58 +528,58 @@
         
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">USD/KRW</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">1,516.51</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">1,522.63</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+0.54%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+1.04%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp67147" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,9.4 12.5,9.4 C17.5,9.4 20.0,7.99 25.0,7.99 C30.0,7.99 32.5,5.14 37.5,5.14 C42.5,5.14 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp67147)"/><path d="M0.0,14.0 C5.0,14.0 7.5,9.4 12.5,9.4 C17.5,9.4 20.0,7.99 25.0,7.99 C30.0,7.99 32.5,5.14 37.5,5.14 C42.5,5.14 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp18256" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,12.27 12.5,12.27 C17.5,12.27 20.0,8.76 25.0,8.76 C30.0,8.76 32.5,9.4 37.5,9.4 C42.5,9.4 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp18256)"/><path d="M0.0,14.0 C5.0,14.0 7.5,12.27 12.5,12.27 C17.5,12.27 20.0,8.76 25.0,8.76 C30.0,8.76 32.5,9.4 37.5,9.4 C42.5,9.4 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
       </div>
       
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">JPY/KRW</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">9.50</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">9.57</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+0.56%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+1.73%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp67577" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,8.46 12.5,8.46 C17.5,8.46 20.0,9.38 25.0,9.38 C30.0,9.38 32.5,7.54 37.5,7.54 C42.5,7.54 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp67577)"/><path d="M0.0,14.0 C5.0,14.0 7.5,8.46 12.5,8.46 C17.5,8.46 20.0,9.38 25.0,9.38 C30.0,9.38 32.5,7.54 37.5,7.54 C42.5,7.54 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp98125" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,11.88 C5.0,11.88 7.5,12.59 12.5,12.59 C17.5,12.59 20.0,11.18 25.0,11.18 C30.0,11.18 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp98125)"/><path d="M0.0,11.88 C5.0,11.88 7.5,12.59 12.5,12.59 C17.5,12.59 20.0,11.18 25.0,11.18 C30.0,11.18 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
       </div>
       
         
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Gold</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">4,540.40</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">4,648.70</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+1.08%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+2.71%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp58785" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C6.668000000000001,2.0 10.002,14.0 16.67,14.0 C23.334,14.0 26.666,5.98 33.33,5.98 C39.998,5.98 43.332,2.65 50.0,2.65 L50.0,16 L0.0,16 Z" fill="url(#sp58785)"/><path d="M0.0,2.0 C6.668000000000001,2.0 10.002,14.0 16.67,14.0 C23.334,14.0 26.666,5.98 33.33,5.98 C39.998,5.98 43.332,2.65 50.0,2.65" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.65" r="1.5" fill="#DC2626"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp71578" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,8.88 16.67,8.88 C23.334,8.88 26.666,7.39 33.33,7.39 C39.998,7.39 43.332,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp71578)"/><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,8.88 16.67,8.88 C23.334,8.88 26.666,7.39 33.33,7.39 C39.998,7.39 43.332,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
       </div>
       
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">WTI Oil</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">105.01</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">104.22</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+5.39%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+1.30%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp49321" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,10.6 16.67,10.6 C23.334,10.6 26.666,6.39 33.33,6.39 C39.998,6.39 43.332,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp49321)"/><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,10.6 16.67,10.6 C23.334,10.6 26.666,6.39 33.33,6.39 C39.998,6.39 43.332,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp61163" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,7.64 16.67,7.64 C23.334,7.64 26.666,3.65 33.33,3.65 C39.998,3.65 43.332,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp61163)"/><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,7.64 16.67,7.64 C23.334,7.64 26.666,3.65 33.33,3.65 C39.998,3.65 43.332,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
       </div>
       
         
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Bitcoin</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">66,784.00</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">66,914.27</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+1.26%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+0.33%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp53531" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,12.38 12.5,12.38 C17.5,12.38 20.0,12.46 25.0,12.46 C30.0,12.46 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,10.49 50.0,10.49 L50.0,16 L0.0,16 Z" fill="url(#sp53531)"/><path d="M0.0,2.0 C5.0,2.0 7.5,12.38 12.5,12.38 C17.5,12.38 20.0,12.46 25.0,12.46 C30.0,12.46 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,10.49 50.0,10.49" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="10.49" r="1.5" fill="#DC2626"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp6212" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,9.2 C5.0,9.2 7.5,9.44 12.5,9.44 C17.5,9.44 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,4.79 37.5,4.79 C42.5,4.79 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp6212)"/><path d="M0.0,9.2 C5.0,9.2 7.5,9.44 12.5,9.44 C17.5,9.44 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,4.79 37.5,4.79 C42.5,4.79 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
       </div>
       
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Ethereum</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">2,037.94</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">2,063.05</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+2.79%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+1.95%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp64878" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,12.64 12.5,12.64 C17.5,12.64 20.0,12.42 25.0,12.42 C30.0,12.42 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,5.37 50.0,5.37 L50.0,16 L0.0,16 Z" fill="url(#sp64878)"/><path d="M0.0,2.0 C5.0,2.0 7.5,12.64 12.5,12.64 C17.5,12.64 20.0,12.42 25.0,12.42 C30.0,12.42 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,5.37 50.0,5.37" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="5.37" r="1.5" fill="#DC2626"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp44899" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,12.7 C5.0,12.7 7.5,12.49 12.5,12.49 C17.5,12.49 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,7.89 37.5,7.89 C42.5,7.89 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp44899)"/><path d="M0.0,12.7 C5.0,12.7 7.5,12.49 12.5,12.49 C17.5,12.49 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,7.89 37.5,7.89 C42.5,7.89 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
       </div>
       
       </div>
@@ -584,34 +589,110 @@
         
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">VIX</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">30.61</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">27.77</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">&#9660;-1.42%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">&#9660;-9.28%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp53412" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,10.6 C5.0,10.6 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,9.57 25.0,9.57 C30.0,9.57 32.5,2.0 37.5,2.0 C42.5,2.0 45.0,2.92 50.0,2.92 L50.0,16 L0.0,16 Z" fill="url(#sp53412)"/><path d="M0.0,10.6 C5.0,10.6 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,9.57 25.0,9.57 C30.0,9.57 32.5,2.0 37.5,2.0 C42.5,2.0 45.0,2.92 50.0,2.92" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.92" r="1.5" fill="#16A34A"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp90275" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,9.57 12.5,9.57 C17.5,9.57 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,2.92 37.5,2.92 C42.5,2.92 45.0,8.88 50.0,8.88 L50.0,16 L0.0,16 Z" fill="url(#sp90275)"/><path d="M0.0,14.0 C5.0,14.0 7.5,9.57 12.5,9.57 C17.5,9.57 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,2.92 37.5,2.92 C42.5,2.92 45.0,8.88 50.0,8.88" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="8.88" r="1.5" fill="#16A34A"/></svg>
       </div>
       
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">US 10Y</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">4.34</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">4.33</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">&#9660;-2.21%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">&#9660;-0.32%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp69362" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"/><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,7.45 C5.0,7.45 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,4.18 25.0,4.18 C30.0,4.18 32.5,2.0 37.5,2.0 C42.5,2.0 45.0,12.91 50.0,12.91 L50.0,16 L0.0,16 Z" fill="url(#sp69362)"/><path d="M0.0,7.45 C5.0,7.45 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,4.18 25.0,4.18 C30.0,4.18 32.5,2.0 37.5,2.0 C42.5,2.0 45.0,12.91 50.0,12.91" fill="none" stroke="#DC2626" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="12.91" r="1.5" fill="#DC2626"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp47223" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,4.18 12.5,4.18 C17.5,4.18 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,12.91 37.5,12.91 C42.5,12.91 45.0,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp47223)"/><path d="M0.0,14.0 C5.0,14.0 7.5,4.18 12.5,4.18 C17.5,4.18 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,12.91 37.5,12.91 C42.5,12.91 45.0,14.0 50.0,14.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="14.0" r="1.5" fill="#16A34A"/></svg>
       </div>
       
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Dollar Index</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">100.49</span>
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">100.15</span>
         
-        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+0.34%</span>
+        <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">&#9660;-0.36%</span>
         
-        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp10625" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,9.96 16.67,9.96 C23.334,9.96 26.666,6.58 33.33,6.58 C39.998,6.58 43.332,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp10625)"/><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,9.96 16.67,9.96 C23.334,9.96 26.666,6.58 33.33,6.58 C39.998,6.58 43.332,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="2.0" r="1.5" fill="#16A34A"/></svg>
+        <svg width="50" height="16" viewBox="0 0 50 16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;"><defs><linearGradient id="sp80706" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"/><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"/></linearGradient></defs><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,9.08 16.67,9.08 C23.334,9.08 26.666,2.0 33.33,2.0 C39.998,2.0 43.332,9.08 50.0,9.08 L50.0,16 L0.0,16 Z" fill="url(#sp80706)"/><path d="M0.0,14.0 C6.668000000000001,14.0 10.002,9.08 16.67,9.08 C23.334,9.08 26.666,2.0 33.33,2.0 C39.998,2.0 43.332,9.08 50.0,9.08" fill="none" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50.0" cy="9.08" r="1.5" fill="#16A34A"/></svg>
       </div>
       
       </div>
 
       
+      
+      <div style="margin-top:12px;">
+        <div style="font-size:11px;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">S&P Sectors</div>
+        
+        <div id="sector-treemap" style="width:100%;height:180px;border-radius:4px;overflow:hidden;display:none;"></div>
+        
+        <div id="sector-chips" style="display:flex;flex-wrap:wrap;gap:4px;">
+          
+          
+          
+          <div style="background:#DCFCE7;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Tech: +1.75%">
+            Tech +1.8%
+          </div>
+          
+          
+          
+          <div style="background:#F0FDF4;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Finance: +0.71%">
+            Finance +0.7%
+          </div>
+          
+          
+          
+          <div style="background:#DCFCE7;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Health: +1.05%">
+            Health +1.1%
+          </div>
+          
+          
+          
+          <div style="background:#F0FDF4;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Energy: +0.52%">
+            Energy +0.5%
+          </div>
+          
+          
+          
+          <div style="background:#DCFCE7;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Industrial: +1.43%">
+            Industrial +1.4%
+          </div>
+          
+          
+          
+          <div style="background:#FFF1F2;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#DC2626;white-space:nowrap;" title="Staples: -0.73%">
+            Staples -0.7%
+          </div>
+          
+          
+          
+          <div style="background:#FFF1F2;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#DC2626;white-space:nowrap;" title="Utilities: -0.84%">
+            Utilities -0.8%
+          </div>
+          
+          
+          
+          <div style="background:#DCFCE7;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Real Estate: +1.11%">
+            Real Estate +1.1%
+          </div>
+          
+          
+          
+          <div style="background:#F0FDF4;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Materials: +0.62%">
+            Materials +0.6%
+          </div>
+          
+          
+          
+          <div style="background:#DCFCE7;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Comms: +1.41%">
+            Comms +1.4%
+          </div>
+          
+          
+          
+          <div style="background:#DCFCE7;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Discretionary: +1.59%">
+            Discretionary +1.6%
+          </div>
+          
+        </div>
+      </div>
       
 
       
@@ -628,10 +709,10 @@
         <li class="news-item">
           <article>
             <h3 class="news-headline">
-              <a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxQY0VHYmh5TEZ0V01kVUxMblpKTjhiOXJtTFlhdGRzSjlsc19RWUltNUlDVEc4LVZYbFlyQ1dXeERlZGZVWC1WeWl3bzM0Yi04RE16Z291bk1lem1saDNqV2ZOUU52WWJxQWstaVNVU0VNSUEzVmltc2ZTQ2dnLVY4TE1nOXI3VlVYVUxvU013NWdPeGE4eWVZVHRkU0hEM2Y2MTJHeHltRGlPTlJwR2x5M21GX05LTnl4Y0FGZk1lTlk?oc=5" target="_blank" rel="noopener noreferrer">병력 증강이 본격화됨에 따라 수천 명의 미 육군 공수부대원 중동 도착 - reuters.com</a>
+              <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPSmh3NHVnejF0NmZSS0FhOXdHdUZ6bW5EdlpBODZ1YzN2b2swbG9WSkJYVW40MWNVN3IzRVk5S0VOeEJNS2g4TEoyVk50MkFVZXVPRk5tSFN5aFU0WWNSMVhGd0hFTXJkbEw2RDQta3FPa0dSamdPX2lMZ291bDNrMTk1eEpWSmY0NTBZNUl5SnJ6WGQ1N2toOHEwYVpuU2FYT1g1ellB?oc=5" target="_blank" rel="noopener noreferrer">엔비디아, AI 도입 증가로 경쟁이 심화됨에 따라 마벨에 20억 달러 베팅 - 로이터</a>
             </h3>
             
-            <p class="news-summary">병력 증강이 본격화됨에 따라 수천 명의 미 육군 공수부대원 중동 도착reuters.com</p>
+            <p class="news-summary">엔비디아, AI 도입 증가로 경쟁이 심화됨에 따라 마벨에 20억 달러 베팅 - 로이터</p>
             
             
             <p class="news-source">Reuters</p>
@@ -642,10 +723,10 @@
         <li class="news-item">
           <article>
             <h3 class="news-headline">
-              <a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxOX0otd2JvNXpEelJtUFU1MXhycVFDSktUc0l3cXZtWm9vS2cyMHluXzB4Vmw2eFoteW1SQUxEMWsxQmdSaFByZi02NDRlRzZJdXhPQnRqb05DazYtcmFrR25BaGxNZmI5SHcwbVcxdHJGTmVWelRzeXFpMDhvRnlVdlgwV2p3Mk03dFJXbkF4R1BSM0YzOU5XazdtN0dOajhDT1Z2cHF0a0p6OEdRblA2Q0JR?oc=5" target="_blank" rel="noopener noreferrer">아이티 학살로 최소 70명 사망, 인권 단체 책임자 밝혀 - reuters.com</a>
+              <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxNNHhkZzhMdHN3OXVxN3lwdlFfTVNsdkpiZ19ZT0VYWEJ0Y1A0M2FUUERLbDVqVXhZbkxFV3pkakxSZnhpRExMWnRoajhFSWpKeXpsY0M4LURRVThBWWxZV3ZOZUNIbUk4eFprYlNTNVVqZWMwMGpVdGFOSk0xTTRYbXVvRWlpZ1g1NTNxY05XZU96OXJ1ZmkxQXpaWWZJcG1ZNjJHazVneWRCeF9fRW5JLTNmcUU0Q2xJRElTbE5TTGhhZw?oc=5" target="_blank" rel="noopener noreferrer">유니레버와 맥코믹, 식품 사업 계약 합의 - 로이터</a>
             </h3>
             
-            <p class="news-summary">아이티 학살로 최소 70명 사망, 인권 단체 책임자 밝혀reuters.com</p>
+            <p class="news-summary">유니레버와 맥코믹, 식품 사업 계약 합의 - 로이터</p>
             
             
             <p class="news-source">Reuters</p>
@@ -656,13 +737,13 @@
         <li class="news-item">
           <article>
             <h3 class="news-headline">
-              <a href="https://www.npr.org/2026/03/30/nx-s1-5698159/nasa-artemis-ii-astronauts-moon-return-this-week" target="_blank" rel="noopener noreferrer">NASA, 역사적인 아르테미스 2호 달 발사 며칠 앞둬</a>
+              <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxPYjdrQ2NEOUw0WUFvMmlvN1k3VERPT3R5WTNqYmtCRjZmWHlUQ3FRMHg4ZFRuQzNFX2FPUVNodnhkc3hHb0ZLWEV3MGZRaS1OdFhzY2lFQ2stVFE5UURtVVQtdVB2Z2p5X2F6ZEs4VDRlR1hVUlB1UGVHRFBRa3g1S250SnFWeWhaLVZWVTd5N3pmWnBnQS04OWtR?oc=5" target="_blank" rel="noopener noreferrer">NASA, 53년 만에 인류의 첫 달 탐사선 발사 카운트다운 시작 - AP 통신</a>
             </h3>
             
-            <p class="news-summary">수요일, NASA의 아르테미스 2호 승무원들이 달을 돌고 귀환하는 임무를 위해 발사될 수 있다. 1970년대 이후 달에 간 우주비행사는 없었다.</p>
+            <p class="news-summary">NASA, 53년 만에 인류의 첫 달 탐사선 발사 카운트다운 시작 - AP 통신</p>
             
             
-            <p class="news-source">NPR</p>
+            <p class="news-source">AP News</p>
             
           </article>
         </li>
@@ -670,13 +751,13 @@
         <li class="news-item">
           <article>
             <h3 class="news-headline">
-              <a href="https://www.npr.org/2026/03/30/nx-s1-5766096/supreme-court-birthright-citizenship-explainer" target="_blank" rel="noopener noreferrer">누가 미국인인가? 연방 대법원이 결정한다</a>
+              <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxQODlQQTN0QkFJamxJVnBkeHFGSWhHWk1xMXl6Nkhfa2tqazRvUjNCcXBWWVBZVnJfckRHZ01idUpFS1RHYUlfNWRWaldScUtjWnRjbVhkTjNkWEwtWFhGV0w2ZDNJbFFjVzIwYnNPNWNEOFlMeTZrSXRMc19EcDNHV3pLcElSVlgxOHpGcEJLdElCdC1MNHViX1RFQ2dKMGtwZWNwXw?oc=5" target="_blank" rel="noopener noreferrer">트럼프, &#39;조만간&#39; 합의에 이르지 못하면 이란에 광범위한 파괴를 가하겠다고 재차 위협 - AP 통신</a>
             </h3>
             
-            <p class="news-summary">트럼프 대통령은 헌법에 출생시민권에 대한 자동 보장이 없다고 주장한다. 하지만 그 주장이 법정에서 유지될 수 있을까?</p>
+            <p class="news-summary">트럼프, &#39;조만간&#39; 합의에 이르지 못하면 이란에 광범위한 파괴를 가하겠다고 재차 위협 - AP 통신</p>
             
             
-            <p class="news-source">NPR</p>
+            <p class="news-source">AP News</p>
             
           </article>
         </li>
@@ -684,13 +765,13 @@
         <li class="news-item">
           <article>
             <h3 class="news-headline">
-              <a href="https://www.cnbc.com/2026/03/30/oil-price-today-wti-brent-yemen-houthis-israel-iran-war.html" target="_blank" rel="noopener noreferrer">브렌트유 기록적인 월간 급등세, WTI 2022년 이후 처음으로 100달러 위에서 마감</a>
+              <a href="https://www.bbc.com/news/articles/cjd8nkezdyxo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">찰스 국왕과 카밀라 왕비, 4월 미국 국빈 방문 예정대로 진행</a>
             </h3>
             
-            <p class="news-summary">예멘 후티 반군이 이스라엘에 미사일을 발사했다고 밝히며 미국과 이스라엘이 주도하는 이란과의 분쟁에 새로운 전선이 열린 후 월요일 유가가 상승했다.</p>
+            <p class="news-summary">미국과 영국 간의 정치적 긴장에도 불구하고, 국왕은 다음 달 워싱턴을 방문할 예정이다.</p>
             
             
-            <p class="news-source">CNBC</p>
+            <p class="news-source">BBC World</p>
             
           </article>
         </li>
@@ -710,10 +791,10 @@
         <li class="news-item">
           <article>
             <h3 class="news-headline">
-              <a href="https://www.yna.co.kr/view/AKR20260330164600017" target="_blank" rel="noopener noreferrer">AI 회의록 수익 본격화…클로바노트 유료 고객 40% 증가</a>
+              <a href="https://www.yna.co.kr/view/AKR20260331202952053" target="_blank" rel="noopener noreferrer">캐리어에 50대 여성 시신 담아 유기한 20대 딸 긴급체포(종합2보)</a>
             </h3>
             
-            <p class="news-summary">(서울=연합뉴스) 권하영 기자 = 인공지능(AI) 음성인식(STT) 기반 회의록 서비스가 단순 개인용 도구를 넘어 기업 업무의 주요 인프라로 자...</p>
+            <p class="news-summary">(대구=연합뉴스) 황수빈 기자 = 31일 대구 도심 하천인 신천에서 발견된 캐리어 속 50대 여성 시신 사건과 관련해 경찰이 숨진 여성의 딸과 ...</p>
             
             
             <p class="news-source">연합뉴스</p>
@@ -724,10 +805,10 @@
         <li class="news-item">
           <article>
             <h3 class="news-headline">
-              <a href="https://www.chosun.com/politics/politics_general/2026/03/31/3JEJSPUSLNGGPJIYMOT2RTWSTY/" target="_blank" rel="noopener noreferrer">“우리가 국힘 자판기냐” 대구서 고개드는 심판론</a>
+              <a href="https://www.chosun.com/economy/economy_general/2026/04/01/GBNKKQICSNDC7LUCJVPCF4QZL4/" target="_blank" rel="noopener noreferrer">26조원 ‘전쟁 추경’ 국민 70% 지원금</a>
             </h3>
             
-            <p class="news-summary">“우리가 국힘 자판기냐” 대구서 고개드는 심판론</p>
+            <p class="news-summary">26조원 ‘전쟁 추경’ 국민 70% 지원금</p>
             
             
             <p class="news-source">조선일보</p>
@@ -738,10 +819,10 @@
         <li class="news-item">
           <article>
             <h3 class="news-headline">
-              <a href="https://www.donga.com/news/Economy/article/all/20260331/133641535/2" target="_blank" rel="noopener noreferrer">제조업 타격 넘어 비닐 등 생필품도 품귀…에너지-공급망 ‘트윈 쇼크’</a>
+              <a href="https://www.donga.com/news/Economy/article/all/20260331/133648484/2" target="_blank" rel="noopener noreferrer">국내 ‘AI칩 유니콘’ 리벨리온, 6400억 투자유치</a>
             </h3>
             
-            <p class="news-summary">미국·이스라엘과 이란의 전쟁이 한 달을 넘기면서 에너지 수급과 공급망이 동시에 흔들리는 복합 충격이 한국 경제를 덮쳤다. 세계 경제의 ‘에너지 동맥’인 호르무즈 해협 봉쇄로 석유와 석유제품 공급에 차질을 빚자 그 피해는 산업계를 넘어 생활에 필수적인 의식주 등 민생 전반으로 번지고 있다. 중동발(發) 에너지와 공급망 ‘트윈 쇼크’가 한국 경제를 뿌리부터 뒤흔드는 모양새다. 이미 산업현장에선 정유, 석유화학 업계는 물론이고 조선, 철강, 바이오, 화장품 업계까지 연쇄적으로 타격을 받고 있다. ‘석유화학의 쌀’로 불리는 나프타와 에틸렌 등 산업 기본 원료가 끊기면서 비닐, 플라스틱, 기저귀 등 생활필수품 공급에도 문제가 생겼다. 당장 건설 현장에서도 페인트와 단열재 등 주요 자재 값이 크게 오르고, 콘크리트 혼화제(굳는 정도를 조절하는 화학물질)가 부족해 공사가 차질을 빚고 있다. 외환·금융시장도 복합 충격에 출렁거렸다. 30일 원-달러 환율은 야간거래에서 1521.1원까지 오르면서</p>
+            <p class="news-summary">인공지능(AI) 반도체 스타트업 리벨리온이 6400억 원 규모의 프리IPO(상장 전 투자 유치)를 마무리했다고 31일 밝혔다. 이번 투자 유치 금액까지 더하면 리벨리온이 유치한 총투자금액은 약 1조3000억 원이다. 이번 프리IPO를 통해 리벨리온은 기업 가치를 약 3조4000억 원으로 평가받았다.  이번 투자에는 정부가 조성한 국민성장펀드가 참여했다. 국민성장펀드는 AI, 반도체 등 전략 산업 육성을 위해 마련된 정책금융으로, 리벨리온은 첫 직접 투자 대상으로 선정됐다. 국민성장펀드가 2500억 원, 한국산업은행이 500억 원을 투자했다. 여기에 미래에셋그룹이 앵커 투자자로 참여하며 민간 자본도 유입됐다. 2020년 설립된 리벨리온은 AI 추론용 반도체(NPU) 분야를 중심으로 사업을 확대해 왔다. 회사 측에 따르면 2023년 대비 2025년 매출이 약 10배 증가했으며, 설립 5년 만에 조직 규모도 300명 수준으로 늘었다. 리벨리온은 창립 5년 만에 국내 최초의 AI 반도체</p>
             
             
             <p class="news-source">동아일보</p>
@@ -752,10 +833,10 @@
         <li class="news-item">
           <article>
             <h3 class="news-headline">
-              <a href="https://www.hani.co.kr/arti/economy/economy_general/1251834.html" target="_blank" rel="noopener noreferrer">2월 서울 아파트 임차계약 중 절반이 월세…전국 월세 비중 68.3%</a>
+              <a href="https://www.hani.co.kr/arti/economy/marketing/1252052.html" target="_blank" rel="noopener noreferrer">삼전·하닉 1분기 영업이익 70조 기대감…주주환원은 제자리</a>
             </h3>
             
-            <p class="news-summary">2월 서울 아파트 임차계약 중 절반이 월세…전국 월세 비중 68.3% 본문 경제 경제일반 2월 서울 아파트 임차계약 중 절반이 월세…전국 월세 비중 68.3% 이지혜 기자 수정 2026-03-31 06:00 펼침 기사를 읽어드립니다 Your browser does not support the audio element.</p>
+            <p class="news-summary">삼전·하닉 1분기 영업이익 70조 기대감…주주환원은 제자리 본문 경제 산업·재계 삼전·하닉 1분기 영업이익 70조 기대감…주주환원은 제자리 배지현 , 박종오 기자 수정 2026-03-31 22:42 펼침 기사를 읽어드립니다 Your browser does not support the audio element.</p>
             
             
             <p class="news-source">한겨레</p>
@@ -766,10 +847,10 @@
         <li class="news-item">
           <article>
             <h3 class="news-headline">
-              <a href="https://www.hankyung.com/article/202603204603i" target="_blank" rel="noopener noreferrer">ESG 공시 로드맵 초안 공개...쟁점과 과제 남겼다</a>
+              <a href="https://www.hankyung.com/article/202603319936i" target="_blank" rel="noopener noreferrer">법원, 김영환 충북지사 공천 컷오프 제동…&#34;절차적 공정성 훼손&#34;</a>
             </h3>
             
-            <p class="news-summary">ESG 공시 로드맵 초안 공개...쟁점과 과제 남겼다 | 한국경제 본문 바로가기 ADVERTISEMENT ESG 공시 로드맵 초안 공개...쟁점과 과제 남겼다 한경ESG외고 기자 구독하기 입력 2026.03.31 06:01 수정 2026.03.31 06:01 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 금융위 공시 로드맵 초안과 KSSB 기준이 확정됐다.</p>
+            <p class="news-summary">법원, 김영환 충북지사 공천 컷오프 제동…절차적 공정성 훼손 | 한국경제 본문 바로가기 ADVERTISEMENT 법원, 김영환 충북지사 공천 컷오프 제동…&#34;절차적 공정성 훼손&#34; 김유진 기자 구독하기 입력 2026.03.31 22:41 수정 2026.03.31 22:45 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 국민의힘 상대 공천배제 효력정지 가처분 인용 &#34;특정인 밀어주기 의…</p>
             
             
             <p class="news-source">한국경제</p>
@@ -790,17 +871,18 @@
       </div>
       <div class="footer-meta">
         <p>Powered by AI &middot; Data: Yahoo Finance, FRED, RSS</p>
-        <p>Generated <time datetime="2026-03-30 22:05:02">2026-03-30 22:05:02</time></p>
+        <p>Generated <time datetime="2026-03-31 16:23:03">2026-03-31 16:23:03</time></p>
       </div>
     </footer>
 
   </div>
 
-  <!-- Chart.js data placeholder — populated by render pipeline -->
-  <script type="application/json" id="chart-data">
-    {}
+  <!-- Sector treemap data -->
+  <script type="application/json" id="sector-data">
+    [{&#34;ticker&#34;: &#34;XLK&#34;, &#34;name&#34;: &#34;Tech&#34;, &#34;change_pct&#34;: 1.75, &#34;price&#34;: 129.74, &#34;weight&#34;: 32.0}, {&#34;ticker&#34;: &#34;XLF&#34;, &#34;name&#34;: &#34;Finance&#34;, &#34;change_pct&#34;: 0.71, &#34;price&#34;: 48.71, &#34;weight&#34;: 13.5}, {&#34;ticker&#34;: &#34;XLV&#34;, &#34;name&#34;: &#34;Health&#34;, &#34;change_pct&#34;: 1.05, &#34;price&#34;: 145.33, &#34;weight&#34;: 12.0}, {&#34;ticker&#34;: &#34;XLE&#34;, &#34;name&#34;: &#34;Energy&#34;, &#34;change_pct&#34;: 0.52, &#34;price&#34;: 62.28, &#34;weight&#34;: 3.5}, {&#34;ticker&#34;: &#34;XLI&#34;, &#34;name&#34;: &#34;Industrial&#34;, &#34;change_pct&#34;: 1.43, &#34;price&#34;: 158.85, &#34;weight&#34;: 8.5}, {&#34;ticker&#34;: &#34;XLP&#34;, &#34;name&#34;: &#34;Staples&#34;, &#34;change_pct&#34;: -0.73, &#34;price&#34;: 81.29, &#34;weight&#34;: 6.0}, {&#34;ticker&#34;: &#34;XLU&#34;, &#34;name&#34;: &#34;Utilities&#34;, &#34;change_pct&#34;: -0.84, &#34;price&#34;: 45.53, &#34;weight&#34;: 2.5}, {&#34;ticker&#34;: &#34;XLRE&#34;, &#34;name&#34;: &#34;Real Estate&#34;, &#34;change_pct&#34;: 1.11, &#34;price&#34;: 40.65, &#34;weight&#34;: 2.0}, {&#34;ticker&#34;: &#34;XLB&#34;, &#34;name&#34;: &#34;Materials&#34;, &#34;change_pct&#34;: 0.62, &#34;price&#34;: 49.4, &#34;weight&#34;: 2.0}, {&#34;ticker&#34;: &#34;XLC&#34;, &#34;name&#34;: &#34;Comms&#34;, &#34;change_pct&#34;: 1.41, &#34;price&#34;: 109.48, &#34;weight&#34;: 9.0}, {&#34;ticker&#34;: &#34;XLY&#34;, &#34;name&#34;: &#34;Discretionary&#34;, &#34;change_pct&#34;: 1.59, &#34;price&#34;: 107.34, &#34;weight&#34;: 10.0}]
   </script>
 
+  <!-- Language redirect -->
   <script>
   (function() {
     var K = 'daily-brief-lang';
@@ -819,6 +901,93 @@
         }
       } catch(e) {}
     }
+  })();
+  </script>
+
+  <!-- S&P Sector Treemap (Plotly.js) -->
+  <script>
+  (function() {
+    'use strict';
+    var container = document.getElementById('sector-treemap');
+    if (!container || typeof Plotly === 'undefined') return;
+
+    var raw;
+    try { raw = JSON.parse(document.getElementById('sector-data').textContent); }
+    catch(e) { return; }
+    if (!raw || !raw.length) return;
+
+    /* ── Muted FT/Economist diverging color scale ── */
+    var stops = [
+      [-3, [192,57,43]],   /* warm dark red */
+      [-1.5, [224,122,95]], /* terracotta */
+      [0, [240,239,235]],   /* off-white */
+      [1.5, [107,158,107]], /* sage green */
+      [3, [45,106,79]]      /* deep editorial green */
+    ];
+
+    function lerpColor(pct) {
+      var p = Math.max(-3, Math.min(3, pct));
+      for (var i = 0; i < stops.length - 1; i++) {
+        if (p <= stops[i+1][0]) {
+          var t = (p - stops[i][0]) / (stops[i+1][0] - stops[i][0]);
+          var a = stops[i][1], b = stops[i+1][1];
+          return 'rgb(' +
+            Math.round(a[0] + t*(b[0]-a[0])) + ',' +
+            Math.round(a[1] + t*(b[1]-a[1])) + ',' +
+            Math.round(a[2] + t*(b[2]-a[2])) + ')';
+        }
+      }
+      return 'rgb(45,106,79)';
+    }
+
+    var labels = ['S&P 500'], parents = [''], values = [0];
+    var colors = ['rgba(0,0,0,0)'], text = [''], customdata = [[0,0]];
+    var fontColors = ['#1A1A1A'], fontSizes = [0];
+
+    raw.forEach(function(d) {
+      labels.push(d.name);
+      parents.push('S&P 500');
+      values.push(d.weight);
+      colors.push(lerpColor(d.change_pct));
+      var sign = d.change_pct >= 0 ? '+' : '';
+      text.push(sign + d.change_pct.toFixed(1) + '%');
+      customdata.push([d.change_pct, d.price]);
+      fontColors.push(Math.abs(d.change_pct) > 1.5 ? '#FFFFFF' : '#1A1A1A');
+      fontSizes.push(d.weight > 8 ? 13 : 11);
+    });
+
+    Plotly.newPlot(container, [{
+      type: 'treemap',
+      labels: labels,
+      parents: parents,
+      values: values,
+      text: text,
+      textposition: 'middle center',
+      texttemplate: '%{label}<br>%{text}',
+      textfont: { family: "'JetBrains Mono', monospace", size: fontSizes, color: fontColors },
+      hovertemplate: '<b>%{label}</b><br>%{text}<br>$%{customdata[1]:.2f}<extra></extra>',
+      customdata: customdata,
+      marker: { colors: colors, line: { width: 1.5, color: '#FAFAF8' } },
+      pathbar: { visible: false },
+      branchvalues: 'total',
+      tiling: { pad: 2 },
+      root: { color: 'rgba(0,0,0,0)' }
+    }], {
+      margin: { l:0, r:0, t:0, b:0 },
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      font: { family: "'Pretendard Variable', sans-serif", color: '#1A1A1A' },
+      hoverlabel: {
+        bgcolor: '#FFFFFF', bordercolor: '#E5E5E5',
+        font: { family: "'JetBrains Mono', monospace", size: 12, color: '#1A1A1A' }
+      }
+    }, {
+      displayModeBar: false, responsive: true, staticPlot: false
+    });
+
+    /* Show treemap, hide chip fallback */
+    container.style.display = '';
+    var chips = document.getElementById('sector-chips');
+    if (chips) chips.style.display = 'none';
   })();
   </script>
 
