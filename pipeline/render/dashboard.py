@@ -26,6 +26,13 @@ _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 _TEMPLATES_DIR = _PROJECT_ROOT / "templates" / "dashboard"
 _MIN_HTML_LENGTH = 1000  # reject obviously broken output
 
+# Approximate S&P 500 sector weights (market-cap %, updated quarterly)
+_SP_SECTOR_WEIGHTS: dict[str, float] = {
+    "XLK": 32.0, "XLF": 13.5, "XLV": 12.0, "XLY": 10.0,
+    "XLC": 9.0,  "XLI": 8.5,  "XLP": 6.0,  "XLE": 3.5,
+    "XLU": 2.5,  "XLRE": 2.0, "XLB": 2.0,
+}
+
 # Day-of-week names
 _KO_WEEKDAYS = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
 _EN_WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -169,6 +176,21 @@ def _normalize_market_items(items: list) -> list[dict[str, Any]]:
     return result
 
 
+def _build_sector_treemap_data(sector_items: list[dict]) -> str:
+    """Build JSON string for the Plotly treemap visualization."""
+    data = []
+    for item in sector_items:
+        ticker = item.get("ticker", "")
+        data.append({
+            "ticker": ticker,
+            "name": item.get("name", ticker),
+            "change_pct": item.get("change_pct", 0.0),
+            "price": item.get("price", 0.0),
+            "weight": _SP_SECTOR_WEIGHTS.get(ticker, 5.0),
+        })
+    return json.dumps(data, ensure_ascii=False)
+
+
 def _split_news(articles: list, config: dict | None = None) -> tuple[list[dict], list[dict]]:
     """Split articles by AI-assigned bucket field."""
     world_news: list[dict] = []
@@ -277,6 +299,7 @@ def _build_template_context(
         "site_url": site_url,
         "archive_index_url": archive_index_url,
         "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "sector_json": _build_sector_treemap_data(normalized_markets.get("sectors", [])),
         "chart_data": json.dumps({}, ensure_ascii=False),
         "lang": lang,
         "lang_toggle_url": lang_toggle_url,

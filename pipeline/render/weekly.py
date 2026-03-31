@@ -10,8 +10,9 @@ from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from markupsafe import Markup
 
-from pipeline.render.dashboard import _build_page_url, _md_to_html, _write_html
+from pipeline.render.dashboard import _build_page_url, _md_to_html, _write_html, _SP_SECTOR_WEIGHTS
 
+import json
 import logging
 
 logger = logging.getLogger("daily-brief.render.weekly")
@@ -98,6 +99,23 @@ def _label_from_week_id(week_id: str, lang: str = "ko") -> str:
         return week_id
 
 
+def _build_weekly_sector_treemap_data(weekly_data: dict[str, Any]) -> str:
+    """Build JSON for the weekly sector treemap from all_cards."""
+    all_cards = weekly_data.get("markets", {}).get("all_cards", [])
+    sector_cards = [c for c in all_cards if c.get("section") == "sectors"]
+    data = []
+    for card in sector_cards:
+        ticker = card.get("ticker", "")
+        data.append({
+            "ticker": ticker,
+            "name": card.get("name", ticker),
+            "change_pct": float(card.get("weekly_change_pct", 0.0)),
+            "price": float(card.get("end_price", 0.0)),
+            "weight": _SP_SECTOR_WEIGHTS.get(ticker, 5.0),
+        })
+    return json.dumps(data, ensure_ascii=False)
+
+
 def _build_context(
     config: dict,
     weekly_data: dict[str, Any],
@@ -146,6 +164,7 @@ def _build_context(
         "world_news": weekly_data.get("world_news_en" if lang == "en" else "world_news_ko", []),
         "korea_news": weekly_data.get("korea_news_en" if lang == "en" else "korea_news_ko", []),
         "insight_text": _md_to_html(weekly_data.get("insight_en" if lang == "en" else "insight_ko", "")),
+        "sector_json": _build_weekly_sector_treemap_data(weekly_data),
     }
     return context
 

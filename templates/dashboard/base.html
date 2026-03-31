@@ -13,8 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
-  <!-- Chart.js (deferred — for future interactive charts) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+  <!-- Plotly.js for sector treemap heatmap -->
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2/plotly.min.js" defer></script>
 
   <style>
     /* ── CSS Custom Properties ─────────────────────────────── */
@@ -292,6 +292,11 @@
       .market-change { font-size: 14px; }
     }
 
+    /* ── Sector Treemap ────────────────────────────────────── */
+    @media (min-width: 640px) {
+      #sector-treemap { height: 220px; }
+    }
+
     /* ── News Section ──────────────────────────────────────── */
     .news-list {
       list-style: none;
@@ -504,11 +509,14 @@
         {% for item in markets.get('risk', []) %}{{ ticker_card(item) }}{% endfor %}
       </div>
 
-      {# ── S&P Sector ETFs: 미니 히트맵 ── #}
+      {# ── S&P Sector ETFs: Treemap Heatmap ── #}
       {% if markets.get('sectors') %}
       <div style="margin-top:12px;">
         <div style="font-size:11px;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">S&P Sectors</div>
-        <div style="display:flex;flex-wrap:wrap;gap:4px;">
+        {# Plotly treemap (rendered by JS) #}
+        <div id="sector-treemap" style="width:100%;height:180px;border-radius:4px;overflow:hidden;display:none;"></div>
+        {# Chip fallback (shown when JS unavailable or Plotly fails) #}
+        <div id="sector-chips" style="display:flex;flex-wrap:wrap;gap:4px;">
           {% for item in markets.sectors %}
           {% if item.change_pct > 1 %}{% set bg = '#DCFCE7' %}{% set fg = '#16A34A' %}
           {% elif item.change_pct > 0 %}{% set bg = '#F0FDF4' %}{% set fg = '#16A34A' %}
@@ -598,11 +606,12 @@
 
   </div>
 
-  <!-- Chart.js data placeholder — populated by render pipeline -->
-  <script type="application/json" id="chart-data">
-    {{ chart_data | default('{}') }}
+  <!-- Sector treemap data -->
+  <script type="application/json" id="sector-data">
+    {{ sector_json | default('[]') }}
   </script>
 
+  <!-- Language redirect -->
   <script>
   (function() {
     var K = 'daily-brief-lang';
@@ -621,6 +630,93 @@
         }
       } catch(e) {}
     }
+  })();
+  </script>
+
+  <!-- S&P Sector Treemap (Plotly.js) -->
+  <script>
+  (function() {
+    'use strict';
+    var container = document.getElementById('sector-treemap');
+    if (!container || typeof Plotly === 'undefined') return;
+
+    var raw;
+    try { raw = JSON.parse(document.getElementById('sector-data').textContent); }
+    catch(e) { return; }
+    if (!raw || !raw.length) return;
+
+    /* ── Muted FT/Economist diverging color scale ── */
+    var stops = [
+      [-3, [192,57,43]],   /* warm dark red */
+      [-1.5, [224,122,95]], /* terracotta */
+      [0, [240,239,235]],   /* off-white */
+      [1.5, [107,158,107]], /* sage green */
+      [3, [45,106,79]]      /* deep editorial green */
+    ];
+
+    function lerpColor(pct) {
+      var p = Math.max(-3, Math.min(3, pct));
+      for (var i = 0; i < stops.length - 1; i++) {
+        if (p <= stops[i+1][0]) {
+          var t = (p - stops[i][0]) / (stops[i+1][0] - stops[i][0]);
+          var a = stops[i][1], b = stops[i+1][1];
+          return 'rgb(' +
+            Math.round(a[0] + t*(b[0]-a[0])) + ',' +
+            Math.round(a[1] + t*(b[1]-a[1])) + ',' +
+            Math.round(a[2] + t*(b[2]-a[2])) + ')';
+        }
+      }
+      return 'rgb(45,106,79)';
+    }
+
+    var labels = ['S&P 500'], parents = [''], values = [0];
+    var colors = ['rgba(0,0,0,0)'], text = [''], customdata = [[0,0]];
+    var fontColors = ['#1A1A1A'], fontSizes = [0];
+
+    raw.forEach(function(d) {
+      labels.push(d.name);
+      parents.push('S&P 500');
+      values.push(d.weight);
+      colors.push(lerpColor(d.change_pct));
+      var sign = d.change_pct >= 0 ? '+' : '';
+      text.push(sign + d.change_pct.toFixed(1) + '%');
+      customdata.push([d.change_pct, d.price]);
+      fontColors.push(Math.abs(d.change_pct) > 1.5 ? '#FFFFFF' : '#1A1A1A');
+      fontSizes.push(d.weight > 8 ? 13 : 11);
+    });
+
+    Plotly.newPlot(container, [{
+      type: 'treemap',
+      labels: labels,
+      parents: parents,
+      values: values,
+      text: text,
+      textposition: 'middle center',
+      texttemplate: '%{label}<br>%{text}',
+      textfont: { family: "'JetBrains Mono', monospace", size: fontSizes, color: fontColors },
+      hovertemplate: '<b>%{label}</b><br>%{text}<br>$%{customdata[1]:.2f}<extra></extra>',
+      customdata: customdata,
+      marker: { colors: colors, line: { width: 1.5, color: '#FAFAF8' } },
+      pathbar: { visible: false },
+      branchvalues: 'total',
+      tiling: { pad: 2 },
+      root: { color: 'rgba(0,0,0,0)' }
+    }], {
+      margin: { l:0, r:0, t:0, b:0 },
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      font: { family: "'Pretendard Variable', sans-serif", color: '#1A1A1A' },
+      hoverlabel: {
+        bgcolor: '#FFFFFF', bordercolor: '#E5E5E5',
+        font: { family: "'JetBrains Mono', monospace", size: 12, color: '#1A1A1A' }
+      }
+    }, {
+      displayModeBar: false, responsive: true, staticPlot: false
+    });
+
+    /* Show treemap, hide chip fallback */
+    container.style.display = '';
+    var chips = document.getElementById('sector-chips');
+    if (chips) chips.style.display = 'none';
   })();
   </script>
 

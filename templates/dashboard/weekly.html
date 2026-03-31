@@ -12,6 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
+  <!-- Plotly.js for sector treemap heatmap -->
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2/plotly.min.js" defer></script>
+
   <style>
     :root {
       --bg: #f7f4ee;
@@ -747,23 +750,29 @@
           </div>
           {% endif %}
 
+          {# ── Sector Treemap + chip fallback ── #}
           {% if sectors_best or sectors_worst %}
           <div class="rail-card">
-            <div class="rail-title">{{ 'Sector Tilt' if lang == 'en' else '섹터 기울기' }}</div>
-            {% if sectors_best %}
-            <div class="chip-row" style="margin-bottom: 10px;">
-              {% for item in sectors_best %}
-              <span class="chip up">{{ item.name }} {{ item.change_fmt }}</span>
-              {% endfor %}
+            <div class="rail-title">{{ 'Sector Performance' if lang == 'en' else '섹터 퍼포먼스' }}</div>
+            {# Plotly treemap (rendered by JS) #}
+            <div id="weekly-sector-treemap" style="width:100%;height:200px;border-radius:4px;overflow:hidden;display:none;"></div>
+            {# Chip fallback #}
+            <div id="weekly-sector-chips">
+              {% if sectors_best %}
+              <div class="chip-row" style="margin-bottom: 10px;">
+                {% for item in sectors_best %}
+                <span class="chip up">{{ item.name }} {{ item.change_fmt }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+              {% if sectors_worst %}
+              <div class="chip-row">
+                {% for item in sectors_worst %}
+                <span class="chip down">{{ item.name }} {{ item.change_fmt }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
             </div>
-            {% endif %}
-            {% if sectors_worst %}
-            <div class="chip-row">
-              {% for item in sectors_worst %}
-              <span class="chip down">{{ item.name }} {{ item.change_fmt }}</span>
-              {% endfor %}
-            </div>
-            {% endif %}
           </div>
           {% endif %}
         </aside>
@@ -905,6 +914,12 @@
       <div>Generated <time datetime="{{ generated_at }}">{{ generated_at }}</time></div>
     </footer>
   </div>
+  <!-- Sector treemap data -->
+  <script type="application/json" id="weekly-sector-data">
+    {{ sector_json | default('[]') }}
+  </script>
+
+  <!-- Language redirect -->
   <script>
   (function() {
     var K = 'daily-brief-lang';
@@ -923,6 +938,91 @@
         }
       } catch(e) {}
     }
+  })();
+  </script>
+
+  <!-- Weekly Sector Treemap (Plotly.js) -->
+  <script>
+  (function() {
+    'use strict';
+    var container = document.getElementById('weekly-sector-treemap');
+    if (!container || typeof Plotly === 'undefined') return;
+
+    var raw;
+    try { raw = JSON.parse(document.getElementById('weekly-sector-data').textContent); }
+    catch(e) { return; }
+    if (!raw || !raw.length) return;
+
+    var stops = [
+      [-3, [192,57,43]],
+      [-1.5, [224,122,95]],
+      [0, [240,239,235]],
+      [1.5, [107,158,107]],
+      [3, [45,106,79]]
+    ];
+
+    function lerpColor(pct) {
+      var p = Math.max(-3, Math.min(3, pct));
+      for (var i = 0; i < stops.length - 1; i++) {
+        if (p <= stops[i+1][0]) {
+          var t = (p - stops[i][0]) / (stops[i+1][0] - stops[i][0]);
+          var a = stops[i][1], b = stops[i+1][1];
+          return 'rgb(' +
+            Math.round(a[0] + t*(b[0]-a[0])) + ',' +
+            Math.round(a[1] + t*(b[1]-a[1])) + ',' +
+            Math.round(a[2] + t*(b[2]-a[2])) + ')';
+        }
+      }
+      return 'rgb(45,106,79)';
+    }
+
+    var labels = ['S&P 500'], parents = [''], values = [0];
+    var colors = ['rgba(0,0,0,0)'], text = [''], customdata = [[0,0]];
+    var fontColors = ['#1c1b1a'], fontSizes = [0];
+
+    raw.forEach(function(d) {
+      labels.push(d.name);
+      parents.push('S&P 500');
+      values.push(d.weight);
+      colors.push(lerpColor(d.change_pct));
+      var sign = d.change_pct >= 0 ? '+' : '';
+      text.push(sign + d.change_pct.toFixed(1) + '%');
+      customdata.push([d.change_pct, d.price]);
+      fontColors.push(Math.abs(d.change_pct) > 1.5 ? '#FFFFFF' : '#1c1b1a');
+      fontSizes.push(d.weight > 8 ? 13 : 11);
+    });
+
+    Plotly.newPlot(container, [{
+      type: 'treemap',
+      labels: labels,
+      parents: parents,
+      values: values,
+      text: text,
+      textposition: 'middle center',
+      texttemplate: '%{label}<br>%{text}',
+      textfont: { family: "'JetBrains Mono', monospace", size: fontSizes, color: fontColors },
+      hovertemplate: '<b>%{label}</b><br>%{text}<br>$%{customdata[1]:.2f}<extra></extra>',
+      customdata: customdata,
+      marker: { colors: colors, line: { width: 1.5, color: '#f7f4ee' } },
+      pathbar: { visible: false },
+      branchvalues: 'total',
+      tiling: { pad: 2 },
+      root: { color: 'rgba(0,0,0,0)' }
+    }], {
+      margin: { l:0, r:0, t:0, b:0 },
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      font: { family: "'Pretendard Variable', sans-serif", color: '#1c1b1a' },
+      hoverlabel: {
+        bgcolor: '#fffdf9', bordercolor: '#e8e0d3',
+        font: { family: "'JetBrains Mono', monospace", size: 12, color: '#1c1b1a' }
+      }
+    }, {
+      displayModeBar: false, responsive: true, staticPlot: false
+    });
+
+    container.style.display = '';
+    var chips = document.getElementById('weekly-sector-chips');
+    if (chips) chips.style.display = 'none';
   })();
   </script>
 </body>

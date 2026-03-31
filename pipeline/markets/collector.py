@@ -277,6 +277,7 @@ def collect_market_data(config: dict[str, Any]) -> dict[str, list[dict[str, Any]
         ("commodities", "tickers", "names"),
         ("crypto", "tickers", "names"),
         ("risk", "tickers", "names"),
+        ("sectors", "tickers", "names"),
     ]
 
     for section_key, tickers_field, names_field in sections:
