@@ -635,7 +635,7 @@
 
   <!-- S&P Sector Treemap (Plotly.js) -->
   <script>
-  (function() {
+  document.addEventListener('DOMContentLoaded', function() {
     'use strict';
     var container = document.getElementById('sector-treemap');
     if (!container || typeof Plotly === 'undefined') return;
@@ -717,7 +717,7 @@
     container.style.display = '';
     var chips = document.getElementById('sector-chips');
     if (chips) chips.style.display = 'none';
-  })();
+  });
   </script>
 
 </body>
