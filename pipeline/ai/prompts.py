@@ -38,10 +38,36 @@ def get_system_prompt(lang: str = "ko") -> str:
     return BRIEFING_SYSTEM_PROMPT_KO
 
 
+def _check_data_staleness(markets_data: dict, run_date: str) -> list[str]:
+    """시장 데이터의 기준일이 run_date보다 오래된 항목을 찾는다.
+
+    Returns:
+        경고 메시지 리스트. 없으면 빈 리스트.
+    """
+    if not run_date:
+        return []
+
+    warnings = []
+    category_labels = {
+        "kr": "한국 증시", "us": "미국 증시", "fx": "환율",
+        "commodities": "원자재", "crypto": "암호화폐", "risk": "리스크 지표",
+    }
+    for key, label in category_labels.items():
+        for item in markets_data.get(key, []):
+            data_date = item.get("data_date", "")
+            if data_date and data_date < run_date:
+                warnings.append(
+                    f"⚠️ {item.get('name', key)}: 데이터 기준일 {data_date} "
+                    f"(오늘 {run_date} 장 데이터 아님)"
+                )
+    return warnings
+
+
 def build_briefing_prompt(
     markets_data: dict,
     news_headlines: list[dict],
     lang: str = "ko",
+    run_date: str = "",
 ) -> str:
     """Build a structured user prompt from market data and news headlines.
 
@@ -49,11 +75,25 @@ def build_briefing_prompt(
         markets_data: Dict with category keys (kr, us, fx, commodities, crypto, risk),
             each containing a list of dicts with 'name', 'price', 'change_pct'.
         news_headlines: List of dicts with at least 'title', 'source', optionally 'category'.
+        run_date: ISO date string (YYYY-MM-DD) for staleness check.
 
     Returns:
         Formatted user prompt string.
     """
     sections = []
+
+    # --- Data staleness warning ---
+    stale_warnings = _check_data_staleness(markets_data, run_date)
+    if stale_warnings:
+        sections.append("## ⚠️ 데이터 신선도 경고\n")
+        sections.append(
+            "아래 시장 데이터 중 일부가 오늘 거래일 기준이 아닙니다. "
+            "해당 지표의 등락률을 오늘 시장 움직임으로 서술하지 마세요. "
+            "데이터가 오래된 항목은 '전일 기준' 또는 '최신 데이터 미반영'으로 명시하세요.\n"
+        )
+        for w in stale_warnings:
+            sections.append(f"- {w}")
+        sections.append("")
 
     # --- Market data ---
     sections.append("## 시장 데이터\n")
@@ -77,7 +117,9 @@ def build_briefing_prompt(
             price = item.get("price", 0)
             change = item.get("change_pct", 0)
             sign = "+" if change >= 0 else ""
-            sections.append(f"- {name}: {price:,.2f} ({sign}{change:.2f}%)")
+            data_date = item.get("data_date", "")
+            date_note = f" [기준일: {data_date}]" if data_date and run_date and data_date < run_date else ""
+            sections.append(f"- {name}: {price:,.2f} ({sign}{change:.2f}%){date_note}")
         sections.append("")
 
     # --- News headlines ---

@@ -26,6 +26,7 @@ def generate_briefing(
     markets_data: dict,
     news_articles: list,
     lang: str = "ko",
+    run_date: str = "",
 ) -> str:
     """Generate an AI editorial briefing from market data and news.
 
@@ -37,6 +38,7 @@ def generate_briefing(
         news_articles: List of article-like dicts or objects with at least
             'title' and 'source' attributes/keys.
         lang: Language code — "ko" for Korean, "en" for English.
+        run_date: ISO date string (YYYY-MM-DD) for data staleness check.
 
     Returns:
         AI-generated insight text as a Markdown string.
@@ -57,7 +59,7 @@ def generate_briefing(
                     "category": getattr(article, "category", "기타"),
                 })
 
-        user_prompt = build_briefing_prompt(markets_data, headlines, lang=lang)
+        user_prompt = build_briefing_prompt(markets_data, headlines, lang=lang, run_date=run_date)
         system_prompt = get_system_prompt(lang)
 
         logger.info("Generating AI briefing (provider=%s, lang=%s)", config.get("llm", {}).get("provider", "gemini"), lang)

@@ -25,7 +25,8 @@ def _fetch_one_ticker(ticker: str, name: str) -> dict[str, Any] | None:
     """yfinance로 단일 티커 데이터를 가져온다.
 
     Returns:
-        성공 시 {"ticker", "name", "price", "change_pct", "prev_close"} dict,
+        성공 시 {"ticker", "name", "price", "change_pct", "prev_close",
+                 "data_date", "source"} dict,
         실패 시 None
     """
     try:
@@ -51,6 +52,9 @@ def _fetch_one_ticker(ticker: str, name: str) -> dict[str, Any] | None:
         # 거래량 (가장 최근)
         volume = int(hist["Volume"].iloc[-1]) if "Volume" in hist.columns else 0
 
+        # 데이터 기준일
+        data_date = hist.index[-1].date().isoformat()
+
         return {
             "ticker": ticker,
             "name": name,
@@ -59,6 +63,8 @@ def _fetch_one_ticker(ticker: str, name: str) -> dict[str, Any] | None:
             "prev_close": round(prev_close, 2),
             "sparkline": sparkline,
             "volume": volume,
+            "data_date": data_date,
+            "source": "yfinance",
         }
     except Exception as e:
         logger.warning("[yfinance] %s (%s) 수집 실패: %s", name, ticker, e)
@@ -252,6 +258,9 @@ def _collect_section(
 def collect_market_data(config: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
     """config.yaml의 markets 섹션을 기반으로 전체 시장 데이터를 수집한다.
 
+    한국 지수(kr)는 네이버 증권을 primary로 사용하고,
+    네이버에서 수집 실패한 티커만 yfinance로 폴백한다.
+
     Args:
         config: 전체 config dict (config["markets"] 사용)
 
@@ -264,7 +273,8 @@ def collect_market_data(config: dict[str, Any]) -> dict[str, list[dict[str, Any]
             "crypto": [...],
             "risk": [...],
         }
-        각 항목: {"ticker", "name", "price", "change_pct", "prev_close"}
+        각 항목: {"ticker", "name", "price", "change_pct", "prev_close",
+                  "data_date", "source"}
     """
     mkts = config.get("markets", {})
     output: dict[str, list[dict[str, Any]]] = {}
@@ -295,8 +305,11 @@ def collect_market_data(config: dict[str, Any]) -> dict[str, list[dict[str, Any]
             names = names + tickers[len(names):]
 
         try:
-            fred_series = section_cfg.get("fred_series") if section_key == "risk" else None
-            output[section_key] = _collect_section(tickers, names, fred_series)
+            if section_key == "kr":
+                output[section_key] = _collect_kr_section(tickers, names)
+            else:
+                fred_series = section_cfg.get("fred_series") if section_key == "risk" else None
+                output[section_key] = _collect_section(tickers, names, fred_series)
             logger.info(
                 "섹션 '%s': %d/%d 티커 수집 완료",
                 section_key, len(output[section_key]), len(tickers),
@@ -306,6 +319,44 @@ def collect_market_data(config: dict[str, Any]) -> dict[str, list[dict[str, Any]
             output[section_key] = []
 
     return output
+
+
+def _collect_kr_section(
+    tickers: list[str],
+    names: list[str],
+) -> list[dict[str, Any]]:
+    """한국 시장: 네이버 증권 primary → yfinance fallback.
+
+    네이버에서 수집된 티커는 제외하고, 나머지만 yfinance로 폴백.
+    """
+    from pipeline.markets.naver import fetch_korean_indices
+
+    # 1) 네이버 증권 시도
+    naver_results = []
+    try:
+        naver_results = fetch_korean_indices(tickers, names)
+        logger.info("[KR] 네이버 증권: %d/%d 수집 성공", len(naver_results), len(tickers))
+    except Exception as e:
+        logger.warning("[KR] 네이버 증권 전체 실패: %s — yfinance 폴백", e)
+
+    # 2) 네이버에서 수집 못한 티커만 yfinance로 폴백
+    naver_tickers = {r["ticker"] for r in naver_results}
+    remaining = [
+        (t, n) for t, n in zip(tickers, names) if t not in naver_tickers
+    ]
+
+    yf_results: list[dict[str, Any]] = []
+    if remaining:
+        rem_tickers, rem_names = zip(*remaining)
+        logger.info("[KR] yfinance 폴백: %s", list(rem_tickers))
+        yf_results = _collect_section(list(rem_tickers), list(rem_names))
+
+    # 3) 합치고 원래 순서 유지
+    all_results = naver_results + yf_results
+    order = {t: i for i, t in enumerate(tickers)}
+    all_results.sort(key=lambda item: order.get(item["ticker"], 999))
+
+    return all_results
 
 
 def collect_market_window_data(

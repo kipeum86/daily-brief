@@ -403,7 +403,7 @@ def run(args: argparse.Namespace) -> int:
                 "pipeline.ai.briefing", "generate_briefing",
                 _generate_briefing_stub,
             )
-            insight = generate_briefing(config, markets, articles, lang="ko")
+            insight = generate_briefing(config, markets, articles, lang="ko", run_date=run_date)
             if insight:
                 sections.append("ai_insight_ko")
         except Exception as exc:
@@ -411,7 +411,7 @@ def run(args: argparse.Namespace) -> int:
             errors.append(f"ai_ko: {exc}")
         try:
             if generate_briefing != _generate_briefing_stub:
-                insight_en = generate_briefing(config, markets, articles, lang="en")
+                insight_en = generate_briefing(config, markets, articles, lang="en", run_date=run_date)
                 if insight_en:
                     sections.append("ai_insight_en")
         except Exception as exc:
