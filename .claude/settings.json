@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(.env*)",
+      "Edit(.env*)",
+      "Write(.env*)",
+      "Bash(cat .env*)",
+      "Bash(less .env*)",
+      "Bash(more .env*)",
+      "Bash(head .env*)",
+      "Bash(tail .env*)"
+    ],
+    "allow": [
+      "Bash(find '/Users/kpsfamily/코딩 프로젝트/daily-brief/pipeline' -name *.py -type f)",
+      "Bash(python main.py --dry-run)",
+      "Bash(python3 -c \":*)",
+      "Bash(python -m pytest tests/ -x -q)"
+    ]
+  }
+}
