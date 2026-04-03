@@ -68,6 +68,7 @@ def build_briefing_prompt(
     news_headlines: list[dict],
     lang: str = "ko",
     run_date: str = "",
+    holidays: dict | None = None,
 ) -> str:
     """Build a structured user prompt from market data and news headlines.
 
@@ -76,11 +77,23 @@ def build_briefing_prompt(
             each containing a list of dicts with 'name', 'price', 'change_pct'.
         news_headlines: List of dicts with at least 'title', 'source', optionally 'category'.
         run_date: ISO date string (YYYY-MM-DD) for staleness check.
+        holidays: Holiday detection dict from detect_holidays().
 
     Returns:
         Formatted user prompt string.
     """
     sections = []
+
+    # --- Holiday notice ---
+    holidays = holidays or {}
+    holiday_names = holidays.get("holiday_names", {})
+    if holiday_names:
+        sections.append("## 휴장 안내\n")
+        if holidays.get("kospi_holiday"):
+            sections.append(f"- 한국 증시(KRX) 휴장: {holiday_names.get('kr', '휴장')}. 한국 시장 데이터는 직전 거래일 기준입니다. 오늘 한국 시장이 움직인 것처럼 서술하지 마세요.")
+        if holidays.get("nyse_holiday"):
+            sections.append(f"- 미국 증시(NYSE) 휴장: {holiday_names.get('us', 'Holiday')}. 미국 시장 데이터는 직전 거래일 기준입니다. 오늘 미국 시장이 움직인 것처럼 서술하지 마세요.")
+        sections.append("")
 
     # --- Data staleness warning ---
     stale_warnings = _check_data_staleness(markets_data, run_date)

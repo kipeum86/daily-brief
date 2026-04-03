@@ -263,7 +263,7 @@ def run(args: argparse.Namespace) -> int:
         if markets:
             market_pulse = calculate_market_pulse(markets)
             markets = calculate_indicators(markets)
-            holidays = detect_holidays(markets)
+            holidays = detect_holidays(markets, run_date=run_date)
             # 스파크라인 SVG 생성
             for section_items in markets.values():
                 for item in section_items:
@@ -403,7 +403,7 @@ def run(args: argparse.Namespace) -> int:
                 "pipeline.ai.briefing", "generate_briefing",
                 _generate_briefing_stub,
             )
-            insight = generate_briefing(config, markets, articles, lang="ko", run_date=run_date)
+            insight = generate_briefing(config, markets, articles, lang="ko", run_date=run_date, holidays=holidays)
             if insight:
                 sections.append("ai_insight_ko")
         except Exception as exc:
@@ -411,7 +411,7 @@ def run(args: argparse.Namespace) -> int:
             errors.append(f"ai_ko: {exc}")
         try:
             if generate_briefing != _generate_briefing_stub:
-                insight_en = generate_briefing(config, markets, articles, lang="en", run_date=run_date)
+                insight_en = generate_briefing(config, markets, articles, lang="en", run_date=run_date, holidays=holidays)
                 if insight_en:
                     sections.append("ai_insight_en")
         except Exception as exc:

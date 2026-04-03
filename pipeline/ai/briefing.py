@@ -27,6 +27,7 @@ def generate_briefing(
     news_articles: list,
     lang: str = "ko",
     run_date: str = "",
+    holidays: dict | None = None,
 ) -> str:
     """Generate an AI editorial briefing from market data and news.
 
@@ -39,6 +40,7 @@ def generate_briefing(
             'title' and 'source' attributes/keys.
         lang: Language code — "ko" for Korean, "en" for English.
         run_date: ISO date string (YYYY-MM-DD) for data staleness check.
+        holidays: Holiday detection dict from detect_holidays().
 
     Returns:
         AI-generated insight text as a Markdown string.
@@ -59,7 +61,7 @@ def generate_briefing(
                     "category": getattr(article, "category", "기타"),
                 })
 
-        user_prompt = build_briefing_prompt(markets_data, headlines, lang=lang, run_date=run_date)
+        user_prompt = build_briefing_prompt(markets_data, headlines, lang=lang, run_date=run_date, holidays=holidays)
         system_prompt = get_system_prompt(lang)
 
         logger.info("Generating AI briefing (provider=%s, lang=%s)", config.get("llm", {}).get("provider", "gemini"), lang)

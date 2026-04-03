@@ -95,41 +95,73 @@ def calculate_indicators(raw_data: dict[str, list[dict[str, Any]]]) -> dict[str,
     return result
 
 
-def detect_holidays(raw_data: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
+def detect_holidays(
+    raw_data: dict[str, list[dict[str, Any]]],
+    run_date: str = "",
+) -> dict[str, Any]:
     """시장 휴장 여부를 감지한다.
 
-    판단 기준: 특정 섹션의 모든 티커 변동률이 정확히 0이면 휴장으로 간주.
-    (거래가 없으면 전일 종가 = 당일 종가 → 변동률 0)
+    판단 우선순위:
+      1. 공휴일 캘린더 (run_date 기준)
+      2. data_date가 run_date보다 오래됨 (데이터 미갱신 → 휴장 가능성)
+      3. 전 티커 변동률 0 (fallback)
 
     Args:
         raw_data: collect_market_data()의 반환값
+        run_date: 브리핑 대상 날짜 (YYYY-MM-DD)
 
     Returns:
         {
             "kospi_holiday": bool,
             "nyse_holiday": bool,
-            "holiday_names": {"kr": "한국 시장 휴장", "us": "미국 시장 휴장"},
+            "holiday_names": {"kr": "설날", "us": "Good Friday"},
         }
     """
+    from pipeline.markets.holidays import get_kr_holiday, get_us_holiday
+
     def _all_zero(items: list[dict[str, Any]]) -> bool:
-        """모든 항목의 change_pct가 정확히 0인지 확인."""
         if not items:
-            return False  # 데이터 없으면 휴장 판단 불가
+            return False
         return all(item.get("change_pct", 0) == 0.0 for item in items)
+
+    def _data_stale(items: list[dict[str, Any]], target_date: str) -> bool:
+        """데이터 기준일이 target_date보다 과거인지 확인."""
+        if not items or not target_date:
+            return False
+        return all(
+            item.get("data_date", target_date) < target_date
+            for item in items
+        )
 
     kr_items = raw_data.get("kr", [])
     us_items = raw_data.get("us", [])
 
-    kospi_holiday = _all_zero(kr_items)
-    nyse_holiday = _all_zero(us_items)
+    # 1) 캘린더 기반 감지
+    kr_reason = get_kr_holiday(run_date) if run_date else None
+    us_reason = get_us_holiday(run_date) if run_date else None
+
+    # 2) data_date 기반 보조 감지 (캘린더에 없는 임시 휴장)
+    if not kr_reason and _data_stale(kr_items, run_date):
+        kr_reason = "시장 휴장"
+    if not us_reason and _data_stale(us_items, run_date):
+        us_reason = "Market Closed"
+
+    # 3) 변동률 0 fallback (캘린더+data_date 둘 다 놓쳤을 때)
+    if not kr_reason and _all_zero(kr_items):
+        kr_reason = "시장 휴장"
+    if not us_reason and _all_zero(us_items):
+        us_reason = "Market Closed"
+
+    kospi_holiday = kr_reason is not None
+    nyse_holiday = us_reason is not None
 
     holiday_names: dict[str, str] = {}
     if kospi_holiday:
-        holiday_names["kr"] = "한국 시장 휴장"
-        logger.info("한국 시장 휴장 감지 (KR 섹션 전 티커 변동률 0%%)")
+        holiday_names["kr"] = kr_reason  # type: ignore[assignment]
+        logger.info("한국 시장 휴장: %s", kr_reason)
     if nyse_holiday:
-        holiday_names["us"] = "미국 시장 휴장"
-        logger.info("미국 시장 휴장 감지 (US 섹션 전 티커 변동률 0%%)")
+        holiday_names["us"] = us_reason  # type: ignore[assignment]
+        logger.info("미국 시장 휴장: %s", us_reason)
 
     return {
         "kospi_holiday": kospi_holiday,

@@ -465,36 +465,46 @@
       {# ── Holiday notices ── #}
       {% if holidays.get('kospi_holiday') %}
       <p class="market-holiday-notice" role="status">
-        {% if lang == 'en' %}KOSPI closed today{% else %}오늘 KOSPI 휴장{% endif %}
+        {% if lang == 'en' %}
+          🏛️ KRX closed today — {{ holidays.get('holiday_names', {}).get('kr', 'Holiday') }}
+        {% else %}
+          🏛️ 한국 증시 휴장 — {{ holidays.get('holiday_names', {}).get('kr', '휴장') }}
+        {% endif %}
       </p>
       {% endif %}
       {% if holidays.get('nyse_holiday') %}
       <p class="market-holiday-notice" role="status">
-        {% if lang == 'en' %}NYSE closed today{% else %}오늘 NYSE 휴장{% endif %}
+        {% if lang == 'en' %}
+          🏛️ NYSE closed today — {{ holidays.get('holiday_names', {}).get('us', 'Holiday') }}
+        {% else %}
+          🏛️ NYSE 휴장 — {{ holidays.get('holiday_names', {}).get('us', '휴장') }}
+        {% endif %}
       </p>
       {% endif %}
 
       {# ── Macro: Inline ticker strip (주요 지수 한 줄) ── #}
-      {# Jinja2 매크로: 티커 카드 (고정 폭 그리드) #}
-      {% macro ticker_card(item) %}
+      {# closed=true 이면 등락률 대신 '휴장' 표시 #}
+      {% macro ticker_card(item, closed=false) %}
       <div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
         <span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">{{ item.name }}</span>
-        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">{{ "{:,.2f}".format(item.price) }}</span>
-        {% if item.change_pct > 0 %}
+        <span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;{% if closed %}color:var(--text-secondary);{% endif %}">{{ "{:,.2f}".format(item.price) }}</span>
+        {% if closed %}
+        <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-secondary);width:70px;flex-shrink:0;text-align:right;">{% if lang == 'en' %}Closed{% else %}휴장{% endif %}</span>
+        {% elif item.change_pct > 0 %}
         <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">&#9650;+{{ "{:.2f}".format(item.change_pct) }}%</span>
         {% elif item.change_pct < 0 %}
         <span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">&#9660;{{ "{:.2f}".format(item.change_pct) }}%</span>
         {% else %}
         <span style="font-family:var(--font-mono);font-size:11px;color:var(--text-secondary);width:70px;flex-shrink:0;text-align:right;">0.00%</span>
         {% endif %}
-        {% if item.sparkline_svg %}{{ item.sparkline_svg | safe }}{% endif %}
+        {% if not closed and item.sparkline_svg %}{{ item.sparkline_svg | safe }}{% endif %}
       </div>
       {% endmacro %}
 
       {# ── KR + US 주요 지수 ── #}
       <div style="display:flex;flex-wrap:wrap;column-gap:40px;padding:4px 0;border-bottom:1px solid var(--border);">
-        {% for item in markets.get('kr', []) %}{{ ticker_card(item) }}{% endfor %}
-        {% for item in markets.get('us', []) %}{{ ticker_card(item) }}{% endfor %}
+        {% for item in markets.get('kr', []) %}{{ ticker_card(item, closed=holidays.get('kospi_holiday', false)) }}{% endfor %}
+        {% for item in markets.get('us', []) %}{{ ticker_card(item, closed=holidays.get('nyse_holiday', false)) }}{% endfor %}
       </div>
 
       {# ── FX + Commodities + Crypto ── #}
