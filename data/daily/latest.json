@@ -2,7 +2,7 @@
   "schema_version": 1,
   "brief_type": "daily",
   "date": "2026-04-04",
-  "generated_at": "2026-04-03T21:56:57",
+  "generated_at": "2026-04-04T08:30:39",
   "market_pulse": {
     "level": "mild_risk_on",
     "label_ko": "🟢 완만한 낙관",
@@ -13,12 +13,12 @@
     ]
   },
   "holidays": {
-    "kospi_holiday": true,
+    "kospi_holiday": false,
     "nyse_holiday": true,
     "holiday_names": {
-      "kr": "주말",
-      "us": "Weekend"
-    }
+      "us": "Good Friday"
+    },
+    "target_date": "2026-04-03"
   },
   "markets": {
     "kr": [
@@ -212,41 +212,41 @@
       {
         "ticker": "BTC-USD",
         "name": "Bitcoin",
-        "price": 66926.66,
-        "change_pct": 0.06,
+        "price": 66829.95,
+        "change_pct": -0.09,
         "prev_close": 66888.57,
         "sparkline": [
           66691.45,
           68233.31,
           68078.55,
           66888.57,
-          66926.66
+          66829.95
         ],
-        "volume": 23203241984,
+        "volume": 22734465024,
         "data_date": "2026-04-03",
         "source": "yfinance",
-        "price_fmt": "66,926.66",
-        "change_fmt": "+0.06%",
+        "price_fmt": "66,829.95",
+        "change_fmt": "-0.09%",
         "prev_close_fmt": "66,888.57"
       },
       {
         "ticker": "ETH-USD",
         "name": "Ethereum",
-        "price": 2058.72,
-        "change_pct": 0.09,
+        "price": 2048.95,
+        "change_pct": -0.38,
         "prev_close": 2056.85,
         "sparkline": [
           2023.51,
           2104.71,
           2138.74,
           2056.85,
-          2058.72
+          2048.95
         ],
-        "volume": 9830882304,
+        "volume": 9639181312,
         "data_date": "2026-04-03",
         "source": "yfinance",
-        "price_fmt": "2,058.72",
-        "change_fmt": "+0.09%",
+        "price_fmt": "2,048.95",
+        "change_fmt": "-0.38%",
         "prev_close_fmt": "2,056.85"
       }
     ],
@@ -534,8 +534,8 @@
     ]
   },
   "insight": {
-    "ko": "## Key Insight\n이란발 지정학적 위기로 직전 거래일 WTI 유가가 11% 이상 폭등했습니다. 미국의 견조한 고용 지표와 대규모 국방비 증액 추진은 인플레이션 압력을 높이고 있으며, 1,510원대를 돌파한 원/달러 환율과 맞물려 한국 경제의 수입 물가 부담을 가중시킬 것으로 보입니다.\n\n## Market Overview\n직전 거래일 미국 증시는 유가 폭등에도 불구하고 예상치를 상회한 3월 고용 지표에 힘입어 S&P 500과 나스닥이 강보합 마감했습니다. 한국 증시는 직전 거래일 반도체 및 원전·조선 분야의 대미 협력 기대감으로 코스피가 2.7%대 급등했으나, 국내 대출 규제 강화에 따른 부동산 시장 위축 등 내수 불확실성이 상존합니다.\n\n## Cross-Market Signals\n- **유가 폭등과 강달러의 결합**: WTI 급등과 원/달러 환율 1,510원대 유지가 맞물려, 국내 인플레이션 재점화 및 무역수지 악화 우려가 커질 것으로 보입니다.\n- **고용 호조와 재정 지출 확대**: 미국의 고용 호조와 국방비 증액 추진은 물가 상방 압력을 자극해 통화정책 완화 기대를 지연시킬 가능성이 있습니다.\n- **안전자산 내 달러 선호**: 지정학적 위기 고조 속에서도 금 가격은 하락하고 달러 인덱스는 상승해, 글로벌 유동성이 달러화로 집중되는 현상이 관측됩니다.",
-    "en": "## Today's Key Insight\n\nA severe military escalation in the Middle East, marked by the downing of US aircraft in Iran, has triggered a massive 11.4% spike in WTI crude oil, fundamentally altering the near-term global inflation calculus. While resilient US payroll data suggests underlying economic strength, this geopolitical shock threatens to force central banks into a defensive posture regarding future rate paths. Concurrently, South Korean equities are demonstrating a remarkable decoupling, driven by robust semiconductor supply chain investments and anticipated US-bound infrastructure deals, even as the local currency faces punishing weakness.\n\n## Market Overview\n\n**US Markets:** As of Thursday's close prior to the weekend, Wall Street remained largely flat as investors balanced competing macroeconomic narratives. Better-than-expected March payroll additions of 178,000 underscored a durable labor market, but the escalating conflict in Iran and the resulting energy shock likely constrained broader risk appetite, leaving the S&P 500 and Nasdaq with only marginal gains. \n\n**Korean Markets:** Entering the weekend, the KOSPI registered a powerful 2.7% rally during Friday's session. This surge appears heavily supported by Samsung's aggressive 800 billion won capital injection into its semiconductor ecosystem and expectations of imminent US investments in Korean nuclear and shipbuilding sectors. This industrial optimism effectively overrode domestic headwinds, including tightening mortgage credit that is flooding the Seoul real estate market with listings, and emerging labor unrest.\n\n## Cross-Market Signals\n\n- **WTI Surge + Resilient US Labor:** Oil prices rocketing past $111 a barrel, combined with solid US employment data, signals a potent resurgence of inflationary pressures that will likely complicate the Federal Reserve's monetary policy trajectory.\n- **Depressed Won + KOSPI Rally:** The USD/KRW exchange rate remains elevated above the 1,510 threshold, yet Korean equities surged, suggesting investors are currently prioritizing structural growth in export-driven tech and heavy industry over immediate currency depreciation risks.\n- **Geopolitical Escalation + Fiscal Pivot:** Direct US military engagement in Iran provides immediate context for Washington's proposed $1.5 trillion defense budget, indicating a long-term structural tailwind for the aerospace and defense sectors at the expense of domestic spending."
+    "ko": "## Key Insight\n이란 전쟁 격화로 인한 지정학적 위기가 국제 유가를 배럴당 110달러 선으로 밀어 올리며 글로벌 인플레이션 우려를 재점화하고 있습니다. 미국의 견조한 고용 지표와 대규모 국방비 증액 요구가 맞물리면서, 고금리 장기화와 강달러 기조가 신흥국 경제에 지속적인 압박을 가할 것으로 보입니다.\n\n## Market Overview\n전일 한국 증시는 코스피가 5,300선을 돌파하며 강한 상승세를 보였으나, 원/달러 환율이 1,510원대에서 고공행진을 이어가고 있어 자본 유출 리스크에 유의해야 합니다. 특히 주택담보대출 금리가 7%에 육박하는 등 고금리 부담이 내수 시장의 뇌관으로 작용하고 있습니다. \n\n성금요일(Good Friday)로 휴장한 미국 시장은 직전 거래일 기준 뚜렷한 방향성 없이 혼조세로 마감했습니다. 중동발 지정학적 리스크와 예상치를 상회한 3월 고용 지표가 겹치면서, 향후 연방준비제도의 통화정책 경로에 불확실성이 짙어지는 양상입니다.\n\n## Cross-Market Signals\n- **유가 폭등 + 강달러 지속** → 수입 물가 상승 압력이 가중되며 한국을 비롯한 에너지 수입국의 무역수지 악화 우려가 커지고 있습니다.\n- **미국 고용 호조 + 국방비 증액 요구** → 인플레이션 고착화 및 재정 적자 확대 우려로 미 국채 금리의 하방 경직성이 강화될 것으로 보입니다.\n- **지정학적 위기 고조 + 원/달러 환율 1,510원 돌파** → 글로벌 위험 회피 심리가 신흥국 통화 가치 하락과 수입 물가 부담으로 직결되는 구조적 취약성이 부각됩니다.",
+    "en": "## Today's Key Insight\n\nGlobal markets are caught in a precarious tug-of-war between robust macroeconomic resilience and severe geopolitical tail risks. The dramatic escalation in the Middle East—highlighted by the downing of US aircraft in Iran—has triggered a massive double-digit percentage spike in crude oil prices, threatening to reignite global inflationary pressures. However, this supply-side shock collides with unexpectedly strong US labor data, suggesting that the American economy retains enough momentum to absorb higher energy costs in the near term. For export-driven, energy-importing nations like South Korea, this combination of soaring oil, a structurally strong dollar, and looming US tariff shifts presents a formidable headwind.\n\n## Market Overview\n\n**US Equities (Closed for Good Friday)**\nWith US exchanges closed for the holiday, investors are left to digest the previous session's remarkably muted reaction to geopolitical turmoil. Despite the severe escalation in Iran and the resulting oil shock, major indices like the S&P 500 and Nasdaq held flat prior to the break. This resilience likely reflects the market anchoring to the stronger-than-expected March payrolls report, prioritizing domestic economic stability over overseas conflict for now. \n\n**Korean Equities**\nIn its most recent session, the KOSPI registered a powerful rally, seemingly looking past domestic political friction and high consumer borrowing costs. The surge appears supported by sector-specific tailwinds—such as a booming shipbuilding industry and high-profile corporate diplomacy in Europe by Samsung and Hyundai—though today's persistently weak won, trading above the 1,510 level against the dollar, continues to cast a shadow over foreign capital flows.\n\n## Cross-Market Signals\n\n*   **Oil Spike + Resilient Dollar → Import Inflation Shock:** WTI crude surging past $111 per barrel (pre-holiday data) combined with today's USD/KRW holding above 1,510 creates a severe terms-of-trade penalty for energy-dependent economies, likely squeezing corporate margins in Asia.\n*   **Geopolitical Escalation + Defense Budgets → Fiscal Reprioritization:** The direct military engagement in Iran, paired with proposals for a $1.5 trillion US defense budget, signals a structural pivot toward military expenditure, which will likely support defense equities while crowding out domestic spending.\n*   **Strong Payrolls + High Oil → Yield Floor:** The confluence of better-than-expected US job growth and inflationary energy shocks suggests that global interest rates will remain elevated for longer, directly translating to the painful 7% mortgage rates currently pressuring South Korean consumers."
   },
   "articles": {
     "raw": [
@@ -550,26 +550,6 @@
         "bucket": "world"
       },
       {
-        "story_key": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
-        "canonical_url": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
-        "title": "Trump seeks $1.5tn for defence alongside domestic spending cuts",
-        "summary": "The US president's new budget would cut non-defence spending by 10%, partly by slashing domestic programmes.",
-        "source": "BBC World",
-        "url": "https://www.bbc.com/news/articles/crr1q4kjvn2o?at_medium=RSS&at_campaign=rss",
-        "published_date": "2026-04-03",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://theguardian.com/world/2026/apr/03/cuba-to-release-pardon-prisoners-us-fuel-blockade",
-        "canonical_url": "https://theguardian.com/world/2026/apr/03/cuba-to-release-pardon-prisoners-us-fuel-blockade",
-        "title": "Cuba begins to free more than 2,000 prisoners as US eases fuel blockade",
-        "summary": "Havana makes a Holy Week ‘humanitarian’ gesture as Russian tanker is allowed to reach oil-starved islandSign up for the Breaking News US email to get newsletter alerts in your inboxCuban authorities have begun to free prisoners after announcing they would pardon 2,010 inmates, the second release in less than a month as the country faces heightened US pressure.More than 20 inmates emerged from La Lima penitentiary in east Havana on Friday, holding their release papers, crying and hugging relatives who had been waiting for them all morning.Continue reading...",
-        "source": "The Guardian",
-        "url": "https://www.theguardian.com/world/2026/apr/03/cuba-to-release-pardon-prisoners-us-fuel-blockade",
-        "published_date": "2026-04-03",
-        "bucket": "world"
-      },
-      {
         "story_key": "https://cnbc.com/2026/04/03/jobs-report-march-2026-.html",
         "canonical_url": "https://cnbc.com/2026/04/03/jobs-report-march-2026-.html",
         "title": "U.S. payrolls rose by 178,000 in March, more than expected; unemployment at 4.3%",
@@ -580,63 +560,83 @@
         "bucket": "world"
       },
       {
-        "story_key": "https://scmp.com/news/world/united-states-canada/article/3349005/artemis-iis-moon-bound-astronauts-share-first-images-earths-brilliant-blue-beauty",
-        "canonical_url": "https://scmp.com/news/world/united-states-canada/article/3349005/artemis-iis-moon-bound-astronauts-share-first-images-earths-brilliant-blue-beauty",
-        "title": "Artemis II’s moon-bound astronauts share first images of Earth’s brilliant blue beauty",
-        "summary": "The Artemis II astronauts have captured our blue planet’s brilliant beauty as they zoom ever closer to the moon.\nNasa released the crew’s first downlinked images Friday, 1½ days into the first astronaut moon shot in more than half a century.\nThe first photo taken by commander Reid Wiseman shows a curved slice of Earth in one of the capsule’s windows.\nThe second shows the entire globe with the oceans topped by swirling white tendrils of clouds\n\nAs of midmorning on Friday, Wiseman and his crew...",
-        "source": "SCMP",
-        "url": "https://www.scmp.com/news/world/united-states-canada/article/3349005/artemis-iis-moon-bound-astronauts-share-first-images-earths-brilliant-blue-beauty?utm_source=rss_feed",
+        "story_key": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
+        "title": "Trump seeks $1.5tn for defence alongside domestic spending cuts",
+        "summary": "The US president's new budget would cut non-defence spending by 10%, partly by slashing domestic programmes.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/crr1q4kjvn2o?at_medium=RSS&at_campaign=rss",
         "published_date": "2026-04-03",
         "bucket": "world"
       },
       {
-        "story_key": "https://joseilbo.com/news/news_read.php?class=17&uid=565936",
-        "canonical_url": "https://joseilbo.com/news/news_read.php?class=17&uid=565936",
-        "title": "삼성전자, 협력사에 8000억 인센티브…반도체 생태계 결속 강화",
-        "summary": "산업통상자원부에 따르면 2026년 3월 한국 반도체 수출은 328억 달러를 넘어 사상 최대 수준을 기록했다. 글로벌 시장 역시 인공지능(AI) 수요 확대에 힘입어 성장세가 이어지고 있다. DS부문은 기술·품질혁신, ESG...",
-        "source": "네이버뉴스",
-        "url": "http://www.joseilbo.com/news/news_read.php?uid=565936&class=17&grp=",
-        "published_date": "2026-04-03 16:24",
-        "bucket": "korea"
+        "story_key": "https://scmp.com/news/world/middle-east/article/3349004/iran-war-french-and-japanese-owned-ships-make-first-strait-hormuz-crossings",
+        "canonical_url": "https://scmp.com/news/world/middle-east/article/3349004/iran-war-french-and-japanese-owned-ships-make-first-strait-hormuz-crossings",
+        "title": "Iran war: French and Japanese-owned ships make first Strait of Hormuz crossings",
+        "summary": "A French container ship and a Japanese-owned tanker have crossed the Strait of Hormuz, in what appear to be the first such transits since the war in Iran closed the crucial waterway.\nThe CMA CGM Kribi container ship exited the strait on Friday, according to ship tracking data compiled by Bloomberg and two people familiar with the situation.\nThat is the first ship linked to western Europe that is known to have made it through since the war began more than a month ago. Japan’s Mitsui OSK Lines...",
+        "source": "SCMP",
+        "url": "https://www.scmp.com/news/world/middle-east/article/3349004/iran-war-french-and-japanese-owned-ships-make-first-strait-hormuz-crossings?utm_source=rss_feed",
+        "published_date": "2026-04-03",
+        "bucket": "world"
       },
       {
-        "story_key": "https://mk.co.kr/news/realestate/12007883",
-        "canonical_url": "https://mk.co.kr/news/realestate/12007883",
-        "title": "“대출 더 옥죈다”는 정부 말에…하루 만에 550건 쏟아진 서울아파트 매물",
-        "summary": "서초구서만 95건 쏟아져 송파·용산도 매물 증가세 복합요인 맞물렸단 해석도 수도권 외곽 등 조정폭 클듯정부의 가계부채 관리방안 발표 이후 서울 강남권을 중심으로 한동안 잠잠하던 매..",
-        "source": "매일경제",
-        "url": "https://www.mk.co.kr/news/realestate/12007883",
+        "story_key": "https://aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
+        "canonical_url": "https://aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
+        "title": "NASA releases stunning first photos of Earth from Artemis II moon mission",
+        "summary": "The crew were about 100,000 miles (160,000 kilometres) from Earth and were quickly closing in on the moon.",
+        "source": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
+        "published_date": "2026-04-03",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://donga.com/news/Economy/article/all/20260404/133673770/1",
+        "canonical_url": "https://donga.com/news/Economy/article/all/20260404/133673770/1",
+        "title": "이재용·정의선, 佛 마크롱 만났다…반도체·수소 협력 확대 기대감↑",
+        "summary": "이재용 삼성전자 회장, 정의선 현대차그룹 회장이 에마뉘엘 마크롱 프랑스 대통령과 만나 사업 협력 논의를 한 가운데, 향후 반도체와 수소차 등 양사의 핵심 사업에서 프랑스와 힘을 모을 지 주목되고 있다.이 회장과 정 회장은 지난 3일 오후 5시30분께 서울 여의도 FKI타워에서 마크롱 대통령과 비공개 회담을 가졌다.이들은 약 30분 간 회담을 진행했는데, 반도체와 수소 등 양사가 주력하고 있는 사업 분야에서 구체적인 협력을 논의했을 것으로 관측된다.우선 삼성전자는 프랑스 정부 및 현지 기업들과 반도체 협력에 나설 가능성이 점쳐진다. 마크롱 대통령은 과거부터 삼성전자가 프랑스에 반도체 생산시설을 짓기를 바란다는 취지의 발언을 한 것으로 알려졌다. 프랑스는 자국 내에 공장을 짓는 반도체 기업들에게 조 단위의 보조금을 지원하겠다고 밝힌 바 있다.이에 재계에서는 삼성전자가 프랑스와 여러 형태로 반도체 협력에 나설 수 있다는 관측이 나왔다.특히 마크롱 대통령의 국빈 방한을 계기로 개",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Economy/article/all/20260404/133673770/1",
         "published_date": "2026-04-03",
         "bucket": "korea"
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260403137600001?input=1195m",
-        "canonical_url": "https://yna.co.kr/view/AKR20260403137600001?input=1195m",
-        "title": "與 서울시장 후보들, 쓰레기 처리 해법…鄭 부동산 공약 협공도",
-        "summary": "전현희·박주민·정원오 예비후보 본경선 TV토론서 공방 김정진 정연솔 기자 = 더불어민주당 서울시장 예비후보의 3일 TV 토론회에서 전현희·박주민 후보(기호순)가 부동산 정책 공약 등을 앞세워 정원오 후보를 협공했다....",
-        "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260403137600001?input=1195m",
-        "published_date": "2026-04-03 17:51",
+        "story_key": "https://view.asiae.co.kr/article/2026040308143807911",
+        "canonical_url": "https://view.asiae.co.kr/article/2026040308143807911",
+        "title": "[美관세 시즌2]美, 최대 수출 시장 됐지만…시장 다변화 부담 '이중고’",
+        "summary": "업계는 미국 시장 의존도를 낮추기 위해 유럽·중동 등으로 수출 다변화를 추진해왔지만, 중동 사태로 전략 수정이 불가피해졌다고 분석한다. 반도체·가전…커지는 불확실성 미국 시장 진출이 활발한 반도체 기업 역시...",
+        "source": "아시아경제",
+        "url": "https://view.asiae.co.kr/article/2026040308143807911",
+        "published_date": "2026-04-03 10:34",
         "bucket": "korea"
       },
       {
-        "story_key": "https://hankyung.com/article/202604037636i",
-        "canonical_url": "https://hankyung.com/article/202604037636i",
-        "title": "美 \"한국 대미투자 몇 주 내로 발표\"…원전·조선 '우선 순위'",
-        "summary": "美 한국 대미투자 몇 주 내로 발표…원전·조선 우선 순위 | 한국경제 본문 바로가기 ADVERTISEMENT 美 \"한국 대미투자 몇 주 내로 발표\"…원전·조선 '우선 순위' 이상은 기자 구독하기 입력 2026.04.03 23:01 수정 2026.04.03 23:08 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 도널드 트럼프 미국 대통령과 하워드 러트닉 미국 상무장관.",
+        "story_key": "https://hani.co.kr/arti/politics/politics_general/1252627.html",
+        "canonical_url": "https://hani.co.kr/arti/politics/politics_general/1252627.html",
+        "title": "국힘 5년 만에 최저 지지율…“이러다 선거 비용 보전도 못 받을라”",
+        "summary": "국힘 5년 만에 최저 지지율…“이러다 선거 비용 보전도 못 받을라” 본문 정치 정치일반 국힘 5년 만에 최저 지지율…“이러다 선거 비용 보전도 못 받을라” 장나래 기자 수정 2026-04-04 08:05 펼침 기사를 읽어드립니다 Your browser does not support the audio element.",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/politics/politics_general/1252627.html",
+        "published_date": "",
+        "bucket": "korea"
+      },
+      {
+        "story_key": "https://hankyung.com/article/2026040376581",
+        "canonical_url": "https://hankyung.com/article/2026040376581",
+        "title": "조선 호황·공급 부족…울산 아파트값 뛴다",
+        "summary": "조선 호황·공급 부족…울산 아파트값 뛴다 | 한국경제 본문 바로가기 ADVERTISEMENT 조선 호황·공급 부족…울산 아파트값 뛴다 정의진 기자 구독하기 입력 2026.04.04 06:00 수정 2026.04.04 06:00 지면 A16 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 엇갈린 지방 부동산 시장 울산 집값 1분기 1.57% 올라 공급 반토막…신고가 잇따라 대구·광주…",
         "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202604037636i",
+        "url": "https://www.hankyung.com/article/2026040376581",
         "published_date": "2026-04-03",
         "bucket": "korea"
       },
       {
-        "story_key": "https://chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4",
-        "canonical_url": "https://chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4",
-        "title": "공공부문부터 덮친 ‘노란봉투법’… “진짜 사용자인 대통령 나와야”",
-        "summary": "공공부문부터 덮친 ‘노란봉투법’… “진짜 사용자인 대통령 나와야”",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4/",
-        "published_date": "2026-04-03",
+        "story_key": "https://news.tf.co.kr/read/economy/2309385.htm",
+        "canonical_url": "https://news.tf.co.kr/read/economy/2309385.htm",
+        "title": "7% 금리·가계대출 관리 강화…주담대 실수요자 '시름'",
+        "summary": "주담대 금리 상승에는 중동 리스크에 따른 국제유가 상승 우려와 글로벌 인플레이션 압력 재부각으로 시장금리가 먼저 오른 영향이 반영된 것으로 풀이된다. 또 한국은행 총재 후보로 매파 성향의 신현송 전...",
+        "source": "네이버뉴스",
+        "url": "https://news.tf.co.kr/read/economy/2309385.htm",
+        "published_date": "2026-04-03 10:59",
         "bucket": "korea"
       }
     ],
@@ -652,92 +652,92 @@
         "bucket": "world"
       },
       {
-        "story_key": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
-        "canonical_url": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
-        "title": "트럼프, 국내 지출 삭감과 함께 1조 5천억 달러 국방 예산 요구",
-        "summary": "미국 대통령의 새 예산안은 국내 프로그램 삭감 등을 통해 비국방 지출을 10% 줄이는 내용을 담고 있다.",
-        "source": "BBC World",
-        "url": "https://www.bbc.com/news/articles/crr1q4kjvn2o?at_medium=RSS&at_campaign=rss",
-        "published_date": "",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://theguardian.com/world/2026/apr/03/cuba-to-release-pardon-prisoners-us-fuel-blockade",
-        "canonical_url": "https://theguardian.com/world/2026/apr/03/cuba-to-release-pardon-prisoners-us-fuel-blockade",
-        "title": "미국이 연료 봉쇄를 완화함에 따라 쿠바, 2,000명 이상의 수감자 석방 시작",
-        "summary": "러시아 유조선이 석유난을 겪는 섬에 도착하도록 허용되면서 쿠바 정부는 성주간을 맞아 '인도주의적' 제스처를 취했다. 받은 편지함으로 뉴스레터 알림을 받으려면 미국 속보 이메일을 구독하세요. 쿠바 당국은 2,010명의 수감자를 사면하겠다고 발표한 후 수감자 석방을 시작했으며, 이는 미국의 압박이 고조되는 가운데 한 달도 채 안 돼 이루어진 두 번째 석방이다. 금요일 동부 아바나의 라 리마 교도소에서 20명 이상의 수감자들이 석방 서류를 들고 나와 아침 내내 기다리던 가족들을 끌어안고 눈물을 흘렸다. 계속 읽기...",
-        "source": "The Guardian",
-        "url": "https://www.theguardian.com/world/2026/apr/03/cuba-to-release-pardon-prisoners-us-fuel-blockade",
-        "published_date": "",
-        "bucket": "world"
-      },
-      {
         "story_key": "https://cnbc.com/2026/04/03/jobs-report-march-2026-.html",
         "canonical_url": "https://cnbc.com/2026/04/03/jobs-report-march-2026-.html",
         "title": "3월 미국 취업자 수 17만 8,000명 증가로 예상치 상회, 실업률은 4.3%",
-        "summary": "3월 비농업 부문 취업자 수는 5만 9,000명 증가하고 실업률은 4.4%를 유지할 것으로 예상되었었다.",
+        "summary": "3월 비농업 부문 취업자 수는 5만 9,000명 증가하고 실업률은 4.4%를 유지할 것으로 예상되었다.",
         "source": "CNBC",
         "url": "https://www.cnbc.com/2026/04/03/jobs-report-march-2026-.html",
         "published_date": "",
         "bucket": "world"
       },
       {
-        "story_key": "https://scmp.com/news/world/united-states-canada/article/3349005/artemis-iis-moon-bound-astronauts-share-first-images-earths-brilliant-blue-beauty",
-        "canonical_url": "https://scmp.com/news/world/united-states-canada/article/3349005/artemis-iis-moon-bound-astronauts-share-first-images-earths-brilliant-blue-beauty",
-        "title": "달로 향하는 아르테미스 2호 우주비행사들, 지구의 눈부신 푸른 아름다움을 담은 첫 이미지 공개",
-        "summary": "아르테미스 2호 우주비행사들이 달에 점점 더 가까워지면서 우리 푸른 행성의 눈부신 아름다움을 포착했다.\nNASA는 반세기 만에 처음으로 우주비행사를 달로 쏘아 올린 지 1.5일 만인 금요일, 승무원들이 처음으로 전송한 이미지를 공개했다.\n리드 와이즈먼 사령관이 찍은 첫 번째 사진은 캡슐 창문 중 하나에 비친 지구의 둥근 단면을 보여준다.\n두 번째 사진은 소용돌이치는 하얀 구름 띠로 덮인 바다와 함께 지구 전체의 모습을 보여준다.\n\n금요일 오전 중반 현재, 와이즈먼과 그의 승무원들은...",
-        "source": "SCMP",
-        "url": "https://www.scmp.com/news/world/united-states-canada/article/3349005/artemis-iis-moon-bound-astronauts-share-first-images-earths-brilliant-blue-beauty?utm_source=rss_feed",
+        "story_key": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
+        "title": "트럼프, 국내 지출 삭감과 함께 1조 5,000억 달러 국방 예산 요구",
+        "summary": "미국 대통령의 새 예산안은 국내 프로그램 대폭 축소 등을 통해 비국방 지출을 10% 삭감하게 된다.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/crr1q4kjvn2o?at_medium=RSS&at_campaign=rss",
         "published_date": "",
         "bucket": "world"
       },
       {
-        "story_key": "https://joseilbo.com/news/news_read.php?class=17&uid=565936",
-        "canonical_url": "https://joseilbo.com/news/news_read.php?class=17&uid=565936",
-        "title": "삼성전자, 협력사에 8000억 인센티브…반도체 생태계 결속 강화",
-        "summary": "산업통상자원부에 따르면 2026년 3월 한국 반도체 수출은 328억 달러를 넘어 사상 최대 수준을 기록했다. 글로벌 시장 역시 인공지능(AI) 수요 확대에 힘입어 성장세가 이어지고 있다. DS부문은 기술·품질혁신, ESG...",
-        "source": "네이버뉴스",
-        "url": "http://www.joseilbo.com/news/news_read.php?uid=565936&class=17&grp=",
+        "story_key": "https://scmp.com/news/world/middle-east/article/3349004/iran-war-french-and-japanese-owned-ships-make-first-strait-hormuz-crossings",
+        "canonical_url": "https://scmp.com/news/world/middle-east/article/3349004/iran-war-french-and-japanese-owned-ships-make-first-strait-hormuz-crossings",
+        "title": "이란 전쟁: 프랑스 및 일본 소유 선박, 호르무즈 해협 첫 통과",
+        "summary": "이란 전쟁으로 이 중요한 수로가 폐쇄된 이후 처음으로 프랑스 컨테이너선과 일본 소유 유조선이 호르무즈 해협을 통과한 것으로 보인다.\n블룸버그가 집계한 선박 추적 데이터와 상황에 정통한 두 관계자에 따르면, CMA CGM 크리비(Kribi) 컨테이너선이 금요일 해협을 빠져나갔다.\n이는 한 달여 전 전쟁이 시작된 이후 무사히 통과한 것으로 알려진 서유럽 관련 첫 선박이다. 일본의 미쓰이 OSK 라인(Mitsui OSK Lines)...",
+        "source": "SCMP",
+        "url": "https://www.scmp.com/news/world/middle-east/article/3349004/iran-war-french-and-japanese-owned-ships-make-first-strait-hormuz-crossings?utm_source=rss_feed",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
+        "canonical_url": "https://aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
+        "title": "NASA, 아르테미스 2호 달 탐사 임무 중 촬영한 놀라운 지구의 첫 사진 공개",
+        "summary": "승무원들은 지구에서 약 10만 마일(16만 킬로미터) 떨어져 있었으며 달에 빠르게 접근하고 있었다.",
+        "source": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://donga.com/news/Economy/article/all/20260404/133673770/1",
+        "canonical_url": "https://donga.com/news/Economy/article/all/20260404/133673770/1",
+        "title": "이재용·정의선, 佛 마크롱 만났다…반도체·수소 협력 확대 기대감↑",
+        "summary": "이재용 삼성전자 회장, 정의선 현대차그룹 회장이 에마뉘엘 마크롱 프랑스 대통령과 만나 사업 협력 논의를 한 가운데, 향후 반도체와 수소차 등 양사의 핵심 사업에서 프랑스와 힘을 모을 지 주목되고 있다.이 회장과 정 회장은 지난 3일 오후 5시30분께 서울 여의도 FKI타워에서 마크롱 대통령과 비공개 회담을 가졌다.이들은 약 30분 간 회담을 진행했는데, 반도체와 수소 등 양사가 주력하고 있는 사업 분야에서 구체적인 협력을 논의했을 것으로 관측된다.우선 삼성전자는 프랑스 정부 및 현지 기업들과 반도체 협력에 나설 가능성이 점쳐진다. 마크롱 대통령은 과거부터 삼성전자가 프랑스에 반도체 생산시설을 짓기를 바란다는 취지의 발언을 한 것으로 알려졌다. 프랑스는 자국 내에 공장을 짓는 반도체 기업들에게 조 단위의 보조금을 지원하겠다고 밝힌 바 있다.이에 재계에서는 삼성전자가 프랑스와 여러 형태로 반도체 협력에 나설 수 있다는 관측이 나왔다.특히 마크롱 대통령의 국빈 방한을 계기로 개",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Economy/article/all/20260404/133673770/1",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://mk.co.kr/news/realestate/12007883",
-        "canonical_url": "https://mk.co.kr/news/realestate/12007883",
-        "title": "“대출 더 옥죈다”는 정부 말에…하루 만에 550건 쏟아진 서울아파트 매물",
-        "summary": "서초구서만 95건 쏟아져 송파·용산도 매물 증가세 복합요인 맞물렸단 해석도 수도권 외곽 등 조정폭 클듯정부의 가계부채 관리방안 발표 이후 서울 강남권을 중심으로 한동안 잠잠하던 매..",
-        "source": "매일경제",
-        "url": "https://www.mk.co.kr/news/realestate/12007883",
+        "story_key": "https://view.asiae.co.kr/article/2026040308143807911",
+        "canonical_url": "https://view.asiae.co.kr/article/2026040308143807911",
+        "title": "[美관세 시즌2]美, 최대 수출 시장 됐지만…시장 다변화 부담 '이중고’",
+        "summary": "업계는 미국 시장 의존도를 낮추기 위해 유럽·중동 등으로 수출 다변화를 추진해왔지만, 중동 사태로 전략 수정이 불가피해졌다고 분석한다. 반도체·가전…커지는 불확실성 미국 시장 진출이 활발한 반도체 기업 역시...",
+        "source": "아시아경제",
+        "url": "https://view.asiae.co.kr/article/2026040308143807911",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260403137600001?input=1195m",
-        "canonical_url": "https://yna.co.kr/view/AKR20260403137600001?input=1195m",
-        "title": "與 서울시장 후보들, 쓰레기 처리 해법…鄭 부동산 공약 협공도",
-        "summary": "전현희·박주민·정원오 예비후보 본경선 TV토론서 공방 김정진 정연솔 기자 = 더불어민주당 서울시장 예비후보의 3일 TV 토론회에서 전현희·박주민 후보(기호순)가 부동산 정책 공약 등을 앞세워 정원오 후보를 협공했다....",
-        "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260403137600001?input=1195m",
+        "story_key": "https://hani.co.kr/arti/politics/politics_general/1252627.html",
+        "canonical_url": "https://hani.co.kr/arti/politics/politics_general/1252627.html",
+        "title": "국힘 5년 만에 최저 지지율…“이러다 선거 비용 보전도 못 받을라”",
+        "summary": "국힘 5년 만에 최저 지지율…“이러다 선거 비용 보전도 못 받을라” 본문 정치 정치일반 국힘 5년 만에 최저 지지율…“이러다 선거 비용 보전도 못 받을라” 장나래 기자 수정 2026-04-04 08:05 펼침 기사를 읽어드립니다 Your browser does not support the audio element.",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/politics/politics_general/1252627.html",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://hankyung.com/article/202604037636i",
-        "canonical_url": "https://hankyung.com/article/202604037636i",
-        "title": "美 \"한국 대미투자 몇 주 내로 발표\"…원전·조선 '우선 순위'",
-        "summary": "美 한국 대미투자 몇 주 내로 발표…원전·조선 우선 순위 | 한국경제 본문 바로가기 ADVERTISEMENT 美 \"한국 대미투자 몇 주 내로 발표\"…원전·조선 '우선 순위' 이상은 기자 구독하기 입력 2026.04.03 23:01 수정 2026.04.03 23:08 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 도널드 트럼프 미국 대통령과 하워드 러트닉 미국 상무장관.",
+        "story_key": "https://hankyung.com/article/2026040376581",
+        "canonical_url": "https://hankyung.com/article/2026040376581",
+        "title": "조선 호황·공급 부족…울산 아파트값 뛴다",
+        "summary": "조선 호황·공급 부족…울산 아파트값 뛴다 | 한국경제 본문 바로가기 ADVERTISEMENT 조선 호황·공급 부족…울산 아파트값 뛴다 정의진 기자 구독하기 입력 2026.04.04 06:00 수정 2026.04.04 06:00 지면 A16 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 엇갈린 지방 부동산 시장 울산 집값 1분기 1.57% 올라 공급 반토막…신고가 잇따라 대구·광주…",
         "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202604037636i",
+        "url": "https://www.hankyung.com/article/2026040376581",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4",
-        "canonical_url": "https://chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4",
-        "title": "공공부문부터 덮친 ‘노란봉투법’… “진짜 사용자인 대통령 나와야”",
-        "summary": "공공부문부터 덮친 ‘노란봉투법’… “진짜 사용자인 대통령 나와야”",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4/",
+        "story_key": "https://news.tf.co.kr/read/economy/2309385.htm",
+        "canonical_url": "https://news.tf.co.kr/read/economy/2309385.htm",
+        "title": "7% 금리·가계대출 관리 강화…주담대 실수요자 '시름'",
+        "summary": "주담대 금리 상승에는 중동 리스크에 따른 국제유가 상승 우려와 글로벌 인플레이션 압력 재부각으로 시장금리가 먼저 오른 영향이 반영된 것으로 풀이된다. 또 한국은행 총재 후보로 매파 성향의 신현송 전...",
+        "source": "네이버뉴스",
+        "url": "https://news.tf.co.kr/read/economy/2309385.htm",
         "published_date": "",
         "bucket": "korea"
       }
@@ -754,26 +754,6 @@
         "bucket": "world"
       },
       {
-        "story_key": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
-        "canonical_url": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
-        "title": "Trump seeks $1.5tn for defence alongside domestic spending cuts",
-        "summary": "The US president's new budget would cut non-defence spending by 10%, partly by slashing domestic programmes.",
-        "source": "BBC World",
-        "url": "https://www.bbc.com/news/articles/crr1q4kjvn2o?at_medium=RSS&at_campaign=rss",
-        "published_date": "",
-        "bucket": "world"
-      },
-      {
-        "story_key": "https://theguardian.com/world/2026/apr/03/cuba-to-release-pardon-prisoners-us-fuel-blockade",
-        "canonical_url": "https://theguardian.com/world/2026/apr/03/cuba-to-release-pardon-prisoners-us-fuel-blockade",
-        "title": "Cuba begins to free more than 2,000 prisoners as US eases fuel blockade",
-        "summary": "Havana makes a Holy Week ‘humanitarian’ gesture as Russian tanker is allowed to reach oil-starved islandSign up for the Breaking News US email to get newsletter alerts in your inboxCuban authorities have begun to free prisoners after announcing they would pardon 2,010 inmates, the second release in less than a month as the country faces heightened US pressure.More than 20 inmates emerged from La Lima penitentiary in east Havana on Friday, holding their release papers, crying and hugging relatives who had been waiting for them all morning.Continue reading...",
-        "source": "The Guardian",
-        "url": "https://www.theguardian.com/world/2026/apr/03/cuba-to-release-pardon-prisoners-us-fuel-blockade",
-        "published_date": "",
-        "bucket": "world"
-      },
-      {
         "story_key": "https://cnbc.com/2026/04/03/jobs-report-march-2026-.html",
         "canonical_url": "https://cnbc.com/2026/04/03/jobs-report-march-2026-.html",
         "title": "U.S. payrolls rose by 178,000 in March, more than expected; unemployment at 4.3%",
@@ -784,62 +764,82 @@
         "bucket": "world"
       },
       {
-        "story_key": "https://scmp.com/news/world/united-states-canada/article/3349005/artemis-iis-moon-bound-astronauts-share-first-images-earths-brilliant-blue-beauty",
-        "canonical_url": "https://scmp.com/news/world/united-states-canada/article/3349005/artemis-iis-moon-bound-astronauts-share-first-images-earths-brilliant-blue-beauty",
-        "title": "Artemis II’s moon-bound astronauts share first images of Earth’s brilliant blue beauty",
-        "summary": "The Artemis II astronauts have captured our blue planet’s brilliant beauty as they zoom ever closer to the moon.\nNasa released the crew’s first downlinked images Friday, 1½ days into the first astronaut moon shot in more than half a century.\nThe first photo taken by commander Reid Wiseman shows a curved slice of Earth in one of the capsule’s windows.\nThe second shows the entire globe with the oceans topped by swirling white tendrils of clouds\n\nAs of midmorning on Friday, Wiseman and his crew...",
-        "source": "SCMP",
-        "url": "https://www.scmp.com/news/world/united-states-canada/article/3349005/artemis-iis-moon-bound-astronauts-share-first-images-earths-brilliant-blue-beauty?utm_source=rss_feed",
+        "story_key": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/crr1q4kjvn2o?at_campaign=rss&at_medium=RSS",
+        "title": "Trump seeks $1.5tn for defence alongside domestic spending cuts",
+        "summary": "The US president's new budget would cut non-defence spending by 10%, partly by slashing domestic programmes.",
+        "source": "BBC World",
+        "url": "https://www.bbc.com/news/articles/crr1q4kjvn2o?at_medium=RSS&at_campaign=rss",
         "published_date": "",
         "bucket": "world"
       },
       {
-        "story_key": "https://joseilbo.com/news/news_read.php?class=17&uid=565936",
-        "canonical_url": "https://joseilbo.com/news/news_read.php?class=17&uid=565936",
-        "title": "Samsung Electronics provides 800 billion won in incentives to partners... Strengthening solidarity in the semiconductor ecosystem",
-        "summary": "According to the Ministry of Trade, Industry and Energy, South Korea's semiconductor exports exceeded $32.8 billion in March 2026, recording an all-time high. The global market is also continuing its growth trend driven by expanding demand for artificial intelligence (AI). The DS division's technology and quality innovation, ESG...",
-        "source": "네이버뉴스",
-        "url": "http://www.joseilbo.com/news/news_read.php?uid=565936&class=17&grp=",
+        "story_key": "https://scmp.com/news/world/middle-east/article/3349004/iran-war-french-and-japanese-owned-ships-make-first-strait-hormuz-crossings",
+        "canonical_url": "https://scmp.com/news/world/middle-east/article/3349004/iran-war-french-and-japanese-owned-ships-make-first-strait-hormuz-crossings",
+        "title": "Iran war: French and Japanese-owned ships make first Strait of Hormuz crossings",
+        "summary": "A French container ship and a Japanese-owned tanker have crossed the Strait of Hormuz, in what appear to be the first such transits since the war in Iran closed the crucial waterway.\nThe CMA CGM Kribi container ship exited the strait on Friday, according to ship tracking data compiled by Bloomberg and two people familiar with the situation.\nThat is the first ship linked to western Europe that is known to have made it through since the war began more than a month ago. Japan’s Mitsui OSK Lines...",
+        "source": "SCMP",
+        "url": "https://www.scmp.com/news/world/middle-east/article/3349004/iran-war-french-and-japanese-owned-ships-make-first-strait-hormuz-crossings?utm_source=rss_feed",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
+        "canonical_url": "https://aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
+        "title": "NASA releases stunning first photos of Earth from Artemis II moon mission",
+        "summary": "The crew were about 100,000 miles (160,000 kilometres) from Earth and were quickly closing in on the moon.",
+        "source": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
+        "published_date": "",
+        "bucket": "world"
+      },
+      {
+        "story_key": "https://donga.com/news/Economy/article/all/20260404/133673770/1",
+        "canonical_url": "https://donga.com/news/Economy/article/all/20260404/133673770/1",
+        "title": "Lee Jae-yong and Chung Eui-sun Meet France's Macron... Expectations for Expanded Cooperation in Semiconductors and Hydrogen ↑",
+        "summary": "With Samsung Electronics Chairman Lee Jae-yong and Hyundai Motor Group Chairman Chung Eui-sun meeting French President Emmanuel Macron to discuss business cooperation, attention is drawn to whether they will join forces with France in their core businesses such as semiconductors and hydrogen vehicles in the future. Chairman Lee and Chairman Chung held a closed-door meeting with President Macron at the FKI Tower in Yeouido, Seoul, at around 5:30 PM on the 3rd. They held talks for about 30 minutes, and it is observed that they discussed specific cooperation in business areas that both companies are focusing on, such as semiconductors and hydrogen. First, there is a possibility that Samsung Electronics will engage in semiconductor cooperation with the French government and local companies. It is known that President Macron has previously made remarks to the effect that he hopes Samsung Electronics will build a semiconductor production facility in France. France has announced that it will provide subsidies in the trillions of won to semiconductor companies that build factories within its borders. Accordingly, there are observations in the business community that Samsung Electronics could engage in semiconductor cooperation with France in various forms. In particular, taking President Macron's state visit to Korea as an opp",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Economy/article/all/20260404/133673770/1",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://mk.co.kr/news/realestate/12007883",
-        "canonical_url": "https://mk.co.kr/news/realestate/12007883",
-        "title": "Following the government's remark to \"tighten loans further\"... 550 Seoul apartment listings pour out in a single day",
-        "summary": "95 listings poured out in Seocho-gu alone; Songpa and Yongsan also show an increasing trend in listings. Some interpret this as a combination of complex factors. The adjustment range is expected to be large in the outskirts of the metropolitan area. Following the government's announcement of household debt management plans, listings that had been quiet for a while, centered around the Gangnam area in Seoul..",
-        "source": "매일경제",
-        "url": "https://www.mk.co.kr/news/realestate/12007883",
+        "story_key": "https://view.asiae.co.kr/article/2026040308143807911",
+        "canonical_url": "https://view.asiae.co.kr/article/2026040308143807911",
+        "title": "[US Tariffs Season 2] US Becomes Largest Export Market, But... 'Double Hardship' of Market Diversification Burden",
+        "summary": "The industry analyzes that although it has been pushing for export diversification to Europe and the Middle East to lower its dependence on the US market, a strategy revision has become inevitable due to the Middle East crisis. Semiconductors and home appliances... growing uncertainty. Semiconductor companies that are actively entering the US market are also...",
+        "source": "아시아경제",
+        "url": "https://view.asiae.co.kr/article/2026040308143807911",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260403137600001?input=1195m",
-        "canonical_url": "https://yna.co.kr/view/AKR20260403137600001?input=1195m",
-        "title": "Ruling party Seoul mayoral candidates' solutions for waste disposal... Joint attack on Chung's real estate pledges",
-        "summary": "Preliminary candidates Jeon Hyun-hee, Park Joo-min, and Chung Won-o clash in main primary TV debate. Reporters Kim Jeong-jin and Jeong Yeon-sol = In the TV debate of the Democratic Party of Korea's Seoul mayoral preliminary candidates on the 3rd, candidates Jeon Hyun-hee and Park Joo-min (in order of ballot number) launched a joint attack on candidate Chung Won-o, highlighting real estate policy pledges....",
-        "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260403137600001?input=1195m",
+        "story_key": "https://hani.co.kr/arti/politics/politics_general/1252627.html",
+        "canonical_url": "https://hani.co.kr/arti/politics/politics_general/1252627.html",
+        "title": "PPP's Approval Rating Hits 5-Year Low... \"At This Rate, We Might Not Even Get Election Expenses Reimbursed\"",
+        "summary": "PPP's Approval Rating Hits 5-Year Low... \"At This Rate, We Might Not Even Get Election Expenses Reimbursed\" Main Text Politics General Politics PPP's Approval Rating Hits 5-Year Low... \"At This Rate, We Might Not Even Get Election Expenses Reimbursed\" Reporter Jang Na-rae Modified 2026-04-04 08:05 Expand Read Article Your browser does not support the audio element.",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/politics/politics_general/1252627.html",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://hankyung.com/article/202604037636i",
-        "canonical_url": "https://hankyung.com/article/202604037636i",
-        "title": "US: \"South Korea's investment in the US to be announced within weeks\"... Nuclear power and shipbuilding are 'priorities'",
-        "summary": "US: South Korea's investment in the US to be announced within weeks... Nuclear power and shipbuilding priorities | Hankyung Skip to main content ADVERTISEMENT US \"South Korea's investment in the US to be announced within weeks\"... Nuclear power and shipbuilding 'priorities' Reporter Lee Sang-eun Subscribe Input 2026.04.03 23:01 Modified 2026.04.03 23:08 Adjust font size Article scrap Article scrap Share Share Comments 0 Comments Clean view Clean view Print Print US President Donald Trump and US Secretary of Commerce Howard Lutnick.",
+        "story_key": "https://hankyung.com/article/2026040376581",
+        "canonical_url": "https://hankyung.com/article/2026040376581",
+        "title": "Shipbuilding Boom and Supply Shortage... Ulsan Apartment Prices Jump",
+        "summary": "Shipbuilding Boom and Supply Shortage... Ulsan Apartment Prices Jump | Korea Economic Daily Skip to Main Content ADVERTISEMENT Shipbuilding Boom and Supply Shortage... Ulsan Apartment Prices Jump Reporter Chung Eui-jin Subscribe Input 2026.04.04 06:00 Modified 2026.04.04 06:00 Page A16 Adjust Font Size Scrap Article Scrap Article Share Share Comments 0 Comments Clean View Clean View Print Print Mixed Local Real Estate Markets Ulsan Housing Prices Rise 1.57% in Q1 Supply Halved... New Highs Continue Daegu·Gwangju...",
         "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202604037636i",
+        "url": "https://www.hankyung.com/article/2026040376581",
         "published_date": "",
         "bucket": "korea"
       },
       {
-        "story_key": "https://chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4",
-        "canonical_url": "https://chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4",
-        "title": "'Yellow Envelope Law' hits the public sector first... \"The President, the real employer, must step forward\"",
-        "summary": "'Yellow Envelope Law' hits the public sector first... \"The President, the real employer, must step forward\"",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4/",
+        "story_key": "https://news.tf.co.kr/read/economy/2309385.htm",
+        "canonical_url": "https://news.tf.co.kr/read/economy/2309385.htm",
+        "title": "7% Interest Rates and Stricter Household Loan Management... Genuine Mortgage Borrowers in 'Distress'",
+        "summary": "The rise in mortgage interest rates is interpreted as reflecting the impact of market rates rising first due to concerns over rising international oil prices caused by Middle East risks and the re-emergence of global inflation pressure. Also, with former Shin Hyun-song, who has a hawkish inclination, as a candidate for the Bank of Korea Governor...",
+        "source": "네이버뉴스",
+        "url": "https://news.tf.co.kr/read/economy/2309385.htm",
         "published_date": "",
         "bucket": "korea"
       }
@@ -856,22 +856,22 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNb3h1MnVBMDZwZHdXb1NCVHFoeGNRVDR2eWdtT2hhU2dZY0l6eUItdVFiTXcxcXBjYVZYS2NfaHN3NE5XZ0NlX1BQRGFpYVVqVmZBTXE5ZEdRNGJjWVliNWRWcjd4ckhBQk9pa0d5T213OW43elNtWkVqcV8yT3hSUjU1MWE3N1hCSzZVRXBtdWNyS0xrMzhEa0JSZGlzRGdaYnFlRS1SVkhoWFo1NFJTZEV3ajhYU3ZrNVlKMjVmdzE2LVdvNHBJekl3?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNb3h1MnVBMDZwZHdXb1NCVHFoeGNRVDR2eWdtT2hhU2dZY0l6eUItdVFiTXcxcXBjYVZYS2NfaHN3NE5XZ0NlX1BQRGFpYVVqVmZBTXE5ZEdRNGJjWVliNWRWcjd4ckhBQk9pa0d5T213OW43elNtWkVqcV8yT3hSUjU1MWE3N1hCSzZVRXBtdWNyS0xrMzhEa0JSZGlzRGdaYnFlRS1SVkhoWFo1NFJTZEV3ajhYU3ZrNVlKMjVmdzE2LVdvNHBJekl3?oc=5",
-        "title": "Russian oil terminals under attack unable to accept shipments for second week, sources say - Reuters",
-        "summary": "Russian oil terminals under attack unable to accept shipments for second week, sources sayReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNb3h1MnVBMDZwZHdXb1NCVHFoeGNRVDR2eWdtT2hhU2dZY0l6eUItdVFiTXcxcXBjYVZYS2NfaHN3NE5XZ0NlX1BQRGFpYVVqVmZBTXE5ZEdRNGJjWVliNWRWcjd4ckhBQk9pa0d5T213OW43elNtWkVqcV8yT3hSUjU1MWE3N1hCSzZVRXBtdWNyS0xrMzhEa0JSZGlzRGdaYnFlRS1SVkhoWFo1NFJTZEV3ajhYU3ZrNVlKMjVmdzE2LVdvNHBJekl3?oc=5",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
         "story_key": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNUG0tRnJ1LTVVSGZQRTJ3UVRIZF9VcmhEZERFZDFHQ01KOExyYTFZZ2Zqa2Y1aF9QdjFQTlFwX19HbE5ELThCT0tOVmpxZTBIVzQ0SVJ6em1ISlg4ODFPdEtKN2JHRWtrN1Y3N05Hc0RncW9tT1MxVkd1d1o1TlVEOWxUX2NMLXhjREE1VmxJak1oWlRPRF9uUk1Mei1KRElDU1B1dEs0VVBERmNXd2w3dGo3TTBzc3o3dWtFTkhuemR2anBIdVpNR053?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNUG0tRnJ1LTVVSGZQRTJ3UVRIZF9VcmhEZERFZDFHQ01KOExyYTFZZ2Zqa2Y1aF9QdjFQTlFwX19HbE5ELThCT0tOVmpxZTBIVzQ0SVJ6em1ISlg4ODFPdEtKN2JHRWtrN1Y3N05Hc0RncW9tT1MxVkd1d1o1TlVEOWxUX2NMLXhjREE1VmxJak1oWlRPRF9uUk1Mei1KRElDU1B1dEs0VVBERmNXd2w3dGo3TTBzc3o3dWtFTkhuemR2anBIdVpNR053?oc=5",
         "title": "Second US Air Force plane crashed in Persian Gulf region, New York Times reports - Reuters",
         "summary": "Second US Air Force plane crashed in Persian Gulf region, New York Times reportsReuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNUG0tRnJ1LTVVSGZQRTJ3UVRIZF9VcmhEZERFZDFHQ01KOExyYTFZZ2Zqa2Y1aF9QdjFQTlFwX19HbE5ELThCT0tOVmpxZTBIVzQ0SVJ6em1ISlg4ODFPdEtKN2JHRWtrN1Y3N05Hc0RncW9tT1MxVkd1d1o1TlVEOWxUX2NMLXhjREE1VmxJak1oWlRPRF9uUk1Mei1KRElDU1B1dEs0VVBERmNXd2w3dGo3TTBzc3o3dWtFTkhuemR2anBIdVpNR053?oc=5",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNb3h1MnVBMDZwZHdXb1NCVHFoeGNRVDR2eWdtT2hhU2dZY0l6eUItdVFiTXcxcXBjYVZYS2NfaHN3NE5XZ0NlX1BQRGFpYVVqVmZBTXE5ZEdRNGJjWVliNWRWcjd4ckhBQk9pa0d5T213OW43elNtWkVqcV8yT3hSUjU1MWE3N1hCSzZVRXBtdWNyS0xrMzhEa0JSZGlzRGdaYnFlRS1SVkhoWFo1NFJTZEV3ajhYU3ZrNVlKMjVmdzE2LVdvNHBJekl3?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNb3h1MnVBMDZwZHdXb1NCVHFoeGNRVDR2eWdtT2hhU2dZY0l6eUItdVFiTXcxcXBjYVZYS2NfaHN3NE5XZ0NlX1BQRGFpYVVqVmZBTXE5ZEdRNGJjWVliNWRWcjd4ckhBQk9pa0d5T213OW43elNtWkVqcV8yT3hSUjU1MWE3N1hCSzZVRXBtdWNyS0xrMzhEa0JSZGlzRGdaYnFlRS1SVkhoWFo1NFJTZEV3ajhYU3ZrNVlKMjVmdzE2LVdvNHBJekl3?oc=5",
+        "title": "Russian oil terminals under attack unable to accept shipments for second week, sources say - Reuters",
+        "summary": "Russian oil terminals under attack unable to accept shipments for second week, sources sayReuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNb3h1MnVBMDZwZHdXb1NCVHFoeGNRVDR2eWdtT2hhU2dZY0l6eUItdVFiTXcxcXBjYVZYS2NfaHN3NE5XZ0NlX1BQRGFpYVVqVmZBTXE5ZEdRNGJjWVliNWRWcjd4ckhBQk9pa0d5T213OW43elNtWkVqcV8yT3hSUjU1MWE3N1hCSzZVRXBtdWNyS0xrMzhEa0JSZGlzRGdaYnFlRS1SVkhoWFo1NFJTZEV3ajhYU3ZrNVlKMjVmdzE2LVdvNHBJekl3?oc=5",
         "published_date": "2026-04-03",
         "bucket": ""
       },
@@ -886,6 +886,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNbG8zWFFHOEFjb1dqT1JQVGJTVVFCUklqOGVjWjV5dTl6UFh1QUZuVElKQXFkd3FIYW1KcnhUdlYyc0RJQmlqRW5IZXNrdm5NZE44SUEwSHpsbUh1Rjg1ZVhkdWtXbS0yZVNYajk4Nm9BeHhld19xMzd2M1FuTUJZYXIyM3RJUW5EeUQ2Z0V1R2txM1hhSHI1ZlpidjB2YTBHdXUwWVVIN3YyNFdmOGl1bFBRTnl0MmdZTnV1dHlYaWhUNGlLb3lOd0dPOA?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNbG8zWFFHOEFjb1dqT1JQVGJTVVFCUklqOGVjWjV5dTl6UFh1QUZuVElKQXFkd3FIYW1KcnhUdlYyc0RJQmlqRW5IZXNrdm5NZE44SUEwSHpsbUh1Rjg1ZVhkdWtXbS0yZVNYajk4Nm9BeHhld19xMzd2M1FuTUJZYXIyM3RJUW5EeUQ2Z0V1R2txM1hhSHI1ZlpidjB2YTBHdXUwWVVIN3YyNFdmOGl1bFBRTnl0MmdZTnV1dHlYaWhUNGlLb3lOd0dPOA?oc=5",
+        "title": "Exclusive: US intelligence warns Iran unlikely to ease Hormuz Strait chokehold soon, sources say - Reuters",
+        "summary": "Exclusive: US intelligence warns Iran unlikely to ease Hormuz Strait chokehold soon, sources sayReuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNbG8zWFFHOEFjb1dqT1JQVGJTVVFCUklqOGVjWjV5dTl6UFh1QUZuVElKQXFkd3FIYW1KcnhUdlYyc0RJQmlqRW5IZXNrdm5NZE44SUEwSHpsbUh1Rjg1ZVhkdWtXbS0yZVNYajk4Nm9BeHhld19xMzd2M1FuTUJZYXIyM3RJUW5EeUQ2Z0V1R2txM1hhSHI1ZlpidjB2YTBHdXUwWVVIN3YyNFdmOGl1bFBRTnl0MmdZTnV1dHlYaWhUNGlLb3lOd0dPOA?oc=5",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
         "story_key": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPUXRzOHluWDFzdUQzTmhTQ3NndVVOUk5ZS2xHREtHbWZfRjEzZngzSXdXT3ROOWNBOXNoa3R1WDdzdGVHU0U3Nm91ekltSUNKaktzcFR1M3NFcXhTaTdFLThOZ0ZwZmpVcjZNRmtBRXlVQUcwSjNZV2MzTUxsTmtDWGhuV0tvSjUzMDlfbHV1VkdHSGtRRlVSOXY5TTB6dkFuZGQ5anpPS2pGYi1hY0Fz?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPUXRzOHluWDFzdUQzTmhTQ3NndVVOUk5ZS2xHREtHbWZfRjEzZngzSXdXT3ROOWNBOXNoa3R1WDdzdGVHU0U3Nm91ekltSUNKaktzcFR1M3NFcXhTaTdFLThOZ0ZwZmpVcjZNRmtBRXlVQUcwSjNZV2MzTUxsTmtDWGhuV0tvSjUzMDlfbHV1VkdHSGtRRlVSOXY5TTB6dkFuZGQ5anpPS2pGYi1hY0Fz?oc=5",
         "title": "Pope Leo's Good Friday service offers prayer for deported children - Reuters",
@@ -896,12 +906,32 @@
         "bucket": ""
       },
       {
+        "story_key": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNTjhUY3dZSFdTaHdwS0tkMjBWZWk2X2dPZms4cVhTdkprbFY4TTdFNktpcUtOdnVqWk5MRnRsTGI3V0o2a25VbkFmbTczbTlIQ0V6N09oa2djS0JJUzVHSlFxa2hGdkV5SGZGYklJVk9mRVc5Y1p6X216M2FkcVp6TlhtZTVoTWw2azhZMmJud1F3bUc5SzZ3dU5nN3g2NVhsQ1J4QU9ST0dnakludU5N?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNTjhUY3dZSFdTaHdwS0tkMjBWZWk2X2dPZms4cVhTdkprbFY4TTdFNktpcUtOdnVqWk5MRnRsTGI3V0o2a25VbkFmbTczbTlIQ0V6N09oa2djS0JJUzVHSlFxa2hGdkV5SGZGYklJVk9mRVc5Y1p6X216M2FkcVp6TlhtZTVoTWw2azhZMmJud1F3bUc5SzZ3dU5nN3g2NVhsQ1J4QU9ST0dnakludU5N?oc=5",
+        "title": "US judge upholds block on subpoenas to Fed's Powell, teeing up likely appeal - Reuters",
+        "summary": "US judge upholds block on subpoenas to Fed's Powell, teeing up likely appealReuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNTjhUY3dZSFdTaHdwS0tkMjBWZWk2X2dPZms4cVhTdkprbFY4TTdFNktpcUtOdnVqWk5MRnRsTGI3V0o2a25VbkFmbTczbTlIQ0V6N09oa2djS0JJUzVHSlFxa2hGdkV5SGZGYklJVk9mRVc5Y1p6X216M2FkcVp6TlhtZTVoTWw2azhZMmJud1F3bUc5SzZ3dU5nN3g2NVhsQ1J4QU9ST0dnakludU5N?oc=5",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
         "story_key": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQT0puSUN4ME9KXzV2STRtM1JCMFZqVTN0cW5GN0xqa0dQT0ZhOWprTW5vdmVJVlpjYUpINEIwTEhScGZGTXJNcUpsSlhUdWRSeW9OSTFWblc1enJLM2MxNWRhN2hUaXVLQk03TDZVNGNBMXpGS0h6OU9OSjdQWDNHVVVwcEZQWGpvaGdhS25PdEp3SHdoWXR5ZHNzS3hRTzF4a1lmd1hIbGMxdw?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQT0puSUN4ME9KXzV2STRtM1JCMFZqVTN0cW5GN0xqa0dQT0ZhOWprTW5vdmVJVlpjYUpINEIwTEhScGZGTXJNcUpsSlhUdWRSeW9OSTFWblc1enJLM2MxNWRhN2hUaXVLQk03TDZVNGNBMXpGS0h6OU9OSjdQWDNHVVVwcEZQWGpvaGdhS25PdEp3SHdoWXR5ZHNzS3hRTzF4a1lmd1hIbGMxdw?oc=5",
         "title": "Trump seeks $152 million to reopen Alcatraz as active prison - Reuters",
         "summary": "Trump seeks $152 million to reopen Alcatraz as active prisonReuters",
         "source": "Reuters",
         "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQT0puSUN4ME9KXzV2STRtM1JCMFZqVTN0cW5GN0xqa0dQT0ZhOWprTW5vdmVJVlpjYUpINEIwTEhScGZGTXJNcUpsSlhUdWRSeW9OSTFWblc1enJLM2MxNWRhN2hUaXVLQk03TDZVNGNBMXpGS0h6OU9OSjdQWDNHVVVwcEZQWGpvaGdhS25PdEp3SHdoWXR5ZHNzS3hRTzF4a1lmd1hIbGMxdw?oc=5",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOYWNaQW1NT01rcDMzN2RKbFhkUTlnaUlXNXFWWTNOX1laUWNlVEVab1NwenZpN3pfNjJKVXkzMzFuUEV4ZDN0eldqRXZLLWw4U3NPNnZPbHJGeVNfaURNLWlLenFwenJmaEI4UVZHcFNNMFVvSjUxOWJRTUUyMWRpc2daeDM1N0hGZ3lGdXZxZDN4UFNnZnNJS0JIYktsS1VfQzBXNkxNRVd1Zk9HZTdDd0I2WUV3djJheXEw?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOYWNaQW1NT01rcDMzN2RKbFhkUTlnaUlXNXFWWTNOX1laUWNlVEVab1NwenZpN3pfNjJKVXkzMzFuUEV4ZDN0eldqRXZLLWw4U3NPNnZPbHJGeVNfaURNLWlLenFwenJmaEI4UVZHcFNNMFVvSjUxOWJRTUUyMWRpc2daeDM1N0hGZ3lGdXZxZDN4UFNnZnNJS0JIYktsS1VfQzBXNkxNRVd1Zk9HZTdDd0I2WUV3djJheXEw?oc=5",
+        "title": "Israel strikes Beirut, US warns Iran may hit Lebanese universities - Reuters",
+        "summary": "Israel strikes Beirut, US warns Iran may hit Lebanese universitiesReuters",
+        "source": "Reuters",
+        "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOYWNaQW1NT01rcDMzN2RKbFhkUTlnaUlXNXFWWTNOX1laUWNlVEVab1NwenZpN3pfNjJKVXkzMzFuUEV4ZDN0eldqRXZLLWw4U3NPNnZPbHJGeVNfaURNLWlLenFwenJmaEI4UVZHcFNNMFVvSjUxOWJRTUUyMWRpc2daeDM1N0hGZ3lGdXZxZDN4UFNnZnNJS0JIYktsS1VfQzBXNkxNRVd1Zk9HZTdDd0I2WUV3djJheXEw?oc=5",
         "published_date": "2026-04-03",
         "bucket": ""
       },
@@ -946,16 +976,6 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOYWNaQW1NT01rcDMzN2RKbFhkUTlnaUlXNXFWWTNOX1laUWNlVEVab1NwenZpN3pfNjJKVXkzMzFuUEV4ZDN0eldqRXZLLWw4U3NPNnZPbHJGeVNfaURNLWlLenFwenJmaEI4UVZHcFNNMFVvSjUxOWJRTUUyMWRpc2daeDM1N0hGZ3lGdXZxZDN4UFNnZnNJS0JIYktsS1VfQzBXNkxNRVd1Zk9HZTdDd0I2WUV3djJheXEw?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOYWNaQW1NT01rcDMzN2RKbFhkUTlnaUlXNXFWWTNOX1laUWNlVEVab1NwenZpN3pfNjJKVXkzMzFuUEV4ZDN0eldqRXZLLWw4U3NPNnZPbHJGeVNfaURNLWlLenFwenJmaEI4UVZHcFNNMFVvSjUxOWJRTUUyMWRpc2daeDM1N0hGZ3lGdXZxZDN4UFNnZnNJS0JIYktsS1VfQzBXNkxNRVd1Zk9HZTdDd0I2WUV3djJheXEw?oc=5",
-        "title": "Israel strikes Beirut, US warns Iran may hit Lebanese universities - Reuters",
-        "summary": "Israel strikes Beirut, US warns Iran may hit Lebanese universitiesReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOYWNaQW1NT01rcDMzN2RKbFhkUTlnaUlXNXFWWTNOX1laUWNlVEVab1NwenZpN3pfNjJKVXkzMzFuUEV4ZDN0eldqRXZLLWw4U3NPNnZPbHJGeVNfaURNLWlLenFwenJmaEI4UVZHcFNNMFVvSjUxOWJRTUUyMWRpc2daeDM1N0hGZ3lGdXZxZDN4UFNnZnNJS0JIYktsS1VfQzBXNkxNRVd1Zk9HZTdDd0I2WUV3djJheXEw?oc=5",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
         "story_key": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPMVA1Ym02OGJuQkdHMnFmTGd3cjNKdVFYY2xYQkx6S1JlRERLVnV2d19QR0xLRUlkb2c5bE1uUHpkZnVRSUM2RjlRbXUxVkt6empwVnF5Z2UzUWYxU0x5Q1J3T3pDSmVfTExGX05zdTEtSE1xcE9CRVZDOThGUUpwVVZ0R2VhSGk0R1JBblhPVjRFWXRaWWpBZVhPTTI5TU02ZHF3NG5ERHB1TXdRWGY5dkdOVXZHTmg2RzI1UmptdTFTZw?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPMVA1Ym02OGJuQkdHMnFmTGd3cjNKdVFYY2xYQkx6S1JlRERLVnV2d19QR0xLRUlkb2c5bE1uUHpkZnVRSUM2RjlRbXUxVkt6empwVnF5Z2UzUWYxU0x5Q1J3T3pDSmVfTExGX05zdTEtSE1xcE9CRVZDOThGUUpwVVZ0R2VhSGk0R1JBblhPVjRFWXRaWWpBZVhPTTI5TU02ZHF3NG5ERHB1TXdRWGY5dkdOVXZHTmg2RzI1UmptdTFTZw?oc=5",
         "title": "Trump proposes \"historic\" defense spending budget, eyes 10% cut to other federal programs - Reuters",
@@ -966,33 +986,13 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPNkM0NTFoQzdsOVg5XzMyZnJ2OUoyS05XZEdfT0ktUjJQUHBpbzFFMzgxaTRoVVV2U3htTVc3RFFadlJGanE4QVQ2UFZaUi15TFVRcnc1cnRla3BTRjk2V3ZNa05IYUdvSE9WekltTXlvdjRLTTJoczc0MkthQnV4N0pBNk9GQXhaU2FwaGtJcGhtVzMxcHgxQmtsLV9hM0FN?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPNkM0NTFoQzdsOVg5XzMyZnJ2OUoyS05XZEdfT0ktUjJQUHBpbzFFMzgxaTRoVVV2U3htTVc3RFFadlJGanE4QVQ2UFZaUi15TFVRcnc1cnRla3BTRjk2V3ZNa05IYUdvSE9WekltTXlvdjRLTTJoczc0MkthQnV4N0pBNk9GQXhaU2FwaGtJcGhtVzMxcHgxQmtsLV9hM0FN?oc=5",
-        "title": "Vance to focus fraud efforts on Democratic states, Trump says - Reuters",
-        "summary": "Vance to focus fraud efforts on Democratic states, Trump saysReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPNkM0NTFoQzdsOVg5XzMyZnJ2OUoyS05XZEdfT0ktUjJQUHBpbzFFMzgxaTRoVVV2U3htTVc3RFFadlJGanE4QVQ2UFZaUi15TFVRcnc1cnRla3BTRjk2V3ZNa05IYUdvSE9WekltTXlvdjRLTTJoczc0MkthQnV4N0pBNk9GQXhaU2FwaGtJcGhtVzMxcHgxQmtsLV9hM0FN?oc=5",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQMURKRERFOHVKa1NzY0xaVk12NEhjdnRqNHZ6QUtxUERoU0tvYUlYYmloQWNzZ2UySnZZSmhtQklxZWZ5aEEwcHNiNzNVcGZiWmFDMmllVEpTY0oxZUtHRURxdThFZ3RpYlVUbGdEYVRXSFNKOHFsRXBJblhMME9RU1lpcjAxRkpqYjNTUmtzR2kxNjR5c1U0RHdxTGpyYm02MWpqTk1KeWZPTWZUY0dKMUtZODcybWthNGhSSUFtLXo?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQMURKRERFOHVKa1NzY0xaVk12NEhjdnRqNHZ6QUtxUERoU0tvYUlYYmloQWNzZ2UySnZZSmhtQklxZWZ5aEEwcHNiNzNVcGZiWmFDMmllVEpTY0oxZUtHRURxdThFZ3RpYlVUbGdEYVRXSFNKOHFsRXBJblhMME9RU1lpcjAxRkpqYjNTUmtzR2kxNjR5c1U0RHdxTGpyYm02MWpqTk1KeWZPTWZUY0dKMUtZODcybWthNGhSSUFtLXo?oc=5",
-        "title": "Italian court rules Netflix price-hike clauses are void, orders refunds - Reuters",
-        "summary": "Italian court rules Netflix price-hike clauses are void, orders refundsReuters",
-        "source": "Reuters",
-        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQMURKRERFOHVKa1NzY0xaVk12NEhjdnRqNHZ6QUtxUERoU0tvYUlYYmloQWNzZ2UySnZZSmhtQklxZWZ5aEEwcHNiNzNVcGZiWmFDMmllVEpTY0oxZUtHRURxdThFZ3RpYlVUbGdEYVRXSFNKOHFsRXBJblhMME9RU1lpcjAxRkpqYjNTUmtzR2kxNjR5c1U0RHdxTGpyYm02MWpqTk1KeWZPTWZUY0dKMUtZODcybWthNGhSSUFtLXo?oc=5",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
         "story_key": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNYktZbTFYTEV4ZzdFVS1ZWHlHWnNaZXJBOGNRYTVxaHdEeWZMODM4Yno5dDZFN0R1ejl3alJPSkhMYUJnRGJOZERlY0lOc2hyNUpEem5MN2tqWDhIbFJJeDZYbmtHQXRwU2xjUnM0TE9KM3U2RGJjQVNsWGVQMzRfR2JGVlBFUTRZSF95ZFJGTkx5dEE?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNYktZbTFYTEV4ZzdFVS1ZWHlHWnNaZXJBOGNRYTVxaHdEeWZMODM4Yno5dDZFN0R1ejl3alJPSkhMYUJnRGJOZERlY0lOc2hyNUpEem5MN2tqWDhIbFJJeDZYbmtHQXRwU2xjUnM0TE9KM3U2RGJjQVNsWGVQMzRfR2JGVlBFUTRZSF95ZFJGTkx5dEE?oc=5",
         "title": "Bahrain waters down UN proposal over opposition to allowing force to open Strait of Hormuz - AP News",
         "summary": "Bahrain waters down UN proposal over opposition to allowing force to open Strait of HormuzAP News",
         "source": "AP News",
         "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNYktZbTFYTEV4ZzdFVS1ZWHlHWnNaZXJBOGNRYTVxaHdEeWZMODM4Yno5dDZFN0R1ejl3alJPSkhMYUJnRGJOZERlY0lOc2hyNUpEem5MN2tqWDhIbFJJeDZYbmtHQXRwU2xjUnM0TE9KM3U2RGJjQVNsWGVQMzRfR2JGVlBFUTRZSF95ZFJGTkx5dEE?oc=5",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1002,17 +1002,7 @@
         "summary": "Trump’s White House ballroom gets final approval days after a judge ordered a halt to constructionAP News",
         "source": "AP News",
         "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNYmRaRXJwMVZvVGxpSXA5SWNuVi1VRndvVlRPVXlkaV9RTHIyN1ZRbzBzbks4bjNyTHZCOGJEdkVQSVYwY2c3MUhfUkRCbmxEM2V0SDZSY01wVTJaejdKaS1wblgwX2R4SzRCRjd1NmI1cEE1cDFLSzVidG11dmcxZ2JTQXJwMk9HdVphenpZdFMwaGZDNEstWkdrT3RhVC1PRTlRVlZEakh3ZkUz?oc=5",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQOV9Jd3pteXVKQTBNY3VJRnR2OEVZdFdnNEQ5QkhmcVgtTVpWZy1iUG5LRTNJXzZEczRfNzhlSWY4M1hUZlcwZlcxeXltaFYxNk92UFVtTmFiWFNmclQ4c2FVSTZPcFZpN2VVOHpyTGlhQVg3SmZYR3RyYzhpbUpfek1LdE9mZ25GV3dXTWJuY2tzS1lmV2psYk9Ielc?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQOV9Jd3pteXVKQTBNY3VJRnR2OEVZdFdnNEQ5QkhmcVgtTVpWZy1iUG5LRTNJXzZEczRfNzhlSWY4M1hUZlcwZlcxeXltaFYxNk92UFVtTmFiWFNmclQ4c2FVSTZPcFZpN2VVOHpyTGlhQVg3SmZYR3RyYzhpbUpfek1LdE9mZ25GV3dXTWJuY2tzS1lmV2psYk9Ielc?oc=5",
-        "title": "Hegseth asks the Army's top uniformed officer to step down while US wages war against Iran - AP News",
-        "summary": "Hegseth asks the Army's top uniformed officer to step down while US wages war against IranAP News",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQOV9Jd3pteXVKQTBNY3VJRnR2OEVZdFdnNEQ5QkhmcVgtTVpWZy1iUG5LRTNJXzZEczRfNzhlSWY4M1hUZlcwZlcxeXltaFYxNk92UFVtTmFiWFNmclQ4c2FVSTZPcFZpN2VVOHpyTGlhQVg3SmZYR3RyYzhpbUpfek1LdE9mZ25GV3dXTWJuY2tzS1lmV2psYk9Ielc?oc=5",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1026,13 +1016,23 @@
         "bucket": ""
       },
       {
+        "story_key": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQOV9Jd3pteXVKQTBNY3VJRnR2OEVZdFdnNEQ5QkhmcVgtTVpWZy1iUG5LRTNJXzZEczRfNzhlSWY4M1hUZlcwZlcxeXltaFYxNk92UFVtTmFiWFNmclQ4c2FVSTZPcFZpN2VVOHpyTGlhQVg3SmZYR3RyYzhpbUpfek1LdE9mZ25GV3dXTWJuY2tzS1lmV2psYk9Ielc?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQOV9Jd3pteXVKQTBNY3VJRnR2OEVZdFdnNEQ5QkhmcVgtTVpWZy1iUG5LRTNJXzZEczRfNzhlSWY4M1hUZlcwZlcxeXltaFYxNk92UFVtTmFiWFNmclQ4c2FVSTZPcFZpN2VVOHpyTGlhQVg3SmZYR3RyYzhpbUpfek1LdE9mZ25GV3dXTWJuY2tzS1lmV2psYk9Ielc?oc=5",
+        "title": "Hegseth asks the Army's top uniformed officer to step down while US wages war against Iran - AP News",
+        "summary": "Hegseth asks the Army's top uniformed officer to step down while US wages war against IranAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQOV9Jd3pteXVKQTBNY3VJRnR2OEVZdFdnNEQ5QkhmcVgtTVpWZy1iUG5LRTNJXzZEczRfNzhlSWY4M1hUZlcwZlcxeXltaFYxNk92UFVtTmFiWFNmclQ4c2FVSTZPcFZpN2VVOHpyTGlhQVg3SmZYR3RyYzhpbUpfek1LdE9mZ25GV3dXTWJuY2tzS1lmV2psYk9Ielc?oc=5",
+        "published_date": "2026-04-02",
+        "bucket": ""
+      },
+      {
         "story_key": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZ2pCdUtLS2taemFJTW5rQW1YeFg2SkJia0xFMkVERmE2dVZlQ3kzdkR2TFR3ZXFPTW1vaFcwVmNONGk5OTNuSXNzTDBfVVBYNktoZFZRX3llTmNEY2xuMEItZmhHdXJ5NXZDR0NPeEVvVW1fUHFfSHlwTzA3MGdSY1A2OVppeFJReUdUM2oyOVlsN0pZYjZ0ekpYTHQxN3lVYzM4TXQ2SFZNMXRpcl9J?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZ2pCdUtLS2taemFJTW5rQW1YeFg2SkJia0xFMkVERmE2dVZlQ3kzdkR2TFR3ZXFPTW1vaFcwVmNONGk5OTNuSXNzTDBfVVBYNktoZFZRX3llTmNEY2xuMEItZmhHdXJ5NXZDR0NPeEVvVW1fUHFfSHlwTzA3MGdSY1A2OVppeFJReUdUM2oyOVlsN0pZYjZ0ekpYTHQxN3lVYzM4TXQ2SFZNMXRpcl9J?oc=5",
         "title": "A look at how the Epstein files dogged Pam Bondi’s time as attorney general - AP News",
         "summary": "A look at how the Epstein files dogged Pam Bondi’s time as attorney generalAP News",
         "source": "AP News",
         "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZ2pCdUtLS2taemFJTW5rQW1YeFg2SkJia0xFMkVERmE2dVZlQ3kzdkR2TFR3ZXFPTW1vaFcwVmNONGk5OTNuSXNzTDBfVVBYNktoZFZRX3llTmNEY2xuMEItZmhHdXJ5NXZDR0NPeEVvVW1fUHFfSHlwTzA3MGdSY1A2OVppeFJReUdUM2oyOVlsN0pZYjZ0ekpYTHQxN3lVYzM4TXQ2SFZNMXRpcl9J?oc=5",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1046,16 +1046,6 @@
         "bucket": ""
       },
       {
-        "story_key": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbUJMR0ExZkttdm5vaENFcnkwOWh0NE9zcjZNSVN4MjZrZHc2Z2I3bEFjLUx0X2gtZ3liVktOUUZHN0F4bnhHdTdPdkt5XzR0TzV4c3ZZWXU3bS1JdlRnenBkM2tHY2U3SndFX01qR3E5SlVpaXZGYmhNVUJHcExXV0RMLWxLMHJ5SmUwZmdtTGhrT3dBRmhVZVBxSF81TXVBRk9r?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbUJMR0ExZkttdm5vaENFcnkwOWh0NE9zcjZNSVN4MjZrZHc2Z2I3bEFjLUx0X2gtZ3liVktOUUZHN0F4bnhHdTdPdkt5XzR0TzV4c3ZZWXU3bS1JdlRnenBkM2tHY2U3SndFX01qR3E5SlVpaXZGYmhNVUJHcExXV0RMLWxLMHJ5SmUwZmdtTGhrT3dBRmhVZVBxSF81TXVBRk9r?oc=5",
-        "title": "Rubio accuses China of ‘bullying’ for holding up Panama-flagged ships after canal clash - AP News",
-        "summary": "Rubio accuses China of ‘bullying’ for holding up Panama-flagged ships after canal clashAP News",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbUJMR0ExZkttdm5vaENFcnkwOWh0NE9zcjZNSVN4MjZrZHc2Z2I3bEFjLUx0X2gtZ3liVktOUUZHN0F4bnhHdTdPdkt5XzR0TzV4c3ZZWXU3bS1JdlRnenBkM2tHY2U3SndFX01qR3E5SlVpaXZGYmhNVUJHcExXV0RMLWxLMHJ5SmUwZmdtTGhrT3dBRmhVZVBxSF81TXVBRk9r?oc=5",
-        "published_date": "2026-04-02",
-        "bucket": ""
-      },
-      {
         "story_key": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNNHQ0U3dHU25OMEdOSXNkWUd5ckdvSU1wRER2VHJiWUZ0YlRxeG5oS05TNUNQclBqUC13blA0ZnRuYklMdW80S2tFdjN2ZWlhem5HdGN0emQ1VzRNTEdyUWRQWDB6SUFPU2N0R3FVOFdsZURTMzVKcXROcXBKbndZczdkSjZZTWNIc1g2UXVpSHVqeW5UVUl4UmxfVTBTeHhNS0RhRA?oc=5",
         "canonical_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNNHQ0U3dHU25OMEdOSXNkWUd5ckdvSU1wRER2VHJiWUZ0YlRxeG5oS05TNUNQclBqUC13blA0ZnRuYklMdW80S2tFdjN2ZWlhem5HdGN0emQ1VzRNTEdyUWRQWDB6SUFPU2N0R3FVOFdsZURTMzVKcXROcXBKbndZczdkSjZZTWNIc1g2UXVpSHVqeW5UVUl4UmxfVTBTeHhNS0RhRA?oc=5",
         "title": "Myanmar’s parliament elects ruling general as president, keeping the army in charge - AP News",
@@ -1063,16 +1053,6 @@
         "source": "AP News",
         "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNNHQ0U3dHU25OMEdOSXNkWUd5ckdvSU1wRER2VHJiWUZ0YlRxeG5oS05TNUNQclBqUC13blA0ZnRuYklMdW80S2tFdjN2ZWlhem5HdGN0emQ1VzRNTEdyUWRQWDB6SUFPU2N0R3FVOFdsZURTMzVKcXROcXBKbndZczdkSjZZTWNIc1g2UXVpSHVqeW5UVUl4UmxfVTBTeHhNS0RhRA?oc=5",
         "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNNkFjaUNyS0tudHFZbEJRRkNkSjFhSldTQUJsSFV6SmdmYS1lQTg0TXYwcjUtTVdUMXRFcnVGVUNvNmFBYVpEQ3JtRXZ0N3NNbVo2NWx5cTk2Rl9NTTlBVGdHOHNvV0thcC1jbWJJTWdxbU15QURGSkVyQWZBWFpWMFhMOFM5MDZ2by1KNy1EckktRFVfN3pORFFR?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNNkFjaUNyS0tudHFZbEJRRkNkSjFhSldTQUJsSFV6SmdmYS1lQTg0TXYwcjUtTVdUMXRFcnVGVUNvNmFBYVpEQ3JtRXZ0N3NNbVo2NWx5cTk2Rl9NTTlBVGdHOHNvV0thcC1jbWJJTWdxbU15QURGSkVyQWZBWFpWMFhMOFM5MDZ2by1KNy1EckktRFVfN3pORFFR?oc=5",
-        "title": "Trump unveils 100% tariff on some patented drugs on ‘Liberation Day’ anniversary - AP News",
-        "summary": "Trump unveils 100% tariff on some patented drugs on ‘Liberation Day’ anniversaryAP News",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNNkFjaUNyS0tudHFZbEJRRkNkSjFhSldTQUJsSFV6SmdmYS1lQTg0TXYwcjUtTVdUMXRFcnVGVUNvNmFBYVpEQ3JtRXZ0N3NNbVo2NWx5cTk2Rl9NTTlBVGdHOHNvV0thcC1jbWJJTWdxbU15QURGSkVyQWZBWFpWMFhMOFM5MDZ2by1KNy1EckktRFVfN3pORFFR?oc=5",
-        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1092,6 +1072,16 @@
         "summary": "Artemis II astronauts rocket toward the moon after spending a day around EarthAP News",
         "source": "AP News",
         "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOeVdGS1ZHc0Y3c0FONlZGdzlnczA0TE4xVjkzMUhjZmRtZXZGaVZDbzNTU0tvR3VBeFFUUjMzMGdCcHFSVXRaZWpDNnpoWWhmRzRjREhmdzUxcEdrTW5QRE0wNlBaSkdtSlhqd2ZsVnBmeGo3X0doZEZiZmlBZGR5TU1uelh4TXRZVmlNVURrOGVrQQ?oc=5",
+        "published_date": "2026-04-02",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMilgFBVV95cUxONC1VVEJlZFhVZHdOZFdLcUtxRmhYUm1WaG5ZTnNwRGZyb0I4dE9vWUotdFFqY1FRNnRWcWthNE9CQTlWS3lHeGVFZzM5SmZrOXA0SEVCYzNiWXU3RTJHSnF0clljeGUzcF9YY2daNUVwUmpSc3pxNGFKZVFRU3ZFRjdmX0NLc19DQ3IxVjJDX1Y1c1N2R3c?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxONC1VVEJlZFhVZHdOZFdLcUtxRmhYUm1WaG5ZTnNwRGZyb0I4dE9vWUotdFFqY1FRNnRWcWthNE9CQTlWS3lHeGVFZzM5SmZrOXA0SEVCYzNiWXU3RTJHSnF0clljeGUzcF9YY2daNUVwUmpSc3pxNGFKZVFRU3ZFRjdmX0NLc19DQ3IxVjJDX1Y1c1N2R3c?oc=5",
+        "title": "5.8 magnitude quake hits Afghanistan and Pakistan and 8 are reported dead in Kabul - AP News",
+        "summary": "5.8 magnitude quake hits Afghanistan and Pakistan and 8 are reported dead in KabulAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxONC1VVEJlZFhVZHdOZFdLcUtxRmhYUm1WaG5ZTnNwRGZyb0I4dE9vWUotdFFqY1FRNnRWcWthNE9CQTlWS3lHeGVFZzM5SmZrOXA0SEVCYzNiWXU3RTJHSnF0clljeGUzcF9YY2daNUVwUmpSc3pxNGFKZVFRU3ZFRjdmX0NLc19DQ3IxVjJDX1Y1c1N2R3c?oc=5",
         "published_date": "2026-04-03",
         "bucket": ""
       },
@@ -1102,26 +1092,6 @@
         "summary": "Amazon to slap a 3.5% surcharge on third-party sellers as Iran war drives up fuel pricesAP News",
         "source": "AP News",
         "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPNzI3cGFDYVdJeGNvcFVIU3RXdWtrTmlnMVVDbkNMRW8tUy1MaTIzdDN3M3ZCb1M0Rk5lWDhBNkw0VDJrY3hxY215SF9kRnd5ejJVcXJnUEVWYW8xUEJGbE1zTVU3YlBZSkhvTXhnc1oyVktLUC1weU9zZTh6SnR6aFNzNmtBM3lKRTRSSm4tdlZRbkk?oc=5",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUF9NZjNfUXJzSktIUWc5MUx0Q0NBaWxzWWxybW56YnRQelJ0RUVTWnp0OThTWXRkZ0UzLXpuV29xVU84S09wVDB5VzVOQ0dVOHlWQnlfZVpCT1haR1lkMzE3dm1sVk1XLUhWMWxPTmJRaGxrVnR0U0ZSd2Zfai1peEtTZTFqREo4UC04YkRCeWRKTU5VdTRGU01pTzZxUnpNdDh3S2JUZjFITkJGbkZjYg?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUF9NZjNfUXJzSktIUWc5MUx0Q0NBaWxzWWxybW56YnRQelJ0RUVTWnp0OThTWXRkZ0UzLXpuV29xVU84S09wVDB5VzVOQ0dVOHlWQnlfZVpCT1haR1lkMzE3dm1sVk1XLUhWMWxPTmJRaGxrVnR0U0ZSd2Zfai1peEtTZTFqREo4UC04YkRCeWRKTU5VdTRGU01pTzZxUnpNdDh3S2JUZjFITkJGbkZjYg?oc=5",
-        "title": "Company backed by Trump sons looks to sell drone interceptors to Gulf states being attacked by Iran - AP News",
-        "summary": "Company backed by Trump sons looks to sell drone interceptors to Gulf states being attacked by IranAP News",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPUF9NZjNfUXJzSktIUWc5MUx0Q0NBaWxzWWxybW56YnRQelJ0RUVTWnp0OThTWXRkZ0UzLXpuV29xVU84S09wVDB5VzVOQ0dVOHlWQnlfZVpCT1haR1lkMzE3dm1sVk1XLUhWMWxPTmJRaGxrVnR0U0ZSd2Zfai1peEtTZTFqREo4UC04YkRCeWRKTU5VdTRGU01pTzZxUnpNdDh3S2JUZjFITkJGbkZjYg?oc=5",
-        "published_date": "2026-04-02",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQaXlnNHlScm9kbDNrLUgtRmE5RnkxWkdPdkRUWlFMdTd1UXZ6ZDVQWVA1RG9nMzduV3NXdVUyZ21SMzd1dkJJeFpWRjFTcTl6TTNYSXlJMTd5aE1URUE0VjVIQmlCbi1iZEt5REJZLUdwM0NyWS12WUtfRWxIbUtHOW9tRjUwSDBuVW43YWdHWGNYbmhScU9CZmNrcw?oc=5",
-        "canonical_url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQaXlnNHlScm9kbDNrLUgtRmE5RnkxWkdPdkRUWlFMdTd1UXZ6ZDVQWVA1RG9nMzduV3NXdVUyZ21SMzd1dkJJeFpWRjFTcTl6TTNYSXlJMTd5aE1URUE0VjVIQmlCbi1iZEt5REJZLUdwM0NyWS12WUtfRWxIbUtHOW9tRjUwSDBuVW43YWdHWGNYbmhScU9CZmNrcw?oc=5",
-        "title": "Eggs for Easter cost much less in the US than last year. A look at the numbers - AP News",
-        "summary": "Eggs for Easter cost much less in the US than last year. A look at the numbersAP News",
-        "source": "AP News",
-        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQaXlnNHlScm9kbDNrLUgtRmE5RnkxWkdPdkRUWlFMdTd1UXZ6ZDVQWVA1RG9nMzduV3NXdVUyZ21SMzd1dkJJeFpWRjFTcTl6TTNYSXlJMTd5aE1URUE0VjVIQmlCbi1iZEt5REJZLUdwM0NyWS12WUtfRWxIbUtHOW9tRjUwSDBuVW43YWdHWGNYbmhScU9CZmNrcw?oc=5",
         "published_date": "2026-04-02",
         "bucket": ""
       },
@@ -1132,6 +1102,36 @@
         "summary": "No sign of war winding down in Mideast as Friday dawns with attacks across regionAP News",
         "source": "AP News",
         "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOSExyLTIwYkxDM3RVdU4xN2FXeThlcmdZWm9GRnJjeThwQlo5VVgzV2hXTko3T2dwOEk1R1BsZE5MdGNLcmJmbXdueFVkY2tiUDJoM3ZORnpwbTUxazh5bklLQjF0dzVjZkoyZ25uWFZ6T0Ztck4tYzNEakRhLTdoWG5laGR6cDVSajUzMExDZ2JiTEl4WU5qWTRyZ2lSSHlBTXhN?oc=5",
+        "published_date": "2026-04-02",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOclY5SFNkSk1keGViaEpjYU84TWhXa3lVdzFETzBvRndNUE9EcHUzcUtkc21yeTVZYmdVckVsZ3BvWDR1YnZLQmlFZVFwYlBUR1NZNHZvQnY2T2pVRUNNVFpKSTllYWRmaF90NVBzZmppc3ljZXhUamN3Q0N0VDJYS3p3SVUtYXBQd3RtTU1YR1NXM2UxRzFHVG1OSE14cDdtRTNtc2tB?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOclY5SFNkSk1keGViaEpjYU84TWhXa3lVdzFETzBvRndNUE9EcHUzcUtkc21yeTVZYmdVckVsZ3BvWDR1YnZLQmlFZVFwYlBUR1NZNHZvQnY2T2pVRUNNVFpKSTllYWRmaF90NVBzZmppc3ljZXhUamN3Q0N0VDJYS3p3SVUtYXBQd3RtTU1YR1NXM2UxRzFHVG1OSE14cDdtRTNtc2tB?oc=5",
+        "title": "Hegseth says he will allow troops to take personal weapons onto military bases - AP News",
+        "summary": "Hegseth says he will allow troops to take personal weapons onto military basesAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOclY5SFNkSk1keGViaEpjYU84TWhXa3lVdzFETzBvRndNUE9EcHUzcUtkc21yeTVZYmdVckVsZ3BvWDR1YnZLQmlFZVFwYlBUR1NZNHZvQnY2T2pVRUNNVFpKSTllYWRmaF90NVBzZmppc3ljZXhUamN3Q0N0VDJYS3p3SVUtYXBQd3RtTU1YR1NXM2UxRzFHVG1OSE14cDdtRTNtc2tB?oc=5",
+        "published_date": "2026-04-02",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOMzBpcHN6WDFsSG5Wb292QjJ5WGtQUWJ6alhmcTFicmV6Q0VPeW1uVzFwcWZJNTNZTzROZkZKa28zVksycklBNHZ0UFFYQTY4c0dCMTc4T20zdEZsN3laVy1mVXJOR2pCcE1PNlRoTm5pRHdQQUFyS1ZBZGxBZEFldFRHcnZsQ3Q3enpWbng2bE9vWlFUbUMwRDJjWE9peTI3b0FCVFRqcVpSX3df?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOMzBpcHN6WDFsSG5Wb292QjJ5WGtQUWJ6alhmcTFicmV6Q0VPeW1uVzFwcWZJNTNZTzROZkZKa28zVksycklBNHZ0UFFYQTY4c0dCMTc4T20zdEZsN3laVy1mVXJOR2pCcE1PNlRoTm5pRHdQQUFyS1ZBZGxBZEFldFRHcnZsQ3Q3enpWbng2bE9vWlFUbUMwRDJjWE9peTI3b0FCVFRqcVpSX3df?oc=5",
+        "title": "Blake Lively's sexual harassment claims against Justin Baldoni tossed out but robust case remains - AP News",
+        "summary": "Blake Lively's sexual harassment claims against Justin Baldoni tossed out but robust case remainsAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOMzBpcHN6WDFsSG5Wb292QjJ5WGtQUWJ6alhmcTFicmV6Q0VPeW1uVzFwcWZJNTNZTzROZkZKa28zVksycklBNHZ0UFFYQTY4c0dCMTc4T20zdEZsN3laVy1mVXJOR2pCcE1PNlRoTm5pRHdQQUFyS1ZBZGxBZEFldFRHcnZsQ3Q3enpWbng2bE9vWlFUbUMwRDJjWE9peTI3b0FCVFRqcVpSX3df?oc=5",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOLXNTR0N6NEpHY3ZaT2dWWmJQZUlFNjdjRXpoUlJhcTdZdVlJVGxodll1Ymc5R3R6cUR2LW1IRGtCdlY1QV90OUxIdTR0eXJZUzBEc1pnU2I3S2tocl94RXE1cVhDbXpsTEczYndHSDNnZkhoV01hWUZLbzB6QzU2MDE0SXZ4cnlxaU10dlV2YnNFS2ljV2JyalRLdllYQ0Jk?oc=5",
+        "canonical_url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOLXNTR0N6NEpHY3ZaT2dWWmJQZUlFNjdjRXpoUlJhcTdZdVlJVGxodll1Ymc5R3R6cUR2LW1IRGtCdlY1QV90OUxIdTR0eXJZUzBEc1pnU2I3S2tocl94RXE1cVhDbXpsTEczYndHSDNnZkhoV01hWUZLbzB6QzU2MDE0SXZ4cnlxaU10dlV2YnNFS2ljV2JyalRLdllYQ0Jk?oc=5",
+        "title": "After crash, Tiger Woods told deputy he was ‘talking to the president,’ body camera shows - AP News",
+        "summary": "After crash, Tiger Woods told deputy he was ‘talking to the president,’ body camera showsAP News",
+        "source": "AP News",
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOLXNTR0N6NEpHY3ZaT2dWWmJQZUlFNjdjRXpoUlJhcTdZdVlJVGxodll1Ymc5R3R6cUR2LW1IRGtCdlY1QV90OUxIdTR0eXJZUzBEc1pnU2I3S2tocl94RXE1cVhDbXpsTEczYndHSDNnZkhoV01hWUZLbzB6QzU2MDE0SXZ4cnlxaU10dlV2YnNFS2ljV2JyalRLdllYQ0Jk?oc=5",
         "published_date": "2026-04-03",
         "bucket": ""
       },
@@ -1256,22 +1256,22 @@
         "bucket": ""
       },
       {
-        "story_key": "https://bbc.com/news/articles/cg7358zzz0no?at_campaign=rss&at_medium=RSS",
-        "canonical_url": "https://bbc.com/news/articles/cg7358zzz0no?at_campaign=rss&at_medium=RSS",
-        "title": "Unanswered questions remain after death of Australia's most wanted fugitive",
-        "summary": "Double-murderer Dezi Freeman evaded capture for seven months in the bush but police believe he had help.",
+        "story_key": "https://bbc.com/news/articles/czd7y1n3jyjo?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/czd7y1n3jyjo?at_campaign=rss&at_medium=RSS",
+        "title": "After 16 years in power, can Viktor Orban finally be unseated?",
+        "summary": "Hungary is going to the polls in nine days - after 16 years in power, can Viktor Orban be unseated?",
         "source": "BBC World",
-        "url": "https://www.bbc.com/news/articles/cg7358zzz0no?at_medium=RSS&at_campaign=rss",
+        "url": "https://www.bbc.com/news/articles/czd7y1n3jyjo?at_medium=RSS&at_campaign=rss",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://bbc.com/news/articles/c4gx8e1x5j3o?at_campaign=rss&at_medium=RSS",
-        "canonical_url": "https://bbc.com/news/articles/c4gx8e1x5j3o?at_campaign=rss&at_medium=RSS",
-        "title": "Experts dispute US account of deadly Iran sports hall strike in Lamerd",
-        "summary": "Six weapons experts have contested the US claim that video evidence suggests an Iranian missile could have hit the hall.",
+        "story_key": "https://bbc.com/news/articles/c4g8k8vq8gno?at_campaign=rss&at_medium=RSS",
+        "canonical_url": "https://bbc.com/news/articles/c4g8k8vq8gno?at_campaign=rss&at_medium=RSS",
+        "title": "Faced with new energy shock, Europe asks if reviving nuclear is the answer",
+        "summary": "As war drives up gas and fuel prices, Europeans turn again to the issue of energy independence.",
         "source": "BBC World",
-        "url": "https://www.bbc.com/news/articles/c4gx8e1x5j3o?at_medium=RSS&at_campaign=rss",
+        "url": "https://www.bbc.com/news/articles/c4g8k8vq8gno?at_medium=RSS&at_campaign=rss",
         "published_date": "2026-04-03",
         "bucket": ""
       },
@@ -1312,7 +1312,7 @@
         "summary": "Tania Warner is fitted with ankle monitor and released along with seven-year-old daughter Ayla Luca after being deemed not a flight riskA Canadian woman and her seven-year-old daughter, who wereheld for nearly three weeksin a notorious detention center by US Immigration and Customs Enforcement (ICE), were released on Thursday evening after posting a bond of $9,500.Tania Warner and her daughter Ayla Luca, originally from British Columbia, are both Canadian citizens. Warner moved to the US in 2021 when she married Edward Warner, a US citizen. “Very happy to have my family home … it’s been a whirlwind day,” said Edward Warner.Continue reading...",
         "source": "The Guardian",
         "url": "https://www.theguardian.com/world/2026/apr/03/canadian-ice-detention-mother-daughter-tania-warner-released",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1352,26 +1352,6 @@
         "summary": "From farms in New Zealand to factories in Delhi, the effects of the oil crisis triggered by the Iran war are rippling across AsiaContinue reading...",
         "source": "The Guardian",
         "url": "https://www.theguardian.com/world/2026/apr/03/asia-fuel-crisis-iran-war-ordinary-workers",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://theguardian.com/world/2026/apr/02/magnitude-78-earthquake-strikes-in-indonesia-sparking-tsunami-alert",
-        "canonical_url": "https://theguardian.com/world/2026/apr/02/magnitude-78-earthquake-strikes-in-indonesia-sparking-tsunami-alert",
-        "title": "One killed and buildings damaged as magnitude 7.4 earthquake strikes Indonesia",
-        "summary": "Quake with epicentre west-north-west of Ternate island shakes cities and prompts regional tsunami warningOne person has been killed after a 7.4 magnitude earthquake struck Indonesia’s Ternate island, damaging buildings and triggering small tsunami waves.The quake, which had a depth of 35km, occurred on Thursday at 6.48am local time, according to the United States Geological Survey. Its epicentre was 127km (79 miles) west-north-west of Ternate, an island in Indonesia’s North Maluku province.Continue reading...",
-        "source": "The Guardian",
-        "url": "https://www.theguardian.com/world/2026/apr/02/magnitude-78-earthquake-strikes-in-indonesia-sparking-tsunami-alert",
-        "published_date": "2026-04-02",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://theguardian.com/world/2026/apr/02/new-zealand-cook-islands-defense",
-        "canonical_url": "https://theguardian.com/world/2026/apr/02/new-zealand-cook-islands-defense",
-        "title": "New Zealand signs defence pact with Cook Islands after quarrel over China deal",
-        "summary": "Agreement comes after Wellington halted millions in aid to its former colony after Cook Islands formed strategic partnership with BeijingNew Zealand and the Cook Islands have signed a defence and security declaration, ending a year-long diplomatic row that erupted after theCook Islandsstruck strategic agreements with China.The Cook Islands was a dependent New Zealand colony from 1901-65 but has since operated as a self-governing nation in “free association” with New Zealand. Its roughly 17,000 citizens hold New Zealand citizenship. There areobligations between the two nationsto regularly consult on matters of defence and security.Continue reading...",
-        "source": "The Guardian",
-        "url": "https://www.theguardian.com/world/2026/apr/02/new-zealand-cook-islands-defense",
         "published_date": "2026-04-02",
         "bucket": ""
       },
@@ -1392,7 +1372,7 @@
         "summary": "Health minister Mark Butler says federal government is ‘not negotiating’ when it comes to removing price protections on common medicationsGet ourbreaking news email,free appordaily news podcastAustralia will not cave in to pressure from pharmaceutical giants and the Trump administration by removing consumer price protections on common medications, the health minister, Mark Butler says.Donald Trump imposed anew 100% tariff on branded pharmaceuticals imported into the USovernight, Australian time, trying to force manufacturers to agree to drug-pricing deals or commit to making their products domestically.Continue reading...",
         "source": "The Guardian",
         "url": "https://www.theguardian.com/business/2026/apr/03/australia-says-it-wont-raise-drug-prices-after-trumps-100-tariff-on-pharmaceuticals-imported-into-us",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1402,7 +1382,7 @@
         "summary": "Bureau of Meteorology says a blend of fine days and showers expected for most capital cities over the coming daysFollow our Australia news live blog for latest updatesGet ourbreaking news email,free appordaily news podcastMany Australians can expect mild temperatures and a chance of showers over the Easter weekend, while meteorologistspredict a cyclone will formin the Coral Sea from Saturday evening.The Bureau of Meteorology has forecast a blend of fine days and showers for most capital cities over the coming days.Continue reading...",
         "source": "The Guardian",
         "url": "https://www.theguardian.com/australia-news/2026/apr/02/easter-weather-forecast-australia-bom",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1412,7 +1392,7 @@
         "summary": "Police say they found a ballistic-style vest, several notebooks and literature they allege contained extremist referencesTwo New South Wales teenagers have been charged with allegedly possessing violent extremist material after police searched one of their homes and found a ballistic-style vest, several notebooks and literature they allege contained extremist references.The Australian federal police and NSW police released a statement on Friday morning confirming the boys, aged 15 and 16 and both from Moree in northern NSW, had been charged with possession of alleged extremist material after a joint counterterrorism investigation.Continue reading...",
         "source": "The Guardian",
         "url": "https://www.theguardian.com/australia-news/2026/apr/03/two-nsw-teenagers-charged-over-violent-extremist-material-allegedly-linked-to-terror-ntwnfb",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1423,6 +1403,36 @@
         "source": "The Guardian",
         "url": "https://www.theguardian.com/australia-news/2026/apr/02/iranian-tourist-ban-doesnt-align-with-the-australian-values-hedieh-signed-up-to-as-a-citizen",
         "published_date": "2026-04-02",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://theguardian.com/us-news/2026/apr/03/trump-claims-starmer-weak-mocks-pm-uk-aircraft-carriers-iran-war",
+        "canonical_url": "https://theguardian.com/us-news/2026/apr/03/trump-claims-starmer-weak-mocks-pm-uk-aircraft-carriers-iran-war",
+        "title": "Trump claims Starmer is weak as he mocks PM and UK aircraft carriers",
+        "summary": "Footage shows US president saying UK ‘should be our best’ ally and accusing PM of prevarication over sending shipsMiddle East crisis – live updatesFootage has emerged of Donald Trump mocking Keir Starmer by claiming the prime minister said he would have to consult his team before deciding whether to send UK aircraft carriers to the Middle East.In a new low for UK-US relations, Trump appeared to impersonate Starmer during an Easter lunch speech at the White House.Continue reading...",
+        "source": "The Guardian",
+        "url": "https://www.theguardian.com/us-news/2026/apr/03/trump-claims-starmer-weak-mocks-pm-uk-aircraft-carriers-iran-war",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://theguardian.com/news/2026/apr/03/storm-erminio-saharan-dust-crete-greece-italy-rain-flooding-afghanistan",
+        "canonical_url": "https://theguardian.com/news/2026/apr/03/storm-erminio-saharan-dust-crete-greece-italy-rain-flooding-afghanistan",
+        "title": "Storm Erminio lashes much of Greece as Saharan dust blankets Crete",
+        "summary": "South-east Italy also affected by heavy rain, and snow at higher altitudes, while deadly flooding hits AfghanistanParts of the Mediterranean have been lashed by Storm Erminio this week. Heavy rain, thunderstorms and occasional bursts of hail affected much of Greece throughout Wednesday and Thursday, with the most severe conditions across south-eastern parts of the mainland and several islands in the southern Aegean Sea, including Crete, with streets flooded and vehicles stranded.Some of the heaviest rain fell on Wednesday across Attica, a region encompassing Athens, with one weather station near the city’s international airport recording 132mm (5.2 in) in 24 hours. The most intense downpours were overnight, when the coastal town of Nea Makri was particularly badly affected; an unofficial weather station recorded about 50mm falling within just two hours. One person died in the town; a man found beneath a car was believed to have been swept away as he escaped his flooding basement home.Continue reading...",
+        "source": "The Guardian",
+        "url": "https://www.theguardian.com/news/2026/apr/03/storm-erminio-saharan-dust-crete-greece-italy-rain-flooding-afghanistan",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://aljazeera.com/news/2026/4/3/lawyers-search-for-epstein-survivors-for-bank-of-america-72-5m-settlement?traffic_source=rss",
+        "canonical_url": "https://aljazeera.com/news/2026/4/3/lawyers-search-for-epstein-survivors-for-bank-of-america-72-5m-settlement?traffic_source=rss",
+        "title": "Lawyers search for Epstein survivors for Bank of America $72.5m settlement",
+        "summary": "Bank of America has become the third major bank to settle with victims over allegations of facilitating Epstein crimes.",
+        "source": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/4/3/lawyers-search-for-epstein-survivors-for-bank-of-america-72-5m-settlement?traffic_source=rss",
+        "published_date": "2026-04-03",
         "bucket": ""
       },
       {
@@ -1468,7 +1478,7 @@
       {
         "story_key": "https://aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
         "canonical_url": "https://aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
-        "title": "NASA releases first stunning Artemis II photos of Earth from moon mission",
+        "title": "NASA releases stunning first photos of Earth from Artemis II moon mission",
         "summary": "The crew were about 100,000 miles (160,000 kilometres) from Earth and were quickly closing in on the moon.",
         "source": "Al Jazeera",
         "url": "https://www.aljazeera.com/news/2026/4/3/nasa-releases-first-stunning-artemis-ii-photos-of-earth-from-moon-mission?traffic_source=rss",
@@ -1562,16 +1572,6 @@
         "summary": "White House says March jobs report 'blew out expectations' with gains made in the healthcare and construction sectors.",
         "source": "Al Jazeera",
         "url": "https://www.aljazeera.com/news/2026/4/3/us-unemployment-rate-drops-despite-economic-uncertainty-and-iran-war?traffic_source=rss",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://aljazeera.com/video/newsfeed/2026/4/3/what-we-know-about-the-us-fighter-jet-shot-down-in-iran?traffic_source=rss",
-        "canonical_url": "https://aljazeera.com/video/newsfeed/2026/4/3/what-we-know-about-the-us-fighter-jet-shot-down-in-iran?traffic_source=rss",
-        "title": "What we know about the US fighter jet shot down in Iran",
-        "summary": "The White House has confirmed Donald Trump has been briefed on the shooting down of a US fighter jet in Iran.",
-        "source": "Al Jazeera",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/4/3/what-we-know-about-the-us-fighter-jet-shot-down-in-iran?traffic_source=rss",
         "published_date": "2026-04-03",
         "bucket": ""
       },
@@ -1722,7 +1722,7 @@
         "summary": "Myanmar's parliament has elected junta chief Min Aung Hlaing as president of the Southeast Asian country. He has effectively led Myanmar since the 2021 coup that ousted the democratic government led by Aung San Suu Kyi.",
         "source": "DW",
         "url": "https://www.dw.com/en/myanmar-coup-leader-min-aung-hlaing-elected-president/a-76651408?maca=en-rss-en-all-1573-rdf",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1732,7 +1732,7 @@
         "summary": "Indian leaders marked Good Friday with messages of reflection, compassion and unity. Meanwhile, an Iranian crude oil tanker bound for India has diverted to China.",
         "source": "DW",
         "url": "https://www.dw.com/en/india-news-modi-gandhi-invoke-jesus-christ-s-teachings-on-good-friday/live-76650039?maca=en-rss-en-all-1573-rdf",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1742,7 +1742,7 @@
         "summary": "Germany's peace movement is gearing up for its traditional Easter peace marches, with the war in the Middle East and the possible reintroduction of conscription causing anxiety among Germans.",
         "source": "DW",
         "url": "https://www.dw.com/en/germany-s-peace-movement-gears-up-for-its-traditional-easter-peace-marches-overshadowed-by-war-and-possible-conscription/a-76644793?maca=en-rss-en-all-1573-rdf",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1752,7 +1752,7 @@
         "summary": "A leading economist has recommended a temporary highway speed limit due to rising fuel costs amid the Iran war. Meanwhile, protesters are gearing up for annual Easter peace marches. DW has the latest.",
         "source": "DW",
         "url": "https://www.dw.com/en/germany-news-economist-suggests-autobahn-speed-limit-amid-iran-enduced-fuel-price-spike/live-76650036?maca=en-rss-en-all-1573-rdf",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1762,7 +1762,7 @@
         "summary": "After a large convoy of Iraqis crossed into Iran this week, observers worried they would join Iran's war effort against the US and Israel. But, experts say, Iraq's situation is way more complicated than that.",
         "source": "DW",
         "url": "https://www.dw.com/en/are-iran-allied-paramilitaries-dragging-iraq-into-the-war/a-76643752?maca=en-rss-en-all-1573-rdf",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1772,7 +1772,7 @@
         "summary": "Artemis II astronauts have officially begun their journey to the Moon after conducting a successful thruster firing. Humans are set to fly around the Moon for the first time in over 50 years.",
         "source": "DW",
         "url": "https://www.dw.com/en/artemis-ii-astronauts-leave-earth-s-orbit-rocket-towards-moon/a-76649996?maca=en-rss-en-all-1573-rdf",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -1926,6 +1926,16 @@
         "bucket": ""
       },
       {
+        "story_key": "https://scmp.com/news/china/diplomacy/article/3348930/game-whack-mole-how-could-scam-industry-bring-china-and-us-together",
+        "canonical_url": "https://scmp.com/news/china/diplomacy/article/3348930/game-whack-mole-how-could-scam-industry-bring-china-and-us-together",
+        "title": "‘A game of whack-a-mole’: how could the scam industry bring China and the US together?",
+        "summary": "The compound is modern with air conditioning in every room. Inside are a medical clinic, massage parlour, and Vietnamese barbecue, Chinese hotpot and halal eateries – a full range of conveniences.\nYet the residents are gone – and they appear to have fled in haste. Clothes still hang out to dry, while the stench of rotting food lingers.\nLocated in a secluded area in Kampot province near Cambodia’s border with Vietnam, the site is believed to be a telecoms scam centre.\nCambodian authorities said...",
+        "source": "SCMP",
+        "url": "https://www.scmp.com/news/china/diplomacy/article/3348930/game-whack-mole-how-could-scam-industry-bring-china-and-us-together?utm_source=rss_feed",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
         "story_key": "https://scmp.com/opinion/world-opinion/article/3348754/twilight-us-hegemony-and-israeli-expansionism",
         "canonical_url": "https://scmp.com/opinion/world-opinion/article/3348754/twilight-us-hegemony-and-israeli-expansionism",
         "title": "The twilight of US hegemony and Israeli expansionism",
@@ -2056,19 +2066,19 @@
         "bucket": ""
       },
       {
-        "story_key": "https://scmp.com/news/world/united-states-canada/article/3348991/us-can-take-strait-hormuz-more-time-says-trump",
-        "canonical_url": "https://scmp.com/news/world/united-states-canada/article/3348991/us-can-take-strait-hormuz-more-time-says-trump",
-        "title": "US can take Strait of Hormuz ‘with more time’, says Trump",
-        "summary": "President Donald ⁠Trump on Friday said the ⁠US can open the Strait of Hormuz with a little more time, as pressure mounts for his administration to find a ‌quick resolution to a war against Iran.\n“With a little more time, we can easily OPEN THE HORMUZ STRAIT, TAKE THE OIL,& MAKE A FORTUNE,” he said in a post on Truth Social.\nNearly ⁠five weeks after it started with a joint US-Israeli aerial ‌assault, the war in Iran continues to spread chaos across the region and roil ‌financial markets, raising...",
-        "source": "SCMP",
-        "url": "https://www.scmp.com/news/world/united-states-canada/article/3348991/us-can-take-strait-hormuz-more-time-says-trump?utm_source=rss_feed",
+        "story_key": "https://abc.net.au/news/2026-04-04/afl-kysaiah-pickett-melbourne-demons-gold-coast-suns/106531202",
+        "canonical_url": "https://abc.net.au/news/2026-04-04/afl-kysaiah-pickett-melbourne-demons-gold-coast-suns/106531202",
+        "title": "Demons star praised for reaching 'another level' with career-best form",
+        "summary": "Ed Langdon says Melbourne teammate Kysaiah Pickett is flourishing in his midfield role, as the Demons continue life under new coach Steven King.",
+        "source": "ABC Australia",
+        "url": "https://www.abc.net.au/news/2026-04-04/afl-kysaiah-pickett-melbourne-demons-gold-coast-suns/106531202",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
         "story_key": "https://abc.net.au/news/2026-04-04/australian-athletics-800-metres-daniel-williams/106521032",
         "canonical_url": "https://abc.net.au/news/2026-04-04/australian-athletics-800-metres-daniel-williams/106521032",
-        "title": "It's not just Gout Gout making Aussie athletics smell like teen spirit",
+        "title": "How a rising teen star is making a name for himself in Aussie athletics",
         "summary": "Teenagers Gout Gout and Cameron Myers are already creating an impact on the international stage, helping to inspire the likes of 18-year-old Daniel Williams to follow in their footsteps.",
         "source": "ABC Australia",
         "url": "https://www.abc.net.au/news/2026-04-04/australian-athletics-800-metres-daniel-williams/106521032",
@@ -2092,7 +2102,7 @@
         "summary": "Melbourne Storm coach Craig Bellamy puts his players on notice after they were thrashed 50-10 by Penrith on Good Friday.",
         "source": "ABC Australia",
         "url": "https://www.abc.net.au/news/2026-04-03/nrl-live-updates-rabbitohs-bulldogs-panthers-storm-good-friday/106530126",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -2102,7 +2112,7 @@
         "summary": "Fremantle coughs up a five-goal lead before holding on in the final quarter after Adelaide's James Borlase hits the post with 30 seconds left on the clock.",
         "source": "ABC Australia",
         "url": "https://www.abc.net.au/news/2026-04-03/afl-round-4-kangaroos-blues-crows-dockers-live-blog-good-friday/106530078",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -2112,7 +2122,7 @@
         "summary": "The top ticket price was $15,900, a sharp increase from the original $12,560 when FIFA sold tickets after the tournament draw in December.",
         "source": "ABC Australia",
         "url": "https://www.abc.net.au/news/2026-04-03/fifa-world-cup-ticket-prices-glitch-price-rise/106530084",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -2122,7 +2132,7 @@
         "summary": "Alana King stars with the ball, as the Australian women's team finish their white-ball tour of West Indies with a resounding nine-wicket win in St Kitts.",
         "source": "ABC Australia",
         "url": "https://www.abc.net.au/news/2026-04-03/australia-women-vs-west-indies-odi-game-three/106525924",
-        "published_date": "2026-04-03",
+        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -2172,47 +2182,7 @@
         "summary": "Fierce rivals on the field, the Matildas and Japan have joined forces to slam the Asian Football Confederation's prize money for the Women's Asian Cup.",
         "source": "ABC Australia",
         "url": "https://www.abc.net.au/news/2026-04-02/matildas-japan-players-call-out-prize-money-inequality/106528588",
-        "published_date": "2026-04-02",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://abc.net.au/news/2026-04-02/nrl-live-updates-dolphins-sea-eagles-kieran-foran/106527680",
-        "canonical_url": "https://abc.net.au/news/2026-04-02/nrl-live-updates-dolphins-sea-eagles-kieran-foran/106527680",
-        "title": "Foran relieved after Manly's 'whirlwind week' ends with emphatic victory",
-        "summary": "Less than seven days after taking over from sacked coach Anthony Seibold, Kieran Foran takes immense pride in Manly's first win of the season.",
-        "source": "ABC Australia",
-        "url": "https://www.abc.net.au/news/2026-04-02/nrl-live-updates-dolphins-sea-eagles-kieran-foran/106527680",
-        "published_date": "2026-04-02",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://abc.net.au/news/2026-04-02/afl-round-4-brisbane-lions-collingwood-magpies-live-blog/106528154",
-        "canonical_url": "https://abc.net.au/news/2026-04-02/afl-round-4-brisbane-lions-collingwood-magpies-live-blog/106528154",
-        "title": "Magpies sweating on Daicos's injury after late withdrawal",
-        "summary": "Collingwood is unsure whether Nick Daicos will spend time on the sidelines after the star midfielder was forced out of Thursday night's match with a calf injury.",
-        "source": "ABC Australia",
-        "url": "https://www.abc.net.au/news/2026-04-02/afl-round-4-brisbane-lions-collingwood-magpies-live-blog/106528154",
-        "published_date": "2026-04-02",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://abc.net.au/news/2026-04-02/tim-tszyu-denis-nurja-easter-sunday-boxing/106527706",
-        "canonical_url": "https://abc.net.au/news/2026-04-02/tim-tszyu-denis-nurja-easter-sunday-boxing/106527706",
-        "title": "Tszyu ready to revive world title dream with Easter Sunday bout",
-        "summary": "Tim Tszyu is promising no more slip-ups while candidly confessing to \"falling apart\" after relinquishing his world title in the infamous Sebastian Fundora bloodbath in Las Vegas.",
-        "source": "ABC Australia",
-        "url": "https://www.abc.net.au/news/2026-04-02/tim-tszyu-denis-nurja-easter-sunday-boxing/106527706",
-        "published_date": "2026-04-02",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://abc.net.au/news/2026-04-02/sam-kerr-in-mary-fowler-not-part-of-matildas-squad/106527224",
-        "canonical_url": "https://abc.net.au/news/2026-04-02/sam-kerr-in-mary-fowler-not-part-of-matildas-squad/106527224",
-        "title": "Kerr in, but several Matildas stars not part of squad for FIFA Series",
-        "summary": "Sam Kerr has been named, but the Matildas will be missing a number of their other big guns when they travel to Kenya for the team's maiden FIFA Series in April.",
-        "source": "ABC Australia",
-        "url": "https://www.abc.net.au/news/2026-04-02/sam-kerr-in-mary-fowler-not-part-of-matildas-squad/106527224",
-        "published_date": "2026-04-02",
+        "published_date": "2026-04-01",
         "bucket": ""
       },
       {
@@ -2286,16 +2256,6 @@
         "bucket": ""
       },
       {
-        "story_key": "https://cnbc.com/2026/04/03/judge-upholds-block-on-subpoenas-to-feds-jerome-powell.html",
-        "canonical_url": "https://cnbc.com/2026/04/03/judge-upholds-block-on-subpoenas-to-feds-jerome-powell.html",
-        "title": "U.S. judge upholds block on subpoenas to Fed's Powell, teeing up likely appeal",
-        "summary": "A U.S. judge upheld block on subpoenas to Fed's Powell, teeing up a likely appeal.",
-        "source": "CNBC",
-        "url": "https://www.cnbc.com/2026/04/03/judge-upholds-block-on-subpoenas-to-feds-jerome-powell.html",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
         "story_key": "https://cnbc.com/2026/04/03/stock-market-next-week-outlook-for-april-6-10-2026.html",
         "canonical_url": "https://cnbc.com/2026/04/03/stock-market-next-week-outlook-for-april-6-10-2026.html",
         "title": "Investors are waiting for a better place to step in after this week's bounce. Here's what's ahead",
@@ -2362,6 +2322,16 @@
         "summary": "President Donald Trump is asking Congress to boost defense spending to $1.5 trillion, the largest such request in decades, according to his budget request.",
         "source": "CNBC",
         "url": "https://www.cnbc.com/2026/04/03/trump-budget-higher-defense-spending-domestic-cuts.html",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://marketwatch.com/story/how-tbpn-went-from-nerdy-online-talkshow-to-splashy-openai-acquisition-c204185e?mod=mw_rss_topstories",
+        "canonical_url": "https://marketwatch.com/story/how-tbpn-went-from-nerdy-online-talkshow-to-splashy-openai-acquisition-c204185e?mod=mw_rss_topstories",
+        "title": "How TBPN went from nerdy online talk show to splashy OpenAI acquisition",
+        "summary": "The less “antagonistic” tone of TBPN resonated with a Silicon Valley audience. Now the show is going mainstream.",
+        "source": "MarketWatch",
+        "url": "https://www.marketwatch.com/story/how-tbpn-went-from-nerdy-online-talkshow-to-splashy-openai-acquisition-c204185e?mod=mw_rss_topstories",
         "published_date": "2026-04-03",
         "bucket": ""
       },
@@ -2456,193 +2426,203 @@
         "bucket": ""
       },
       {
-        "story_key": "https://marketwatch.com/story/my-partners-parents-offered-a-down-payment-but-they-hate-the-property-we-chose-what-should-we-do-533d7b78?mod=mw_rss_topstories",
-        "canonical_url": "https://marketwatch.com/story/my-partners-parents-offered-a-down-payment-but-they-hate-the-property-we-chose-what-should-we-do-533d7b78?mod=mw_rss_topstories",
-        "title": "My partner’s parents offered a down payment, but they hate the property we chose. What should we do?",
-        "summary": "“Their response made us feel like we couldn’t accept the money.”",
-        "source": "MarketWatch",
-        "url": "https://www.marketwatch.com/story/my-partners-parents-offered-a-down-payment-but-they-hate-the-property-we-chose-what-should-we-do-533d7b78?mod=mw_rss_topstories",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://yna.co.kr/view/AKR20260404008600064",
-        "canonical_url": "https://yna.co.kr/view/AKR20260404008600064",
-        "title": "충북 대체로 흐리고 비…낮 최고 16∼18도",
-        "summary": "(청주=연합뉴스) 김형우 기자 = 4일 충북은 대체로 흐리고 곳곳에 비가 내리겠다.",
+        "story_key": "https://yna.co.kr/view/AKR20260404015800009",
+        "canonical_url": "https://yna.co.kr/view/AKR20260404015800009",
+        "title": "'특별한 관계' 칭송하더니…파국으로 치닫는 트럼프-마크롱",
+        "summary": "(서울=연합뉴스) 김아람 기자 = 지난 10년간 온탕과 냉탕을 오간 도널드 트럼프 미국 대통령과 에마뉘엘 마크롱 프랑스 대통령의 관계가 파국으로...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260404008600064",
+        "url": "https://www.yna.co.kr/view/AKR20260404015800009",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260403173452071",
-        "canonical_url": "https://yna.co.kr/view/AKR20260403173452071",
-        "title": "美 F-15 전투기·A-10 공격기 이란서 격추…2명 구조, 1명 실종(종합2보)",
-        "summary": "(카이로·워싱턴=연합뉴스) 김상훈 홍정규 백나리 특파원 = 대이란 군사작전에 투입된 미군 F-15 전투기와 A-10 공격기가 각각 이란군의 ...",
+        "story_key": "https://yna.co.kr/view/AKR20260404014900091",
+        "canonical_url": "https://yna.co.kr/view/AKR20260404014900091",
+        "title": "로저스 쿠팡 임시대표, 또 대규모 주식보상…61억원 상당",
+        "summary": "(샌프란시스코=연합뉴스) 권영전 특파원 = 해롤드 로저스 쿠팡 임시대표가 약 2달 만에 또 대규모 주식 보상을 받았다.",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260403173452071",
+        "url": "https://www.yna.co.kr/view/AKR20260404014900091",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260404007900504",
-        "canonical_url": "https://yna.co.kr/view/AKR20260404007900504",
-        "title": "中, 北 신임 지도부에 축전…\"친선협조관계 보다 높은 단계로\"",
-        "summary": "(서울=연합뉴스) 이은정 기자 = 중국 지도부가 지난달 열린 최고인민회의에서 선출된 북한 지도부 인사들에게 축전을 보내 양국 관계의 지속적인 발...",
+        "story_key": "https://yna.co.kr/view/AKR20260404015000009",
+        "canonical_url": "https://yna.co.kr/view/AKR20260404015000009",
+        "title": "美 하버드대, A학점 과목당 20% 제한 추진…학생은 94%가 반대",
+        "summary": "(서울=연합뉴스) 이신영 기자 = 미국 하버드대가 과목별로 A학점을 받을 수 있는 학생 수를 제한하는 방안을 추진하고 있다.",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260404007900504",
+        "url": "https://www.yna.co.kr/view/AKR20260404015000009",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260404008100055",
-        "canonical_url": "https://yna.co.kr/view/AKR20260404008100055",
-        "title": "전주시 서신동 아파트에서 한밤중 불…60대 남성 심정지",
-        "summary": "(전주=연합뉴스) 백도인 기자 = 4일 오전 2시께 전북 전주시 완산구 서신동의 한 15층짜리 아파트 6층에서 불이 나 60대 남성이 심정지 상...",
+        "story_key": "https://yna.co.kr/view/AKR20260403095700052",
+        "canonical_url": "https://yna.co.kr/view/AKR20260403095700052",
+        "title": "대낮 만취 운전하다 주차 차량 들이받고 이탈 60대, 징역형 집유",
+        "summary": "(창원=연합뉴스) 정종호 기자 = 대낮에 술에 취해 운전하다 주차된 차량 2대를 들이받고, 현장을 이탈한 60대가 징역형의 집행유예를 선고받았다...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260404008100055",
+        "url": "https://www.yna.co.kr/view/AKR20260403095700052",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260404007800056",
-        "canonical_url": "https://yna.co.kr/view/AKR20260404007800056",
-        "title": "제주 오전까지 대체로 흐리고 비…강풍·풍랑 유의",
-        "summary": "(제주=연합뉴스) 김호천 기자 = 4월의 첫 토요일인 4일 제주는 대체로 흐린 가운데 오전까지 비가 내리는 곳이 있겠다.",
+        "story_key": "https://yna.co.kr/view/AKR20260404014800007",
+        "canonical_url": "https://yna.co.kr/view/AKR20260404014800007",
+        "title": "선발 출격한 이강인 결승골 기점 역할…PSG, 리그 2연승",
+        "summary": "(서울=연합뉴스) 최송아 기자 = 국가대표팀 평가전을 마치고 소속팀 프랑스 프로축구 파리 생제르맹(PSG)으로 돌아간 미드필더 이강인이 곧장 선...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260404007800056",
+        "url": "https://www.yna.co.kr/view/AKR20260404014800007",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260403018500017",
-        "canonical_url": "https://yna.co.kr/view/AKR20260403018500017",
-        "title": "[AI돋보기] 호르무즈 긴장에 공급망 흔들…AI 위기 대응 '시험대'",
-        "summary": "(서울=연합뉴스) 심재훈 기자 = 중동 지역의 무력 충돌 여파로 글로벌 해상 물류의 핵심 길목인 호르무즈 해협의 공급망 차질이 가시화하고 있다....",
+        "story_key": "https://yna.co.kr/view/AKR20260402154900051",
+        "canonical_url": "https://yna.co.kr/view/AKR20260402154900051",
+        "title": "[해수분해] 일본해 대신 동해…해양주권 둘러싼 바다 전쟁",
+        "summary": "(부산=연합뉴스) 박성제 기자 = 동해와 일본해.",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260403018500017",
+        "url": "https://www.yna.co.kr/view/AKR20260402154900051",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260404006900052",
-        "canonical_url": "https://yna.co.kr/view/AKR20260404006900052",
-        "title": "부산·울산·경남 흐리고 낮까지 비…강풍·풍랑 주의",
-        "summary": "(창원=연합뉴스) 박영민 기자 = 토요일인 4일 부산·울산·경남 지역은 흐린 가운데 낮까지 비가 내리겠다.",
+        "story_key": "https://yna.co.kr/view/AKR20260403051900051",
+        "canonical_url": "https://yna.co.kr/view/AKR20260403051900051",
+        "title": "1천600만원 금목걸이 가짜로 바꿔치기 금은방 직원 집행유예",
+        "summary": "(부산=연합뉴스) 김재홍 기자 = 고객의 집에서 순금 목걸이를 감정하다가 모조품으로 바꿔치기한 혐의로 재판에 넘겨진 금은방 직원이 징역형의 집행...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260404006900052",
+        "url": "https://www.yna.co.kr/view/AKR20260403051900051",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260403132400546",
-        "canonical_url": "https://yna.co.kr/view/AKR20260403132400546",
-        "title": "[세상풍경] 평일에도 개방한 홍릉숲",
-        "summary": "(서울=연합뉴스) 김정선 선임기자 = 식물에 대한 관심이 높아지면서 일상생활에서 '반려 식물'이나 '식집사'라는 말은 이제 흔한 단어가 됐다. ...",
+        "story_key": "https://yna.co.kr/view/AKR20260403106500052",
+        "canonical_url": "https://yna.co.kr/view/AKR20260403106500052",
+        "title": "창원시장 선거 대진표 4파전 윤곽…민주·국힘·혁신당·무소속",
+        "summary": "(창원=연합뉴스) 김선경 기자 = 비수도권 유일 100만 특례시의 수장을 뽑는 경남 창원시장 선거 대진표가 4파전 구도로 접어들었다.",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260403132400546",
+        "url": "https://www.yna.co.kr/view/AKR20260403106500052",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260404007700062",
-        "canonical_url": "https://yna.co.kr/view/AKR20260404007700062",
-        "title": "강원 흐리고 곳곳 비…영동 남부 최대 40㎜",
-        "summary": "(춘천=연합뉴스) 양지웅 기자 = 토요일인 4일 강원 동해안은 낮까지, 영서 내륙·산지는 늦은 오후까지 비가 이어지는 곳이 있겠다.",
+        "story_key": "https://yna.co.kr/view/AKR20260403095200061",
+        "canonical_url": "https://yna.co.kr/view/AKR20260403095200061",
+        "title": "\"벚꽃 보러 남한산성·팔당호로 오세요\" 광주시 추천 벚꽃길 4곳",
+        "summary": "(경기 광주=연합뉴스) 이우성 기자 = 경기 광주시가 4일 벚꽃길 명소 4곳을 소개했다.",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260404007700062",
+        "url": "https://www.yna.co.kr/view/AKR20260403095200061",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260404007600055",
-        "canonical_url": "https://yna.co.kr/view/AKR20260404007600055",
-        "title": "전북 오후까지 비…예상 강우량 5∼20㎜",
-        "summary": "(전주=연합뉴스) 백도인 기자 = 토요일인 4일 전북은 오후까지 비가 이어지겠다.",
+        "story_key": "https://yna.co.kr/view/AKR20260403069000542",
+        "canonical_url": "https://yna.co.kr/view/AKR20260403069000542",
+        "title": "[길따라] 외국 관광객 국립공원·박물관 무료에 '열광'…퍼주기 관광 논란",
+        "summary": "(서울=연합뉴스) 성연재 기자 = 얼마 전 국립공원공단 고위 관계자와 각 언론사 여행 전문기자들과 마주한 자리에서는 뜻밖에 외국인 관광객의 '공...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260404007600055",
+        "url": "https://www.yna.co.kr/view/AKR20260403069000542",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260404007500063",
-        "canonical_url": "https://yna.co.kr/view/AKR20260404007500063",
-        "title": "대전·세종·충남 흐리고 비…낮 최고 14∼18도",
-        "summary": "(대전＝연합뉴스) 김준호 기자 = 4일 대전과 세종, 충남 지역은 흐리고 비가 내리겠다.",
+        "story_key": "https://yna.co.kr/view/AKR20260402127400051",
+        "canonical_url": "https://yna.co.kr/view/AKR20260402127400051",
+        "title": "부산 2월 '악성 미분양' 소폭 감소…매매 줄고 전월세 늘어",
+        "summary": "(부산=연합뉴스) 민영규 기자 = 지난 2월 부산에서 '악성 미분양'으로 불리는 준공 후 미분양 주택이 전월보다 소폭 감소한 것으로 나타났다.",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260404007500063",
+        "url": "https://www.yna.co.kr/view/AKR20260402127400051",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260403162200007",
-        "canonical_url": "https://yna.co.kr/view/AKR20260403162200007",
-        "title": "◇오늘의 경기(4일)",
-        "summary": "◆4일(토)",
+        "story_key": "https://yna.co.kr/view/AKR20260403044400055",
+        "canonical_url": "https://yna.co.kr/view/AKR20260403044400055",
+        "title": "농진원, 사료 무기물 9종 국제 숙련도 '전 항목 합격'",
+        "summary": "(익산=연합뉴스) 김진방 기자 = 한국농업기술진흥원은 사료 성분 분석 능력을 평가하는 '국제 숙련도 평가'에서 무기물 9종에 대해 전 항목에서 ...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260403162200007",
+        "url": "https://www.yna.co.kr/view/AKR20260403044400055",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260404007100053",
-        "canonical_url": "https://yna.co.kr/view/AKR20260404007100053",
-        "title": "대구·경북 오늘 낮 비…낮 최고기온 15∼20도",
-        "summary": "(대구=연합뉴스) 김선형 기자 = 토요일인 4일 대구·경북 지역은 대체로 흐린 가운데 낮 12시부터 15시까지 비가 내리겠다.",
+        "story_key": "https://yna.co.kr/view/AKR20260403092600061",
+        "canonical_url": "https://yna.co.kr/view/AKR20260403092600061",
+        "title": "세월호 12주기 안산서 11일 '1천명 대토론회'·'기억문화제'",
+        "summary": "(안산=연합뉴스) 김인유 기자 = 세월호 참사 12주기를 맞아 경기 안산에서 시민 1천명이 참여하는 대규모 정책 토론회와 기억문화제가 오는 11...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260404007100053",
+        "url": "https://www.yna.co.kr/view/AKR20260403092600061",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260403123800530",
-        "canonical_url": "https://yna.co.kr/view/AKR20260403123800530",
-        "title": "청년 채무조정 효과 입증…빚 19% 줄고 우울감도 뚝",
-        "summary": "(서울=연합뉴스) 서한기 기자 = 최근 청년들이 겪는 부채 문제는 개인의 경제적 어려움을 넘어 우리 사회의 미래를 위협하는 위험 요소로 번지고 ...",
+        "story_key": "https://yna.co.kr/view/AKR20260402172400099",
+        "canonical_url": "https://yna.co.kr/view/AKR20260402172400099",
+        "title": "[아프리카인물열전] ⒁\"너는 너의 것\"…'흑인 의식화 운동' 펼친 스티브 비코",
+        "summary": "(요하네스버그=연합뉴스) 나확진 특파원 = \"흑인이여, 너는 너의 것이다.\"(Black man, you are on your own.)",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260403123800530",
+        "url": "https://www.yna.co.kr/view/AKR20260402172400099",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://yna.co.kr/view/AKR20260403171700005",
-        "canonical_url": "https://yna.co.kr/view/AKR20260403171700005",
-        "title": "\"글과 그림은 하나\"…세한도·품평문으로 본 추사의 예술세계",
-        "summary": "(대구=연합뉴스) 박의래 기자 = \"공부가 쌓이면 글씨가 되고, 글씨가 완성되면 그림이 된다.\"",
+        "story_key": "https://yna.co.kr/view/AKR20260403131700062",
+        "canonical_url": "https://yna.co.kr/view/AKR20260403131700062",
+        "title": "설악산 오색 케이블카 개통 시기 논란…지역사회 공방 확산",
+        "summary": "(양양=연합뉴스) 류호준 기자 = 김진태 강원도지사가 도정 보고회에서 양양 오색 케이블카 개통 시기를 내년으로 언급한 이후 지역 사회 공방이 확...",
         "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260403171700005",
+        "url": "https://www.yna.co.kr/view/AKR20260403131700062",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/national/weekend/2026/04/04/GWRI5KEQTVGN3LDQF63HXGB57E",
-        "canonical_url": "https://chosun.com/national/weekend/2026/04/04/GWRI5KEQTVGN3LDQF63HXGB57E",
-        "title": "“동남아 여행 갈 땐 ‘내니’가 필수”",
+        "story_key": "https://chosun.com/sports/basketball/2026/04/04/GJRDON3FGFSWGYTFGFTGEOJYGA",
+        "canonical_url": "https://chosun.com/sports/basketball/2026/04/04/GJRDON3FGFSWGYTFGFTGEOJYGA",
+        "title": "'3위까지 밀릴 뻔-위기 넘고 12년만 정규리그 정상 LG' 조상현, 집념의 우승 드라마 완성",
+        "summary": "[OSEN=우충원 기자] \"올 해만큼 스트레스가 많았던 적 없었다\". 창원 LG는 3일 서수원칠보체육관에서 열린 2025-2026 LG전자 프로농구 수원 KT와 맞대결서 87-60으로 승리했다.이날 승리로 LG는 지난 2013-2014시즌에 이어 통산 2번째로 정규시즌 정상에 등극했다.LG는 아셈 마레이가 21점-15리바운드-8도움으로 트리플 더블급 활약을",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/basketball/2026/04/04/GJRDON3FGFSWGYTFGFTGEOJYGA/",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/entertainments/broadcast/2026/04/04/HFRTEMZVGQ2DAMJZHA2DMOLGMY",
+        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/04/04/HFRTEMZVGQ2DAMJZHA2DMOLGMY",
+        "title": "85세 사미자, 건강이상설에 딸 등판…\"거동 자유롭진 않지만 불편 없어\" [Oh!쎈 이슈]",
+        "summary": "[OSEN=장우영 기자] 배우 사미자의 딸 김희주 씨가 어머니의 건강이상설에 선을 그었다.4일 사미자의 딸 김희주 씨는 자신의 소셜 계정에 “사흘전 포털 사이트 메인뉴스에 올랐던 기사”라는 글과 사진을 게재했다.공개된 사진은 한 뉴스를 캡처한 내용으로, ‘심근경색→뇌경색 85세 사미자 “낙상사고로 걷기 힘들어” 부축 받으며 등장’이라는 제목이다. 사미자가",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/entertainments/broadcast/2026/04/04/HFRTEMZVGQ2DAMJZHA2DMOLGMY/",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/sports/baseball/2026/04/04/GMZTSMRTHA4TGYRVGU2DONLGMU",
+        "canonical_url": "https://chosun.com/sports/baseball/2026/04/04/GMZTSMRTHA4TGYRVGU2DONLGMU",
+        "title": "“침착하게 준비한 대로” 해외파 출신 슬러거, 연장 결승타로 울산 7연승 견인하다 [오!쎈 퓨처스]",
+        "summary": "[OSEN=손찬익 기자] 승부를 가른 건 결국 중심 타자의 한 방이었다. 해외파 출신 슬러거 김동엽이 연장 승부치기에서 결승타를 터뜨리며 울산 웨일즈의 7연승을 이끌었다.울산은 3일 경산볼파크에서 열린 삼성과의 퓨처스리그 원정 경기에서 연장 10회 승부치기 끝에 6-3으로 승리했다. 이로써 울산은 7연승과 함께 시즌 전적 7승 3패를 기록, 남부리그 단독",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/baseball/2026/04/04/GMZTSMRTHA4TGYRVGU2DONLGMU/",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/entertainments/music/2026/04/04/G5SWCNBUGZSGMOBXMM3DSNDDGA",
+        "canonical_url": "https://chosun.com/entertainments/music/2026/04/04/G5SWCNBUGZSGMOBXMM3DSNDDGA",
+        "title": "'컴백' 코르티스, 일주일 만에 선주문량 122만 장 돌파",
+        "summary": "[OSEN=지민경 기자] 그룹 코르티스(CORTIS)의 미니 2집 ‘GREENGREEN’이 일주일 만에 선주문량 122만 장을 돌파하며 컴백 열기를 달구고 있다.음반 유통사 YG플러스와 유니버설 레코드(Universal Records)에 따르면, 코르티스(마틴, 제임스, 주훈, 성현, 건호)의 신보 선주문량은 4월 2일 기준 122만 7986장으로 집계됐다",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/entertainments/music/2026/04/04/G5SWCNBUGZSGMOBXMM3DSNDDGA/",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://chosun.com/culture-life/book/2026/04/04/UGKSFYL3K5EA7M5DN3UQ5MAGRY",
+        "canonical_url": "https://chosun.com/culture-life/book/2026/04/04/UGKSFYL3K5EA7M5DN3UQ5MAGRY",
+        "title": "‘제국 DNA’ 1000년… 러시아, 지금 왜 위험한가",
         "summary": "",
         "source": "조선일보",
-        "url": "https://www.chosun.com/national/weekend/2026/04/04/GWRI5KEQTVGN3LDQF63HXGB57E/",
+        "url": "https://www.chosun.com/culture-life/book/2026/04/04/UGKSFYL3K5EA7M5DN3UQ5MAGRY/",
         "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/sports/baseball/2026/04/04/GZTDENBZMNRTKMLCGA2TKYRXMQ",
-        "canonical_url": "https://chosun.com/sports/baseball/2026/04/04/GZTDENBZMNRTKMLCGA2TKYRXMQ",
-        "title": "\"자신감 생긴다\" 사직의 최지훈은 자연재해, 도대체 어떻게 막나...데뷔 첫 그라운드 홈런도 사직이라니",
-        "summary": "[OSEN=부산, 조형래 기자] 자연재해는 막을 수 없는 법이다. 사직구장에서 뛰는 최지훈(SSG)이 그렇다. 각종 첫 기록을 사직구장에서 세웠는데 다시 한 번 사직구장에서 이정표를 세웠다.SSG 최지훈은 3일 부산 사직구장에서 열린 프로야구 정규시즌 롯데 자이언츠와의 경기 7번 중견수로 선발 출장해 4타수 2안타 3타점 3득점으로 활약하며 팀의 17-2",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/sports/baseball/2026/04/04/GZTDENBZMNRTKMLCGA2TKYRXMQ/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/economy/weeklybiz/2026/04/02/5SL7PEDSZBCQVASRW4NRAKXS4A",
-        "canonical_url": "https://chosun.com/economy/weeklybiz/2026/04/02/5SL7PEDSZBCQVASRW4NRAKXS4A",
-        "title": "기름값 오르니 지지율 떨어진다...중간선거 ‘빨간불’ 켜진 트럼프",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/economy/weeklybiz/2026/04/02/5SL7PEDSZBCQVASRW4NRAKXS4A/",
-        "published_date": "2026-04-02",
         "bucket": ""
       },
       {
@@ -2656,109 +2636,9 @@
         "bucket": ""
       },
       {
-        "story_key": "https://chosun.com/national/weekend/2026/04/04/NOVDGCYTUZBKHFBAPU2QRONC3I",
-        "canonical_url": "https://chosun.com/national/weekend/2026/04/04/NOVDGCYTUZBKHFBAPU2QRONC3I",
-        "title": "거칠고 험한 길도 끝이 있다",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/national/weekend/2026/04/04/NOVDGCYTUZBKHFBAPU2QRONC3I/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/national/weekend/2026/04/04/XGXNEMML25DKTD5BHVZI2KRH44",
-        "canonical_url": "https://chosun.com/national/weekend/2026/04/04/XGXNEMML25DKTD5BHVZI2KRH44",
-        "title": "스포츠 마니아부터 미술 애호가, 체험형 여행자까지… 누가 찾아와도 LA에는 정답이 있다",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/national/weekend/2026/04/04/XGXNEMML25DKTD5BHVZI2KRH44/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/national/weekend/2026/04/04/UHF4FFDSG5CTVFMDOMBRGFP3LY",
-        "canonical_url": "https://chosun.com/national/weekend/2026/04/04/UHF4FFDSG5CTVFMDOMBRGFP3LY",
-        "title": "80년 된 핫도그부터, 손흥민 칵테일까지…월드컵 앞두고 미리 가본 LA 맛집",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/national/weekend/2026/04/04/UHF4FFDSG5CTVFMDOMBRGFP3LY/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4",
-        "canonical_url": "https://chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4",
-        "title": "공공부문부터 덮친 ‘노란봉투법’… “진짜 사용자인 대통령 나와야”",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/national/labor/2026/04/04/3LYHXW7XCVBS3N3CKIZB2STQS4/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/national/weekend/2026/04/04/HIE4ZZGCMJAKFLDQRNDSWAFLVQ",
-        "canonical_url": "https://chosun.com/national/weekend/2026/04/04/HIE4ZZGCMJAKFLDQRNDSWAFLVQ",
-        "title": "노래하는 사람은 쉽게 저물지 않는다 [고혜련의 삶이 있는 풍경] (14)",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/national/weekend/2026/04/04/HIE4ZZGCMJAKFLDQRNDSWAFLVQ/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/national/welfare-medical/2026/04/04/OT3SVHPNPFBUPB2MZLKUUMXXRQ",
-        "canonical_url": "https://chosun.com/national/welfare-medical/2026/04/04/OT3SVHPNPFBUPB2MZLKUUMXXRQ",
-        "title": "연예인처럼 장관 가방 즉석 공개… 이런 유튜브 찍는 복지부",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/national/welfare-medical/2026/04/04/OT3SVHPNPFBUPB2MZLKUUMXXRQ/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/sports/world-baseball/2026/04/04/GVSGGYTDGI2DKNBRGU2DOZRXHA",
-        "canonical_url": "https://chosun.com/sports/world-baseball/2026/04/04/GVSGGYTDGI2DKNBRGU2DOZRXHA",
-        "title": "드디어 터졌다! 오타니, 1할대 타율 침묵 깨고 첫 홈런 포함 4타점 원맨쇼...팀도 7점 차 대승 [LAD 리뷰]",
-        "summary": "[OSEN=손찬익 기자] 극심한 타격 부진에 시달렸던 오타니 쇼헤이(LA 다저스)가 시즌 첫 홈런을 터뜨리며 팀 승리를 이끌었다. 오타니는 4일(이하 한국시간) 미국 워싱턴의 내셔널스 파크에서 열린 워싱턴 내셔널스와의 원정 경기에 1번 지명타자로 선발 출장했다.이날 경기 전까지 18타수 3안타에 그쳤던 오타니는 홈런 포함 5타수 2안타 4타점 1득점 불방망",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/sports/world-baseball/2026/04/04/GVSGGYTDGI2DKNBRGU2DOZRXHA/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/politics/politics_general/2026/04/04/4GPKK7NYHJBZRAC4WJUMUOUMIA",
-        "canonical_url": "https://chosun.com/politics/politics_general/2026/04/04/4GPKK7NYHJBZRAC4WJUMUOUMIA",
-        "title": "전쟁 추경이라더니… 항목엔 예술인 지원금, 농지 전수조사 비용도",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/politics/politics_general/2026/04/04/4GPKK7NYHJBZRAC4WJUMUOUMIA/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/entertainments/broadcast/2026/04/04/MYZDSYLDGRRGCMLEHA2WIZRTMM",
-        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/04/04/MYZDSYLDGRRGCMLEHA2WIZRTMM",
-        "title": "이을용, 민호父 제자였다..첫째·둘째 아들도 축구선수 “완전 축구집안” (‘나혼산’)[핫피플]",
-        "summary": "방송 시청 후 작성된 리뷰 기사입니다.[OSEN=박하영 기자] ‘나 혼자 산다’  이을용 감독의 둘째 아들이 민호 아버지의 축구팀에서 선수로 활동 중이었다. 3일 방송된 MBC 예능 ‘나 혼자 산다’(이하 ‘나혼산’)에서는 이을용 감독의 둘째 아들이 깜짝 등장한 모습이 그려졌다.이날 민호는 용인FC 축구팀에서 감독을 하고 있는 아버지를 응원하기 위해 커피차",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/entertainments/broadcast/2026/04/04/MYZDSYLDGRRGCMLEHA2WIZRTMM/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://chosun.com/national/weekend/2026/04/04/6PH3QAUOUJFGVPOGLGUCYOBKVA",
-        "canonical_url": "https://chosun.com/national/weekend/2026/04/04/6PH3QAUOUJFGVPOGLGUCYOBKVA",
-        "title": "공해 적응 훈련하고 왕진도 받네… ‘도심 나무’가 사는 법",
-        "summary": "",
-        "source": "조선일보",
-        "url": "https://www.chosun.com/national/weekend/2026/04/04/6PH3QAUOUJFGVPOGLGUCYOBKVA/",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
         "story_key": "https://chosun.com/international/international_general/2026/04/04/P3XADAZKRVCBNB3EJLNVEL7YFQ",
         "canonical_url": "https://chosun.com/international/international_general/2026/04/04/P3XADAZKRVCBNB3EJLNVEL7YFQ",
-        "title": "美 F-15E 이란서 첫 격추... 미 국방 “탑승자 1명은 구조”",
+        "title": "이란서 美 F-15기 첫 격추됐다... 미 국방부 “조종사 1명은 구조”",
         "summary": "",
         "source": "조선일보",
         "url": "https://www.chosun.com/international/international_general/2026/04/04/P3XADAZKRVCBNB3EJLNVEL7YFQ/",
@@ -2766,133 +2646,273 @@
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Inter/article/all/20260404/133673716/1",
-        "canonical_url": "https://donga.com/news/Inter/article/all/20260404/133673716/1",
-        "title": "美전투기 수난…F-15 이어 A-10 공격기도 추락",
-        "summary": "F-15 전투기에 이어 이란과의 전쟁에 투입됐던 미국 공군의 전투기가 3일(현지시간) 또 추락했다고 뉴욕타임스(NYT)가 복수의 미 당국자를 인용해 보도했다. 당국자에 따르면, ‘워트호그’(Warthog·혹멧돼지)라 불리는 A-10 공격기가 이날 F-15 전투기가 추락한 시점과 비슷한 시간에 호르무즈 해협 인근에서 추락했다. 탑승 중이던 조종사 한 명은 무사히 구조됐다. 다만 추락 원인에 대해서는 알려지지 않았다. 미 공군은 중동에 약 12대의 A-10 공격기를 배치했으며 18대를 추가로 파견하고 있는 것으로 알려졌다. 한편 F-15 전투기는 이날 이란 중부에서 추락했고, 탑승한 조종사 두 명 중 한 명은 구조됐다. 미군은 C-130 허큘리스 수송기와 HH-60 헬리콥터 등을 투입해 나머지 한 명에 대한 수색 및 구조 작업을 진행 중이다.(서울=뉴스1)",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Inter/article/all/20260404/133673716/1",
+        "story_key": "https://chosun.com/economy/tech_it/2026/04/04/JO7S2EP4VVH3PPMSSPYGOQVIMI",
+        "canonical_url": "https://chosun.com/economy/tech_it/2026/04/04/JO7S2EP4VVH3PPMSSPYGOQVIMI",
+        "title": "美 트럼프 정부의 6G 총력전… 獨 통신 전문가 “6G는 5G 때와는 다른 진짜 혁신, 2035년엔 로봇으로 둘러싸일 것”",
+        "summary": "",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/economy/tech_it/2026/04/04/JO7S2EP4VVH3PPMSSPYGOQVIMI/",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Inter/article/all/20260404/133673713/1",
-        "canonical_url": "https://donga.com/news/Inter/article/all/20260404/133673713/1",
-        "title": "이란 “美 전투기서 이탈 조종사 낙하” 보도…격추·사고 여부 불명",
-        "summary": "미국 전투기 조종사가 이란 남서부 상공에서 기체 이탈해 낙하했다고 이란 국영TV 지방 채널이 3일 보도했다.코흐길루예 보예르아마드주에 있는 방송은 이날 해당 미국 전투기에 어떤 일이 발생했는지에 대한 언급 없이 이같이 전했다.방송 진행자는 주민들에게 ‘적 조종사’를 발견할 경우 경찰에 넘기라고 촉구하며 신고자에게 포상금을 지급한다고 밝혔다.채널은 픽업트럭 적재함에 실린 금속 파편을 보여주기도 했지만 추가적인 구체 정보는 제공하지 않았다.앞서 화면 하단 자막에서는 “보이면 사살하라”는 문구가 노출되기도 했다. 코흐길루예 보예르아마드주는 이란 중서부에 위치해 있다. 면적 약 1만5500㎢에 이르는 산악 농촌 지대다.격추 여부나 다른 사고 가능성도 불분명하다. 미군 중부사령부와 국방부, 백악관은 관련 질의에 즉각 답하지 않았다.그간 이란은 적 항공기를 격추했다는 주장을 여러 차례 내놨지만 사실이 아닌 것으로 드러난 사례도 있었다. 다만 이번처럼 방송을 통해 조종사 수색을 촉",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Inter/article/all/20260404/133673713/1",
+        "story_key": "https://chosun.com/sports/world-football/2026/04/04/GFSTAMDDMZSWGZJUMU2DAZRTMM",
+        "canonical_url": "https://chosun.com/sports/world-football/2026/04/04/GFSTAMDDMZSWGZJUMU2DAZRTMM",
+        "title": "“로봇 아니다” 손흥민 향한 의심, 감독이 직접 정면 반박... '10경기 필드골 없음에도' 손흥민 향한 믿음은 더 강해졌다",
+        "summary": "[OSEN=우충원 기자] 득점 침묵에도 불구하고 신뢰는 흔들리지 않았다. 마크 도스 산토스 감독이 손흥민을 둘러싼 의문에 정면으로 답했다.LAFC는 5일(이하 한국시간) 미국 로스앤젤레스 BMO 스타디움에서 올랜도 시티와 2026시즌 MLS 6라운드를 치른다. 서부 컨퍼런스 선두를 달리고 있는 LAFC와 동부 하위권 올랜도의 맞대결이다.팀 성적은 안정적이지",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/world-football/2026/04/04/GFSTAMDDMZSWGZJUMU2DAZRTMM/",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Society/article/all/20260404/133673702/1",
-        "canonical_url": "https://donga.com/news/Society/article/all/20260404/133673702/1",
-        "title": "“피부에 갑자기 하얀 반점이 생겼어요”…혹시 ‘이 질환’?",
-        "summary": "어느날 갑자기 피부에 작고 하얀 반점이 생겼다면 ‘백반증’을 의심해 볼 수 있다. 백반증은 통증이 없고, 초기에는 반점이 작아 대수롭지 않게 넘기는 경우가 많지만 시간이 지나면서 점점 반점이 넓어 지고 전신으로 퍼질 수 있어 주의가 요구된다. 4일 의료계에 따르면 백반증은  피부의 색소를 만들어내는 멜라닌 세포가 파괴돼 피부 일부의 색소가 사라지면서 하얗게 변하는 자가면역질환이다.  백반증은 국내에서 꾸준히 증가하고 있다. 건강보험심사평가원에 따르면, 백반증으로 진료받은 환자 수는 2020년 6만1451명에서 2024년 6만9777명으로 4년 새 13.5% 늘었다. 진료 받지 않은 환자까지 합하면 실제 국내 백반증 환자는 더 많을 것으로 추산된다.   일반적으로 면역체계는 외부의 바이러스나 세균 같은 이물질로부터 몸을 보호하기 위해 작동하지만, 자가면역 질환은 이 면역체계가 오작동하면서 신체조직과 이물질을 구분하지 못하고 우리 몸의 세포와 조직을 공격하게 된다. 멜라닌 세",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Society/article/all/20260404/133673702/1",
+        "story_key": "https://chosun.com/international/international_general/2026/04/04/DZJMWWOIFBGRTDOW5PPTYV6N2U",
+        "canonical_url": "https://chosun.com/international/international_general/2026/04/04/DZJMWWOIFBGRTDOW5PPTYV6N2U",
+        "title": "러 빼고 모두가 중동전쟁 피해자… 中은 ‘적이 실수 땐 놔둬라’ 관망",
+        "summary": "",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/international/international_general/2026/04/04/DZJMWWOIFBGRTDOW5PPTYV6N2U/",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Sports/article/all/20260404/133673040/2",
-        "canonical_url": "https://donga.com/news/Sports/article/all/20260404/133673040/2",
-        "title": "집담보 대출로 꿈 키워준 부모, 올림픽 메달로 꿈 이뤄준 딸",
-        "summary": "2026 밀라노-코르티나담페초 겨울올림픽 스노보드 여자 빅에어 동메달리스트 유승은(18·성복고)은 4일 경기 용인시 집을 떠나 부산행 기차에 오른다. 프로야구 팀 롯데 자이언츠의 사직 안방 개막전 마지막 날(5일) 시구를 맡았기 때문이다. 유승은은 롯데 스키·스노보드팀 소속이다. 올해 롯데그룹은 스포츠 후원 사업에서 쏠쏠하게 재미를 보고 있다. 회장사를 맡고 있는 스키·스노보드 대표팀은 이번 올림픽 때 금, 은, 동메달을 한 개씩 가지고 돌아왔다. 한국 올림픽 출전 역사상 최고 성적이다. 또 롯데 골프단 소속인 김효주(31)는 미국여자프로골프(LPGA)투어 파운더스컵과 포드챔피언십에서 2주 연속 우승을 차지했다. 이제 하나 남은 ‘아픈 손가락’이 자이언츠다. 자이언츠는 개막 2연전을 모두 이겼지만 주중 3연전 때는 싹쓸이 패배를 당하면서 롤러코스터를 탔다. 서울 종로구 동아미디어센터에서 최근 만난 유승은은 “올림픽 메달 기운을 잘 전해서 꼭 ‘승요’(승리요정)가 되고 싶다. 올해",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Sports/article/all/20260404/133673040/2",
+        "story_key": "https://chosun.com/international/2026/04/04/HJLQABPQIFGHBDDKNM7XLAOCHQ",
+        "canonical_url": "https://chosun.com/international/2026/04/04/HJLQABPQIFGHBDDKNM7XLAOCHQ",
+        "title": "혁명군과 게릴라들의 무기 ‘AK 소총’의 아버지를 만나다",
+        "summary": "",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/international/2026/04/04/HJLQABPQIFGHBDDKNM7XLAOCHQ/",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Sports/article/all/20260404/133673033/2",
-        "canonical_url": "https://donga.com/news/Sports/article/all/20260404/133673033/2",
-        "title": "우즈, 약물운전 체포 경찰에 “방금 대통령과 통화”",
-        "summary": "‘골프 황제’ 타이거 우즈(51·미국)가 심신 미약 상태에서 운전하다 사고를 내 체포당하는 과정에서 “대통령과 통화하고 있었다(I was talking with the President)”고 말하는 영상이 공개됐다. 우즈는 지난달 28일 자택 인근인 미국 플로리다주 마틴카운티에서 차량이 전복되는 사고를 낸 뒤 음주 또는 약물 운전 혐의(DUI·Driving Under the Influence)로 체포됐다. 마틴카운티 보안관 사무소는 우즈를 체포한 경찰관 몸에 달려 있던 ‘보디캠’ 영상을 3일 공개했다. 이 영상을 보면 길을 걸으면서 휴대전화로 누군가와 이야기를 하고 있던 우즈는 경찰관이 다가가자 통화 상대에게 “정말 감사하다”면서 전화를 끊었다. 경찰관이 ‘함께 가달라’고 하자 대통령 이야기를 꺼냈다. 이에 대해 AP통신은 “우즈가 언급한 대통령이 도널드 트럼프 현 미국 대통령인지는 확실하지 않다”고 보도했다. 다만 두 사람은 ‘절친’이라고 할 수 있는 사이다. 트럼프 대통령은",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Sports/article/all/20260404/133673033/2",
+        "story_key": "https://chosun.com/sports/world-baseball/2026/04/04/GM2DIYJUGU3DCNJTGAZTAMDGMQ",
+        "canonical_url": "https://chosun.com/sports/world-baseball/2026/04/04/GM2DIYJUGU3DCNJTGAZTAMDGMQ",
+        "title": "'똑딱이 논란' 시달렸던 오타니가 홈런 포함 4타점이라니...감독도 드디어 안도의 한숨",
+        "summary": "",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/sports/world-baseball/2026/04/04/GM2DIYJUGU3DCNJTGAZTAMDGMQ/",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Sports/article/all/20260404/133673038/2",
-        "canonical_url": "https://donga.com/news/Sports/article/all/20260404/133673038/2",
-        "title": "“100번째 ‘현대家 더비’ 무조건 이긴다” 전북-울산 오늘 전주서 사생결단 승부",
-        "summary": "“왕에게는 친척이 없다(A king has no kin).” 유럽에서는 중세 시대 왕가 친인척 사이에 벌어진 권력 다툼을 설명할 때 이 표현을 쓰고는 한다. 21세기 한국프로축구 K리그 그라운드에서도 이 표현은 유효하다. ‘현대가(家) 더비’를 보면 알 수 있다. 현대자동차를 모기업으로 둔 전북과 HD현대를 모기업으로 둔 울산은 4일 오후 2시 전주월드컵경기장에서 이번 시즌 첫 맞대결이자 통산 100번째 현대가 더비를 치른다. 현재까지 맞대결 전적에서는 38승 24무 37패로 전북이 딱 1승 앞서 있다. 2024년까지는 두 팀이 36승 24무 36패로 동률이었는데 지난해 전북이 울산을 상대로 2승 1패를 거두면서 다시 격차가 생겼다. 올 시즌 성적도 백중세다. 3일 현재 울산이 승점 10(3승 1무)으로 K리그1(1부 리그) 2위, 전북(승점 8·2승 2무 1패)이 3위다.  2017년부터 지난해까지 9년 동안 K리그1 챔피언은 늘 전북 아니면 울산이었다. 전북이 먼저 2017",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Sports/article/all/20260404/133673038/2",
+        "story_key": "https://chosun.com/entertainments/broadcast/2026/04/04/MI3DCM3CG42WMZBUGU3GCNJXGI",
+        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/04/04/MI3DCM3CG42WMZBUGU3GCNJXGI",
+        "title": "홍현희 '자책+낙담' 가득...모처럼 자유부인 꿈꿨는데 \"날씨 망함\" ('홍쓴TV')",
+        "summary": "리뷰 : 방송 시청 후 작성된 리뷰 기사입니다.[OSEN=김수형 기자] ‘홍쓴TV' 홍현희가 자유부인 실패한 괌 여행기를 공개, 자책과 후회 가득한 근황이 안타까움을 안겼다. 3일 ‘홍현희 제이쓴의 홍쓴TV’ 채널을 통해 ‘날씨 망함’이란 제목으로 영상이 게제됐다.아들 준범이 하원하자마자 괌으로 떠난 홍현희는 “우리 둘만 가는건 처음”이라며 “관절이 좋아지",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/entertainments/broadcast/2026/04/04/MI3DCM3CG42WMZBUGU3GCNJXGI/",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Sports/article/all/20260404/133673036/2",
-        "canonical_url": "https://donga.com/news/Sports/article/all/20260404/133673036/2",
-        "title": "김연경, 美 배구팀 공동구단주에",
-        "summary": "‘배구 여제’ 김연경(38)이 샌프란시스코를 연고로 창단하는 미국여자프로배구(LOVB) 팀의 공동 구단주가 됐다. 김연경과 함께 스티브 커 미국프로농구(NBA) 골든스테이트 감독 등 스포츠·문화계 인사들이 대거 공동 구단주로 이름을 올렸다. LOVB는 2024년 출범했으며 현재 매디슨, 솔트레이크시티, 애틀랜타, 오마하, 오스틴, 휴스턴 등 6개 도시에 팀이 있다. 샌프란시스코 구단은 내년 1월 창단 첫 경기를 치른다.",
-        "source": "동아일보",
-        "url": "https://www.donga.com/news/Sports/article/all/20260404/133673036/2",
+        "story_key": "https://chosun.com/entertainments/broadcast/2026/04/04/GVQTQNTBME3DMZJUMM4TGYRQGI",
+        "canonical_url": "https://chosun.com/entertainments/broadcast/2026/04/04/GVQTQNTBME3DMZJUMM4TGYRQGI",
+        "title": "민호, ‘용인FC 감독’ 父 카리스마에 깜짝..“내가 알던 아빠 아냐” (‘나혼산’)",
+        "summary": "방송 시청 후 작성된 리뷰 기사입니다.[OSEN=박하영 기자] ‘나 혼자 산다’ 민호가 아버지 직장을 처음 방문, 새로운 모습에 깜짝 놀랐다.3일 방송된 MBC 예능 ‘나 혼자 산다’(이하 ‘나혼산’)에서는 샤이니 민호와 K리그2 용인FC 감독인 아버지 최윤겸의 일상이 공개됐다.이날 축구장을 방문한 민호는 “훈련 중이어서 진짜 아무것도 못하겠다. 위엄이”라",
+        "source": "조선일보",
+        "url": "https://www.chosun.com/entertainments/broadcast/2026/04/04/GVQTQNTBME3DMZJUMM4TGYRQGI/",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Sports/article/all/20260404/133673034/2",
-        "canonical_url": "https://donga.com/news/Sports/article/all/20260404/133673034/2",
-        "title": "철거될 잠실야구장서 올스타전",
-        "summary": "올해 프로야구 올스타전은 서울 잠실구장에서 열린다. 한국야구위원회(KBO)는 “올해 마지막으로 정규시즌을 치르는 잠실구장에서 올스타전을 개최하기로 했다”고 3일 알렸다. 1982년 문을 연 잠실구장은 올 연말에 철거된 뒤 3만 명이 찾을 수 있는 돔구장으로 2032년 다시 태어날 계획이다. 잠실구장에서 프로야구 올스타전이 열리는 건 프로야구 출범 40주년이던 2022년 이후 4년 만이다. 올해 올스타전은 7월 11일이다.",
+        "story_key": "https://donga.com/news/Sports/article/all/20260404/133673808/1",
+        "canonical_url": "https://donga.com/news/Sports/article/all/20260404/133673808/1",
+        "title": "통산 100번째 ‘현대가더비’…A매치 휴식기 마친 K리그 ‘킥오프!’",
+        "summary": "3월 A매치 휴식기로 잠시 멈췄던 프로축구 K리그1이 이번 주말 ‘현대가더비’부터 재개된다.하나은행 K리그1 2026이 4일 오후 2시 전주월드컵경기장에서 열릴 전북 현대와 울산 HD의 6라운드 맞대결로 다시 시작한다.현재 전북은 승점 8(2승 2무 1패)로 3위, 한 경기 덜 치른 울산(승점 10·3승 1무)은 2위다.‘현대가더비’는 프로축구 K리그를 대표하는 라이벌 매치로 큰 관심을 받는다.특히 이번 경기는 올 시즌 처음이자 정규리그 100번째 맞대결이라는 점에서 의미가 크다.전북은 지난 시즌 K리그1과 코리아컵 우승으로 ‘더블(2관왕)’을 달성했지만, 정정용 감독이 부임한 뒤 개막 3경기 무승(2무 1패)에 빠지며 주춤했다.그러나 휴식기 전 FC안양(2-1 승)과 대전하나시티즌(1-0 승)을 연달아 잡아 디펜딩 챔피언으로서의 건재함을 뽐냈다.전북은 지난해 전적과 통산 전적에서 자신감을 얻는다.사령탑은 바뀌었지만, 전북은 지난해 울산과 세 차례 맞붙어 2승 1패로",
         "source": "동아일보",
-        "url": "https://www.donga.com/news/Sports/article/all/20260404/133673034/2",
+        "url": "https://www.donga.com/news/Sports/article/all/20260404/133673808/1",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/People/article/all/20260404/133673145/2",
-        "canonical_url": "https://donga.com/news/People/article/all/20260404/133673145/2",
-        "title": "아르테미스 2호, 지구→달 궤도 갈아탔다",
-        "summary": "미국의 유인 달 탐사 프로젝트 ‘아르테미스’ 2호가 지구 궤도를 벗어나 달로 향했다. 미국항공우주국(NASA)은 2일 오후 7시 49분(현지 시간) 아르테미스 2호의 유인 우주선 ‘오리온’이 달 전이 궤도 투입을 위해 점화 과정을 거쳐 지구 궤도를 벗어났다고 밝혔다. 인류가 지구 궤도를 떠난 것은 1972년 아폴로 17호 이후 54년 만이다. 아르테미스 2호는 1일 오후 6시 35분(현지 시간) 미국 플로리다주 케네디우주센터 발사장에서 발사된 뒤 지구 궤도를 돌며 생명 유지 장치 등을 점검하고 근접 비행을 시험했다. 우주 비행사들은 이 과정을 모두 정상적으로 마치고 달 전이 궤도로 진입했다. 이들은 궤도를 따라 달의 중력을 이용해 8자 모양으로 달을 스치듯 돌아 10일 다시 지구로 귀환하게 된다. 지구와 가장 멀어지는 달 뒷면에는 6일경 도달할 예정으로, 오리온에 탑승한 4명의 우주 비행사는 육안으로 달 뒷면을 탐사할 예정이다. 오리온은 정상적으로 순항하고 있지만 내부에서는 작",
+        "story_key": "https://donga.com/news/Culture/article/all/20260404/133673805/1",
+        "canonical_url": "https://donga.com/news/Culture/article/all/20260404/133673805/1",
+        "title": "“보이는데 안 보이는 척” 시각장애 김한솔, 7년간 악플에 시달려",
+        "summary": "시각장애인 유튜버 ‘원샷한솔’(김한솔)이 7년째 이어지는 근거 없는 악성 댓글에 대한 고통을 호소했다.지난 2일 유튜브 채널 ‘원샷한솔’에는 ‘제발 그만들 좀 하라고… 악플러 패버렸습니다’라는 제목의 영상이 게재됐다. 영상에서 김한솔은 제작진과 함께 자신을 향한 악플을 직접 읽으며 솔직한 심경을 밝혔다.공개된 악플에는 “보이는데 안 보이는 척 연기한다”, “장애를 이용해 사기를 친다”, “시각장애인이면 집에나 가만히 있어라” 등 인신공격성 내용이 담겼다. 김한솔은 “7년째 활동 중인데 아직도 이런 반응이 있다는 게 믿기지 않는다”며 끝내 눈물을 보였다.그는 눈동자의 움직임 등을 이유로 시력을 의심하는 이들에게 “시각장애인은 이럴 것이라는 편견”이라고 지적했다. 또한 반려견 토리를 향한 학대 루머에 대해서도 “일관성 없는 비난일 뿐”이라고 토로했다. 김한솔은 희소병인 레버씨 시신경 위축증(LHON)으로 인해 지난 2010년 후천적으로 시력을 잃었다. 그는 “대신 싸워주는 구독",
         "source": "동아일보",
-        "url": "https://www.donga.com/news/People/article/all/20260404/133673145/2",
+        "url": "https://www.donga.com/news/Culture/article/all/20260404/133673805/1",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/People/article/all/20260404/133673143/2",
-        "canonical_url": "https://donga.com/news/People/article/all/20260404/133673143/2",
-        "title": "‘성리학 대가’ 하서 김인후 선생 춘향제",
-        "summary": "조선시대 성리학 대가 하서 김인후 선생(1510∼1560)의 학덕을 기리는 춘향제(春享祭)가 3일 전남 장성군 황룡면 필암서원(사적 제242호)에서 봉행됐다. 하서는 이황(1501∼1570)과 쌍벽을 이루는 조선 중기 유학자다. 1540년 별시문과에 급제하고 홍문관 박사 겸 부수찬으로 세자였던 인종을 가르쳤다. 이후 을사사화가 일어나자 고향 장성으로 내려가 후학 양성에 힘썼다. 이날 춘향제에는 최석기 한국선비문화원 부원장을 비롯해 김상국 울산김씨 대종회장, 김재완 울산김씨 문정공대종중 도유사, 송남섭 충남유도회장, 김인술 온생명평생교육원장, 김양수 필암서원 고문, 박래호 필암서원 수석장의 등 유림과 주민 200여 명이 참석했다. 제례에서 초헌관을 맡은 최 부원장은 의식을 마친 뒤 서원 내 청절당에서 ‘경상우도의 학풍과 하서 선생에 대한 이해’를 주제로 강론했다. 그는 “경상우도 학풍은 남명학을 바탕으로 퇴계·율곡·성호학 등을 수용하고 실천과 경세를 중시하는 방향으로 전개됐다”며",
+        "story_key": "https://donga.com/news/Sports/article/all/20260404/133673602/1",
+        "canonical_url": "https://donga.com/news/Sports/article/all/20260404/133673602/1",
+        "title": "실바, 김연경 물론 레오도 넘었다…GS칼텍스, 우승까지 1승 [발리볼 비키니]",
+        "summary": "‘쿠바 특급’ 실바(35·GS칼텍스)가 ‘배구 여제’ 김연경(38·전 흥국생명)도 ‘몰방(沒放) 배구’ 대명사 레오(36·현 현대캐피탈)도 해보지 못한 기록을 남겼습니다.GS칼텍스는 2일 경북 김천체육관에서 안방 팀 한국도로공사와 2025~2026 V리그 여자부 챔피언결정 2차전을 치러 3-2(25-15, 14-25, 20-25, 25-22, 15-7) 재역전승을 거뒀습니다.실바는 이 경기서 양 팀 최다인 35점을 올리면서 팀 승리를 이끌었습니다.그러면서 이번 시즌 포스트시즌 다섯 경기 연속으로 30점 이상을 올리는 기록을 남겼습니다.실바는 V리그 포스트시즌 데뷔전이었던 이번 시즌 준플레이오프(PO)부터 42점 → 40점 → 32점 → 30점 → 35점을 기록 중입니다.김연경은 △2005~2006 챔프전 1, 2차전 △2006~2007 〃 3, 4차전 △2024~2025 〃 4, 5차전에 걸쳐 총 세 번 두 경기 연속 30득점 기록을 남겼습니다.다만 ‘봄 배구’ 무대에서 세 경기에서",
         "source": "동아일보",
-        "url": "https://www.donga.com/news/People/article/all/20260404/133673143/2",
+        "url": "https://www.donga.com/news/Sports/article/all/20260404/133673602/1",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/People/article/all/20260403/133673135/2",
-        "canonical_url": "https://donga.com/news/People/article/all/20260403/133673135/2",
-        "title": "[인사]공관장 外",
-        "summary": "◇공관장 ▽대사 △주멕시코 이주일 △주알제리 민경태 △주유네스코 김지희 ◇경찰청 〈전보〉 ▽치안정감 △부산경찰청장 김성희 ▽치안감 △경찰청 경비국장 김병기 △〃 치안정보〃 송영호 △〃 국가수사본부 형사〃 정상진 △대전경찰청장 백동흠 △울산〃 유윤종 △충북〃 신효섭 △충남〃 김호승 △전북〃 이재영 △전남〃 고범석 △경북〃 김원태 ▽경무관 〈승진〉 △경찰청 국제공조1과장 박재석 △〃 치안상황〃 임동균 △〃 범죄예방정책〃 박정원 △〃 경제범죄수사〃 박찬우 △〃 경무담당관 빈중석 △〃 인사〃 김종관 △〃 교육정책〃 정한규 △〃 치안정보협력과장 정문석 △〃 교통기획〃 조우종 △〃 치안정보상황〃 양승호 △〃 강력범죄수사〃 김근만 △서울청 금융범죄수사대장 강일구 △〃 경무부 경무기획 배용석 △〃 수서서장 손창현 △〃 치안정보상황과장 유재용 △〃 범죄예방질서〃 김상형 △〃 과학수사〃 고영재 △〃 여성안전〃 김상희 △경기남부청 형사〃 이진수 △〃 치안정보〃 김성준 △대전청 경무기획정보화장비〃 송재",
+        "story_key": "https://donga.com/news/Culture/article/all/20260404/133673792/1",
+        "canonical_url": "https://donga.com/news/Culture/article/all/20260404/133673792/1",
+        "title": "‘44kg 감량 후 요요’ 김신영, 박나래 빈자리 채우나…‘나혼산’ 등장",
+        "summary": "코미디언 김신영이 맥시멀리스트의 일상을 공개한다.지난 3일 방송된 MBC TV 예능물 ‘나 혼자 산다’ 예고편에는 자취 14년 차 김신영의 집이 담겼다. 데님방, 신발방 등 물건으로 가득 찬 공간을 소개한 김신영은 “돈 벌 수 있을 때 조금씩 모은 내 세계”라며 “다 팔면 이 집을 살 수 있을 것”이라고 너스레를 떨었다.그는 외출을 즐기지 않는 ‘집순이’임에도 알람에 맞춰 일과를 수행하는 철저한 계획성을 보였다. “시간을 그냥 흘려보내고 싶지 않다”는 그는 아침부터 면치기로 시작하는 자신만의 식사 코스를 선보이며 남다른 미식 철학을 드러내기도 했다.특히 누리꾼들 사이에선 김신영의 이번 등장을 코미디언 박나래의 공백과 연관해 해석하고 있다. 그녀의 빈자리를 메우지 않겠냐는 추정이다. 앞서 김신영은 44㎏ 감량 후 13년간 몸매를 유지해왔으나, 최근 억눌렀던 식욕을 해소하며 요요가 온 근황을 솔직하게 전해 화제를 모은 바 있다.[서울=뉴시스]",
         "source": "동아일보",
-        "url": "https://www.donga.com/news/People/article/all/20260403/133673135/2",
+        "url": "https://www.donga.com/news/Culture/article/all/20260404/133673792/1",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Politics/article/all/20260403/133673480/2",
-        "canonical_url": "https://donga.com/news/Politics/article/all/20260403/133673480/2",
-        "title": "지지율 30%P 최대 격차… 질주하는 與, 길잃은 野",
-        "summary": "6·3 지방선거가 60일 앞으로 다가온 가운데 더불어민주당과 국민의힘의 양당 지지율 격차가 30%포인트로 벌어지며 이재명 정부 출범 후 최대치를 기록했다. 민주당은 대구시장 후보에 김부겸 전 국무총리 공천을 확정하며 동진(東進) 전략으로 압승을 노리고 있다. 국민의힘은 ‘보수 텃밭’ 대구를 포함한 공천 난맥으로 후보 확정이 지체되면서 위기감이 고조되고 있다. 한국갤럽이 지난달 31일∼이달 2일 조사해 3일 발표한 여론조사(전화면접 방식·95% 신뢰 수준에 표본오차 ±3.1%포인트·자세한 사항은 중앙선거여론조사심의위원회 홈페이지 참조)에 따르면 민주당 지지율은 48%로 지난해 6월 4일 이재명 정부 출범 이후 가장 높았다. 반면 국민의힘 지지율은 18%로 이재명 정부 출범 이후 가장 낮았다. 양당의 지지율 격차가 30%포인트로 벌어진 것은 이재명 정부 출범 후 처음이다. 직전 최대 격차는 지난주 민주당 46%, 국민의힘 19%로 27%포인트 차였다. 민주당은 서울(51%) 경기·인",
+        "story_key": "https://donga.com/news/Entertainment/article/all/20260404/133673789/1",
+        "canonical_url": "https://donga.com/news/Entertainment/article/all/20260404/133673789/1",
+        "title": "탑을 새롭게 볼 ‘다중관점’…존재의 이유 증명할 정규",
+        "summary": "가수 탑이 13년 만의 솔로 복귀이자 데뷔 20주년이라는 기념비적인 해를 맞아 자신의 음악적 가치를 증명했다.탑은 지난 3일 오후 6시 각종 음원 사이트를 통해 첫 번째 솔로 정규앨범 ‘다중관점’(ANOTHER DIMENSION)을 발매했다. 2013년 디지털 싱글 ‘둠 다다’(DOOM DADA) 이후 오랜 공백을 깨고 내놓은 이번 솔로 신보는 아티스트로서 탑이 지닌 고유의 세계관과 깊어진 내공이 깃든 결과물이다.이번 앨범은 그간의 부침과 사회적 이슈, 그리고 최근 ‘오징어 게임2’를 통한 성공적인 배우 복귀 등 굴곡진 시간을 지나온 탑이 본업인 음악으로 돌아와 던지는 묵직한 메시지다. 앨범명 ‘다중관점’에서 드러나듯, 그는 음악이라는 매개체를 통해 자신을 바라보는 다양한 시선과 그 안에 담긴 진심을 11개의 트랙으로 풀어냈다.앨범의 포문을 연 더블 타이틀곡 ‘데스페라도’(DESPERADO)는 사랑의 순간을 직선적으로 그려낸 곡이다. 3일 음원과 함께 공개된 뮤직비디오는 미니멀",
         "source": "동아일보",
-        "url": "https://www.donga.com/news/Politics/article/all/20260403/133673480/2",
+        "url": "https://www.donga.com/news/Entertainment/article/all/20260404/133673789/1",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://donga.com/news/Economy/article/all/20260403/133672352/2",
-        "canonical_url": "https://donga.com/news/Economy/article/all/20260403/133672352/2",
-        "title": "45조 사채시장에 덤빈 직장 동료 셋… “연 3조 굴리는 핀테크 키워”[허진석의 톡톡 스타트업]",
-        "summary": "칼국숫집 사장이 있다. 하루에 200그릇씩 꼬박꼬박 파는 성실한 자영업자다. 밀가루 거래처 대금은 매달 5일에, 아르바이트생 급여는 15일에 나간다. 그런데 오늘은 4일. 통장 잔고가 바닥났다. 한 달이 다 돌고 나면 수지가 맞는 장사인데, 지금 이 순간만큼은 200만 원이 없어 발을 동동 굴러야 한다. 그가 선택할 수 있는 것은 무엇일까. 은행은 재무제표도 없고 신용 데이터도 부족한 칼국숫집 사장에게 대출을 내주지 않는다. 그는 옆 가게 사장을 찾아간다. “김 사장, 200만 원만 꿔줘. 다음 달에 220만 원으로 갚을게.” 이게 어려우면 생명보험을 담보로 고금리 대출을 받는다.  이런 일은 전국 수십만 소상공인과 중소 사업자에겐 결코 낯설지 않다. 소상공인이 운영자금 등을 위해 사채로 빌리는 돈은 연간 45조 원 규모다. 올라핀테크 김상수 대표(47)가 이 숫자를 처음 마주했을 때, 머릿속에서 창업의 불꽃이 튀었다. 2일 서울 강남구 사무실에서 만난 김 대표는 “이 문제를 해",
+        "story_key": "https://donga.com/news/Entertainment/article/all/20260404/133673785/1",
+        "canonical_url": "https://donga.com/news/Entertainment/article/all/20260404/133673785/1",
+        "title": "효민, 역대급 신혼집·요리 실력…“남편, 10살 연상 금융업 종사자”",
+        "summary": "티아라 효민이 ‘신상출시 편스토랑’에 출연해 신혼집을 공개, 뛰어난 요리 실력을 자랑했다.지난 3일 오후 방송된 KBS2 예능 프로그램 ‘신상출시 편스토랑’(이하 ‘편스토랑’)에서는 티아라 효민이 신입 편셰프로 합류했다.티아라에서 사업가로 변신한 효민이 편셰프로 새롭게 합류했다. 효민은 자신의 이름을 건 주류부터 뷰티 브랜드까지 출시한 CEO라고. 더불어 효민은 결혼 2년 차 새댁으로 지난해 4월 10살 연상의 금융업 종사자 남편과 결혼, 화려한 결혼식으로 화제를 모았다. 하객으로 참석했던 편셰프 김재중은 “결혼이 지긋한데, 효민 결혼식 보고 처음으로 가슴이 뛰었다, 한다면 이렇게 하고 싶다”라고 극찬했다. 웨딩 플래너 없이 결혼식을 직접 준비한 효민은 김재중 결혼식을 도와주겠다고 약속, 김재중을 당황하게 해 웃음을 안겼다.효민이 한강뷰 테라스가 돋보이는 신혼집을 소개했다. 갤러리에 온 듯한 효민의 신혼집은 효민이 소품, 인테리어 등 하나부터 열까지 모두 직접 꾸몄다고. 이어",
         "source": "동아일보",
-        "url": "https://www.donga.com/news/Economy/article/all/20260403/133672352/2",
+        "url": "https://www.donga.com/news/Entertainment/article/all/20260404/133673785/1",
         "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Entertainment/article/all/20260404/133673781/1",
+        "canonical_url": "https://donga.com/news/Entertainment/article/all/20260404/133673781/1",
+        "title": "샤이니 민호, 축구감독 父 커피차 응원→슈팅 대결까지",
+        "summary": "샤이니 민호가 축구장을 찾아 아버지를 응원했다.지난 3일 오후 방송된 MBC 예능 프로그램 ‘나 혼자 산다’에서는 샤이니 민호가 아버지를 응원하기 위해 축구장을 방문한 모습이 담겼다.샤이니 민호가 K리그2 용인 FC 축구팀 감독인 아버지 최윤겸 감독을 응원하기 위해 축구장을 찾았다. 최윤겸 감독은 88서울올림픽 국가대표 출신으로 최연소로 프로 축구 사령탑에 등극, 현역 최고령 베테랑 축구 감독이다.민호는 축구 선수들을 위엄 있게 지도하는 아버지의 모습에 긴장한 모습을 보이기도. 이어 민호는 “부모님 일하는 직장 가기 쉽지 않잖아요”라고 운을 떼며 경기 때와는 사뭇 다른 아버지의 모습을 이날 처음 보고, 많이 긴장했다고 밝혔다. 이어 민호가 용인 FC 축구팀을 위해 커피차를 선물하며 아버지를 미소 짓게 했다.이후 민호는 운동복으로 갈아입고, 아버지에게 골대 상단 맞히기 슈팅 대결을 제안해 재미를 더했다. 민호는 아버지가 단 한 번도 축구를 가르쳐주신 적이 없다며 “너무 반대를",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Entertainment/article/all/20260404/133673781/1",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Culture/article/all/20260404/133673778/1",
+        "canonical_url": "https://donga.com/news/Culture/article/all/20260404/133673778/1",
+        "title": "침착맨 ‘개그콘서트’ 출격…‘오히려 좋아’ 김기열 호흡",
+        "summary": "유튜버 침착맨이 ‘개그콘서트’에 출연한다.침착맨은 오는 5일 방송하는 KBS 2TV 예능프로그램 ‘개그콘서트’ 코너 ‘오히려 좋아’에 나와 코미디언 김기열과 호흡한다.‘오히려 좋아’는 테러범 김기열의 기내 진입을 환영하는 승객의 모습으로 시작한다. 코너가 진행되던 중 예상치 못한 공간에서 침착맨이 깜짝 등장하고 관객은 환호한다.침착맨은 유튜브 방송을 하면서 “오히려 좋아”라는 말을 자주했고 이게 온라인에서 유행어가 됐다. 김기열은 평소 침착맨 유튜브에 출연하며 친분을 쌓아왔다.침착맨은 ‘오히려 좋아’의 이상한 점을 하나하나 짚으며 ‘코너 테러범’으로 활약한다.특히 마지막 대목에선 출연자 모두를 깜짝 놀라게 하는 폭탄 발언을 던진다. 그 내용은 방송에서 확인할 수 있다.한편 ‘공개재판’ 코너에선 코미디언 오지헌이 ‘불법 얼굴 소지죄’로 피고인석에 앉는다.오지헌은 자신은 얼굴로 웃기는 사람이 아니라고 항변한다. 하지만 검사 박성호와 변호사 박영진의 얼굴 공격에 객석에선 웃음",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Culture/article/all/20260404/133673778/1",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Sports/article/all/20260404/133673775/1",
+        "canonical_url": "https://donga.com/news/Sports/article/all/20260404/133673775/1",
+        "title": "‘10경기 침묵’ 손흥민, 최다 실점 올랜도전서 첫 골 도전",
+        "summary": "홍명보 감독이 이끄는 한국 남자 축구 대표팀의 ‘주장’이자 ‘핵심 공격수’ 손흥민(34·로스앤젤레스FC)이 미국 프로축구 메이저리그사커(MLS) 2026시즌 최다 실점팀인 올랜도 시티를 상대로 시즌 마수걸이 득점에 나선다.로스앤젤레스FC(LAFC)는 5일 오전 10시30분(한국 시간) 미국 캘리포니아주 LA의 BMO 스타디움에서 올랜도와 2026시즌 MLS 6라운드 홈 경기를 치른다.현재 4승1무(승점 13)로 서부 콘퍼런스 단독 선두를 달리고 있는 LAFC는 이날 경기서 1위 굳히기와 개막 무패 연장을 정조준한다.3월 A매치 휴식기 이후 재개되는 일정인데, 팀 성적뿐 아니라 LAFC의 주전 공격수인 손흥민의 발끝에도 관심이 쏠린다.손흥민은 지난 2월18일 올해 첫 공식전인 레알 에스파냐(온두라스)와의 북중미카리브해축구연맹(CONCACAF) 챔피언스컵 1라운드 1차전 원정 경기에서 1골 3도움을 기록하며 기분 좋은 출발을 보였다.하지만 이후 8경기 연속 골 맛을 보지 못하고",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Sports/article/all/20260404/133673775/1",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Economy/article/all/20260404/133673770/1",
+        "canonical_url": "https://donga.com/news/Economy/article/all/20260404/133673770/1",
+        "title": "이재용·정의선, 佛 마크롱 만났다…반도체·수소 협력 확대 기대감↑",
+        "summary": "이재용 삼성전자 회장, 정의선 현대차그룹 회장이 에마뉘엘 마크롱 프랑스 대통령과 만나 사업 협력 논의를 한 가운데, 향후 반도체와 수소차 등 양사의 핵심 사업에서 프랑스와 힘을 모을 지 주목되고 있다.이 회장과 정 회장은 지난 3일 오후 5시30분께 서울 여의도 FKI타워에서 마크롱 대통령과 비공개 회담을 가졌다.이들은 약 30분 간 회담을 진행했는데, 반도체와 수소 등 양사가 주력하고 있는 사업 분야에서 구체적인 협력을 논의했을 것으로 관측된다.우선 삼성전자는 프랑스 정부 및 현지 기업들과 반도체 협력에 나설 가능성이 점쳐진다. 마크롱 대통령은 과거부터 삼성전자가 프랑스에 반도체 생산시설을 짓기를 바란다는 취지의 발언을 한 것으로 알려졌다. 프랑스는 자국 내에 공장을 짓는 반도체 기업들에게 조 단위의 보조금을 지원하겠다고 밝힌 바 있다.이에 재계에서는 삼성전자가 프랑스와 여러 형태로 반도체 협력에 나설 수 있다는 관측이 나왔다.특히 마크롱 대통령의 국빈 방한을 계기로 개",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Economy/article/all/20260404/133673770/1",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Society/article/all/20260404/133673767/1",
+        "canonical_url": "https://donga.com/news/Society/article/all/20260404/133673767/1",
+        "title": "“벚꽃 한창인데” 전국 대부분 비·강풍…제주 호우특보 가능성",
+        "summary": "토요일인 4일은 낮까지 전국 대부분 지역에 비가 내리겠고 전남권과 경상권, 제주도에 강한 비가 쏟아지는 곳이 있겠다.전남권과 경상권, 제주도를 중심으로 새벽부터 오전 사이 강한 비가 내리는 곳이 있겠고, 제주도에는 호우 특보를 발표할 가능성이 있겠다.예상 강수량은 △경기 남부 10~40㎜ △서울·인천·경기 북부 5~20㎜ △서해5도 5~10㎜ △강원 영동 남부 20~60㎜ △강원중·남부(영동 남부 제외) 10~40㎜ △강원 북부 5~20㎜ △대전·세종·충남, 충북 10~40㎜ △전남 동부 남해안 30~80㎜ △광주·전남(동부 남해안 제외) 20~60㎜ △전북 10~40㎜ △부산·울산·경남 남해안, 지리산 부근 30~80㎜ △경북 동해안, 경남내륙(지리산 부근 제외) 20~60㎜ △대구·경북(동해안 제외), 울릉도·독도 10~40㎜ △제주도(북부 제외) 30~100㎜(많은 곳 산지 150㎜ 이상, 중산간 120㎜ 이상) △제주도 북부 20~60㎜다.기상청에 따르면 당분간 기온은",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Society/article/all/20260404/133673767/1",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Society/article/all/20260404/133673764/1",
+        "canonical_url": "https://donga.com/news/Society/article/all/20260404/133673764/1",
+        "title": "‘편의점 털자’ 복면쓰고 흉기 위협, 결국 미수…50대 실형",
+        "summary": "복면을 쓰고 편의점에 들어가 돈을 빼앗으려다 실패한 50대가 실형을 선고 받았다.4일 지역 법조계에 따르면 대전지법 형사13부(부장판사 장민경)는 특수강도미수 혐의로 기소된 A(51)씨에게 징역 2년 6개월을 선고했다.A씨는 지난해 12월23일 오전 3시42분께 대전 중구에 있는 한 편의점에서 복면으로 얼굴을 가리고 모자를 쓴 채 직원 B씨에게 흉기로 위협하며 카운터 출입문을 열려고 시도한 혐의로 재판에 넘겨졌다.이어 B씨가 물러나자 A씨는 휘두를 듯이 위협했고 B씨가 비상벨을 작동시켜 경찰을 불렀다고 하자 밖으로 도주한 것으로 조사됐다.재판부는 “미수에 그쳤으며 범행을 인정하고 반성하는 태도를 보이는 것은 유리한 정상”이라며 “다만 미리 준비한 흉기로 새벽에 금품을 강취하려다가 경찰에 신고해 미수에 그쳐 죄질이 매우 불량하며 피해자가 상당한 공포를 느낀 점 등을 고려하면 엄중한 처벌이 필요하다”고 판시했다.[대전=뉴시스]",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Society/article/all/20260404/133673764/1",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Inter/article/all/20260404/133673761/1",
+        "canonical_url": "https://donga.com/news/Inter/article/all/20260404/133673761/1",
+        "title": "트럼프 “이란 美전투기 격추, 협상에는 전혀 영향없다”",
+        "summary": "3일(현지 시간) 전쟁 시작 후 처음으로 미군 전투기가 이란에서 격추된 가운데 도널드 트럼프 미국 대통령은 이번 피해가 종전 협상에는 전혀 영향을 미치지 않을 것이라고 주장했다.트럼프 대통령은 이날 NBC와 통화에서 F-15E 전투기가 이란 영공에서 격추된 것이 협상에 영향을 미칠 수 있냐는 질문에 “아니다. 전혀 그렇지 않다”고 답했다.트럼프 대통령은 거듭 “아니다”며 “우리는 지금 전쟁 중이다”고 말했다. 전쟁 중인 만큼 어느정도의 아군 피해는 발생할 수 있고, 협상을 뒤흔들 만한 변수는 아니라는 입장이다.미 공군 F-15E 전투기는 이날 이란 영공에서 격추돼 추락했다. 탑승해있던 조종사 2명은 탈출했으나, 1명만 구조됐고 다른 1명은 아직 발견되지 않았다.트럼프 대통령은 구체적인 수색 및 구조 상황에 대해서는 답변을 거부했으며, 구조 작전과 관련한 언론 보도에 불만을 표했다고 NBC는 전했다. 미국이 이스라엘과 함께 이란 전쟁을 시작한 후 이란 영공에서 전투기가 공격받",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Inter/article/all/20260404/133673761/1",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Sports/article/all/20260404/133673758/1",
+        "canonical_url": "https://donga.com/news/Sports/article/all/20260404/133673758/1",
+        "title": "불펜 쏟아부어도 불안한 뒷문…한화, 소모만 늘고 성과는 미미",
+        "summary": "가진 전력을 모두 쏟아부어도 불안하다. 한화 이글스의 뒷문이 심상치 않다.한화는 지난 3일 서울 잠실구장에서 열린 2026 신한 쏠 KBO리그 두산 베어스와의 경기에서 11-6으로 이겼다.타선의 힘으로 겨우 3연패에서 벗어났다. 이날 경기 초반부터 큰 점수 차가 벌어졌음에도 한화는 막판까지 긴장을 놓을 수 없었다. 역시나 불펜이 문제였다.선발로 등판한 윌켈 에르난데스가 5회까지 무실점으로 막고도 6회 급격히 흔들리며 위기를 초래한 가운데 소방수로 나선 계투들은 쉽사리 불을 끄지 못했다.이미 7-0으로 점수 차가 크게 벌어진 뒤였음에도 한화 마운드는 좀처럼 안정을 찾지 못했다.6회말 1사 만루에 마운드에 오른 박상원은 첫 상대였던 양석환을 삼진으로 잡고도 쉽게 이닝을 마무리 짓지 못했다.대타 김인태에게 볼넷을 내주며 밀어내기 실점을 주더니, 박준순에겐 2타점 적시타를 맞았다. 이에 교체된 조동욱도 박지훈에게 중전 안타를 맞고 7-4까지 추격을 허용했다.11-5로 맞은 9",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Sports/article/all/20260404/133673758/1",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://donga.com/news/Society/article/all/20260404/133673755/1",
+        "canonical_url": "https://donga.com/news/Society/article/all/20260404/133673755/1",
+        "title": "동탄 건물 신축현장서 500㎏ 철근더미에 깔린 60대 작업자 사망",
+        "summary": "경기 화성시 건물 신축 현장에서 60대 작업자가 철근 더미에 깔려 숨지는 사고가 발생해 경찰이 수사에 나섰다. 4일 경찰 등에 따르면 전날 오전 9시 37분께 화성시 동탄구 금곡동 건물 신축현장에서 A 씨가 무게 약 500㎏ 철근 더미에 깔렸다. 그는 크게 다친 상태로 인근 병원으로 옮겨졌으나 치료 중 끝내 숨졌다. A 씨는 화물차에 적재된 철근 더미를 하역하는 과정에서 변을 당한 것으로 조사됐다. 경찰은 현장 관계자들을 상대로 안전 수칙 준수 여부 등 정확한 경위를 조사 중이다.(화성=뉴스1)",
+        "source": "동아일보",
+        "url": "https://www.donga.com/news/Society/article/all/20260404/133673755/1",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hani.co.kr/arti/culture/book/1252635.html",
+        "canonical_url": "https://hani.co.kr/arti/culture/book/1252635.html",
+        "title": "오늘도 냠냠냠: 서울 등촌동 최월선 칼국수 & 등촌샤브칼국수 [.txt]",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/culture/book/1252635.html",
+        "published_date": "",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hani.co.kr/arti/culture/book/1252634.html",
+        "canonical_url": "https://hani.co.kr/arti/culture/book/1252634.html",
+        "title": "그와 헤어지고서야 나는 그를 매일 만났다 [.txt]",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/culture/book/1252634.html",
+        "published_date": "",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hani.co.kr/arti/culture/music/1252633.html",
+        "canonical_url": "https://hani.co.kr/arti/culture/music/1252633.html",
+        "title": "음악보다 더 좋은 음악 다큐멘터리  [.txt]",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/culture/music/1252633.html",
+        "published_date": "",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hani.co.kr/arti/culture/book/1252632.html",
+        "canonical_url": "https://hani.co.kr/arti/culture/book/1252632.html",
+        "title": "마흔이지만 엄마의 눈물에 집을 못 떠나요 [.txt]",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/culture/book/1252632.html",
+        "published_date": "",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hani.co.kr/arti/culture/book/1252631.html",
+        "canonical_url": "https://hani.co.kr/arti/culture/book/1252631.html",
+        "title": "세대 갈등 뒤에 ‘불평등’…‘영포티’를 둘러싼 사회구조적 문제 [.txt]",
+        "summary": "",
+        "source": "한겨레",
+        "url": "https://www.hani.co.kr/arti/culture/book/1252631.html",
+        "published_date": "",
         "bucket": ""
       },
       {
@@ -2908,7 +2928,7 @@
       {
         "story_key": "https://hani.co.kr/arti/hanihealth/healthlife/1252629.html",
         "canonical_url": "https://hani.co.kr/arti/hanihealth/healthlife/1252629.html",
-        "title": "<b>정체성 찾는 여정이 또 다른 괴로움 되지 않는 ‘안전하고 내게 맞는 성별확정치료’ 중요! [건강한겨레]</b>",
+        "title": "정체성 찾는 여정이 또 다른 괴로움 되지 않는 ‘안전하고 내게 맞는 성별확정치료’ 중요! [건강한겨레]",
         "summary": "",
         "source": "한겨레",
         "url": "https://www.hani.co.kr/arti/hanihealth/healthlife/1252629.html",
@@ -2928,7 +2948,7 @@
       {
         "story_key": "https://hani.co.kr/arti/politics/politics_general/1252627.html",
         "canonical_url": "https://hani.co.kr/arti/politics/politics_general/1252627.html",
-        "title": "국힘 5년만에 최저 지지율 “이러다 선거 비용도 보전도 못 받을라”",
+        "title": "국힘 5년 만에 최저 지지율…“이러다 선거 비용 보전도 못 받을라”",
         "summary": "",
         "source": "한겨레",
         "url": "https://www.hani.co.kr/arti/politics/politics_general/1252627.html",
@@ -2958,7 +2978,7 @@
       {
         "story_key": "https://hani.co.kr/arti/hanihealth/healthcolumn/1252624.html",
         "canonical_url": "https://hani.co.kr/arti/hanihealth/healthcolumn/1252624.html",
-        "title": "아내의 ‘익숙한 일상’ 지키려는 86살 요양보호사의 순정 [건강한겨레]",
+        "title": "아내의 ‘익숙한 일상’ 지키려…86살 남편은 요양보호사가 됐다 [건강한겨레]",
         "summary": "",
         "source": "한겨레",
         "url": "https://www.hani.co.kr/arti/hanihealth/healthcolumn/1252624.html",
@@ -2996,59 +3016,79 @@
         "bucket": ""
       },
       {
-        "story_key": "https://hani.co.kr/arti/politics/politics_general/1252620.html",
-        "canonical_url": "https://hani.co.kr/arti/politics/politics_general/1252620.html",
-        "title": "미-이란 전쟁 장기화에 외교부 ‘중동 담당 특별대사’ 곧 임명",
+        "story_key": "https://hankyung.com/article/202604038082i",
+        "canonical_url": "https://hankyung.com/article/202604038082i",
+        "title": "\"국민연금만큼 수익 내면 소원이 없겠다\" 했는데…이런 방법이",
         "summary": "",
-        "source": "한겨레",
-        "url": "https://www.hani.co.kr/arti/politics/politics_general/1252620.html",
-        "published_date": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/202604038082i",
+        "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://hani.co.kr/arti/sports/baseball/1252619.html",
-        "canonical_url": "https://hani.co.kr/arti/sports/baseball/1252619.html",
-        "title": "삼성, KT 6연승 저지했다…개막 2연패 뒤 3연승",
+        "story_key": "https://hankyung.com/article/2026040377811",
+        "canonical_url": "https://hankyung.com/article/2026040377811",
+        "title": "변호사 4만명 시대 눈앞…합격자 수 놓고 변협-로스쿨 또 충돌",
         "summary": "",
-        "source": "한겨레",
-        "url": "https://www.hani.co.kr/arti/sports/baseball/1252619.html",
-        "published_date": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026040377811",
+        "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://hani.co.kr/arti/international/asiapacific/1252618.html",
-        "canonical_url": "https://hani.co.kr/arti/international/asiapacific/1252618.html",
-        "title": "미얀마 쿠데타 5년…군사정권 수장, 결국 대통령으로",
+        "story_key": "https://hankyung.com/article/2026040483087",
+        "canonical_url": "https://hankyung.com/article/2026040483087",
+        "title": "美 F-15 전투기·A-10 공격기 이란서 격추…트럼프 \"협상 영향 없어\"",
         "summary": "",
-        "source": "한겨레",
-        "url": "https://www.hani.co.kr/arti/international/asiapacific/1252618.html",
-        "published_date": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026040483087",
+        "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://hani.co.kr/arti/sports/volleyball/1252617.html",
-        "canonical_url": "https://hani.co.kr/arti/sports/volleyball/1252617.html",
-        "title": "위기에서 빛난 실바, GS칼텍스 원정 2연승…우승까지 1승 남아",
+        "story_key": "https://hankyung.com/article/202604037377g",
+        "canonical_url": "https://hankyung.com/article/202604037377g",
+        "title": "샤넬 가방 사려했는데…\"도대체 몇번째냐\" 불만 나온 이유",
         "summary": "",
-        "source": "한겨레",
-        "url": "https://www.hani.co.kr/arti/sports/volleyball/1252617.html",
-        "published_date": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/202604037377g",
+        "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://hani.co.kr/arti/sports/basketball/1252616.html",
-        "canonical_url": "https://hani.co.kr/arti/sports/basketball/1252616.html",
-        "title": "‘신구 조화 + 감독 리더십’ LG, 정규리그 1위…첫 통합우승 노린다",
+        "story_key": "https://hankyung.com/article/202604024188i",
+        "canonical_url": "https://hankyung.com/article/202604024188i",
+        "title": "\"최대 영구 출장정지\"…'탈세 논란' 룰러의 운명은 [이주현의 로그인 e스포츠]",
         "summary": "",
-        "source": "한겨레",
-        "url": "https://www.hani.co.kr/arti/sports/basketball/1252616.html",
-        "published_date": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/202604024188i",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hankyung.com/article/202604037255i",
+        "canonical_url": "https://hankyung.com/article/202604037255i",
+        "title": "AI 덕분에 \"음치도 특급 가수\"…내 목소리로 '3옥타브' 노래도 OK",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/202604037255i",
+        "published_date": "2026-04-03",
+        "bucket": ""
+      },
+      {
+        "story_key": "https://hankyung.com/article/2026040377471",
+        "canonical_url": "https://hankyung.com/article/2026040377471",
+        "title": "美·이란 전쟁 지켜보는 中 전략은 '좌관성패'",
+        "summary": "",
+        "source": "한국경제",
+        "url": "https://www.hankyung.com/article/2026040377471",
+        "published_date": "2026-04-03",
         "bucket": ""
       },
       {
         "story_key": "https://hankyung.com/article/202604037302i",
         "canonical_url": "https://hankyung.com/article/202604037302i",
-        "title": "[단독] \"AI로 작곡하는 능력 평가\"… 대학 입시까지 바뀐다",
+        "title": "[단독] \"AI로 작곡하는 능력 평가\"…대학 입시까지 바뀐다",
         "summary": "",
         "source": "한국경제",
         "url": "https://www.hankyung.com/article/202604037302i",
@@ -3106,82 +3146,42 @@
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/202604036746i",
-        "canonical_url": "https://hankyung.com/article/202604036746i",
-        "title": "\"뭐 이렇게 생겼냐\"...'수백억 작품', 세금 폭탄 맞은 사연이 [성수영의 그때 그 사람들]",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202604036746i",
+        "story_key": "https://mk.co.kr/news/economy/12007896",
+        "canonical_url": "https://mk.co.kr/news/economy/12007896",
+        "title": "표 의식에 멈춘 새벽배송…지선 앞두고 대형마트 규제 논의 또 ‘제자리’",
+        "summary": "선거 앞두고 ‘유통법 개정’ 속도 조절 반복된 유통법 개정 공전에 업계 우려 “지선 이후 제도 정비” 기대감도13년 만에 수면 위로 떠오른 대형마트 새벽배송 규제 개선 논의가 6·..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/economy/12007896",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/202604037636i",
-        "canonical_url": "https://hankyung.com/article/202604037636i",
-        "title": "美 \"한국 대미투자 몇 주 내로 발표\"…원전·조선 '우선 순위'",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/202604037636i",
+        "story_key": "https://mk.co.kr/news/business/12007889",
+        "canonical_url": "https://mk.co.kr/news/business/12007889",
+        "title": "“요즘 ‘파데’대신 이것 발라요”…‘클린걸’ 열풍 부는 뷰티업계",
+        "summary": "지난해부터 시작된 맑고 정돈된 이미지를 강조하는 ‘클린걸(Clean Girl)’ 트렌드가 점차 확산하고 있다. 특히 파운데이션을 생략하거나 최소화하는 이른바 ‘파데프리’ 메이크업이..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/business/12007889",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/2026040381757",
-        "canonical_url": "https://hankyung.com/article/2026040381757",
-        "title": "1945년산 '로마네 콩티' 뭐길래…최고가 경신, 12억원에 경매 낙찰",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026040381757",
+        "story_key": "https://mk.co.kr/news/world/12007888",
+        "canonical_url": "https://mk.co.kr/news/world/12007888",
+        "title": "이란전쟁서 미군 F-15 전투기·A-10 공격기 격추…1명 실종",
+        "summary": "미군 F-15 전투기와 A-10 공격기가 이란군의 공격으로 격추됐다. 3일(현지시간) CBS뉴스 등 복수의 미국 매체들은 미 정부 당국자를 인용해 미군 전투기인 F-15E 스트라이..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/world/12007888",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://hankyung.com/article/2026040381567",
-        "canonical_url": "https://hankyung.com/article/2026040381567",
-        "title": "\"술값 마련하려고\"…대낮 편의점 직원 흉기 위협한 20대",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026040381567",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://hankyung.com/article/2026040377141",
-        "canonical_url": "https://hankyung.com/article/2026040377141",
-        "title": "'우리 애 틈만 나면 멍 때려서 걱정했는데'…전문가도 '경고'",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026040377141",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://hankyung.com/article/2026040381427",
-        "canonical_url": "https://hankyung.com/article/2026040381427",
-        "title": "[속보] 미국 3월 고용 17만8000명 '깜짝 증가'…실업률 4.3%",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026040381427",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://hankyung.com/article/2026040381337",
-        "canonical_url": "https://hankyung.com/article/2026040381337",
-        "title": "윤호중 \"쓰레기봉투 가격 갑자기 올리는 일 없어…안심해도 돼\"",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026040381337",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://hankyung.com/article/2026040377661",
-        "canonical_url": "https://hankyung.com/article/2026040377661",
-        "title": "'가장 완벽한 숫자'…신세계가 12에 꽂힌 이유는",
-        "summary": "",
-        "source": "한국경제",
-        "url": "https://www.hankyung.com/article/2026040377661",
+        "story_key": "https://mk.co.kr/news/politics/12007886",
+        "canonical_url": "https://mk.co.kr/news/politics/12007886",
+        "title": "정성호 “박상용, 증인선서 거부 부적절…검찰 자정능력 있나”",
+        "summary": "정성호 법무부 장관은 “검찰이 자정능력이 있는지 여러 가지 생각이 든다”고 밝혔다. 정 장관은 지난 3일 국회에서 열린 ‘윤석열 정권 정치검찰 조작기소 의혹 사건 진상규명 국정조사..",
+        "source": "매일경제",
+        "url": "https://www.mk.co.kr/news/politics/12007886",
         "published_date": "2026-04-03",
         "bucket": ""
       },
@@ -3286,43 +3286,23 @@
         "bucket": ""
       },
       {
-        "story_key": "https://mk.co.kr/news/world/12007829",
-        "canonical_url": "https://mk.co.kr/news/world/12007829",
-        "title": "트럼프 “시간 조금 더 주어지면 호르무즈 쉽게 열고 석유 차지할 것”",
-        "summary": "해협·석유 언급에 중동 긴장 고조도널드 트럼프 미국 대통령은 3일(현지시간) “시간이 조금 더 주어지면 우리가 호르무즈 해협을 쉽게 개방하고 석유를 차지해 큰돈을 벌 수 있을 것”..",
+        "story_key": "https://mk.co.kr/news/world/12007832",
+        "canonical_url": "https://mk.co.kr/news/world/12007832",
+        "title": "1945년산 로마네 콩티 12억원에 경매 낙찰",
+        "summary": "역대 최고가 경신…파리 아파트 값 뛰어넘1945년산 프랑스 최고급 와인이 경매에서 12억원이 넘는 가격에 팔리며 역대 최고가 기록을 새로 썼다. 프랑스 일간 르피가로는 2일(현지시..",
         "source": "매일경제",
-        "url": "https://www.mk.co.kr/news/world/12007829",
+        "url": "https://www.mk.co.kr/news/world/12007832",
         "published_date": "2026-04-03",
         "bucket": ""
       },
       {
-        "story_key": "https://mk.co.kr/news/world/12007827",
-        "canonical_url": "https://mk.co.kr/news/world/12007827",
-        "title": "“일본 어지간히 좋아하네”…AI인프라 100억달러 투자하겠단 MS",
-        "summary": "다카이치 “데이터 주권에 큰 의미” 데이터사업자 중 일본 투자 최대 소뱅 등과 AI 인력 100만명 육성마이크로소프트(MS)가 일본에서 데이터센터 등 인공지능(AI) 서비스 기반을..",
-        "source": "매일경제",
-        "url": "https://www.mk.co.kr/news/world/12007827",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://mk.co.kr/news/society/12007819",
-        "canonical_url": "https://mk.co.kr/news/society/12007819",
-        "title": "윤호중 “쓰레기봉투 가격 갑작스러운 인상 없다”",
-        "summary": "윤호중 행정안전부 장관은 일각에서 제기되는 쓰레기봉투 가격 인상 우려에 대해 “지방정부 조례로 정해지는 사항이라 갑자기 인상되는 일은 없다”며 안심할 것을 당부했다. 윤 장관은 3..",
-        "source": "매일경제",
-        "url": "https://www.mk.co.kr/news/society/12007819",
-        "published_date": "2026-04-03",
-        "bucket": ""
-      },
-      {
-        "story_key": "https://yna.co.kr/view/AKR20260403137600001?input=1195m",
-        "canonical_url": "https://yna.co.kr/view/AKR20260403137600001?input=1195m",
-        "title": "與 서울시장 후보들, 쓰레기 처리 해법…鄭 부동산 공약 협공도",
-        "summary": "전현희·박주민·정원오 예비후보 본경선 TV토론서 공방 김정진 정연솔 기자 = 더불어민주당 서울시장 예비후보의 3일 TV 토론회에서 전현희·박주민 후보(기호순)가 부동산 정책 공약 등을 앞세워 정원오 후보를 협공했다....",
-        "source": "연합뉴스",
-        "url": "https://www.yna.co.kr/view/AKR20260403137600001?input=1195m",
-        "published_date": "2026-04-03 17:51",
+        "story_key": "https://weekly.donga.com/3/all/11/6168391/1",
+        "canonical_url": "https://weekly.donga.com/3/all/11/6168391/1",
+        "title": "불확실성 늪에 빠진 부동산시장 돌파 전략은?",
+        "summary": "현장에서 학원가 공실률과 ‘올다무’ 개점 체크 ② 부동산정책 및 시장 사이클 두 번째로 살펴볼 정보 유형은 ‘인지된 불확실성’이다. 부동산시장에서 ‘모른다고 인정하는 변수’로는 부동산정책, 시장 사이클, 개발...",
+        "source": "동아일보",
+        "url": "https://weekly.donga.com/3/all/11/6168391/1",
+        "published_date": "2026-04-04 07:02",
         "bucket": ""
       },
       {
