@@ -65,9 +65,8 @@ _US_HOLIDAYS: dict[str, str] = {
 
 def get_kr_holiday(date_iso: str) -> str | None:
     """한국 증시 휴장일이면 사유를 반환, 아니면 None."""
-    # 주말 체크
     d = date.fromisoformat(date_iso)
-    if d.weekday() >= 5:  # 토(5), 일(6)
+    if d.weekday() >= 5:
         return "주말"
     return _KR_HOLIDAYS.get(date_iso)
 
@@ -86,3 +85,49 @@ def is_kr_holiday(date_iso: str) -> bool:
 
 def is_us_holiday(date_iso: str) -> bool:
     return get_us_holiday(date_iso) is not None
+
+
+def _prev_weekday(d: date) -> date:
+    """직전 평일(월~금)을 반환한다."""
+    from datetime import timedelta
+    d = d - timedelta(days=1)
+    while d.weekday() >= 5:
+        d -= timedelta(days=1)
+    return d
+
+
+def get_brief_target_date(run_date: str) -> str:
+    """브리핑 대상일(직전 평일)을 계산한다.
+
+    토요일 실행 → 금요일, 월요일 실행 → 금요일.
+    """
+    d = date.fromisoformat(run_date)
+    return _prev_weekday(d).isoformat()
+
+
+def get_market_holiday_status(
+    run_date: str,
+) -> dict[str, dict[str, str | None]]:
+    """각 시장의 브리핑 대상일 휴장 상태를 반환한다.
+
+    run_date(파이프라인 실행일) 기준 직전 평일을 구하고,
+    그 날이 각 시장에서 공휴일인지 판단한다.
+
+    Returns:
+        {
+            "kr": {"target_date": "2026-04-03", "holiday": None},
+            "us": {"target_date": "2026-04-03", "holiday": "Good Friday"},
+        }
+    """
+    target = get_brief_target_date(run_date)
+
+    return {
+        "kr": {
+            "target_date": target,
+            "holiday": _KR_HOLIDAYS.get(target),  # 주말은 이미 제외됨
+        },
+        "us": {
+            "target_date": target,
+            "holiday": _US_HOLIDAYS.get(target),
+        },
+    }

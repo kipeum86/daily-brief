@@ -101,52 +101,46 @@ def detect_holidays(
 ) -> dict[str, Any]:
     """시장 휴장 여부를 감지한다.
 
-    판단 우선순위:
-      1. 공휴일 캘린더 (run_date 기준)
-      2. data_date가 run_date보다 오래됨 (데이터 미갱신 → 휴장 가능성)
-      3. 전 티커 변동률 0 (fallback)
+    브리핑 대상일 = run_date의 직전 평일(월~금).
+    각 시장별로 그 날이 공휴일인지 독립 판단한다.
+
+    예: 토요일 4/4 실행 → 대상일 금요일 4/3
+        한국: 4/3 정상 거래일 → 휴장 아님
+        미국: 4/3 Good Friday → 휴장
 
     Args:
         raw_data: collect_market_data()의 반환값
-        run_date: 브리핑 대상 날짜 (YYYY-MM-DD)
+        run_date: 파이프라인 실행일 (YYYY-MM-DD)
 
     Returns:
         {
             "kospi_holiday": bool,
             "nyse_holiday": bool,
-            "holiday_names": {"kr": "설날", "us": "Good Friday"},
+            "holiday_names": {"us": "Good Friday"},
+            "target_date": "2026-04-03",
         }
     """
-    from pipeline.markets.holidays import get_kr_holiday, get_us_holiday
+    from pipeline.markets.holidays import get_market_holiday_status
 
     def _all_zero(items: list[dict[str, Any]]) -> bool:
         if not items:
             return False
         return all(item.get("change_pct", 0) == 0.0 for item in items)
 
-    def _data_stale(items: list[dict[str, Any]], target_date: str) -> bool:
-        """데이터 기준일이 target_date보다 과거인지 확인."""
-        if not items or not target_date:
-            return False
-        return all(
-            item.get("data_date", target_date) < target_date
-            for item in items
-        )
-
     kr_items = raw_data.get("kr", [])
     us_items = raw_data.get("us", [])
 
-    # 1) 캘린더 기반 감지
-    kr_reason = get_kr_holiday(run_date) if run_date else None
-    us_reason = get_us_holiday(run_date) if run_date else None
+    kr_reason: str | None = None
+    us_reason: str | None = None
+    target_date = ""
 
-    # 2) data_date 기반 보조 감지 (캘린더에 없는 임시 휴장)
-    if not kr_reason and _data_stale(kr_items, run_date):
-        kr_reason = "시장 휴장"
-    if not us_reason and _data_stale(us_items, run_date):
-        us_reason = "Market Closed"
+    if run_date:
+        status = get_market_holiday_status(run_date)
+        target_date = status["kr"]["target_date"]
+        kr_reason = status["kr"]["holiday"]
+        us_reason = status["us"]["holiday"]
 
-    # 3) 변동률 0 fallback (캘린더+data_date 둘 다 놓쳤을 때)
+    # Fallback: 변동률 0 (캘린더에 없는 임시 휴장)
     if not kr_reason and _all_zero(kr_items):
         kr_reason = "시장 휴장"
     if not us_reason and _all_zero(us_items):
@@ -158,15 +152,19 @@ def detect_holidays(
     holiday_names: dict[str, str] = {}
     if kospi_holiday:
         holiday_names["kr"] = kr_reason  # type: ignore[assignment]
-        logger.info("한국 시장 휴장: %s", kr_reason)
+        logger.info("한국 시장 휴장: %s (대상일: %s)", kr_reason, target_date)
     if nyse_holiday:
         holiday_names["us"] = us_reason  # type: ignore[assignment]
-        logger.info("미국 시장 휴장: %s", us_reason)
+        logger.info("미국 시장 휴장: %s (대상일: %s)", us_reason, target_date)
+
+    if not kospi_holiday and not nyse_holiday:
+        logger.info("양쪽 시장 정상 거래일 (대상일: %s)", target_date)
 
     return {
         "kospi_holiday": kospi_holiday,
         "nyse_holiday": nyse_holiday,
         "holiday_names": holiday_names,
+        "target_date": target_date,
     }
 
 
