@@ -427,20 +427,46 @@ def save_archive_index(config: dict, output_dir: str, lang: str = "ko") -> str:
     return str(archive_index)
 
 
-def _refresh_archive_pages(config: dict, output_dir: str, lang: str = "ko") -> None:
-    """Rewrite archive detail page links so older pages stay navigable."""
+def _refresh_archive_pages(
+    config: dict,
+    output_dir: str,
+    lang: str = "ko",
+    run_date: str = "",
+) -> None:
+    """Rewrite archive navigation links for the current page and its neighbor only.
+
+    SAFETY: Only touches the current run_date's page and the immediately
+    preceding page (which needs a "next →" link to the new page).
+    All other archive files are left untouched to avoid overwriting
+    content (e.g. AI insights) that was generated in a different run.
+    """
     from bs4 import BeautifulSoup
 
     archive = Path(output_dir) / "archive"
     if not archive.exists():
         return
 
-    pages = sorted(
-        (p for p in archive.glob("*.html") if p.stem != "index"),
-        key=lambda p: p.stem,
+    all_dates = sorted(
+        p.stem for p in archive.glob("*.html") if p.stem != "index"
     )
-    if not pages:
+    if not all_dates:
         return
+
+    # Only rewrite the current page and its immediate predecessor.
+    # The current page was just generated so it's safe to rewrite.
+    # The predecessor needs its "next" link updated to point here.
+    dates_to_update: set[str] = set()
+    if run_date and run_date in all_dates:
+        dates_to_update.add(run_date)
+        idx = all_dates.index(run_date)
+        if idx > 0:
+            dates_to_update.add(all_dates[idx - 1])
+    elif run_date:
+        # run_date not in list yet (shouldn't happen), update nothing extra
+        dates_to_update.add(run_date)
+    else:
+        # No run_date provided — legacy fallback: update all (e.g. weekly recap)
+        dates_to_update = set(all_dates)
 
     site_url = config.get("site_url", "").rstrip("/")
     prev_text = "◀ Previous" if lang == "en" else "◀ 이전"
@@ -448,11 +474,14 @@ def _refresh_archive_pages(config: dict, output_dir: str, lang: str = "ko") -> N
     archive_label = "Browse Archive" if lang == "en" else "과거 브리핑 보기"
     toggle_text = "EN → 한국어" if lang == "en" else "KR → English"
 
-    dates = [p.stem for p in pages]
-    for idx, page in enumerate(pages):
-        date_iso = page.stem
-        prev_date = dates[idx - 1] if idx > 0 else ""
-        next_date = dates[idx + 1] if idx < len(dates) - 1 else ""
+    for date_iso in dates_to_update:
+        page = archive / f"{date_iso}.html"
+        if not page.exists():
+            continue
+
+        idx = all_dates.index(date_iso) if date_iso in all_dates else -1
+        prev_date = all_dates[idx - 1] if idx > 0 else ""
+        next_date = all_dates[idx + 1] if 0 <= idx < len(all_dates) - 1 else ""
         current_path = _page_path(lang, "archive", date_iso)
 
         prev_url = (
@@ -516,6 +545,7 @@ def _refresh_archive_pages(config: dict, output_dir: str, lang: str = "ko") -> N
             footer_link.string = archive_label
 
         page.write_text(str(soup), encoding="utf-8")
+        logger.debug("Updated nav for archive/%s.html", date_iso)
 
 
 # ---------------------------------------------------------------------------
@@ -591,9 +621,9 @@ def render_dashboard(
     html_en_archive = render_html(context_en_archive)
     save_dashboard(html_en_index, html_en_archive, str(en_dir), run_date)
 
-    # Refresh archive page links for all existing dates in both languages
-    _refresh_archive_pages(config, output_dir, lang="ko")
-    _refresh_archive_pages(config, str(en_dir), lang="en")
+    # Refresh archive page links — only current + previous date (safe scope)
+    _refresh_archive_pages(config, output_dir, lang="ko", run_date=run_date)
+    _refresh_archive_pages(config, str(en_dir), lang="en", run_date=run_date)
 
     # Regenerate archive index pages (Korean + English)
     save_archive_index(config, output_dir, lang="ko")
