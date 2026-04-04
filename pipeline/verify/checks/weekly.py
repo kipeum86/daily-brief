@@ -1,0 +1,65 @@
+"""Check 6: Weekly recap verification — snapshots, markets, news, translations, insight."""
+from __future__ import annotations
+
+import logging
+from pathlib import Path
+from typing import Any
+
+logger = logging.getLogger(__name__)
+
+_MIN_SNAPSHOTS = 3
+_MIN_NEWS = 3
+_MIN_INSIGHT = 200
+_MIN_HTML_BYTES = 10_000
+
+
+def check_weekly_recap(
+    weekly_data: dict[str, Any],
+    html_path: str,
+    no_llm: bool,
+) -> tuple[list[str], list[str]]:
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    snap_count = weekly_data.get("snapshot_count", 0)
+    if snap_count == 0:
+        errors.append("No daily snapshots for weekly recap")
+    elif snap_count < _MIN_SNAPSHOTS:
+        errors.append(f"Only {snap_count} snapshots (min {_MIN_SNAPSHOTS})")
+
+    markets = weekly_data.get("markets", {})
+    for section in ("kr", "us"):
+        if not markets.get(section):
+            errors.append(f"Weekly markets missing '{section}' section")
+
+    world_ko = weekly_data.get("world_news_ko", [])
+    korea_ko = weekly_data.get("korea_news_ko", [])
+    if len(world_ko) < _MIN_NEWS:
+        errors.append(f"Only {len(world_ko)} weekly world articles (min {_MIN_NEWS})")
+    if len(korea_ko) < _MIN_NEWS:
+        errors.append(f"Only {len(korea_ko)} weekly korea articles (min {_MIN_NEWS})")
+
+    try:
+        from pipeline.verify.checks.content import _check_korea_purity
+        korea_errors: list[str] = []
+        _check_korea_purity(korea_ko, korea_errors)
+        errors.extend(korea_errors)
+    except Exception as exc:
+        warnings.append(f"Korea purity check skipped: {exc}")
+
+    if not no_llm:
+        insight_ko = weekly_data.get("insight_ko", "")
+        insight_en = weekly_data.get("insight_en", "")
+        if len(insight_ko) < _MIN_INSIGHT:
+            errors.append(f"Weekly Korean insight too short ({len(insight_ko)} chars)")
+        if len(insight_en) < _MIN_INSIGHT:
+            errors.append(f"Weekly English insight too short ({len(insight_en)} chars)")
+
+    if html_path and Path(html_path).exists():
+        size = Path(html_path).stat().st_size
+        if size < _MIN_HTML_BYTES:
+            errors.append(f"Weekly HTML too small ({size} bytes)")
+    elif html_path:
+        errors.append(f"Weekly HTML not found: {html_path}")
+
+    return errors, warnings
