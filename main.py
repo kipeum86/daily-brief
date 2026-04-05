@@ -204,8 +204,31 @@ def run(args: argparse.Namespace) -> int:
                 no_llm=args.no_llm,
             )
             logger.info("Weekly recap output: %s", html_path or "(none)")
+
+            # Weekly verification gate
+            weekly_gate_passed = True
+            try:
+                from pipeline.verify.gate import run_weekly_checks
+                gate_result = run_weekly_checks(
+                    weekly_data=weekly_data,
+                    html_path=html_path,
+                    no_llm=args.no_llm,
+                )
+                weekly_gate_passed = gate_result.passed
+                if gate_result.warnings:
+                    for w in gate_result.warnings:
+                        logger.warning("[WEEKLY VERIFY] %s", w)
+                if not weekly_gate_passed:
+                    for e in gate_result.errors:
+                        logger.error("[WEEKLY VERIFY] %s", e)
+                    logger.critical("Weekly verification FAILED — blocking email")
+            except Exception as exc:
+                logger.error("Weekly verification error: %s — proceeding", exc)
+
             if args.dry_run:
                 logger.info("Weekly email skipped (--dry-run)")
+            elif not weekly_gate_passed:
+                logger.warning("Weekly email skipped (verification failed)")
             else:
                 logger.info("Sending weekly recap email")
                 send_email = _import_or_stub(
@@ -486,8 +509,42 @@ def run(args: argparse.Namespace) -> int:
     except Exception as exc:
         logger.warning("Daily snapshot save failed: %s", exc)
 
+    # ── 8.5. Pre-deploy verification ─────────────────────────────────────
+    gate_passed = True
+    logger.info("Stage 8.5/10: Pre-deploy verification")
+    try:
+        from pipeline.verify.gate import run_pre_deploy_checks
+        gate_result = run_pre_deploy_checks(
+            markets=markets,
+            holidays=holidays,
+            articles_ko=articles_ko,
+            articles_en=articles_en,
+            insight_ko=insight,
+            insight_en=insight_en,
+            html_path=html_path,
+            en_html_path=str(Path(output_dir) / "en" / "index.html"),
+            run_date=run_date,
+            config=config,
+            no_llm=args.no_llm,
+        )
+        gate_passed = gate_result.passed
+        if gate_result.warnings:
+            for w in gate_result.warnings:
+                logger.warning("[VERIFY] %s", w)
+        if not gate_passed:
+            for e in gate_result.errors:
+                logger.error("[VERIFY] %s", e)
+            logger.critical(
+                "Pre-deploy verification FAILED: %d errors — blocking email/deploy",
+                len(gate_result.errors),
+            )
+    except Exception as exc:
+        logger.error("Verification module error: %s — proceeding with deploy", exc)
+
     # ── 9. Send email ─────────────────────────────────────────────────────
-    if args.dry_run:
+    if not gate_passed:
+        logger.warning("Stage 9/10: Skipped (verification failed)")
+    elif args.dry_run:
         logger.info("Stage 9/10: Skipped (--dry-run)")
     else:
         logger.info("Stage 9/10: Sending email")

@@ -38,7 +38,8 @@ def check_market_data(
                 elif abs(change) > _WARN_DAILY_CHANGE:
                     warnings.append(f"{name}: change_pct {change}% exceeds ±{_WARN_DAILY_CHANGE}%")
 
-            if is_holiday and abs(change) > 0.01:
+            # 휴장일에도 yfinance가 소폭 등락 반환 가능 (장외/선물 반영)
+            if is_holiday and abs(change) > 0.5:
                 errors.append(f"{name}: marked holiday but change_pct={change}% (should be ~0)")
 
     _cross_validate_kr(markets.get("kr", []), errors, warnings)
