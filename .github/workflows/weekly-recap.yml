@@ -10,7 +10,12 @@ on:
   schedule:
     # UTC 12:00 일 = KST 21:00 일 (토요일 daily 반영 후 발송)
     - cron: "0 12 * * 0"
-  workflow_dispatch: # 수동 테스트용
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Override run date (YYYY-MM-DD, e.g. 2026-04-05)"
+        required: false
+        default: ""
 
 # gh-pages 브랜치에 push하기 위한 권한
 permissions:
@@ -74,7 +79,12 @@ jobs:
 
       # 6. 스냅샷 기반 주간 리캡 생성
       - name: 📊 주간 요약 생성
-        run: python main.py --brief-type weekly
+        run: |
+          DATE_ARG=""
+          if [ -n "${{ github.event.inputs.date }}" ]; then
+            DATE_ARG="--date ${{ github.event.inputs.date }}"
+          fi
+          python main.py --brief-type weekly $DATE_ARG
 
       # 7. GitHub Pages 배포 (기존 아카이브 유지)
       - name: 🚀 GitHub Pages 배포
