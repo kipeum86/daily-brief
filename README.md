@@ -44,8 +44,9 @@ Think of it as your personal **Economist "World in Brief"** — but tailored for
 - **S&P Sector ETFs** — 11 sectors as a mini heatmap (colored chips showing daily performance)
 - **Sparkline SVGs** — 5-day trend lines with cubic bezier smoothing and gradient fill
 - **Market Pulse** — Risk-On/Off gauge combining VIX + FX + equity signals
-- **Holiday detection** — Auto-detects KOSPI/NYSE closures, shows "Market closed" banners
-- **Fallback** — yfinance primary, FRED API fallback for risk indicators
+- **Holiday detection** — Auto-detects KOSPI/NYSE closures with reason (e.g. "Good Friday"), shows "Market closed" banners
+- **Naver Finance primary** — Korean indices via Naver Finance API (reliable, real-time), yfinance as fallback
+- **Fallback** — yfinance primary for global, FRED API fallback for risk indicators
 
 ### 📰 News
 - **Global** — Reuters, BBC World, The Guardian, Al Jazeera, AP News, NPR (diverse perspectives, no paywall)
@@ -64,6 +65,14 @@ Think of it as your personal **Economist "World in Brief"** — but tailored for
 - Korean version: English news → translated to Korean
 - English version: Korean news → translated to English
 - Section headings in English for both versions (editorial convention)
+
+### 🛡️ Pre-Deploy Verification
+- **5 automated checks** before email/deploy — market data integrity, AI fact-check, translation completeness, content completeness, HTML rendering
+- **Market cross-validation** — Naver Finance vs collected data, catches stale/wrong prices
+- **AI direction check** — Detects "KOSPI surged" when data shows -4% (prevents hallucination)
+- **Korea purity** — Blocks international news (Iran, Russia) from Korea section, filters junk (인사발령, 부고)
+- **Translation check** — Ensures world news is in Korean (KO version), Korean news in English (EN version)
+- **Gate blocks deploy** — If any check fails, email is not sent and deploy is skipped
 
 ### 📧 Email Delivery
 - **Gmail SMTP** — no extra service needed, free
@@ -173,6 +182,8 @@ daily-brief/
 ├── pipeline/
 │   ├── markets/
 │   │   ├── collector.py             # yfinance + FRED (ThreadPoolExecutor)
+│   │   ├── naver.py                 # Naver Finance API (Korean indices primary)
+│   │   ├── holidays.py              # KR/US holiday calendar with names
 │   │   └── indicators.py            # Formatting, holidays, market pulse, sparklines
 │   ├── news/
 │   │   ├── collector.py             # RSS feed collection
@@ -190,6 +201,15 @@ daily-brief/
 │   ├── render/
 │   │   ├── dashboard.py             # Jinja2 → HTML (KO + EN)
 │   │   └── email.py                 # Inline-CSS HTML email
+│   ├── verify/
+│   │   ├── gate.py                  # Pre-deploy verification orchestrator
+│   │   └── checks/                  # 5 daily + 1 weekly check modules
+│   │       ├── market_data.py       # Price, range, holiday, Naver cross-val
+│   │       ├── insight.py           # AI direction match, holiday narration
+│   │       ├── translation.py       # KO/EN translation completeness
+│   │       ├── content.py           # Article count, Korea purity, overlap
+│   │       ├── html.py              # DOM integrity, nav, lang toggle
+│   │       └── weekly.py            # Weekly recap verification
 │   └── deliver/
 │       ├── mailer.py                # Gmail SMTP (BCC)
 │       └── sheets.py                # Google Sheets archive
@@ -226,9 +246,14 @@ KST 06:30 (GitHub Actions cron)
     │                   Korean HTML + English HTML
     │                   Markdown→HTML for AI insight
     │
-    ├── 5. Deliver ─→ Gmail SMTP (BCC) + Google Sheets
+    ├── 5. Verify ─→ Pre-deploy gate (5 checks)
+    │                   Market data ✓ AI fact-check ✓ Translation ✓
+    │                   Content purity ✓ HTML integrity ✓
+    │                   FAIL → block email & deploy
     │
-    └── 6. Deploy ──→ peaceiris/actions-gh-pages → GitHub Pages
+    ├── 6. Deliver ─→ Gmail SMTP (BCC) + Google Sheets
+    │
+    └── 7. Deploy ──→ peaceiris/actions-gh-pages → GitHub Pages
 ```
 
 ## Customization
@@ -282,7 +307,9 @@ Every component fails independently:
 | Gmail | Skip email | Dashboard still deploys |
 | Google Sheets | Skip archiving | Everything else works |
 
-The briefing **always deploys** — even if every external API fails, you get a page.
+| Verification gate | Block email + deploy | Errors logged to `verification-log.json` |
+
+The briefing **always generates** — but if verification fails, email/deploy is blocked to prevent sending incorrect information.
 
 ## Cost
 
@@ -297,11 +324,13 @@ The briefing **always deploys** — even if every external API fails, you get a 
 
 ## Roadmap
 
-- [ ] Weekly & Monthly Recap (v1.5)
+- [x] Weekly Recap
+- [x] Plotly.js treemap heatmap (Finviz-style)
+- [x] Pre-deploy verification gate (fact-check + completeness)
+- [ ] Monthly Recap
 - [ ] JSON API output for widget integration
 - [ ] iOS widget (Scriptable)
 - [ ] macOS widget (Übersicht)
-- [ ] Plotly.js treemap heatmap (Finviz-style)
 - [ ] Dark theme toggle
 - [ ] Economic calendar (FOMC, employment data)
 - [ ] Portfolio integration

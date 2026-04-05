@@ -44,8 +44,9 @@
 - **S&P 섹터 ETF** — 11개 섹터 미니 히트맵 (일일 등락률 컬러 칩)
 - **스파크라인 SVG** — 5일 추세선, 큐빅 베지어 스무딩 + 그라디언트 필
 - **Market Pulse** — VIX + FX + 주식 시그널을 결합한 Risk-On/Off 게이지
-- **휴장 감지** — KOSPI/NYSE 휴장 자동 감지, "Market closed" 배너 표시
-- **폴백** — yfinance 기본, FRED API 보조 (리스크 지표용)
+- **휴장 감지** — KOSPI/NYSE 휴장 자동 감지 + 사유 표시 (예: "Good Friday"), "Market closed" 배너
+- **네이버 증권 Primary** — 한국 지수는 네이버 증권 API 우선 (안정적, 실시간), yfinance 폴백
+- **폴백** — 글로벌은 yfinance 기본, FRED API 보조 (리스크 지표용)
 
 ### 📰 뉴스
 - **글로벌** — Reuters, BBC World, The Guardian, Al Jazeera, AP News, NPR (다양한 시각, 페이월 없음)
@@ -64,6 +65,14 @@
 - 한국어 버전: 영어 뉴스 → 한국어로 번역
 - 영어 버전: 한국 뉴스 → 영어로 번역
 - 섹션 제목은 양쪽 모두 영어 (에디토리얼 컨벤션)
+
+### 🛡️ 배포 전 검증 게이트
+- **5개 자동 체크** — 시장 데이터 정합성, AI 팩트체크, 번역 완전성, 콘텐츠 완전성, HTML 렌더링
+- **시장 교차검증** — 네이버 증권 vs 수집 데이터, 잘못된/지연된 가격 감지
+- **AI 방향 체크** — "코스피 폭등"인데 실제 -4%면 잡아냄 (환각 방지)
+- **한국 뉴스 순도** — 국제 뉴스(이란, 러시아)가 한국 섹션에 혼입 차단, 잡뉴스(인사발령, 부고) 필터링
+- **번역 체크** — 월드 뉴스가 한국어인지(KO), 한국 뉴스가 영어인지(EN) 확인
+- **실패 시 배포 차단** — 체크 실패 시 이메일 미발송 + 배포 스킵
 
 ### 📧 이메일 발송
 - **Gmail SMTP** — 별도 서비스 불필요, 무료
@@ -173,6 +182,8 @@ daily-brief/
 ├── pipeline/
 │   ├── markets/
 │   │   ├── collector.py             # yfinance + FRED (ThreadPoolExecutor)
+│   │   ├── naver.py                 # 네이버 증권 API (한국 지수 Primary)
+│   │   ├── holidays.py              # KR/US 휴장일 캘린더 + 사유
 │   │   └── indicators.py            # 포맷팅, 휴장, 마켓 펄스, 스파크라인
 │   ├── news/
 │   │   ├── collector.py             # RSS 피드 수집
@@ -190,6 +201,15 @@ daily-brief/
 │   ├── render/
 │   │   ├── dashboard.py             # Jinja2 → HTML (KO + EN)
 │   │   └── email.py                 # 인라인 CSS HTML 이메일
+│   ├── verify/
+│   │   ├── gate.py                  # 배포 전 검증 오케스트레이터
+│   │   └── checks/                  # 5개 daily + 1개 weekly 체크 모듈
+│   │       ├── market_data.py       # 가격, 범위, 휴장, 네이버 교차검증
+│   │       ├── insight.py           # AI 방향 일치, 휴장 서술 체크
+│   │       ├── translation.py       # KO/EN 번역 완전성
+│   │       ├── content.py           # 기사 수, 한국 뉴스 순도, 중복
+│   │       ├── html.py              # DOM 무결성, 네비, 언어 토글
+│   │       └── weekly.py            # 주간 리캡 검증
 │   └── deliver/
 │       ├── mailer.py                # Gmail SMTP (BCC)
 │       └── sheets.py                # Google Sheets 아카이브
@@ -226,9 +246,14 @@ KST 06:30 (GitHub Actions cron)
     │                한국어 HTML + 영어 HTML
     │                Markdown→HTML (AI 인사이트)
     │
-    ├── 5. 발송 ──→ Gmail SMTP (BCC) + Google Sheets
+    ├── 5. 검증 ──→ 배포 전 게이트 (5개 체크)
+    │                시장 데이터 ✓ AI 팩트체크 ✓ 번역 ✓
+    │                콘텐츠 순도 ✓ HTML 무결성 ✓
+    │                실패 → 이메일 + 배포 차단
     │
-    └── 6. 배포 ──→ peaceiris/actions-gh-pages → GitHub Pages
+    ├── 6. 발송 ──→ Gmail SMTP (BCC) + Google Sheets
+    │
+    └── 7. 배포 ──→ peaceiris/actions-gh-pages → GitHub Pages
 ```
 
 ## 커스터마이징
@@ -282,7 +307,9 @@ news:
 | Gmail | 이메일 스킵 | 대시보드는 정상 배포 |
 | Google Sheets | 아카이빙 스킵 | 나머지 전부 정상 동작 |
 
-브리핑은 **항상 배포됩니다** — 모든 외부 API가 실패해도 페이지는 생성됩니다.
+| 검증 게이트 | 이메일 + 배포 차단 | `verification-log.json`에 오류 기록 |
+
+브리핑은 **항상 생성됩니다** — 다만 검증 실패 시 잘못된 정보 발송을 방지하기 위해 이메일/배포가 차단됩니다.
 
 ## 비용
 
@@ -297,11 +324,13 @@ news:
 
 ## 로드맵
 
-- [ ] 주간 & 월간 리캡 (v1.5)
+- [x] 주간 리캡
+- [x] Plotly.js 트리맵 히트맵 (Finviz 스타일)
+- [x] 배포 전 검증 게이트 (팩트체크 + 완전성)
+- [ ] 월간 리캡
 - [ ] JSON API 출력 (위젯 연동용)
 - [ ] iOS 위젯 (Scriptable)
 - [ ] macOS 위젯 (Übersicht)
-- [ ] Plotly.js 트리맵 히트맵 (Finviz 스타일)
 - [ ] 다크 테마 토글
 - [ ] 경제 캘린더 (FOMC, 고용 데이터)
 - [ ] 포트폴리오 연동
