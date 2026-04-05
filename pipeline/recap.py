@@ -671,6 +671,14 @@ def build_weekly_news_digest(
                 pool_article.get("url", ""), pool_article.get("source", ""), pool_article.get("title", ""),
             )
             bucket = pool_article.get("bucket", "")
+            if not bucket:
+                # Legacy snapshots may lack bucket — infer at read time
+                try:
+                    from pipeline.news.selector import _guess_bucket
+                    bucket = _guess_bucket(pool_article)
+                except ImportError:
+                    text = f"{pool_article.get('title', '')} {pool_article.get('source', '')}".lower()
+                    bucket = "korea" if any(kw in text for kw in ("한국", "국내", "코스피", "서울", "정부")) else "world"
             # Use raw version for display if available, otherwise pool version
             display_article = raw_by_key.get(story_key, pool_article)
             entry = candidates.setdefault(
