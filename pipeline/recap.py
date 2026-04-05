@@ -107,6 +107,23 @@ def _serialize_article(article: Any, config: dict) -> dict[str, Any]:
     }
 
 
+def _serialize_pool_article(article: Any, config: dict) -> dict[str, Any]:
+    """Serialize a pool article, inferring bucket if missing."""
+    data = _serialize_article(article, config)
+    if not data.get("bucket"):
+        # Pool articles may lack bucket (saved before Stage 6.5 classification).
+        # Infer using the same heuristic as the selector.
+        try:
+            from pipeline.news.selector import _guess_bucket
+            data["bucket"] = _guess_bucket(data)
+        except ImportError:
+            # Fallback: simple heuristic
+            text = f"{data.get('title', '')} {data.get('source', '')}".lower()
+            kr_signals = any(kw in text for kw in ("한국", "국내", "코스피", "서울", "정부"))
+            data["bucket"] = "korea" if kr_signals else "world"
+    return data
+
+
 def _safe_parse_float(text: str) -> float:
     """Extract the first numeric value from a text blob."""
     match = _PRICE_RE.search((text or "").replace("\xa0", " "))
@@ -406,7 +423,7 @@ def save_daily_snapshot(
             "raw": [_serialize_article(article, config) for article in articles],
             "ko": [_serialize_article(article, config) for article in articles_ko],
             "en": [_serialize_article(article, config) for article in articles_en],
-            "pool": [_serialize_article(article, config) for article in (all_candidates or [])],
+            "pool": [_serialize_pool_article(article, config) for article in (all_candidates or [])],
         },
     }
 

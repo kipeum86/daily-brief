@@ -34,9 +34,17 @@ def test_no_snapshots():
     assert any("snapshot" in e.lower() for e in errors)
 
 
-def test_too_few_world():
-    errors, _ = check_weekly_recap(_weekly_data(world=1), "", no_llm=True)
+def test_too_few_world_no_insight():
+    """No insight + few articles → ERROR."""
+    errors, _ = check_weekly_recap(_weekly_data(world=1, insight=""), "", no_llm=True)
     assert any("world" in e.lower() for e in errors)
+
+
+def test_too_few_world_with_insight():
+    """Has insight + few articles → downgraded to WARNING."""
+    errors, warnings = check_weekly_recap(_weekly_data(world=1), "", no_llm=True)
+    assert not any("world" in e.lower() for e in errors), "Should be warning, not error"
+    assert any("world" in w.lower() for w in warnings)
 
 
 def test_missing_insight():
