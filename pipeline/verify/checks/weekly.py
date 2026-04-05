@@ -27,10 +27,12 @@ def check_weekly_recap(
     elif snap_count < _MIN_SNAPSHOTS:
         errors.append(f"Only {snap_count} snapshots (min {_MIN_SNAPSHOTS})")
 
+    # Weekly markets structure: {"cards": [...], "leaders": [...], ...}
+    # (NOT the daily {"kr": [...], "us": [...]} format)
     markets = weekly_data.get("markets", {})
-    for section in ("kr", "us"):
-        if not markets.get(section):
-            errors.append(f"Weekly markets missing '{section}' section")
+    cards = markets.get("cards", []) if isinstance(markets, dict) else []
+    if not cards:
+        errors.append("Weekly markets has no card data")
 
     world_ko = weekly_data.get("world_news_ko", [])
     korea_ko = weekly_data.get("korea_news_ko", [])

@@ -8,7 +8,7 @@ from pipeline.verify.checks.weekly import check_weekly_recap
 def _weekly_data(snapshots=5, world=5, korea=5, insight="긴 인사이트 " * 30):
     return {
         "snapshot_count": snapshots,
-        "markets": {"kr": [{"name": "KOSPI", "change_pct": 2.0}], "us": [{"name": "S&P 500", "change_pct": 1.0}]},
+        "markets": {"cards": [{"name": "KOSPI", "section": "kr", "weekly_change_pct": 2.0}, {"name": "S&P 500", "section": "us", "weekly_change_pct": 1.0}]},
         "world_news_ko": [{"title": f"뉴스 {i}", "bucket": "world"} for i in range(world)],
         "korea_news_ko": [{"title": f"한국 뉴스 {i}", "bucket": "korea"} for i in range(korea)],
         "world_news_en": [{"title": f"News {i}", "bucket": "world"} for i in range(world)],
