@@ -17,6 +17,44 @@ from pipeline.recap import (
 
 logger = logging.getLogger("daily-brief.weekly")
 
+_HAS_KOREAN = __import__("re").compile(r"[가-힣]")
+_HAS_ENGLISH = __import__("re").compile(r"[a-zA-Z]{3,}")
+
+
+def _translate_missing(provider: Any, articles: list[dict], target_lang: str) -> list[dict]:
+    """Translate articles whose titles are not in the target language."""
+    needs_translation = []
+    for art in articles:
+        title = art.get("title", "")
+        if target_lang == "ko" and not _HAS_KOREAN.search(title):
+            needs_translation.append(art)
+        elif target_lang == "en" and not _HAS_ENGLISH.search(title):
+            needs_translation.append(art)
+
+    if not needs_translation:
+        return articles
+
+    try:
+        from pipeline.ai.translate import translate_news
+        translated = translate_news(provider, needs_translation, target_lang=target_lang)
+        translated_map = {}
+        for orig, trans in zip(needs_translation, translated):
+            key = orig.get("url", "") or orig.get("title", "")
+            translated_map[key] = trans
+
+        result = []
+        for art in articles:
+            key = art.get("url", "") or art.get("title", "")
+            if key in translated_map:
+                result.append(translated_map[key])
+            else:
+                result.append(art)
+        logger.info("Translated %d/%d %s articles for weekly digest", len(needs_translation), len(articles), target_lang)
+        return result
+    except Exception as exc:
+        logger.warning("Weekly translation failed: %s — using originals", exc)
+        return articles
+
 
 def _load_provider(config: dict, no_llm: bool = False) -> Any | None:
     if no_llm:
@@ -84,16 +122,23 @@ def build_weekly_recap_data(
         for article in snapshot.get("articles", {}).get("raw", [])
         if article.get("source", "")
     })
+    # Translate untranslated articles in weekly digest
+    world_ko = news_digest["world_ko"]
+    korea_en = news_digest["korea_en"]
+    if provider:
+        world_ko = _translate_missing(provider, world_ko, target_lang="ko")
+        korea_en = _translate_missing(provider, korea_en, target_lang="en")
+
     weekly_data.update({
         "unique_story_count": news_digest["unique_story_count"],
         "news_pool_count": news_pool_count,
         "news_source_count": news_source_count,
         "world_news_raw": news_digest["world_raw"],
         "korea_news_raw": news_digest["korea_raw"],
-        "world_news_ko": news_digest["world_ko"],
+        "world_news_ko": world_ko,
         "world_news_en": news_digest["world_en"],
         "korea_news_ko": news_digest["korea_ko"],
-        "korea_news_en": news_digest["korea_en"],
+        "korea_news_en": korea_en,
     })
 
     if provider:
