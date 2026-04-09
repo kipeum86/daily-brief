@@ -20,7 +20,7 @@
   <img src="https://img.shields.io/github/actions/workflow/status/kipeum86/daily-brief/morning-brief.yml?label=Morning%20Brief&style=flat-square" alt="Build Status" />
   <img src="https://img.shields.io/badge/cost-~%241%2Fmo-16A34A?style=flat-square" alt="Cost" />
   <img src="https://img.shields.io/badge/LLM-Gemini%203.1%20Pro-4285F4?style=flat-square" alt="LLM" />
-  <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License" />
+  <img src="https://img.shields.io/badge/license-Apache_2.0-blue?style=flat-square" alt="License" />
 </p>
 
 ---
@@ -334,6 +334,10 @@ news:
 - [ ] 다크 테마 토글
 - [ ] 경제 캘린더 (FOMC, 고용 데이터)
 - [ ] 포트폴리오 연동
+
+## 라이선스
+
+[Apache License 2.0](LICENSE) 하에 배포됩니다.
 
 ---
 
