@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daily Brief · 2026년 4월 11일 토요일</title>
+<meta content="AI-powered daily market &amp; news briefing for 2026년 4월 11일 토요일" name="description"/>
+<meta content="noindex, nofollow" name="robots"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet"/>
+<!-- Plotly.js for sector treemap heatmap -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2/plotly.min.js"></script>
+<style>
+    /* ── CSS Custom Properties ─────────────────────────────── */
+    :root {
+      --bg:            #FAFAF8;
+      --bg-insight:    #F8F5F0;
+      --bg-white:      #FFFFFF;
+      --text:          #1A1A1A;
+      --text-secondary:#6B7280;
+      --up:            #16A34A;
+      --down:          #DC2626;
+      --accent:        #B91C1C;
+      --border:        #E5E5E5;
+
+      --font-serif:    'Noto Serif KR', Georgia, 'Times New Roman', serif;
+      --font-sans:     'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono:     'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout Container ──────────────────────────────────── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ── Section Dividers ──────────────────────────────────── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── Header ────────────────────────────────────────────── */
+    .site-header {
+      padding: 32px 0 24px;
+    }
+
+    .header-title {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .header-date {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .header-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-secondary);
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+    }
+    .header-nav a:hover { color: var(--accent); }
+
+    .nav-disabled {
+      color: var(--border) !important;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    @media (min-width: 640px) {
+      .header-date { font-size: 24px; }
+    }
+
+    /* ── Section Titles ────────────────────────────────────── */
+    .section-title {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding: 24px 0 16px;
+    }
+
+    /* ── AI Insight Section ─────────────────────────────────── */
+    .insight-section {
+      background: var(--bg-insight);
+      margin: 0 -16px;
+      padding: 28px 16px 32px;
+    }
+
+    .insight-label {
+      font-family: var(--font-sans);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .insight-body {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .insight-body p { margin-bottom: 1em; }
+    .insight-body p:last-child { margin-bottom: 0; }
+
+    .insight-body h2 {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 20px 0 6px;
+    }
+    .insight-body h2:first-child { margin-top: 0; }
+
+    .insight-body h3 {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    .insight-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 16px;
+    }
+
+    .insight-body li {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      padding: 6px 0 6px 16px;
+      border-left: 2px solid var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .insight-empty {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    @media (min-width: 640px) {
+      .insight-section {
+        margin: 0 -16px;
+        padding: 32px 32px 36px;
+      }
+      .insight-label { font-size: 24px; }
+      .insight-body { font-size: 15px; }
+    }
+
+    /* ── Markets Section ───────────────────────────────────── */
+    .markets-section {
+      padding-bottom: 8px;
+    }
+
+    .market-group-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+    .market-group-label:first-of-type { margin-top: 0; }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .market-item {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .market-item:nth-child(odd) { padding-right: 12px; }
+    .market-item:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--border); }
+
+    .market-name {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .market-price {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 1px;
+    }
+
+    .market-change {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .market-change.up   { color: var(--up); }
+    .market-change.down { color: var(--down); }
+    .market-change.flat { color: var(--text-secondary); }
+
+    .market-holiday-notice {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 12px 0;
+      font-style: italic;
+    }
+
+    @media (min-width: 640px) {
+      .market-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .market-item {
+        padding: 12px 12px 12px 0;
+      }
+      .market-item:nth-child(odd)  { padding-right: 12px; }
+      .market-item:nth-child(even) { padding-left: 12px; border-left: 1px solid var(--border); }
+      /* Reset for 4-col: every item except first in row gets left border */
+      .market-item { border-left: none; padding-left: 0; padding-right: 0; }
+      .market-item:nth-child(n) { padding: 12px 12px; }
+      .market-item:nth-child(4n+2),
+      .market-item:nth-child(4n+3),
+      .market-item:nth-child(4n+4) { border-left: 1px solid var(--border); }
+
+      .market-price { font-size: 20px; }
+      .market-change { font-size: 14px; }
+    }
+
+    /* ── Sector Treemap ────────────────────────────────────── */
+    @media (min-width: 640px) {
+      #sector-treemap { height: 220px; }
+    }
+
+    /* ── News Section ──────────────────────────────────────── */
+    .news-list {
+      list-style: none;
+    }
+
+    .news-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-item:last-child { border-bottom: none; }
+
+    .news-headline {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .news-headline a {
+      color: var(--text);
+    }
+    .news-headline a:hover {
+      color: var(--accent);
+    }
+
+    .news-summary {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      display: none;
+    }
+
+    .news-source {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .news-empty {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-style: italic;
+      padding: 16px 0;
+    }
+
+    @media (min-width: 640px) {
+      .news-summary { display: block; }
+    }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .site-footer {
+      padding: 32px 0 48px;
+      text-align: center;
+    }
+
+    .footer-actions {
+      margin-bottom: 16px;
+    }
+
+    .footer-actions a {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 12px;
+    }
+
+    .footer-meta {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .footer-meta a {
+      color: var(--text-secondary);
+    }
+    .footer-meta a:hover { color: var(--accent); }
+
+    /* ── Utility ───────────────────────────────────────────── */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="container" role="main">
+<!-- ═══ HEADER ═══════════════════════════════════════════ -->
+<header class="site-header">
+<div class="header-title" style="display:flex;justify-content:space-between;align-items:center;">
+<span>Daily Brief</span>
+<a href="https://kipeum86.github.io/daily-brief/en/archive/2026-04-11.html" style="font-size:13px;font-weight:600;letter-spacing:0.05em;color:var(--text-secondary);text-decoration:none;border:1px solid var(--border);border-radius:4px;padding:2px 10px;">KR → English</a>
+</div>
+<h1 class="header-date">2026년 4월 11일 토요일</h1>
+<nav aria-label="날짜 탐색" class="header-nav"><a aria-label="이전 브리핑: 2026-04-10" href="https://kipeum86.github.io/daily-brief/archive/2026-04-10.html">◀ 이전</a>
+<time datetime="2026-04-11">2026-04-11</time>
+<span aria-hidden="true" class="nav-disabled">다음 ▶</span></nav>
+</header>
+<hr class="section-divider"/>
+<!-- ═══ AI INSIGHT ═══════════════════════════════════════ -->
+<section aria-label="AI 인사이트" class="insight-section">
+<div class="container">
+<div class="insight-label">Today's Brief</div>
+<div class="insight-body">
+<h2>Key Insight</h2>
+<p>인플레이션 재점화 우려와 인공지능(AI) 주도 성장이 팽팽하게 맞서는 국면입니다. 미국의 물가 상승 압력과 한국의 대규모 추가경정예산 통과가 금리와 환율의 변동성을 키우고 있으나, 반도체와 기술주를 향한 구조적 기대감이 시장의 하방을 지지하는 핵심 동력으로 작용하고 있습니다.</p>
+<h2>Market Overview</h2>
+<p>전일 기준 한국 증시는 반도체 대형주의 중장기 실적 호조 전망에 힘입어 코스피와 코스닥 모두 1%대 강세를 기록했습니다. 반면 미국 증시는 에너지 비용 급등에 따른 인플레이션 경계감으로 다우와 S&amp;P 500 지수가 하락한 가운데, AI 기술 혁신 기대감이 유입된 나스닥만 홀로 상승하며 뚜렷한 업종별 차별화를 보였습니다.</p>
+<h2>Cross-Market Signals</h2>
+<ul>
+<li><strong>미 국채 금리 상승 + 나스닥 강세</strong>: 인플레이션 우려로 인한 금리 상승에도 기술주가 오르는 것은, AI 산업의 성장성이 거시경제의 부담을 압도하고 있다는 신호로 해석됩니다.</li>
+<li><strong>한국 추경 통과 + 원/달러 환율 상승</strong>: 26조 원 규모의 재정 지출 확대와 한국은행의 기준금리 동결이 맞물리며, 원화 가치 하락(1,485원대) 압력이 가중되는 모습입니다.</li>
+<li><strong>미국 물가 지표 악화 + 국제 유가 하락</strong>: 과거 에너지 가격 급등이 물가 지표에 후행 반영된 반면, 전일 WTI 유가는 2%대 하락해 향후 인플레이션 압력이 일부 완화될 가능성을 시사합니다.</li>
+</ul>
+</div>
+</div>
+</section>
+<hr class="section-divider"/>
+<!-- ═══ MARKETS ══════════════════════════════════════════ -->
+<section aria-label="시장 현황" class="markets-section">
+<h2 class="section-title" style="display:flex;justify-content:space-between;align-items:center;">
+<span>Markets</span>
+<span style="font-size:14px;font-weight:600;letter-spacing:0;">⚪ 중립</span>
+</h2>
+<div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);margin-bottom:12px;">
+        VIX -1.3% ↓ · USD/KRW +0.5% (달러 강세)
+      </div>
+<div style="display:flex;flex-wrap:wrap;column-gap:40px;padding:4px 0;border-bottom:1px solid var(--border);">
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">KOSPI</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">5,858.87</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+1.40%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp55067" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,12.74 12.5,12.74 C17.5,12.74 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,4.68 37.5,4.68 C42.5,4.68 45.0,2.38 50.0,2.38 L50.0,16 L0.0,16 Z" fill="url(#sp55067)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,12.74 12.5,12.74 C17.5,12.74 20.0,2.0 25.0,2.0 C30.0,2.0 32.5,4.68 37.5,4.68 C42.5,4.68 45.0,2.38 50.0,2.38" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.38" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">KOSDAQ</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">1,093.63</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+1.64%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp49214" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,11.76 C5.0,11.76 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,2.8 25.0,2.8 C30.0,2.8 32.5,5.72 37.5,5.72 C42.5,5.72 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp49214)"></path><path d="M0.0,11.76 C5.0,11.76 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,2.8 25.0,2.8 C30.0,2.8 32.5,5.72 37.5,5.72 C42.5,5.72 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.0" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">S&amp;P 500</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">6,816.89</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-0.11%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp46492" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,13.72 12.5,13.72 C17.5,13.72 20.0,4.36 25.0,4.36 C30.0,4.36 32.5,2.0 37.5,2.0 C42.5,2.0 45.0,2.44 50.0,2.44 L50.0,16 L0.0,16 Z" fill="url(#sp46492)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,13.72 12.5,13.72 C17.5,13.72 20.0,4.36 25.0,4.36 C30.0,4.36 32.5,2.0 37.5,2.0 C42.5,2.0 45.0,2.44 50.0,2.44" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.44" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Nasdaq</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">22,902.89</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+0.35%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp8206" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,13.72 12.5,13.72 C17.5,13.72 20.0,5.55 25.0,5.55 C30.0,5.55 32.5,3.07 37.5,3.07 C42.5,3.07 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp8206)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,13.72 12.5,13.72 C17.5,13.72 20.0,5.55 25.0,5.55 C30.0,5.55 32.5,3.07 37.5,3.07 C42.5,3.07 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.0" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Dow</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">47,916.57</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-0.56%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp58802" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,13.36 C5.0,13.36 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,4.07 25.0,4.07 C30.0,4.07 32.5,2.0 37.5,2.0 C42.5,2.0 45.0,4.02 50.0,4.02 L50.0,16 L0.0,16 Z" fill="url(#sp58802)"></path><path d="M0.0,13.36 C5.0,13.36 7.5,14.0 12.5,14.0 C17.5,14.0 20.0,4.07 25.0,4.07 C30.0,4.07 32.5,2.0 37.5,2.0 C42.5,2.0 45.0,4.02 50.0,4.02" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="4.02" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;column-gap:40px;padding:4px 0;border-bottom:1px solid var(--border);">
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">USD/KRW</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">1,485.41</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+0.53%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp41297" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,2.53 12.5,2.53 C17.5,2.53 20.0,5.84 25.0,5.84 C30.0,5.84 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,11.04 50.0,11.04 L50.0,16 L0.0,16 Z" fill="url(#sp41297)"></path><path d="M0.0,2.0 C5.0,2.0 7.5,2.53 12.5,2.53 C17.5,2.53 20.0,5.84 25.0,5.84 C30.0,5.84 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,11.04 50.0,11.04" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="11.04" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">JPY/KRW</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">9.33</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+0.17%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp61748" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,2.86 12.5,2.86 C17.5,2.86 20.0,2.86 25.0,2.86 C30.0,2.86 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,12.29 50.0,12.29 L50.0,16 L0.0,16 Z" fill="url(#sp61748)"></path><path d="M0.0,2.0 C5.0,2.0 7.5,2.86 12.5,2.86 C17.5,2.86 20.0,2.86 25.0,2.86 C30.0,2.86 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,12.29 50.0,12.29" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="12.29" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Gold</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">4,771.00</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-0.44%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp9286" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,13.97 12.5,13.97 C17.5,13.97 20.0,5.78 25.0,5.78 C30.0,5.78 32.5,2.0 37.5,2.0 C42.5,2.0 45.0,3.88 50.0,3.88 L50.0,16 L0.0,16 Z" fill="url(#sp9286)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,13.97 12.5,13.97 C17.5,13.97 20.0,5.78 25.0,5.78 C30.0,5.78 32.5,2.0 37.5,2.0 C42.5,2.0 45.0,3.88 50.0,3.88" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="3.88" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">WTI Oil</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">95.63</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-2.29%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp67117" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,2.35 C5.0,2.35 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,11.76 37.5,11.76 C42.5,11.76 45.0,13.21 50.0,13.21 L50.0,16 L0.0,16 Z" fill="url(#sp67117)"></path><path d="M0.0,2.35 C5.0,2.35 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,11.76 37.5,11.76 C42.5,11.76 45.0,13.21 50.0,13.21" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="13.21" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Bitcoin</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">73,190.67</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+1.98%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp74253" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,5.46 12.5,5.46 C17.5,5.46 20.0,7.73 25.0,7.73 C30.0,7.73 32.5,5.94 37.5,5.94 C42.5,5.94 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp74253)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,5.46 12.5,5.46 C17.5,5.46 20.0,7.73 25.0,7.73 C30.0,7.73 32.5,5.94 37.5,5.94 C42.5,5.94 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.0" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Ethereum</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">2,254.41</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+2.98%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp53214" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#16A34A" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#16A34A" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,14.0 C5.0,14.0 7.5,3.03 12.5,3.03 C17.5,3.03 20.0,7.24 25.0,7.24 C30.0,7.24 32.5,7.34 37.5,7.34 C42.5,7.34 45.0,2.0 50.0,2.0 L50.0,16 L0.0,16 Z" fill="url(#sp53214)"></path><path d="M0.0,14.0 C5.0,14.0 7.5,3.03 12.5,3.03 C17.5,3.03 20.0,7.24 25.0,7.24 C30.0,7.24 32.5,7.34 37.5,7.34 C42.5,7.34 45.0,2.0 50.0,2.0" fill="none" stroke="#16A34A" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="2.0" fill="#16A34A" r="1.5"></circle></svg>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;column-gap:40px;padding:4px 0;border-bottom:1px solid var(--border);">
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">VIX</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">19.23</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-1.33%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp85919" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,4.95 C5.0,4.95 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,10.68 25.0,10.68 C30.0,10.68 32.5,13.52 37.5,13.52 C42.5,13.52 45.0,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp85919)"></path><path d="M0.0,4.95 C5.0,4.95 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,10.68 25.0,10.68 C30.0,10.68 32.5,13.52 37.5,13.52 C42.5,13.52 45.0,14.0 50.0,14.0" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="14.0" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">US 10Y</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">4.32</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--up);width:70px;flex-shrink:0;text-align:right;">▲+0.56%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp36976" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,6.8 50.0,6.8 L50.0,16 L0.0,16 Z" fill="url(#sp36976)"></path><path d="M0.0,2.0 C5.0,2.0 7.5,2.0 12.5,2.0 C17.5,2.0 20.0,14.0 25.0,14.0 C30.0,14.0 32.5,14.0 37.5,14.0 C42.5,14.0 45.0,6.8 50.0,6.8" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="6.8" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+<div style="display:flex;align-items:center;gap:6px;padding:6px 0;width:calc(50% - 20px);overflow:hidden;">
+<span style="font-size:11px;color:var(--text-secondary);font-weight:600;width:70px;flex-shrink:0;">Dollar Index</span>
+<span style="font-family:var(--font-mono);font-size:14px;font-weight:500;width:90px;flex-shrink:0;text-align:right;">98.70</span>
+<span style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--down);width:70px;flex-shrink:0;text-align:right;">▼-0.12%</span>
+<svg height="16" style="vertical-align:middle;margin-left:6px;flex-shrink:0;" viewbox="0 0 50 16" width="50"><defs><lineargradient id="sp21143" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#DC2626" stop-opacity="0.15"></stop><stop offset="100%" stop-color="#DC2626" stop-opacity="0.02"></stop></lineargradient></defs><path d="M0.0,2.0 C5.0,2.0 7.5,5.19 12.5,5.19 C17.5,5.19 20.0,9.97 25.0,9.97 C30.0,9.97 32.5,12.88 37.5,12.88 C42.5,12.88 45.0,14.0 50.0,14.0 L50.0,16 L0.0,16 Z" fill="url(#sp21143)"></path><path d="M0.0,2.0 C5.0,2.0 7.5,5.19 12.5,5.19 C17.5,5.19 20.0,9.97 25.0,9.97 C30.0,9.97 32.5,12.88 37.5,12.88 C42.5,12.88 45.0,14.0 50.0,14.0" fill="none" stroke="#DC2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path><circle cx="50.0" cy="14.0" fill="#DC2626" r="1.5"></circle></svg>
+</div>
+</div>
+<div style="margin-top:12px;">
+<div style="font-size:11px;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">S&amp;P Sectors</div>
+<div id="sector-treemap" style="width:100%;height:180px;border-radius:4px;overflow:hidden;display:none;"></div>
+<div id="sector-chips" style="display:flex;flex-wrap:wrap;gap:4px;">
+<div style="background:#F0FDF4;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Tech: +0.39%">
+            Tech +0.4%
+          </div>
+<div style="background:#FEF2F2;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#DC2626;white-space:nowrap;" title="Finance: -1.09%">
+            Finance -1.1%
+          </div>
+<div style="background:#FEF2F2;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#DC2626;white-space:nowrap;" title="Health: -1.35%">
+            Health -1.4%
+          </div>
+<div style="background:#FFF1F2;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#DC2626;white-space:nowrap;" title="Energy: -0.68%">
+            Energy -0.7%
+          </div>
+<div style="background:#FFF1F2;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#DC2626;white-space:nowrap;" title="Industrial: -0.39%">
+            Industrial -0.4%
+          </div>
+<div style="background:#FEF2F2;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#DC2626;white-space:nowrap;" title="Staples: -1.29%">
+            Staples -1.3%
+          </div>
+<div style="background:#FFF1F2;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#DC2626;white-space:nowrap;" title="Utilities: -0.40%">
+            Utilities -0.4%
+          </div>
+<div style="background:#F0FDF4;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Real Estate: +0.21%">
+            Real Estate +0.2%
+          </div>
+<div style="background:#F0FDF4;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Materials: +0.56%">
+            Materials +0.6%
+          </div>
+<div style="background:#FFF1F2;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#DC2626;white-space:nowrap;" title="Comms: -0.28%">
+            Comms -0.3%
+          </div>
+<div style="background:#F0FDF4;padding:4px 8px;border-radius:4px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#16A34A;white-space:nowrap;" title="Discretionary: +0.13%">
+            Discretionary +0.1%
+          </div>
+</div>
+</div>
+</section>
+<hr class="section-divider"/>
+<!-- ═══ WORLD NEWS ═══════════════════════════════════════ -->
+<section aria-label="세계 뉴스">
+<h2 class="section-title">World</h2>
+<ul class="news-list">
+<li class="news-item">
+<article>
+<h3 class="news-headline">
+<a href="https://www.aljazeera.com/video/newsfeed/2026/4/10/us-iran-negotiations-in-islamabad-what-to-expect?traffic_source=rss" rel="noopener noreferrer" target="_blank">이슬라마바드에서 열리는 미국-이란 협상: 전망은?</a>
+</h3>
+<p class="news-summary">미국과 이란 대표단이 6주간의 전쟁을 종식하기 위한 평화 회담을 위해 이슬라마바드에서 만날 예정이다.</p>
+<p class="news-source">Al Jazeera</p>
+</article>
+</li>
+<li class="news-item">
+<article>
+<h3 class="news-headline">
+<a href="https://www.npr.org/2026/04/10/nx-s1-5780604/inflation-consumer-prices-economy" rel="noopener noreferrer" target="_blank">에너지 비용 급등으로 인플레이션, 거의 2년 만에 최고치로 치솟아</a>
+</h3>
+<p class="news-summary">3월 소비자물가는 전년 동기 대비 3.3% 올라 거의 2년 만에 최대 연간 상승폭을 기록했다. 이란과의 전쟁과 맞물린 휘발유 가격 상승이 급등의 주요 원인이었다.</p>
+<p class="news-source">NPR</p>
+</article>
+</li>
+<li class="news-item">
+<article>
+<h3 class="news-headline">
+<a href="https://www.cnbc.com/2026/04/10/trump-white-house-ai-cyber-threat-anthropic-mythos.html" rel="noopener noreferrer" target="_blank">밴스와 베센트, 앤스로픽의 미토스 출시 전 빅테크 기업들에 AI 보안 문제 질의</a>
+</h3>
+<p class="news-summary">베센트와 제롬 파월 연준 의장은 앤스로픽의 미토스가 지닌 잠재적 사이버 위협에 대응하기 위해 미국 주요 은행장들과 각각 회동했다.</p>
+<p class="news-source">CNBC</p>
+</article>
+</li>
+<li class="news-item">
+<article>
+<h3 class="news-headline">
+<a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxQVy14Yk55T1BZN2QtX2R4YUdNY3RLM1M3aWxtbkYxUHh0OFAzd0ZISHNZYmZDZmV6Q3FrX20yQVg0MjJUcDVyVmZTNW0xR294VW0xdElGWGd5YTdJbHFraU1tVEI1UU9zR1Mtamp4NENnRTNSS3RSbHlCQnJCTldzcEVRazJ5YzVzMFVIOUxram94czdvOXdGbDFRLWtjVWtG?oc=5" rel="noopener noreferrer" target="_blank">NASA의 달 복귀를 장식할 태평양 착수와 함께 아르테미스 2호의 웅장한 달 피날레 임박 - AP 통신</a>
+</h3>
+<p class="news-summary">NASA의 달 복귀를 장식할 태평양 착수와 함께 아르테미스 2호의 웅장한 달 피날레 임박 AP 통신</p>
+<p class="news-source">AP News</p>
+</article>
+</li>
+<li class="news-item">
+<article>
+<h3 class="news-headline">
+<a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxOTGE3eUxCSk5UQ3didGNlT1BnNG1fSk53NlN1cWY2VEdxb2VnY2lrU2lUckdqSDRNYjhjQ2syYUdMU2lTRzVBZzlxQ3hJVDI3UHVSMTE0M1c5XzUzRDdwWVR4QWhNSDVJeUw5Q2NFWWFnODBiQWYyNFE0b2s1QjlocU1ManR6RkwtZmc3MEFJSGozeEEwUk9rdE00VFJvWUtwZDNPSzJ6d3dtZw?oc=5" rel="noopener noreferrer" target="_blank">카멀라 해리스, 2028년 대선 재도전 가능성 시사 - 로이터</a>
+</h3>
+<p class="news-summary">카멀라 해리스, 2028년 대선 재도전 가능성 시사 로이터</p>
+<p class="news-source">Reuters</p>
+</article>
+</li>
+</ul>
+</section>
+<hr class="section-divider"/>
+<!-- ═══ KOREA NEWS ═══════════════════════════════════════ -->
+<section aria-label="한국 뉴스">
+<h2 class="section-title">Korea</h2>
+<ul class="news-list">
+<li class="news-item">
+<article>
+<h3 class="news-headline">
+<a href="https://www.hani.co.kr/arti/economy/finance/1253584.html" rel="noopener noreferrer" target="_blank">한은, 기준금리 연 2.50% 동결…7차례 연속</a>
+</h3>
+<p class="news-summary">한국은행이 기준금리를 현재 연 2.50% 수준으로 유지하기로 결정했다. 이창용 한은 총재는 지난해 7월 이후 일곱 차례 연속 금리를 동결하며 임기를 마치게 됐다. 한은 금융통화위원회(금통위)는 10일 올해 세 번째...</p>
+<p class="news-source">한겨레</p>
+</article>
+</li>
+<li class="news-item">
+<article>
+<h3 class="news-headline">
+<a href="https://www.donga.com/news/Politics/article/all/20260411/133718969/2" rel="noopener noreferrer" target="_blank">‘전쟁 추경’ 26.2조 통과… 소득하위 70% 지원금 유지</a>
+</h3>
+<p class="news-summary">여야가 10일 중동 전쟁 대응 추가경정예산(추경)안을 기존 정부안과 동일한 26조2000억 원 규모로 통과시켰다. 소득 하위 70%에 해당하는 국민에게 소득에 따라 10만∼60만 원을 지급하는 내용의 고유가 피해지원금 사업 등은 그대로 유지하는 한편 일부 사업은 예산 규모가 조정됐다. 더불어민주당과 국민의힘은 이날 오후 10시 10분경 국회 본회의를 열고 이 같은 내용의 추경안을 처리했다. 국민의힘이 반대했던 고유가 피해지원금 사업은 기존 정부안대로 4조8000억 원이 편성됐다. 지급 대상은 총 3577만 명으로 추산되며 1인당 최소 10만 원에서 최대 60만 원이 지원된다. 또 대중교통비 환급 서비스인 K-패스를 한시적으로 50% 할인하기 위해 예산을 1000억 원 늘려 편성하기로 했다. 할인 규모가 30%였던 기존 정부안에서 할인 폭을 늘린 것.  중동 사태로 수급이 불안해진 나프타 수급 안정화를 위한 예산도 2000억 원이 증액됐다. 여야는 또 한시적으로 농기계 유가연동보조</p>
+<p class="news-source">동아일보</p>
+</article>
+</li>
+<li class="news-item">
+<article>
+<h3 class="news-headline">
+<a href="https://www.hankyung.com/article/2026041030951" rel="noopener noreferrer" target="_blank">"삼전·하이닉스 내년 매출 1000조원…AI 타고 2028년까지 질주"</a>
+</h3>
+<p class="news-summary">삼전·하이닉스 내년 매출 1000조원…AI 타고 2028년까지 질주 | 한국경제 본문 바로가기 ADVERTISEMENT "삼전·하이닉스 내년 매출 1000조원…AI 타고 2028년까지 질주" 배성수 기자 구독하기 입력 2026.04.11 06:00 수정 2026.04.11 06:00 지면 A5 글자크기 조절 기사 스크랩 기사 스크랩 공유 공유 댓글 0 댓글 클린뷰 클린뷰 프린트 프린트 반도체 애널리스트 5인이 본 주가 전망…</p>
+<p class="news-source">한국경제</p>
+</article>
+</li>
+<li class="news-item">
+<article>
+<h3 class="news-headline">
+<a href="https://www.yna.co.kr/view/AKR20260410162000530" rel="noopener noreferrer" target="_blank">의료계, 진료소모품 수요 대응…"적정 재고 유지·대체품 사용"</a>
+</h3>
+<p class="news-summary">(서울=연합뉴스) 성서호 기자 = 중동 지역 긴장 고조에 따른 공급망 불안 가능성에 대응하고자 의료계 주요 단체들이 일제히 진료 소모품 수요 폭...</p>
+<p class="news-source">연합뉴스</p>
+</article>
+</li>
+<li class="news-item">
+<article>
+<h3 class="news-headline">
+<a href="https://www.chosun.com/national/court_law/2026/04/11/FEJEINC3PBCVLIFUFMJWDPIVGA/" rel="noopener noreferrer" target="_blank">[단독] ‘좌천용’ 법무연수원 연구위원 발령 1년 뒤엔 강등까지 가능</a>
+</h3>
+<p class="news-summary">[단독] ‘좌천용’ 법무연수원 연구위원 발령 1년 뒤엔 강등까지 가능</p>
+<p class="news-source">조선일보</p>
+</article>
+</li>
+</ul>
+</section>
+<hr class="section-divider"/>
+<!-- ═══ FOOTER ═══════════════════════════════════════════ -->
+<footer class="site-footer">
+<div class="footer-actions">
+<a href="https://kipeum86.github.io/daily-brief/archive//">과거 브리핑 보기</a>
+</div>
+<div class="footer-meta">
+<p>Powered by AI · Data: Yahoo Finance, FRED, RSS</p>
+<p>Generated <time datetime="2026-04-10 22:01:43">2026-04-10 22:01:43</time></p>
+</div>
+</footer>
+</div>
+<!-- Sector treemap data -->
+<script id="sector-data" type="application/json">
+    [{&#34;ticker&#34;: &#34;XLK&#34;, &#34;name&#34;: &#34;Tech&#34;, &#34;change_pct&#34;: 0.39, &#34;price&#34;: 142.62, &#34;weight&#34;: 32.0}, {&#34;ticker&#34;: &#34;XLF&#34;, &#34;name&#34;: &#34;Finance&#34;, &#34;change_pct&#34;: -1.09, &#34;price&#34;: 50.77, &#34;weight&#34;: 13.5}, {&#34;ticker&#34;: &#34;XLV&#34;, &#34;name&#34;: &#34;Health&#34;, &#34;change_pct&#34;: -1.35, &#34;price&#34;: 147.31, &#34;weight&#34;: 12.0}, {&#34;ticker&#34;: &#34;XLE&#34;, &#34;name&#34;: &#34;Energy&#34;, &#34;change_pct&#34;: -0.68, &#34;price&#34;: 56.94, &#34;weight&#34;: 3.5}, {&#34;ticker&#34;: &#34;XLI&#34;, &#34;name&#34;: &#34;Industrial&#34;, &#34;change_pct&#34;: -0.39, &#34;price&#34;: 171.52, &#34;weight&#34;: 8.5}, {&#34;ticker&#34;: &#34;XLP&#34;, &#34;name&#34;: &#34;Staples&#34;, &#34;change_pct&#34;: -1.29, &#34;price&#34;: 82.37, &#34;weight&#34;: 6.0}, {&#34;ticker&#34;: &#34;XLU&#34;, &#34;name&#34;: &#34;Utilities&#34;, &#34;change_pct&#34;: -0.4, &#34;price&#34;: 46.96, &#34;weight&#34;: 2.5}, {&#34;ticker&#34;: &#34;XLRE&#34;, &#34;name&#34;: &#34;Real Estate&#34;, &#34;change_pct&#34;: 0.21, &#34;price&#34;: 42.82, &#34;weight&#34;: 2.0}, {&#34;ticker&#34;: &#34;XLB&#34;, &#34;name&#34;: &#34;Materials&#34;, &#34;change_pct&#34;: 0.56, &#34;price&#34;: 51.96, &#34;weight&#34;: 2.0}, {&#34;ticker&#34;: &#34;XLC&#34;, &#34;name&#34;: &#34;Comms&#34;, &#34;change_pct&#34;: -0.28, &#34;price&#34;: 113.95, &#34;weight&#34;: 9.0}, {&#34;ticker&#34;: &#34;XLY&#34;, &#34;name&#34;: &#34;Discretionary&#34;, &#34;change_pct&#34;: 0.13, &#34;price&#34;: 112.89, &#34;weight&#34;: 10.0}]
+  </script>
+<!-- Language redirect -->
+<script>
+  (function() {
+    var K = 'daily-brief-lang';
+    var p = location.pathname;
+    var isEn = p.indexOf('/en/') > -1;
+    var cur = isEn ? 'en' : 'ko';
+    try { localStorage.setItem(K, cur); } catch(e) {}
+    if (p === '/' || p === '/index.html' || p === '/en/' || p === '/en/index.html'
+        || p === '/weekly/' || p === '/weekly/index.html') {
+      try {
+        var s = localStorage.getItem(K);
+        if (s && s !== cur) {
+          location.replace(s === 'en'
+            ? p.replace(/^\/?/, '/en/')
+            : p.replace(/^\/en\//, '/'));
+        }
+      } catch(e) {}
+    }
+  })();
+  </script>
+<!-- S&P Sector Treemap (Plotly.js) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
+    var container = document.getElementById('sector-treemap');
+    if (!container || typeof Plotly === 'undefined') return;
+
+    var raw;
+    try { raw = JSON.parse(document.getElementById('sector-data').textContent); }
+    catch(e) { return; }
+    if (!raw || !raw.length) return;
+
+    /* ── Muted FT/Economist diverging color scale ── */
+    var stops = [
+      [-3, [192,57,43]],   /* warm dark red */
+      [-1.5, [224,122,95]], /* terracotta */
+      [0, [240,239,235]],   /* off-white */
+      [1.5, [107,158,107]], /* sage green */
+      [3, [45,106,79]]      /* deep editorial green */
+    ];
+
+    function lerpColor(pct) {
+      var p = Math.max(-3, Math.min(3, pct));
+      for (var i = 0; i < stops.length - 1; i++) {
+        if (p <= stops[i+1][0]) {
+          var t = (p - stops[i][0]) / (stops[i+1][0] - stops[i][0]);
+          var a = stops[i][1], b = stops[i+1][1];
+          return 'rgb(' +
+            Math.round(a[0] + t*(b[0]-a[0])) + ',' +
+            Math.round(a[1] + t*(b[1]-a[1])) + ',' +
+            Math.round(a[2] + t*(b[2]-a[2])) + ')';
+        }
+      }
+      return 'rgb(45,106,79)';
+    }
+
+    var labels = ['S&P 500'], parents = [''], values = [0];
+    var colors = ['rgba(0,0,0,0)'], text = [''], customdata = [[0,0]];
+    var fontColors = ['#1A1A1A'], fontSizes = [0];
+
+    raw.forEach(function(d) {
+      labels.push(d.name);
+      parents.push('S&P 500');
+      values.push(d.weight);
+      colors.push(lerpColor(d.change_pct));
+      var sign = d.change_pct >= 0 ? '+' : '';
+      text.push(sign + d.change_pct.toFixed(1) + '%');
+      customdata.push([d.change_pct, d.price]);
+      fontColors.push(Math.abs(d.change_pct) > 1.5 ? '#FFFFFF' : '#1A1A1A');
+      fontSizes.push(d.weight > 8 ? 13 : 11);
+    });
+
+    Plotly.newPlot(container, [{
+      type: 'treemap',
+      labels: labels,
+      parents: parents,
+      values: values,
+      text: text,
+      textposition: 'middle center',
+      texttemplate: '%{label}<br>%{text}',
+      textfont: { family: "'JetBrains Mono', monospace", size: fontSizes, color: fontColors },
+      hovertemplate: '<b>%{label}</b><br>%{text}<br>$%{customdata[1]:.2f}<extra></extra>',
+      customdata: customdata,
+      marker: { colors: colors, line: { width: 1.5, color: '#FAFAF8' } },
+      pathbar: { visible: false },
+      branchvalues: 'total',
+      tiling: { pad: 2 },
+      root: { color: 'rgba(0,0,0,0)' }
+    }], {
+      margin: { l:0, r:0, t:0, b:0 },
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      font: { family: "'Pretendard Variable', sans-serif", color: '#1A1A1A' },
+      hoverlabel: {
+        bgcolor: '#FFFFFF', bordercolor: '#E5E5E5',
+        font: { family: "'JetBrains Mono', monospace", size: 12, color: '#1A1A1A' }
+      }
+    }, {
+      displayModeBar: false, responsive: true, staticPlot: false
+    });
+
+    /* Show treemap, hide chip fallback */
+    container.style.display = '';
+    var chips = document.getElementById('sector-chips');
+    if (chips) chips.style.display = 'none';
+  });
+  </script>
+</body>
+</html>
