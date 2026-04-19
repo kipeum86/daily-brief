@@ -1,9 +1,9 @@
 [
   {
-    "check": "korea_purity",
+    "check": "category_balance",
     "section": "korea",
-    "detail": "“이래도 싫어할 수 있어?”…황금색 아이오닉으로 중국 홀린다",
-    "action": "replaced with 의료계, 진료소모품 수요 대응…\"적정 재고 유지·대체품 사용\"",
-    "date": "2026-04-10"
+    "detail": "only 2 categories before swap",
+    "action": "replaced 與 \"국힘, 고가 부동산 소유자 기득권 지키려 혈안…억지 선동 규탄\" with [단독]법원 “성소수자 호르몬치료 받아야 군면제 가능”…“현실 외면 판결”",
+    "date": "2026-04-19"
   }
 ]
