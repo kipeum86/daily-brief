@@ -1,9 +1,13 @@
 {
-  "date": "2026-04-21",
-  "timestamp": "2026-04-20T22:08:46",
-  "passed": true,
-  "errors": [],
-  "warnings": [],
+  "date": "2026-04-22",
+  "timestamp": "2026-04-21T22:06:38",
+  "passed": false,
+  "errors": [
+    "Insight says KOSPI 하락 but actual change is +2.72%"
+  ],
+  "warnings": [
+    "Cited 182.0% not close to any market data (closest diff: 178.7%p)"
+  ],
   "checks_run": 5,
-  "checks_passed": 5
+  "checks_passed": 4
 }

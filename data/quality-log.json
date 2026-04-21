@@ -2,8 +2,15 @@
   {
     "check": "category_balance",
     "section": "korea",
+    "detail": "only 1 categories before swap",
+    "action": "replaced “돌려막을 카드가 없네요”…반년 넘게 밀린 카드빚 4700억 사상최대 with 김용, 안산·하남 콕 집어 공천 요구…민주당 “선거판 전체 악영향” 고심",
+    "date": "2026-04-21"
+  },
+  {
+    "check": "category_balance",
+    "section": "korea",
     "detail": "only 2 categories before swap",
-    "action": "replaced 與 \"국힘, 고가 부동산 소유자 기득권 지키려 혈안…억지 선동 규탄\" with [단독]법원 “성소수자 호르몬치료 받아야 군면제 가능”…“현실 외면 판결”",
-    "date": "2026-04-19"
+    "action": "replaced PF 시장 급랭…부동산 '공급 절벽' 온다 with 신약 건강보험 적용 빨라진다…건보-제약사 약값 '별도 합의'",
+    "date": "2026-04-21"
   }
 ]
