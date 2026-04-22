@@ -52,3 +52,27 @@ def test_holiday_mention_ok():
     errors, _ = check_insight_accuracy(insight, insight, _markets(), _holidays(us=True), no_llm=False)
     holiday_narration_errors = [e for e in errors if "휴장 시장 서술" in e]
     assert holiday_narration_errors == []
+
+
+def test_decimal_in_direction_sentence_not_split():
+    # Regression: 2026-04-22 run failed because "2.7%" split the sentence,
+    # dropping the 급등세/강세 words and leaving only 약세 → false 하락 alarm.
+    insight = (
+        "## Market Overview\n"
+        "반면 한국 코스피는 반도체 수출이 182% 폭증하며 역대 최대 수출액을 경신했다는 소식에 힘입어, "
+        "글로벌 약세장 속에서도 2.7%대 급등세를 보이며 독자적인 강세를 기록했습니다. "
+    ) * 2
+    errors, _ = check_insight_accuracy(insight, insight, _markets(kr_change=2.72), _holidays(), no_llm=False)
+    assert not any("KOSPI" in e and "하락" in e for e in errors)
+
+
+def test_news_stat_percentage_not_flagged_as_market_mismatch():
+    # Regression: "182% 폭증" (export growth news stat) was flagged as
+    # inconsistent with market change_pct values. Now skipped.
+    insight = (
+        "## Market Overview\n"
+        "한국 코스피는 반도체 수출이 182% 폭증하며 역대 최대 수출액을 기록했다는 소식에 힘입어 "
+        "2.72% 상승 마감했습니다. " * 3
+    )
+    _, warnings = check_insight_accuracy(insight, insight, _markets(kr_change=2.72), _holidays(), no_llm=False)
+    assert not any("182" in w for w in warnings)

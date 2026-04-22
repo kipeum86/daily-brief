@@ -10,6 +10,10 @@ logger = logging.getLogger(__name__)
 _UP_KO = re.compile(r"상승|폭등|급등|랠리|강세|돌파|반등")
 _DOWN_KO = re.compile(r"하락|폭락|급락|약세|붕괴|추락|미끄러")
 
+# Split on sentence boundaries but preserve decimal numbers like "2.7%".
+# A period only ends a sentence when NOT surrounded by digits.
+_SENTENCE_SPLIT = re.compile(r"(?<!\d)\.(?!\d)|[。\n]")
+
 _MIN_INSIGHT_LENGTH = 200
 
 
@@ -66,7 +70,7 @@ def _get_change(markets: dict, section: str, index: int) -> float | None:
 
 
 def _check_direction(text: str, ko_name: str, en_name: str, change: float, errors: list[str]) -> None:
-    for sentence in re.split(r"[.。\n]", text):
+    for sentence in _SENTENCE_SPLIT.split(text):
         if ko_name not in sentence and en_name not in sentence:
             continue
         has_up = bool(_UP_KO.search(sentence))
@@ -81,7 +85,7 @@ def _check_holiday_narration(text: str, patterns: list[str], market: str, errors
     exempt = re.compile(r"오늘.*휴장|오늘은.*휴장")
     for pattern in patterns:
         if pattern in text:
-            for sentence in re.split(r"[.。\n]", text):
+            for sentence in _SENTENCE_SPLIT.split(text):
                 if pattern in sentence and not exempt.search(sentence):
                     errors.append(f"휴장 시장 서술: {market} is closed but insight says '{pattern}...'")
                     return
@@ -97,7 +101,10 @@ def _check_numbers(text: str, markets: dict, warnings: list[str]) -> None:
 
     for match in re.finditer(r"(\d+\.?\d*)%", text):
         cited = float(match.group(1))
-        if cited < 0.1:
+        # Skip values outside plausible daily market-change range — these are
+        # almost always news statistics (e.g. YoY export growth) rather than
+        # ticker moves, and comparing them to change_pct produces false alarms.
+        if cited < 0.1 or cited > 20:
             continue
         closest = min((abs(cited - c) for c in all_changes), default=999)
         if closest > 1.0 and all_changes:
