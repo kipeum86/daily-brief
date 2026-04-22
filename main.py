@@ -509,6 +509,17 @@ def run(args: argparse.Namespace) -> int:
     except Exception as exc:
         logger.warning("Daily snapshot save failed: %s", exc)
 
+    # ── 8.4. Briefing-hub manifest ───────────────────────────────────────
+    # Publish output/manifest.json so the kipeum86/briefing-hub aggregator
+    # can fetch this site's recent briefings. Best-effort — manifest is a
+    # secondary artifact, never block the main deploy on it.
+    try:
+        from pipeline.render.manifest import write_manifest
+        write_manifest(output_dir)
+        sections.append("manifest")
+    except Exception as exc:
+        logger.warning("Manifest write failed (non-critical): %s", exc)
+
     # ── 8.5. Pre-deploy verification ─────────────────────────────────────
     gate_passed = True
     logger.info("Stage 8.5/10: Pre-deploy verification")
