@@ -1,16 +1,9 @@
 [
   {
-    "check": "category_balance",
+    "check": "korea_purity",
     "section": "korea",
-    "detail": "only 1 categories before swap",
-    "action": "replaced “돌려막을 카드가 없네요”…반년 넘게 밀린 카드빚 4700억 사상최대 with 김용, 안산·하남 콕 집어 공천 요구…민주당 “선거판 전체 악영향” 고심",
-    "date": "2026-04-21"
-  },
-  {
-    "check": "category_balance",
-    "section": "korea",
-    "detail": "only 2 categories before swap",
-    "action": "replaced PF 시장 급랭…부동산 '공급 절벽' 온다 with 신약 건강보험 적용 빨라진다…건보-제약사 약값 '별도 합의'",
-    "date": "2026-04-21"
+    "detail": "중동 막히자 원료·소재 수요 OCI로 몰렸다… 유가 강세·판가 상승에 1분기 수익성↑",
+    "action": "replaced with 4차 석유 최고가격제 ‘경유값 1923원 동결’ 가닥",
+    "date": "2026-04-22"
   }
 ]
