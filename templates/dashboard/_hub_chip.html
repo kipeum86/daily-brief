@@ -1,6 +1,6 @@
 {# HubChip — fixed link back to briefing-hub aggregator.
    Included from base.html, archive.html, weekly.html, weekly_archive.html.
-   Accent #1a3a6b matches Daily Brief's slot in briefing-hub's BRIEFINGS config. #}
+   Uses each template's --accent (deep red) to match Daily Brief's palette. #}
 <a class="hub-chip" href="https://kipeum86.github.io/briefing-hub/" aria-label="Briefing Hub로 이동">
   ← BRIEFING HUB
 </a>
@@ -14,14 +14,15 @@
     font-size: 11px;
     letter-spacing: 1.5px;
     text-decoration: none;
-    background: #1a3a6b;
-    color: #f5f1e8;
-    border: 1px solid #0f234a;
+    background: var(--accent);
+    color: #FAFAF8;
+    border: 1px solid rgba(0, 0, 0, 0.15);
     z-index: 9999;
-    transition: background 0.15s;
+    transition: filter 0.15s;
   }
   .hub-chip:hover {
-    background: #0f234a;
+    filter: brightness(0.85);
     text-decoration: none;
+    color: #FAFAF8;
   }
 </style>
