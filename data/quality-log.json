@@ -2,8 +2,15 @@
   {
     "check": "korea_purity",
     "section": "korea",
-    "detail": "중동 막히자 원료·소재 수요 OCI로 몰렸다… 유가 강세·판가 상승에 1분기 수익성↑",
-    "action": "replaced with 4차 석유 최고가격제 ‘경유값 1923원 동결’ 가닥",
-    "date": "2026-04-22"
+    "detail": "“중국에서, 중국을 위해” 선언한 현대차…아이오닉V 핵심기술 협력",
+    "action": "replaced with “김범석 건드리지 마”…외교·안보 위협하는 ‘쿠팡 리스크’",
+    "date": "2026-04-26"
+  },
+  {
+    "check": "category_balance",
+    "section": "world",
+    "detail": "only 2 categories before swap",
+    "action": "replaced Russia, North Korea agree 'long-term' military cooperation with Tillis ends block of Fed chair nominee Warsh, clears way for Trump pick",
+    "date": "2026-04-26"
   }
 ]
