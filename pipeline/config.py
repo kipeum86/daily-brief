@@ -21,6 +21,9 @@ DEFAULTS = {
     "llm": {
         "provider": "gemini",
         "model": "",
+        "analysis_model": "",
+        "selection_model": "",
+        "translation_model": "",
         "max_input_chars": 8000,
     },
     "markets": {
@@ -53,6 +56,9 @@ DEFAULTS = {
         "subject_prefix": "Daily Brief",
         "subscribers": [],
     },
+    "alerts": {
+        "failure_email_enabled": True,
+    },
     "sheets": {
         "enabled": False,
         "spreadsheet_id": "",
@@ -64,7 +70,6 @@ DEFAULTS = {
     "schedule": {
         "morning_cron": "0 20 * * 0-4",
         "weekly_cron": "0 0 * * 6",
-        "monthly_cron": "30 22 1 * *",
     },
 }
 

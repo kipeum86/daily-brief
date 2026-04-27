@@ -51,11 +51,11 @@ Think of it as your personal **Economist "World in Brief"** — but tailored for
 ### 📰 News
 - **Global** — Reuters, BBC World, The Guardian, Al Jazeera, AP News, NPR (diverse perspectives, no paywall)
 - **Korea** — 7 major outlets via RSS (연합뉴스, 조선, 중앙, 동아, 한겨레, 한경, 매경) + Naver Search API (supplementary keyword search)
-- **3-stage dedup** — URL canonicalization → topic token similarity → EventKey hash
+- **Deduplication** — URL canonicalization + topic-token similarity + cross-run history
 - **Cross-run dedup** — Won't repeat yesterday's stories
 
 ### 🤖 AI Analysis
-- **Gemini 3.1 Pro** (with automatic fallback chain; pluggable — supports Claude and OpenAI too)
+- **Gemini 3.1 Pro** (with automatic fallback chain; Claude provider available via config)
 - **Editorial insight** — "Key Insight", "Market Overview", "Cross-Market Signals"
 - **Not a data dump** — AI connects the dots between markets, FX, commodities, and news events
 - **Bilingual** — Korean and English insights generated independently (not translated)
@@ -73,6 +73,7 @@ Think of it as your personal **Economist "World in Brief"** — but tailored for
 - **Korea purity** — Blocks international news (Iran, Russia) from Korea section, filters junk (인사발령, 부고)
 - **Translation check** — Ensures world news is in Korean (KO version), Korean news in English (EN version)
 - **Gate blocks deploy** — If any check fails, email is not sent and deploy is skipped
+- **Operational alerts** — Failed gates appear in GitHub Actions summary and can email the sender only
 
 ### 📧 Email Delivery
 - **Gmail SMTP** — no extra service needed, free
@@ -263,8 +264,11 @@ KST 06:30 (GitHub Actions cron)
 ```yaml
 # config.yaml
 llm:
-  provider: "gemini"           # gemini, claude, openai
-  model: "gemini-2.5-flash"   # any model supported by the provider
+  provider: "gemini"           # gemini, claude
+  model: "gemini-3.1-pro-preview"   # default fallback model
+  analysis_model: "gemini-3.1-pro-preview"
+  selection_model: "gemini-2.5-flash"
+  translation_model: "gemini-2.5-flash"
 ```
 
 ### Add/Remove Market Tickers
@@ -307,7 +311,7 @@ Every component fails independently:
 | Gmail | Skip email | Dashboard still deploys |
 | Google Sheets | Skip archiving | Everything else works |
 
-| Verification gate | Block email + deploy | Errors logged to `verification-log.json` |
+| Verification gate | Block email + deploy | Errors logged to `verification-log.json`, GitHub Actions summary, sender-only alert email |
 
 The briefing **always generates** — but if verification fails, email/deploy is blocked to prevent sending incorrect information.
 
@@ -327,7 +331,7 @@ The briefing **always generates** — but if verification fails, email/deploy is
 - [x] Weekly Recap
 - [x] Plotly.js treemap heatmap (Finviz-style)
 - [x] Pre-deploy verification gate (fact-check + completeness)
-- [ ] Monthly Recap
+- [ ] Monthly Recap (planned; not exposed in CLI yet)
 - [ ] JSON API output for widget integration
 - [ ] iOS widget (Scriptable)
 - [ ] macOS widget (Übersicht)

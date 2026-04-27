@@ -9,6 +9,7 @@ from pipeline.news.quality_gates import (
     check_cross_section_dedup,
     check_korea_purity,
     check_source_diversity,
+    is_valid_korea_candidate,
     run_quality_gates,
 )
 
@@ -57,7 +58,8 @@ def test_check_source_diversity_swap_with_candidate(sample_articles):
     articles = [sample_articles[5], sample_articles[10], sample_articles[6], sample_articles[7], sample_articles[8]]
     candidates = [sample_articles[5], sample_articles[6], sample_articles[7], sample_articles[8], sample_articles[9], sample_articles[12]]
     result = check_source_diversity(articles, 1, candidates, violations, section="korea")
-    assert any(article["source"] == "뉴스1" for article in result)
+    sources = [article["source"] for article in result]
+    assert sources.count("연합뉴스") == 1
     assert violations
 
 
@@ -75,7 +77,16 @@ def test_check_korea_purity_international_keyword_flagged(sample_articles):
     candidates = [sample_articles[5], sample_articles[6], sample_articles[7], sample_articles[8], sample_articles[9], sample_articles[12]]
     result = check_korea_purity(korea, candidates, violations)
     assert all("이란" not in article["title"] for article in result)
+    assert all(is_valid_korea_candidate(article) for article in result)
     assert violations
+
+
+def test_check_korea_purity_removes_when_no_valid_replacement(sample_articles):
+    violations = []
+    invalid = sample_articles[10] | {"bucket": "korea"}
+    result = check_korea_purity([invalid], [invalid], violations)
+    assert result == []
+    assert any(v.get("severity") == "error" for v in violations)
 
 
 def test_check_korea_purity_edge_case_bilateral(sample_articles):
@@ -102,6 +113,32 @@ def test_check_category_balance_all_same_force_swap(sample_articles):
     assert violations
 
 
+def test_category_balance_does_not_force_low_value_candidate(sample_articles):
+    violations = []
+    articles = [
+        sample_articles[5],
+        sample_articles[8],
+        sample_articles[5] | {"url": "https://example.com/alt1"},
+        sample_articles[8] | {"url": "https://example.com/alt2"},
+        sample_articles[5] | {"url": "https://example.com/alt3"},
+    ]
+    low_value = sample_articles[12] | {
+        "title": "프로야구 선발투수 발표",
+        "category": "society",
+        "url": "https://example.com/sports",
+    }
+    result = check_category_balance(
+        articles,
+        3,
+        [*articles, low_value],
+        violations,
+        section="korea",
+        base_predicate=is_valid_korea_candidate,
+    )
+    assert all("프로야구" not in article["title"] for article in result)
+    assert any(v["check"] == "category_balance" and v.get("severity") == "warning" for v in violations)
+
+
 def test_check_cross_section_dedup_no_overlap(sample_articles):
     violations = []
     world, korea = check_cross_section_dedup(sample_articles[:5], sample_articles[5:10], violations)
@@ -126,6 +163,17 @@ def test_run_quality_gates_full_pipeline(sample_articles, sample_config):
     assert len(korea) == 5
     assert max([world.count(article) for article in world], default=1) >= 1
     assert len({article["source"] for article in korea}) >= 4
+    assert all(is_valid_korea_candidate(article) for article in korea)
+
+
+def test_run_quality_gates_leaves_korea_underfilled_instead_of_invalid(sample_articles, sample_config):
+    invalid_korea = [
+        sample_articles[10] | {"bucket": "korea", "url": f"https://example.com/invalid-{index}"}
+        for index in range(6)
+    ]
+    world, korea = run_quality_gates(sample_articles[:5], invalid_korea, sample_config)
+    assert len(world) == 5
+    assert korea == []
 
 
 def test_quality_log_written_on_violation(sample_articles, sample_config):

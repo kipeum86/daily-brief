@@ -62,17 +62,23 @@ Example: [0, 3, 5, 8, 12]"""
 UNIFIED_SELECTOR_PROMPT = """\
 You are curating a bilingual investor briefing.
 
-You will receive ONE mixed list of articles from world outlets and Korean outlets.
+You will receive ONE pre-ranked mixed list of articles from world outlets and Korean outlets.
 For each article you choose, classify it by TOPIC, not by source.
 
-Return ONLY a JSON array of objects in this exact shape:
-[
-  {{"index": 0, "bucket": "world", "category": "economy", "rank": 1}},
-  {{"index": 4, "bucket": "korea", "category": "corporate", "rank": 2}}
-]
+Return ONLY a JSON object in this exact shape:
+{{
+  "world": [
+    {{"index": 0, "bucket": "world", "category": "economy", "rank": 1}}
+  ],
+  "korea": [
+    {{"index": 4, "bucket": "korea", "category": "corporate", "rank": 1}}
+  ],
+  "warnings": []
+}}
 
 Rules:
-- Choose up to {candidate_n} WORLD candidates and up to {candidate_n} KOREA candidates.
+- Return exactly {candidate_n} WORLD candidates and exactly {candidate_n} KOREA candidates if enough valid candidates exist.
+- If fewer valid candidates exist, return all valid candidates and add a short warning string.
 - bucket must be either "world" or "korea".
 - category must be one of: economy, politics, security, tech, society, corporate.
 - KOREA = domestic Korean affairs: Bank of Korea, KOSPI/KOSDAQ, Korean real estate, Korean companies, Korean politics, Korean courts, Korean ministries, Korean labor and regulation.
@@ -281,6 +287,132 @@ def _parse_unified_response(text: str) -> list[dict[str, Any]]:
     return payload if isinstance(payload, list) else []
 
 
+def _normalize_selector_payload(payload: Any) -> list[dict[str, Any]]:
+    """Normalize selector JSON object/list outputs to a flat selection list."""
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict)]
+    if not isinstance(payload, dict):
+        return []
+
+    selections: list[dict[str, Any]] = []
+    for bucket in ("world", "korea"):
+        items = payload.get(bucket, [])
+        if not isinstance(items, list):
+            continue
+        for position, item in enumerate(items, start=1):
+            if not isinstance(item, dict):
+                continue
+            entry = dict(item)
+            entry.setdefault("bucket", bucket)
+            entry.setdefault("rank", position)
+            selections.append(entry)
+    return selections
+
+
+def _validate_selector_payload(payload: Any) -> list[dict[str, Any]]:
+    """Validate model selector output and return a flat selection list."""
+    selections = _normalize_selector_payload(payload)
+    if not selections:
+        raise ValueError("selector output contained no selections")
+
+    validated: list[dict[str, Any]] = []
+    for item in selections:
+        index = item.get("index")
+        if not isinstance(index, int):
+            raise ValueError(f"selector item missing integer index: {item}")
+        bucket = str(item.get("bucket", "")).lower()
+        if bucket not in {"world", "korea"}:
+            raise ValueError(f"selector item has invalid bucket: {item}")
+        category = str(item.get("category", "")).lower()
+        if category not in _VALID_CATEGORIES:
+            raise ValueError(f"selector item has invalid category: {item}")
+        rank = item.get("rank", len(validated) + 1)
+        if not isinstance(rank, int):
+            raise ValueError(f"selector item has invalid rank: {item}")
+        validated.append({
+            **item,
+            "bucket": bucket,
+            "category": category,
+            "rank": rank,
+        })
+    return validated
+
+
+def _selector_config(config: dict | None, candidate_n: int) -> tuple[int, int, int]:
+    cfg = config or {}
+    news_cfg = cfg.get("news", {}) if isinstance(cfg.get("news", {}), dict) else {}
+    llm_cfg = cfg.get("llm", {}) if isinstance(cfg.get("llm", {}), dict) else {}
+    per_bucket = int(news_cfg.get("selector_candidates_per_bucket", max(candidate_n * 3, candidate_n)))
+    max_items = int(news_cfg.get("selector_max_articles", per_bucket * 2))
+    max_chars = int(llm_cfg.get("selector_max_input_chars", llm_cfg.get("max_input_chars", 8000)))
+    return max(1, per_bucket), max(1, max_items), max(1000, max_chars)
+
+
+def _build_llm_candidate_pool(
+    heuristic: dict[str, list[dict[str, Any]]],
+    *,
+    per_bucket_limit: int,
+    max_items: int,
+) -> list[dict[str, Any]]:
+    candidates: list[dict[str, Any]] = []
+    candidates.extend(heuristic.get("_world_pool", [])[:per_bucket_limit])
+    candidates.extend(heuristic.get("_korea_pool", [])[:per_bucket_limit])
+
+    seen_indices: set[int] = set()
+    deduped: list[dict[str, Any]] = []
+    for article in candidates:
+        index = article.get("_original_index")
+        if not isinstance(index, int) or index in seen_indices:
+            continue
+        deduped.append(article)
+        seen_indices.add(index)
+        if len(deduped) >= max_items:
+            break
+    return deduped
+
+
+def _render_selector_article(article: dict[str, Any]) -> str:
+    summary = re.sub(r"\s+", " ", article.get("summary", "")).strip()
+    return (
+        f"[{article.get('_original_index')}] [{article.get('source', '')}] {article.get('title', '')}\n"
+        f"published={article.get('published_date', '')}\n"
+        f"heuristic_bucket={article.get('bucket', '')}; coverage={article.get('coverage_score', 1)}\n"
+        f"summary={summary[:220]}"
+    )
+
+
+def _build_selector_user_prompt(
+    articles: list[dict[str, Any]],
+    *,
+    max_chars: int,
+) -> str:
+    header = "Mixed article list:\n\n"
+    lines: list[str] = []
+    used = len(header)
+    for article in articles:
+        rendered = _render_selector_article(article)
+        next_used = used + len(rendered) + (2 if lines else 0)
+        if lines and next_used > max_chars:
+            break
+        lines.append(rendered)
+        used = next_used
+    return header + "\n\n".join(lines)
+
+
+def _call_unified_selector(provider, system_prompt: str, user_prompt: str) -> list[dict[str, Any]]:
+    if hasattr(provider, "complete_json"):
+        payload = provider.complete_json(system_prompt, user_prompt)
+        return _validate_selector_payload(payload)
+
+    response = provider.complete(system_prompt, user_prompt)
+    try:
+        payload = json.loads(response.strip())
+    except json.JSONDecodeError:
+        selections = _parse_unified_response(response)
+        return _validate_selector_payload(selections)
+    return _validate_selector_payload(payload)
+
+
 def select_and_classify_news(
     provider,
     all_articles: list,
@@ -293,6 +425,12 @@ def select_and_classify_news(
     """
     candidate_n = top_n + 5
     heuristic = _heuristic_candidate_pools(all_articles, candidate_n)
+    per_bucket_limit, max_items, max_chars = _selector_config(config, candidate_n)
+    llm_candidates = _build_llm_candidate_pool(
+        heuristic,
+        per_bucket_limit=per_bucket_limit,
+        max_items=max_items,
+    )
     normalized = heuristic["_world_pool"] + heuristic["_korea_pool"]
     normalized_by_index = {item["_original_index"]: item for item in normalized}
 
@@ -302,22 +440,18 @@ def select_and_classify_news(
             "korea": heuristic["korea"][:candidate_n],
         }
 
-    lines = []
-    for index, article in enumerate(all_articles):
-        normalized_article = _normalize_article(article, index)
-        summary = re.sub(r"\s+", " ", normalized_article.get("summary", "")).strip()
-        lines.append(
-            f"[{index}] [{normalized_article.get('source', '')}] {normalized_article.get('title', '')}\n"
-            f"published={normalized_article.get('published_date', '')}\n"
-            f"summary={summary[:220]}"
-        )
-
     system_prompt = UNIFIED_SELECTOR_PROMPT.format(candidate_n=candidate_n)
-    user_prompt = "Mixed article list:\n\n" + "\n\n".join(lines)
+    user_prompt = _build_selector_user_prompt(llm_candidates, max_chars=max_chars)
+    logger.info(
+        "Unified selector prompt built with %d/%d articles (%d chars, max=%d)",
+        len(re.findall(r"^\[", user_prompt, flags=re.MULTILINE)),
+        len(all_articles),
+        len(user_prompt),
+        max_chars,
+    )
 
     try:
-        response = provider.complete(system_prompt, user_prompt)
-        selections = _parse_unified_response(response)
+        selections = _call_unified_selector(provider, system_prompt, user_prompt)
         ranked_world: list[dict[str, Any]] = []
         ranked_korea: list[dict[str, Any]] = []
         seen_indices: set[int] = set()
@@ -327,6 +461,8 @@ def select_and_classify_news(
                 continue
             index = item.get("index")
             if not isinstance(index, int) or index in seen_indices:
+                continue
+            if index < 0 or index >= len(all_articles):
                 continue
             base = normalized_by_index.get(index) or _normalize_article(all_articles[index], index)
             bucket = str(item.get("bucket", _guess_bucket(base))).lower()

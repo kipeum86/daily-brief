@@ -819,8 +819,8 @@ def build_weekly_news_digest(
             item["summary"] = item["description"]
 
     if provider:
-        world_ko = translate_news(provider, selected_world, target_lang="ko")
-        korea_en = translate_news(provider, selected_korea, target_lang="en")
+        world_ko = translate_news(provider, selected_world, target_lang="ko", strict=True)
+        korea_en = translate_news(provider, selected_korea, target_lang="en", strict=True)
     else:
         world_ko = list(selected_world)
         korea_en = list(selected_korea)

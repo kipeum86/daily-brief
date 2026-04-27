@@ -2,6 +2,7 @@
 
 Public API:
     send_email(config, html_body, date_str, insight_text) → bool
+    send_failure_email(config, subject, body) → bool
 """
 
 from __future__ import annotations
@@ -108,3 +109,53 @@ def send_email(
     except Exception as exc:
         logger.error("Failed to send email via Gmail: %s", exc, exc_info=True)
         return False
+
+
+def send_failure_email(
+    config: dict[str, Any],
+    subject: str,
+    body: str,
+) -> bool:
+    """Send an operational failure alert to the sender address only."""
+    alerts_config = config.get("alerts", {})
+    if not alerts_config.get("failure_email_enabled", True):
+        logger.info("Failure email alert disabled in config — skipping")
+        return False
+
+    gmail_address = os.environ.get("GMAIL_ADDRESS", "")
+    gmail_password = os.environ.get("GMAIL_APP_PASSWORD", "")
+    if not gmail_address or not gmail_password:
+        logger.warning(
+            "GMAIL_ADDRESS / GMAIL_APP_PASSWORD not set — failure alert skipped."
+        )
+        return False
+
+    email_config = config.get("email", {})
+    sender_email = email_config.get("sender_email") or gmail_address
+    sender_name = email_config.get("sender_name") or "Daily Brief"
+
+    try:
+        from email.message import EmailMessage
+
+        subject = _clean_header(subject)
+        body = body.replace("\xa0", " ").replace("\u200b", "")
+
+        msg = EmailMessage()
+        msg["From"] = f"{sender_name} <{sender_email}>"
+        msg["To"] = sender_email
+        msg["Subject"] = subject
+        msg.set_content(body, charset="utf-8")
+
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+            server.login(gmail_address, gmail_password)
+            server.send_message(msg, to_addrs=[sender_email])
+
+        logger.info("Failure alert email sent to sender address")
+        return True
+    except Exception as exc:
+        logger.error("Failed to send failure alert via Gmail: %s", exc, exc_info=True)
+        return False
+
+
+def _clean_header(value: str) -> str:
+    return " ".join((value or "").replace("\xa0", " ").replace("\u200b", "").split())

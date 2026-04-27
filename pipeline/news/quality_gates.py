@@ -24,7 +24,14 @@ INTERNATIONAL_KEYWORDS = {
 DOMESTIC_KEYWORDS = {
     "한국", "국내", "정부", "한은", "한국은행", "코스피", "코스닥",
     "부동산", "법원", "국회", "대통령", "총리", "서울", "경제부",
-    "기재부", "산업부", "과기부",
+    "기재부", "산업부", "과기부", "삼성", "현대", "SK", "LG",
+    "네이버", "카카오", "수출", "원화", "한국 선박", "우리 기업",
+}
+
+LOW_VALUE_KEYWORDS = {
+    "인사발령", "인사 발령", "부고", "운세", "로또", "날씨",
+    "부임", "전보", "승진인사", "프로야구", "축구", "골프",
+    "연예", "드라마", "예능", "맛집", "홀인원", "선발투수",
 }
 
 
@@ -35,7 +42,7 @@ def _article_key(article: dict[str, Any]) -> str:
 def _candidate_sort_key(article: dict[str, Any]) -> tuple[int, int, str]:
     rank = int(article.get("rank", 9999) or 9999)
     coverage = int(article.get("coverage_score", 1) or 1)
-    return (-coverage, -max(0, 10000 - rank), article.get("published_date", ""))
+    return (coverage, -rank, article.get("published_date", ""))
 
 
 def _ordered_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -46,14 +53,55 @@ def _next_candidate(
     candidates: list[dict[str, Any]],
     current: list[dict[str, Any]],
     predicate,
+    base_predicate=lambda _candidate: True,
 ) -> dict[str, Any] | None:
     current_keys = {_article_key(article) for article in current}
     for candidate in _ordered_candidates(candidates):
         if _article_key(candidate) in current_keys:
             continue
+        if not base_predicate(candidate):
+            continue
         if predicate(candidate):
             return candidate
     return None
+
+
+def _article_text(article: dict[str, Any]) -> str:
+    return f"{article.get('title', '')} {article.get('description', '') or article.get('summary', '')}"
+
+
+def _is_low_value(article: dict[str, Any]) -> bool:
+    text = _article_text(article).lower()
+    return any(keyword.lower() in text for keyword in LOW_VALUE_KEYWORDS)
+
+
+def _has_korea_direct_impact(text: str) -> bool:
+    lowered = text.lower()
+    impact_terms = {
+        "한국", "국내", "우리", "수출", "원화", "코스피", "코스닥",
+        "한국 선박", "한국 기업", "국내 기업", "삼성", "현대", "sk", "lg",
+    }
+    return any(term.lower() in lowered for term in impact_terms)
+
+
+def _is_domestic_korea(article: dict[str, Any]) -> bool:
+    text = _article_text(article)
+    lowered = text.lower()
+    domestic_hits = sum(1 for keyword in DOMESTIC_KEYWORDS if keyword.lower() in lowered)
+    international_hits = sum(1 for keyword in INTERNATIONAL_KEYWORDS if keyword.lower() in lowered)
+    if domestic_hits <= 0:
+        return False
+    if international_hits <= 0:
+        return True
+    return _has_korea_direct_impact(text)
+
+
+def is_valid_world_candidate(article: dict[str, Any]) -> bool:
+    return not _is_low_value(article)
+
+
+def is_valid_korea_candidate(article: dict[str, Any]) -> bool:
+    return _is_domestic_korea(article) and not _is_low_value(article)
 
 
 def check_article_count(
@@ -62,6 +110,7 @@ def check_article_count(
     all_candidates: list[dict[str, Any]],
     violations: list[dict[str, Any]],
     section: str = "",
+    base_predicate=lambda _candidate: True,
 ) -> list[dict[str, Any]]:
     current = list(articles)
     if len(current) > target:
@@ -74,8 +123,20 @@ def check_article_count(
         return current[:target]
 
     while len(current) < target:
-        replacement = _next_candidate(all_candidates, current, lambda _candidate: True)
+        replacement = _next_candidate(
+            all_candidates,
+            current,
+            lambda _candidate: True,
+            base_predicate=base_predicate,
+        )
         if replacement is None:
+            violations.append({
+                "check": "article_count",
+                "section": section,
+                "severity": "error",
+                "detail": f"{len(current)} valid articles available",
+                "action": f"could not pad to {target}",
+            })
             break
         current.append(replacement)
         violations.append({
@@ -93,6 +154,7 @@ def check_source_diversity(
     candidates: list[dict[str, Any]],
     violations: list[dict[str, Any]],
     section: str,
+    base_predicate=lambda _candidate: True,
 ) -> list[dict[str, Any]]:
     current = list(articles)
     counts = Counter(article.get("source", "") for article in current)
@@ -105,6 +167,7 @@ def check_source_diversity(
             candidates,
             current,
             lambda candidate: counts[candidate.get("source", "")] < max_per_source,
+            base_predicate=base_predicate,
         )
         if replacement is None:
             continue
@@ -126,22 +189,26 @@ def check_korea_purity(
     violations: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
     current = list(korea_articles)
-    for index, article in enumerate(list(current)):
-        text = f"{article.get('title', '')} {article.get('description', '') or article.get('summary', '')}"
-        has_international = any(keyword.lower() in text.lower() for keyword in INTERNATIONAL_KEYWORDS)
-        has_domestic = any(keyword.lower() in text.lower() for keyword in DOMESTIC_KEYWORDS)
-        if not has_international or has_domestic:
+    for index in range(len(current) - 1, -1, -1):
+        article = current[index]
+        if is_valid_korea_candidate(article):
             continue
 
         replacement = _next_candidate(
             korea_candidates,
             current,
-            lambda candidate: (
-                not any(keyword.lower() in f"{candidate.get('title', '')} {candidate.get('description', '') or candidate.get('summary', '')}".lower() for keyword in INTERNATIONAL_KEYWORDS)
-                or any(keyword.lower() in f"{candidate.get('title', '')} {candidate.get('description', '') or candidate.get('summary', '')}".lower() for keyword in DOMESTIC_KEYWORDS)
-            ),
+            lambda candidate: True,
+            base_predicate=is_valid_korea_candidate,
         )
         if replacement is None:
+            current.pop(index)
+            violations.append({
+                "check": "korea_purity",
+                "section": "korea",
+                "severity": "error",
+                "detail": article.get("title", ""),
+                "action": "removed invalid korea article; no valid replacement available",
+            })
             continue
         current[index] = replacement
         violations.append({
@@ -159,6 +226,7 @@ def check_category_balance(
     candidates: list[dict[str, Any]],
     violations: list[dict[str, Any]],
     section: str,
+    base_predicate=lambda _candidate: True,
 ) -> list[dict[str, Any]]:
     current = list(articles)
     categories = Counter(article.get("category", "") for article in current if article.get("category"))
@@ -172,8 +240,16 @@ def check_category_balance(
             candidates,
             current,
             lambda candidate: candidate.get("category", "") not in categories,
+            base_predicate=base_predicate,
         )
         if missing_candidate is None:
+            violations.append({
+                "check": "category_balance",
+                "section": section,
+                "severity": "warning",
+                "detail": f"only {len(categories)} categories available",
+                "action": "kept higher-quality candidates instead of forcing balance",
+            })
             break
 
         replace_index = next(
@@ -193,6 +269,25 @@ def check_category_balance(
             "action": f"replaced {replaced.get('title', '')} with {missing_candidate.get('title', '')}",
         })
     return current
+
+
+def validate_final_selection(
+    world: list[dict[str, Any]],
+    korea: list[dict[str, Any]],
+    target: int,
+) -> list[str]:
+    errors: list[str] = []
+    if len(world) < target:
+        errors.append(f"world has {len(world)} valid articles, target {target}")
+    if len(korea) < target:
+        errors.append(f"korea has {len(korea)} valid articles, target {target}")
+    for article in world:
+        if not is_valid_world_candidate(article):
+            errors.append(f"invalid world article: {article.get('title', '')[:80]}")
+    for article in korea:
+        if not is_valid_korea_candidate(article):
+            errors.append(f"invalid korea article: {article.get('title', '')[:80]}")
+    return errors
 
 
 def check_cross_section_dedup(
@@ -269,30 +364,58 @@ def run_quality_gates(world_candidates, korea_candidates, config):
     top_n = config.get("news", {}).get("top_n", 5)
     violations: list[dict[str, Any]] = []
 
-    world_pool = list(world_candidates)
-    korea_pool = list(korea_candidates)
+    world_pool = [article for article in world_candidates if is_valid_world_candidate(article)]
+    korea_pool = [article for article in korea_candidates if is_valid_korea_candidate(article)]
+    removed_world = len(world_candidates) - len(world_pool)
+    removed_korea = len(korea_candidates) - len(korea_pool)
+    if removed_world:
+        violations.append({
+            "check": "candidate_filter",
+            "section": "world",
+            "detail": f"{removed_world} low-value candidate(s)",
+            "action": "removed before quality gates",
+        })
+    if removed_korea:
+        violations.append({
+            "check": "candidate_filter",
+            "section": "korea",
+            "detail": f"{removed_korea} invalid or low-value candidate(s)",
+            "action": "removed before quality gates",
+        })
+
     world = world_pool[:top_n]
     korea = korea_pool[:top_n]
 
-    world = check_article_count(world, top_n, world_pool, violations, section="world")
-    korea = check_article_count(korea, top_n, korea_pool, violations, section="korea")
+    world = check_article_count(world, top_n, world_pool, violations, section="world", base_predicate=is_valid_world_candidate)
+    korea = check_article_count(korea, top_n, korea_pool, violations, section="korea", base_predicate=is_valid_korea_candidate)
 
-    world = check_source_diversity(world, max_per_source=2, candidates=world_pool, violations=violations, section="world")
-    korea = check_source_diversity(korea, max_per_source=1, candidates=korea_pool, violations=violations, section="korea")
+    world = check_source_diversity(world, max_per_source=2, candidates=world_pool, violations=violations, section="world", base_predicate=is_valid_world_candidate)
+    korea = check_source_diversity(korea, max_per_source=1, candidates=korea_pool, violations=violations, section="korea", base_predicate=is_valid_korea_candidate)
 
     korea = check_korea_purity(korea, korea_pool, violations)
 
-    world = check_category_balance(world, min_categories=3, candidates=world_pool, violations=violations, section="world")
-    korea = check_category_balance(korea, min_categories=3, candidates=korea_pool, violations=violations, section="korea")
+    world = check_category_balance(world, min_categories=3, candidates=world_pool, violations=violations, section="world", base_predicate=is_valid_world_candidate)
+    korea = check_category_balance(korea, min_categories=3, candidates=korea_pool, violations=violations, section="korea", base_predicate=is_valid_korea_candidate)
 
     world, korea = check_cross_section_dedup(world, korea, violations)
-    world = check_article_count(world, top_n, world_pool, violations, section="world")
-    korea = check_article_count(korea, top_n, korea_pool, violations, section="korea")
-    world = check_source_diversity(world, max_per_source=2, candidates=world_pool, violations=violations, section="world")
-    korea = check_source_diversity(korea, max_per_source=1, candidates=korea_pool, violations=violations, section="korea")
+    world = check_article_count(world, top_n, world_pool, violations, section="world", base_predicate=is_valid_world_candidate)
+    korea = check_article_count(korea, top_n, korea_pool, violations, section="korea", base_predicate=is_valid_korea_candidate)
+    world = check_source_diversity(world, max_per_source=2, candidates=world_pool, violations=violations, section="world", base_predicate=is_valid_world_candidate)
+    korea = check_source_diversity(korea, max_per_source=1, candidates=korea_pool, violations=violations, section="korea", base_predicate=is_valid_korea_candidate)
+
+    world = [article for article in world if is_valid_world_candidate(article)]
+    korea = [article for article in korea if is_valid_korea_candidate(article)]
 
     world = world[:top_n]
     korea = korea[:top_n]
+
+    for error in validate_final_selection(world, korea, top_n):
+        violations.append({
+            "check": "final_selection",
+            "severity": "error",
+            "detail": error,
+            "action": "left selection underfilled rather than inserting invalid article",
+        })
 
     if violations:
         _log_violations(violations, config)

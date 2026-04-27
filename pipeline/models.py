@@ -60,4 +60,4 @@ class BriefingResult:
     markets: list[MarketData] = field(default_factory=list)
     news: list[ProcessedArticle] = field(default_factory=list)
     insight_text: str = ""
-    brief_type: str = "daily"  # daily, weekly, monthly
+    brief_type: str = "daily"  # daily, weekly

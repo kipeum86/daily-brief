@@ -13,6 +13,7 @@ BRIEFING_SYSTEM_PROMPT_KO = """\
 - 전문적이고 간결한 문장을 사용하세요. 구어체나 이모지는 쓰지 마세요.
 - 독자가 이 브리프만 읽고도 오늘 시장의 맥락을 파악할 수 있어야 합니다.
 - 불확실한 정보를 확정적으로 서술하지 마세요. 추론은 "~로 보입니다", "~가능성이 있습니다" 등으로 표현하세요.
+- 출력은 사용자가 요청한 JSON schema만 따르세요. Markdown, HTML, 설명 문장을 추가하지 마세요.
 """
 
 BRIEFING_SYSTEM_PROMPT_EN = """\
@@ -26,6 +27,7 @@ Writing principles:
 - Write in English. Use professional, concise sentences. No emojis or casual language.
 - The reader should grasp the full market context from this brief alone.
 - Don't state uncertain information as fact. Use hedging language like "appears to," "likely," "suggests."
+- Return only the requested JSON schema. Do not add Markdown, HTML, or explanatory prose.
 """
 
 # Backwards compatibility
@@ -136,7 +138,7 @@ def build_briefing_prompt(
         sections.append("")
 
     # --- News headlines ---
-    sections.append("## 주요 뉴스 헤드라인\n")
+    sections.append("## 주요 뉴스\n")
 
     # Group by category if available
     categorized: dict[str, list[dict]] = {}
@@ -144,12 +146,25 @@ def build_briefing_prompt(
         cat = article.get("category", "기타")
         categorized.setdefault(cat, []).append(article)
 
+    article_index = 1
     for cat, articles in categorized.items():
         sections.append(f"### {cat}")
         for a in articles:
             source = a.get("source", "")
             title = a.get("title", "")
-            sections.append(f"- [{source}] {title}")
+            bucket = a.get("bucket", "")
+            published = a.get("published_date", "") or a.get("published", "")
+            summary = a.get("summary", "") or a.get("description", "")
+            summary = " ".join(str(summary).split())[:280]
+            sections.append(f"- id: N{article_index}")
+            sections.append(f"  bucket: {bucket}")
+            sections.append(f"  source: {source}")
+            if published:
+                sections.append(f"  published: {published}")
+            sections.append(f"  title: {title}")
+            if summary:
+                sections.append(f"  summary: {summary}")
+            article_index += 1
         sections.append("")
 
     sections.append("""## 뉴스 분류 규칙
@@ -161,52 +176,66 @@ def build_briefing_prompt(
     if lang == "en":
         sections.append("""## Writing Request
 
-Synthesize the market data and news headlines above into a morning brief with the following structure.
+Synthesize the market data and news above into a morning brief.
+Every claim must be grounded in the supplied market data or news items. Do not invent facts, causes, or forecasts.
 
-### 1. Today's Key Insight (2-3 sentences)
-Present one core narrative that connects market movements and news.
-Not a summary — an editorial insight into "what is driving markets today."
-Aim for the sharp, clear opening of an Economist column.
+Return ONLY valid JSON with this exact schema:
 
-### 2. Market Overview
-Comment on Korean and US market movements in 2-3 sentences each.
-Don't repeat numbers — explain the meaning and context behind the moves.
+{
+  "key_insight": [
+    "2-3 sentence-level strings with one core narrative"
+  ],
+  "market_overview": {
+    "korea": [
+      "1-2 strings explaining Korean market context"
+    ],
+    "us": [
+      "1-2 strings explaining US market context"
+    ]
+  },
+  "cross_market_signals": [
+    {
+      "signal": "short label, no Markdown",
+      "meaning": "one sentence explaining the cross-market connection"
+    }
+  ]
+}
 
-### 3. Cross-Market Signals (2-3 items)
-Analyze connections between different market indicators.
-Example: "VIX spike + dollar strength → global risk-off signal"
-Example: "Oil decline + USD/KRW rise → limited import price offset"
-One line per signal, key point only.
-
-### Format
-- Write in Markdown.
-- Use headings: `## Today's Key Insight`, `## Market Overview`, `## Cross-Market Signals`.
-- Keep total length to 200-400 words.
+- Use 2-3 cross_market_signals.
+- Values must be plain text only: no Markdown headings, no bullets, no HTML.
+- Keep the eventual rendered brief to 200-400 words.
 """)
     else:
         sections.append("""## 작성 요청
 
-위 시장 데이터와 뉴스 헤드라인을 종합하여 아래 구조로 모닝 브리프를 작성하세요.
+위 시장 데이터와 뉴스를 종합하여 모닝 브리프를 작성하세요.
+각 핵심 판단은 입력된 시장 데이터 또는 뉴스 항목에 근거해야 합니다. 입력에 없는 사실, 원인, 전망을 새로 만들지 마세요.
 
-### 1. 오늘의 핵심 (2~3문장)
-시장 움직임과 뉴스를 관통하는 하나의 핵심 내러티브를 제시하세요.
-단순 요약이 아니라, "오늘 시장을 움직이는 힘이 무엇인가"에 대한 편집자적 통찰이어야 합니다.
-이코노미스트 스타일의 명쾌하고 날카로운 도입부를 지향하세요.
+아래 schema의 유효한 JSON만 반환하세요.
 
-### 2. 시장 동향
-한국 시장과 미국 시장의 움직임을 각각 2~3문장으로 해설하세요.
-수치를 반복 나열하지 말고, 움직임의 의미와 배경을 설명하세요.
+{
+  "key_insight": [
+    "오늘 시장을 관통하는 핵심 내러티브 2~3문장"
+  ],
+  "market_overview": {
+    "korea": [
+      "한국 시장 맥락을 설명하는 문장 1~2개"
+    ],
+    "us": [
+      "미국 시장 맥락을 설명하는 문장 1~2개"
+    ]
+  },
+  "cross_market_signals": [
+    {
+      "signal": "짧은 신호명, Markdown 금지",
+      "meaning": "서로 다른 시장 지표나 뉴스의 연결고리를 설명하는 한 문장"
+    }
+  ]
+}
 
-### 3. 크로스마켓 시그널 (2~3개)
-서로 다른 시장 지표 간의 연결고리를 분석하세요.
-예시: "VIX 상승 + 달러 강세 → 글로벌 위험 회피 심리 강화 신호"
-예시: "유가 하락 + 원/달러 상승 → 수입 물가 상쇄 효과 제한적"
-각 시그널은 한 줄로 핵심만 전달하세요.
-
-### 형식 주의사항
-- Markdown 형식으로 작성하세요.
-- 각 섹션은 `## Key Insight`, `## Market Overview`, `## Cross-Market Signals` 제목을 사용하세요 (제목은 영어, 본문은 한국어).
-- 전체 분량은 300~500자(한글 기준) 이내로 간결하게 유지하세요.
+- cross_market_signals는 2~3개를 작성하세요.
+- 모든 값은 일반 텍스트여야 합니다. Markdown 제목, bullet, HTML을 넣지 마세요.
+- 최종 렌더링 기준 전체 분량은 650~900자 정도로 유지하세요.
 """)
 
     return "\n".join(sections)

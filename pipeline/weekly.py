@@ -21,7 +21,13 @@ _HAS_KOREAN = __import__("re").compile(r"[가-힣]")
 _HAS_ENGLISH = __import__("re").compile(r"[a-zA-Z]{3,}")
 
 
-def _translate_missing(provider: Any, articles: list[dict], target_lang: str) -> list[dict]:
+def _translate_missing(
+    provider: Any,
+    articles: list[dict],
+    target_lang: str,
+    *,
+    strict: bool = True,
+) -> list[dict]:
     """Translate articles whose titles are not in the target language."""
     needs_translation = []
     for art in articles:
@@ -36,7 +42,7 @@ def _translate_missing(provider: Any, articles: list[dict], target_lang: str) ->
 
     try:
         from pipeline.ai.translate import translate_news
-        translated = translate_news(provider, needs_translation, target_lang=target_lang)
+        translated = translate_news(provider, needs_translation, target_lang=target_lang, strict=strict)
         translated_map = {}
         for orig, trans in zip(needs_translation, translated):
             key = orig.get("url", "") or orig.get("title", "")
@@ -52,7 +58,10 @@ def _translate_missing(provider: Any, articles: list[dict], target_lang: str) ->
         logger.info("Translated %d/%d %s articles for weekly digest", len(needs_translation), len(articles), target_lang)
         return result
     except Exception as exc:
-        logger.warning("Weekly translation failed: %s — using originals", exc)
+        logger.warning("Weekly translation failed: %s", exc)
+        if strict:
+            raise
+        logger.warning("Using original weekly articles after non-strict translation failure")
         return articles
 
 
@@ -60,7 +69,7 @@ def _load_provider(config: dict, no_llm: bool = False) -> Any | None:
     if no_llm:
         return None
     try:
-        return _get_provider(config)
+        return _get_provider(config, task="weekly")
     except Exception as exc:
         logger.warning("Weekly recap LLM unavailable: %s", exc)
         return None
@@ -126,8 +135,8 @@ def build_weekly_recap_data(
     world_ko = news_digest["world_ko"]
     korea_en = news_digest["korea_en"]
     if provider:
-        world_ko = _translate_missing(provider, world_ko, target_lang="ko")
-        korea_en = _translate_missing(provider, korea_en, target_lang="en")
+        world_ko = _translate_missing(provider, world_ko, target_lang="ko", strict=True)
+        korea_en = _translate_missing(provider, korea_en, target_lang="en", strict=True)
 
     weekly_data.update({
         "unique_story_count": news_digest["unique_story_count"],
@@ -165,14 +174,7 @@ def run_weekly_recap(
     no_llm: bool = False,
 ) -> tuple[str, dict[str, Any]]:
     """Generate a weekly recap site from stored daily snapshots."""
-    try:
-        from pipeline.render.weekly import render_weekly_recap
-    except ImportError as exc:
-        logger.warning("Weekly renderer unavailable (%s) — returning empty path", exc)
-
-        def render_weekly_recap(_config: dict, _weekly_data: dict[str, Any], _output_dir: str) -> str:
-            return ""
-
+    from pipeline.render.weekly import render_weekly_recap
     weekly_data = build_weekly_recap_data(
         config,
         run_date,

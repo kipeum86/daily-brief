@@ -59,7 +59,11 @@ jobs:
       - name: 📦 의존성 설치
         run: pip install -r requirements.txt
 
-      # 5. 기존 아카이브 복원 (archive index에 과거 브리핑 포함)
+      # 5. 테스트
+      - name: 🧪 테스트
+        run: python -m pytest -q
+
+      # 6. 기존 아카이브 복원 (archive index에 과거 브리핑 포함)
       - name: 📂 기존 아카이브 복원
         run: |
           git fetch origin gh-pages --depth=1 || true
@@ -69,11 +73,11 @@ jobs:
           git checkout origin/gh-pages -- data/daily/ 2>/dev/null && cp -R data/daily/. output/data/daily/ 2>/dev/null || true
           echo "Restored $(ls output/archive/*.html 2>/dev/null | wc -l) archive files"
 
-      # 6. 브리핑 생성
+      # 7. 브리핑 생성
       - name: 🗞️ 브리핑 생성
         run: python main.py
 
-      # 7. GitHub Pages 배포 (기존 아카이브 유지)
+      # 8. GitHub Pages 배포 (기존 아카이브 유지)
       - name: 🚀 GitHub Pages 배포
         uses: peaceiris/actions-gh-pages@v4
         with:

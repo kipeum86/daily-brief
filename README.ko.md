@@ -51,11 +51,11 @@
 ### 📰 뉴스
 - **글로벌** — Reuters, BBC World, The Guardian, Al Jazeera, AP News, NPR (다양한 시각, 페이월 없음)
 - **한국** — 7대 메이저 매체 RSS (연합뉴스, 조선, 중앙, 동아, 한겨레, 한경, 매경) + 네이버 검색 API (보조 키워드 검색)
-- **3단계 중복 제거** — URL 정규화 → 토픽 토큰 유사도 → EventKey 해시
+- **중복 제거** — URL 정규화 + 토픽 토큰 유사도 + 교차 실행 이력
 - **교차 실행 중복 제거** — 어제 나온 기사는 다시 나오지 않음
 
 ### 🤖 AI 분석
-- **Gemini 3.1 Pro** (자동 폴백 체인 포함; Claude, OpenAI도 지원)
+- **Gemini 3.1 Pro** (자동 폴백 체인 포함; Claude provider는 config로 사용 가능)
 - **에디토리얼 인사이트** — "Key Insight", "Market Overview", "Cross-Market Signals"
 - **데이터 나열이 아닌 스토리** — AI가 시장, 환율, 원자재, 뉴스 이벤트 간의 연결고리를 분석
 - **이중 언어** — 한국어/영어 인사이트를 각각 독립 생성 (번역이 아님)
@@ -73,6 +73,7 @@
 - **한국 뉴스 순도** — 국제 뉴스(이란, 러시아)가 한국 섹션에 혼입 차단, 잡뉴스(인사발령, 부고) 필터링
 - **번역 체크** — 월드 뉴스가 한국어인지(KO), 한국 뉴스가 영어인지(EN) 확인
 - **실패 시 배포 차단** — 체크 실패 시 이메일 미발송 + 배포 스킵
+- **운영 알림** — 실패한 게이트는 GitHub Actions summary에 기록되고 발신자에게만 알림 가능
 
 ### 📧 이메일 발송
 - **Gmail SMTP** — 별도 서비스 불필요, 무료
@@ -263,8 +264,11 @@ KST 06:30 (GitHub Actions cron)
 ```yaml
 # config.yaml
 llm:
-  provider: "gemini"           # gemini, claude, openai
-  model: "gemini-2.5-flash"   # 해당 프로바이더가 지원하는 모델
+  provider: "gemini"           # gemini, claude
+  model: "gemini-3.1-pro-preview"   # 작업별 모델이 없을 때 쓰는 기본값
+  analysis_model: "gemini-3.1-pro-preview"
+  selection_model: "gemini-2.5-flash"
+  translation_model: "gemini-2.5-flash"
 ```
 
 ### 시장 티커 추가/제거
@@ -307,7 +311,7 @@ news:
 | Gmail | 이메일 스킵 | 대시보드는 정상 배포 |
 | Google Sheets | 아카이빙 스킵 | 나머지 전부 정상 동작 |
 
-| 검증 게이트 | 이메일 + 배포 차단 | `verification-log.json`에 오류 기록 |
+| 검증 게이트 | 이메일 + 배포 차단 | `verification-log.json`, GitHub Actions summary, 발신자 전용 알림 메일 |
 
 브리핑은 **항상 생성됩니다** — 다만 검증 실패 시 잘못된 정보 발송을 방지하기 위해 이메일/배포가 차단됩니다.
 
@@ -327,7 +331,7 @@ news:
 - [x] 주간 리캡
 - [x] Plotly.js 트리맵 히트맵 (Finviz 스타일)
 - [x] 배포 전 검증 게이트 (팩트체크 + 완전성)
-- [ ] 월간 리캡
+- [ ] 월간 리캡 (계획; CLI에는 아직 노출하지 않음)
 - [ ] JSON API 출력 (위젯 연동용)
 - [ ] iOS 위젯 (Scriptable)
 - [ ] macOS 위젯 (Übersicht)

@@ -7,12 +7,15 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 try:
-    from pipeline.news.quality_gates import INTERNATIONAL_KEYWORDS, DOMESTIC_KEYWORDS
+    from pipeline.news.quality_gates import (
+        DOMESTIC_KEYWORDS,
+        INTERNATIONAL_KEYWORDS,
+        LOW_VALUE_KEYWORDS,
+    )
 except ImportError:
     INTERNATIONAL_KEYWORDS = {"Trump", "Iran", "Russia", "China", "EU", "트럼프", "이란", "러시아"}
     DOMESTIC_KEYWORDS = {"한국", "국내", "정부", "코스피", "코스닥"}
-
-_LOW_VALUE_KEYWORDS = {"인사발령", "부고", "운세", "로또", "날씨", "부임", "전보", "승진인사"}
+    LOW_VALUE_KEYWORDS = {"인사발령", "부고", "운세", "로또", "날씨", "부임", "전보", "승진인사"}
 
 _MIN_INSIGHT_LENGTH = 200
 
@@ -68,7 +71,7 @@ def _check_korea_purity(korea_articles: list[dict], errors: list[str]) -> None:
         if intl_hits > 0 and domestic_hits == 0:
             errors.append(f"Korea article is international: '{title[:60]}'")
 
-        if any(kw in text for kw in _LOW_VALUE_KEYWORDS):
+        if any(kw.lower() in text for kw in LOW_VALUE_KEYWORDS):
             errors.append(f"Low-value article in Korea section: '{title[:60]}'")
 
 

@@ -55,6 +55,18 @@ def check_weekly_recap(
     except Exception as exc:
         warnings.append(f"Korea purity check skipped: {exc}")
 
+    try:
+        from pipeline.verify.checks.translation import check_translations
+        translation_errors, translation_warnings = check_translations(
+            [*world_ko, *korea_ko],
+            [*weekly_data.get("world_news_en", []), *weekly_data.get("korea_news_en", [])],
+            {},
+        )
+        errors.extend(f"Weekly {error}" for error in translation_errors)
+        warnings.extend(f"Weekly {warning}" for warning in translation_warnings)
+    except Exception as exc:
+        errors.append(f"Weekly translation check failed due to verifier error: {exc}")
+
     if not no_llm:
         insight_ko = weekly_data.get("insight_ko", "")
         insight_en = weekly_data.get("insight_en", "")
